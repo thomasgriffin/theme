@@ -1,4 +1,4 @@
-theme
+Pippin's Plugins.com
 =====
 
-Affiliate WP site theme
+Theme for Pippinsplugins.com
