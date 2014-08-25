@@ -139,7 +139,7 @@ add_action( 'wp_footer', 'pp_edd_quantity_updated_js' );
  */
 function affwp_empty_cart_redirect() {
 	$cart     = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : false;
-	$redirect = site_url('products');
+	$redirect = site_url( 'products' );
  
 	if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() && ! $cart ) {
 		wp_redirect( $redirect, 301 ); 
@@ -160,7 +160,7 @@ function affwp_edd_default_downloads_name( $defaults ) {
 
 	return $defaults;
 }
-add_filter( 'edd_default_downloads_name', 'affwp_edd_default_downloads_name' );
+//add_filter( 'edd_default_downloads_name', 'affwp_edd_default_downloads_name' );
 
 /**
  * Get's the customer's first name from purchase session
@@ -274,7 +274,7 @@ function affwp_process_license_upgrade() {
 	wp_redirect( edd_get_checkout_uri() ); exit;
 
 }
-add_action( 'edd_upgrade_affwp_license', 'affwp_process_license_upgrade' );
+//add_action( 'edd_upgrade_affwp_license', 'affwp_process_license_upgrade' );
 
 /**
  * Process add-on Downloads
@@ -416,7 +416,7 @@ function affwp_process_add_on_download() {
 
 	exit;
 }
-add_action( 'edd_add_on_download', 'affwp_process_add_on_download', 100 );
+//add_action( 'edd_add_on_download', 'affwp_process_add_on_download', 100 );
 
 /**
  * Add-on info box

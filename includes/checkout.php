@@ -58,7 +58,7 @@ function affwp_show_refund_policy() {
 
 	<?php
 }
-add_action( 'wp_footer', 'affwp_show_refund_policy' );
+//add_action( 'wp_footer', 'affwp_show_refund_policy' );
 
 /**
  * Force account creation if developer license
@@ -72,5 +72,5 @@ function affwp_force_account_creation( $ret ) {
 
 	return $ret;
 }
-add_filter( 'edd_no_guest_checkout', 'affwp_force_account_creation' );
+//add_filter( 'edd_no_guest_checkout', 'affwp_force_account_creation' );
 

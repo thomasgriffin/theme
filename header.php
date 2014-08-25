@@ -28,7 +28,6 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
-	<script src="//cdn.optimizely.com/js/595951729.js"></script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -43,13 +42,11 @@
 			</svg>
 		</a>
 
-
-		
+		<?php if ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) : ?>
 
 		<?php pp_show_cart_quantity_icon(); ?>
 		<?php get_search_form(); ?>	
 
-		<?php if ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) : ?>
 		<nav id="main" class="site-navigation primary-navigation" role="navigation">
 		<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'affwp' ); ?></a>
 		<?php
@@ -66,6 +63,15 @@
 		?>
 		</nav>
 		<?php endif; ?>
+
+		<?php 
+		/**
+		 * Navigation for checkout page
+		 */
+		if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) : ?>
+		
+		<?php endif; ?>	
+
 
 		<?php if ( is_home() ) : ?>
 			<header class="page-header">
@@ -96,7 +102,6 @@
 				<p>The best WordPress e-commerce solution for digital products <span>&rarr;</span></p>
 			</a>
 				
-
 		</div>
 
 		<div class="col">
@@ -109,11 +114,7 @@
 
 		</div>
 		</div>
-		<?php /*
-		<div class="action">
-			<a class="button huge" href="<?php echo site_url( 'products' ); ?>">View all plugins</a>
-		</div>
-*/ ?>
+		
 	</section>
 		<?php endif; ?>
 	</div>	
@@ -124,4 +125,3 @@
 	<div id="content">
 		<?php do_action( 'affwp_content_start' ); ?>
 		<div class="wrapper">
-			
