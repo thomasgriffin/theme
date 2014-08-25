@@ -1,0 +1,35 @@
+#masthead .search-form {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 100;
+}
+
+#masthead .search-field {
+	background-color: transparent;
+	background: url( 'images/search.svg' ) no-repeat 24px 50%;
+	background-size: 24px 24px;
+
+	border: none;
+	cursor: pointer;
+	margin: 0;
+	padding: 2rem;
+	position: relative;
+	.transition( all 0.25s ease );
+	// -webkit-transition: all 400ms ease-out, background 400ms ease-out;
+	// transition:         all 400ms ease-out, background 400ms ease-out;
+	width: 0;
+}
+
+#masthead .search-field:focus {
+	background-color: #fff;
+	cursor: text;
+	outline: 0;
+	width: 224px;
+	background-position: 240px 50%;
+}
+
+// Search widget 
+.search-form .search-submit {
+	display: none;
+}

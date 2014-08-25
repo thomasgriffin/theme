@@ -1,0 +1,134 @@
+// clearfix
+.image-gallery:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+// section.section .gallery {
+// 	text-align: justify;	
+// }
+
+
+
+// section.section figure.gallery-item {
+// 	text-align: left;
+	
+// 	margin: 0 0 1rem 0;
+// 	width: 28%;
+// 	border: 1px solid @light-grey;
+// }
+
+.easy-image-gallery {
+	padding: 4rem 4rem 0 4rem;
+	background: #E5EDF1;
+
+	h1 {
+		margin-bottom: 0;
+	}
+
+	h2 {
+		color: #777272;
+		font-size: 1.5rem;
+		font-weight: 300;
+		margin: 0 0 4rem 0;
+	}
+}
+
+.image-gallery {
+	text-align: justify;
+	
+	
+
+	li {
+		display: inline-block;
+		padding: 0;
+		width: 21%;
+		vertical-align: top;
+		margin-bottom: 2rem;
+	//	border: 1px solid darken( @light-grey, 5% );
+	//	border: 5px solid lighten( #8ec5e2, 10% );
+	//	height: auto;
+		visibility: visible;
+		position: relative;
+		.opacity(100);
+		-webkit-transition: opacity 0.5s linear; 
+		-moz-transition: opacity 0.5s linear; 
+		-o-transition: opacity 0.5s linear; 
+		transition: opacity 0.5s linear;
+
+		img {
+			display: block;
+			.opacity(100);
+			-webkit-transition: opacity 0.1s linear; 
+			-moz-transition: opacity 0.1s linear; 
+			-o-transition: opacity 0.1s linear; 
+			transition: opacity 0.1s linear;
+		}
+
+		&.gap {
+			border: none;
+			margin-bottom: 0;
+		}
+
+		.overlay {
+			visibility: hidden;
+			display: block;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			padding: 2rem 1rem;
+			text-align: center;
+			background: #E5EDF1;
+			line-height: 1.5;
+			font-size: 1rem;
+		//	opacity: 0.4;
+			-webkit-transition: all 0.1s linear;
+			-moz-transition: all 0.1s linear;
+			-ms-transition: all 0.1s linear;
+			-o-transition: all 0.1s linear;
+			transition: all 0.1s linear;
+		}
+
+		&.hidden {
+			visibility: hidden;
+		//	height: 0;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border: none;
+			margin: 0;
+		//	display: none;
+			.opacity(0);
+		}
+
+		&:hover {
+			img {
+				.opacity(30);
+			}
+
+			.overlay {
+				visibility: visible;
+
+			}
+		}
+	}
+
+
+}
+
+#show-gallery-images {
+		margin-bottom: 4rem;
+	}
+
+@media only screen and ( min-width: 500px ) {
+	.easy-image-gallery {
+	//	margin: 0 -2rem;
+	}
+}
+
+@media only screen and ( min-width: 1024px ) {
+	.easy-image-gallery {
+	//	margin: 0 -4rem;
+	}
+}

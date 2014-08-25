@@ -1,0 +1,284 @@
+.affwp-base-url-wrap {
+//	margin-bottom: 1rem;
+}
+
+
+#affwp-affiliate-dashboard #affwp-affiliate-dashboard-tabs {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+#affwp-affiliate-dashboard #affwp-affiliate-dashboard-tabs li {
+	display: inline-block;
+	padding: 0 10px 0 0;
+	margin: 0;
+}
+
+#affwp-affiliate-dashboard #affwp-affiliate-dashboard-tabs li.active {
+	font-weight: bold;
+}
+
+#affwp-affiliate-dashboard #affwp-affiliate-dashboard-tabs li a {
+	text-decoration: none;
+}
+
+#affwp-affiliate-dashboard .affwp-graph {
+	margin-bottom: 20px;
+}
+
+
+// .affwp-errors,
+// .affwp-notice {
+	
+// 	margin: 0 0 21px 0;
+	
+// 	color: #333;
+// 	padding: 1rem;
+// }
+
+.affwp-error,
+.affwp-notice {
+	margin-bottom: 0;
+}
+
+// p.affwp-error {
+// 	margin: 0 !important;
+// }
+
+.affwp-notice {
+//	border: 1px solid #E6DB55;
+//	margin: 0 0 21px 0;
+//	padding: 0.5rem 1rem;
+//	background: #FFFFE0;
+//	color: #373737;
+}
+
+.affiliates {
+//	text-align: justify;
+//	font-size: 0.1px;
+
+	form {
+		font-size: 1rem;
+	}
+
+	label {
+		margin-bottom: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.description,
+	input[type="text"],
+	input[type="email"] {
+		margin-bottom: 1rem;
+	}
+}
+
+.affwp-send-notifications-wrap,
+.affwp-payment-email-wrap,
+.affwp-base-url-wrap, 
+.affwp-referral-url-wrap {
+	margin-bottom: 1rem;
+}
+
+#affwp-generate-ref-url input {
+	width: 100%;
+}
+
+#affwp-graphs-date-options {
+	margin-bottom: 1rem;
+}
+
+#affwp-graphs-filter {
+	.button {
+		display: inline-block;
+		width: auto;
+	}
+}
+
+.affwp-form {
+	label {
+		margin-bottom: 0.5rem;
+	}
+
+	.description {
+		margin-top: 0.5rem;
+	}
+}
+
+.affwp-form p {
+	font-size: 1rem;
+
+	margin-bottom: 0.5rem;
+}
+
+.affiliates .entry-content > .col {
+	width: 48%;
+	display: inline-block;
+	vertical-align: top;
+
+	input {
+		margin-bottom: 0;
+	}
+}
+
+#affwp-register-form,
+#affwp-login-form {
+	
+}
+
+
+
+#affwp_referral_url_wrap {
+	.description {
+		margin: 1rem 0;
+	}
+}
+
+
+// notifcations section
+#affwp-affiliate-dashboard-notifications {
+	margin-bottom: 4rem;
+}
+
+#affwp-affiliate-dashboard-notifications,
+#affwp_generate_ref_url {
+	
+	div {
+		margin-bottom: 1rem;
+	}
+
+
+}
+
+#affwp-affiliate-dashboard {
+	font-size: 1rem;
+}
+
+
+.stats {
+	text-align: justify;
+
+	li {
+		background: @light-grey;
+		text-align: center;
+		border: 1px solid darken( @light-grey, 3% );
+		margin-bottom: 2.5%;
+		position: relative;
+
+
+		// &.unpaid-referrals {
+		// 	background: #E7FBFF;
+		// }
+
+		// &.paid {
+		// 	background: #E7FFE7;
+		// }
+
+		// &.visits {
+		// 	background: #FFF9E7;
+		// }
+
+		// &.conversion-rate {
+		// 	background: #E7FFE7;
+		// }
+	}
+
+	.primary & li {
+		padding: 1.5rem 1rem;
+	}
+
+	// counts
+	div {
+	    font-size: 1.4rem;
+	    font-weight: 400;
+	   
+	}
+
+	h4 {
+		margin-top: 0;
+		color: @body-text-color;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+}
+
+// table on affiliate graph
+#affwp-affiliate-dashboard .affwp-graph table {
+	width: auto;
+	td { padding: 0; }
+}
+
+#affwp-graphs-filter {
+	margin-bottom: 1rem;
+}
+
+.stats:after {
+	content: "";
+	display: inline-block;
+	width: 100%;
+}
+
+.visit-converted i {
+	display: inline-block;
+	position: relative;
+	top:2px;
+	left: 2px;
+}
+.visit-converted i:before {
+	font-family: "dashicons";
+	font-style: normal;
+}
+.visit-converted.yes i:before {
+	content: "\f147";
+	color: #5e95ef;
+}
+.visit-converted.no i:before {
+	content: "\f158";
+	color: #ef6c5e;
+}
+
+@media only screen and ( min-width: 480px ) {
+
+	.stats {
+
+		li {
+			display: inline-block;
+			vertical-align: top;
+			min-height: 8rem;
+			 	
+		}
+
+		div {
+		    bottom: 0;
+		    left: 0;
+		    position: absolute;
+		    width: 100%;
+		    padding: 1rem;	
+		}
+
+		&.col-3 li {
+			width: 31.5%;
+		}
+
+		&.col-4 li {
+			width: 48.5%;
+		}
+	}
+
+}
+
+@media only screen and ( min-width: 720px ) {
+
+	.stats {
+
+		li {
+			margin-bottom: 0;
+		}
+
+		&.col-4 li {
+			width: 23%;
+		}
+	}
+
+}

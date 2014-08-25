@@ -1,0 +1,26 @@
+.entry-content ul {
+	margin: 0 0 1.62rem 1.62rem;
+	list-style-type: disc;
+	font-weight: 300;
+	line-height: 1.62;
+	color: @body-text-color;
+	
+	em {
+		font-weight: 500;
+		color: #373737;
+	}
+
+	li > em::after {
+		content: " - ";
+	}
+}
+
+ul {
+	list-style-type: none;	
+	margin: 0;
+	padding: 0;
+
+	li {
+		padding: 0.5rem 0;
+	}
+}

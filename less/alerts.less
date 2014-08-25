@@ -1,0 +1,47 @@
+// alerts
+	
+.alert {
+	font-weight: 400;
+	font-size: 1rem;
+	margin-bottom: 2rem;
+}
+
+.success {
+	@bg: #F0F8FF;
+	background: @bg !important; // override google chome's p.success style in user stylesheet
+	border: 1px solid #CEE1EF;
+
+	a {
+		color: darken(#CEE1EF, 50%);
+	}
+}
+
+
+.affwp-notice,
+.notice,
+.success,
+.error {
+	padding: 0.5rem 1rem;
+	width: 100%;
+}
+
+.affwp-notice,
+.notice {
+	@bg: #FFFFE0;
+	background: @bg;
+	border: 1px solid #E6DB55;
+}
+
+.affwp-errors,
+.error {
+	@bg: #FFEBE8;
+	background: @bg;
+	border: 1px solid #CC0000;
+	margin: 0 0 1em 0;
+	padding: 1rem;
+
+	p {
+		margin-bottom: 0;
+		font-size: 1rem;
+	}
+}

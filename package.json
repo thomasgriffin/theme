@@ -1,0 +1,16 @@
+{
+  "name": "pippinsplugins",
+  "version": "1.0.0",
+  "Dependencies": {
+    "grunt-cli": "latest"
+  },
+  "devDependencies": {
+    "grunt-banner": "^0.2.3",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-svgstore": "^0.3.3",
+    "matchdep": "*"
+  }
+}

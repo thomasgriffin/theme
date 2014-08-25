@@ -1,0 +1,115 @@
+// mobile only styles
+
+@media only screen and ( max-width: 499px ) {
+	
+	.home .intro {
+		font-size: 2rem;
+	}
+
+	.columns .col {
+		margin-bottom: 2rem;
+
+		
+	}
+
+	.last {
+		margin-bottom: 0 !important;
+	}
+
+	section.section.home,
+	section.section.benefits {
+		padding: 2rem;
+	}
+
+	.home #main .action.purchase,
+	section.how-it-works {
+		display: none;
+	}
+
+	section.section.more-features .col,
+	section.section.features .col,
+	section.columns.testimonials blockquote {
+		padding: 0;
+	}
+
+	section.columns.testimonials blockquote p {
+		margin-bottom: 1rem;
+	}
+
+	#edd-purchase-button.huge, 
+	.edd-add-to-cart.huge, 
+	.edd-submit.huge, 
+	.edd_submit.huge, 
+	.button.huge {
+		padding: 1rem 2rem;
+	}
+
+
+}
+
+@media only screen and ( max-width: 720px ) {
+	// #masthead .wrapper {
+
+	// 	span {
+	// 		margin: 1rem 0;
+	// 		display: inline-block;
+	// 	}
+	// 	.button {
+	// 		display: block;
+	// 	}
+	// }
+}
+
+@media only screen and ( max-width: 1023px ) {
+	
+	// sharedaddy (jetpack)
+	.sharedaddy {
+		li {
+			display: inline-block;
+			margin-right: 1rem;
+		}
+	}
+
+	// hide comment avatars at small resolutions
+	#comments {
+		.col.left { display: none; }
+	}
+
+	// hide left column at mobile resolutions for add-ons
+	.single.single-download {
+
+	  .columns-3 {
+	    .col.left {
+	      display: none;
+	    }
+	  }
+
+	  .add-on-info {
+
+	  }
+	}
+
+	// related posts on single posts pages
+	// main 3 columns layout
+	.page.support .columns-3 .col,
+	.addons .columns-3 .col,
+	.single .columns-4 .col,
+	.single .columns-3 .col,
+	.blog .columns-3 .col {
+		width: 100%;
+		max-width: 620px;
+		display: block;
+		margin: 0 auto 2rem auto;
+
+		// left and right sidebars
+		&.left, &.right { 
+			p { margin-bottom: 0; }
+		}
+	}
+
+	// related posts on single posts pages
+	.single .columns-4 .col {
+		margin: 0 auto 2rem auto;
+	}
+
+}

@@ -1,0 +1,158 @@
+.back {
+	margin-bottom: 2rem;
+	display: inline-block;
+}
+
+
+
+// section.docs {
+// 	padding: 0 2rem;
+// }
+
+.tax-doc_category,
+.documentation {
+
+	#content {
+		padding: 0;
+
+		> .wrapper {
+		
+			font-size: 0;
+		}
+
+
+	}
+}
+
+
+// button to change layout
+.change-layout {
+    font-size: 2rem;
+    background: none;
+    padding: 0;
+    line-height: 1;
+}
+
+// section.section.docs {
+// 	background: @light-grey;
+
+// 	.wrapper {
+// 		text-align: center;
+// 	}
+// }
+
+
+#docs {
+
+	.filters {
+		display: none;
+		text-align: right;
+		width: 100%;
+	}
+
+	.col {
+		display: none;
+	}
+
+	#docs-container.list .col {
+		margin-bottom: 1rem;
+	}
+
+	.description {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+
+	h2 {
+		margin-bottom: 0.25rem;
+		font-size: 1.25rem;
+	}
+
+	h3 {
+		color: @body-text-color;
+		font-weight: 400;
+	}
+	
+
+	// .button {
+	// 	background: #fff;
+	// 	border: 3px solid #E44E44;
+	// 	color: #E44E44;
+	// 	padding: 0.5rem 1rem;
+	// 	margin-top: 1.5rem;
+	// 	-webkit-transition: all 0.2s ease-in-out; 
+	// 	-moz-transition: all 0.2s ease-in-out; 
+	// 	-o-transition: all 0.2s ease-in-out; 
+	// 	transition: all 0.2s ease-in-out;
+
+	// 	&:hover {
+	// 		box-shadow: 0 0 0 2px #E44E44 inset;
+	// 	}
+	// }
+
+}
+
+/* Flex box progressive enhancements: */
+
+#docs-container {
+	display: -webkit-flex;
+	-webkit-flex-flow: row wrap;
+	-webkit-justify-content: space-between;
+	-webkit-align-content: flex-start;
+}
+
+/**
+ * List Styles
+ */
+
+#docs-container.list {
+	max-width: 1220px;
+	margin: 0 auto;
+}
+
+#docs-container.list .col {
+  width: 100%;
+}
+
+#docs-container.list .col:before {
+  padding-top: 40px;
+}
+
+// control the responsiveness of the docs
+@media only screen and ( min-width: 600px ) {
+  // .docs.columns-4 {
+  //   .gap,
+  //   .col {
+  //     width: 48%;
+  //   }
+  // }
+}
+
+@media only screen and ( min-width: 720px ) {
+  // .docs.columns-4 {
+  //   .gap,
+  //   .col {
+  //     width: 48%;
+  //   }
+  // }
+}
+
+// 4 columns
+@media only screen and ( min-width: 1220px ) {
+  // .docs.columns-4 {
+  //   .gap,
+  //   .col {
+  //     width: 31%;
+  //   }
+  // }
+}
+
+// 4 columns
+@media only screen and ( min-width: 1500px ) {
+  // .docs.columns-4 {
+  //   .gap,
+  //   .col {
+  //     width: 23%;
+  //   }
+  // }
+}

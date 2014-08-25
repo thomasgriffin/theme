@@ -1,0 +1,275 @@
+
+
+section.columns {
+  text-align: justify;
+//  padding-bottom: 0; 
+}
+
+// columns
+.columns {
+  text-align: justify;
+  font-size: 0.1px;
+
+  .col, .gap {
+    display: inline-block;
+  }
+
+  // item
+  .col {
+    vertical-align: top;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 4%;
+    font-size: 1rem;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    li {
+      line-height: 1.62;  
+    }
+    
+    h2 {
+      margin-bottom: 1rem;
+
+      a {
+        display: block;
+      }
+    }
+
+    .recent {
+      margin: 1rem 0 0 0;
+    }
+
+    .recent + ul {
+    //  margin: 0 -1rem;
+
+      li a {
+        border-bottom: 1px solid @light-grey;
+        padding: 0.5rem 1rem;
+        display: block;
+      }
+
+      li:last-child a {
+        border: none;
+      }
+
+    }
+
+  }
+
+
+}
+
+
+
+
+// 2 columns
+@media all and ( min-width: 600px ) {
+
+  .about .columns-2 {
+    .gap,
+    .col {
+      width: 46%;
+    }
+  }
+
+  .columns-2 {
+    .gap,
+    .col {
+      width: 48%;
+    }
+  }
+}
+
+// // 3 columns
+@media only screen and ( min-width: 768px ) {
+
+  .columns-3 {
+    .gap,
+    .col {
+      width: 31%;
+    }
+  }
+
+  .columns-4 {
+    .gap,
+    .col {
+      width: 48%;
+    }
+  }
+
+  .page,
+  .single {
+    .columns-3 {
+
+      .col.left {
+        width: 100%;
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      .primary {
+        width: 62%;
+      }
+    }
+  }
+
+}
+
+// // 3 columns
+@media only screen and ( min-width: 1024px ) {
+
+ .columns-main-side {
+   .col {
+        width: 62%;
+   }
+
+   .col + .col {
+       width: 36%;
+       max-width: 300px;
+   }
+ }
+  
+}
+
+
+
+// addon and single download 3 columns
+@media only screen and ( min-width: 1440px ) {
+  
+    .page,
+    .single {
+
+      .columns-3 {
+
+         .col.left {
+           span {
+            display: block;
+          }
+          }
+
+        // hides add on info box
+      .add-on-info.right {
+        display: none;
+      }
+
+     
+
+        .col.bdr {
+       //   border-top: 5px solid @accent-color;
+       //   padding-top: 1rem;
+        }
+
+        .col.left {
+          display: inline-block;
+           width: 25%;
+           max-width: 300px;
+        }
+
+        .col {
+         
+          display: inline-block;
+        }
+
+         .col.right {
+          max-width: 300px;
+          // width: 25%;
+       //   background: red;
+        }
+
+        // main column
+        .primary.col {
+          width: 45%;
+        }
+      }
+
+      // &.pricing {
+      //   .col {
+      //     width: 31%;
+      //   }
+      // }
+  }
+
+  #secondary {
+     max-width: 300px;
+    width: 25%;
+  }
+
+}
+
+
+
+// 4 columns
+@media all and ( min-width: 1220px ) {
+  // .columns .gap,
+  // .columns .col {
+  //   width: 22%;
+  // }
+
+  .testimonials .col.wide {
+    width: 74.5%;
+  }
+  
+  .columns-4 {
+    .gap,
+    .col {
+      width: 23%;
+    }
+  }
+
+  // .primary-sidebar {
+  //   .col {
+  //     width: 70%;
+  //   }
+
+  //   .col + .col {
+  //     width: 20%;
+  //   }
+  // }
+
+  // .columns-main-side {
+  //   .col {
+  //        width: 58%;
+  //   }
+
+  //   .col + .col {
+  //       width: 36%;
+  //       max-width: 300px;
+  //   }
+  // }
+
+}
+
+.affiliates .entry-content {
+  text-align: justify;
+}
+
+// flexbox
+// revisit this
+section.columns .wrapper {
+  // display: -webkit-flex;
+  // -webkit-flex-flow: row wrap;
+  // -webkit-justify-content: space-between;
+  // -webkit-align-content: flex-start;
+}
+
+
+// clearfix
+.affiliates .entry-content:after,
+.columns:after,
+.affiliates:after,
+#slider-nav:after,
+.columns .wrapper:after,
+section.used-by ul:after,
+.pre-sale:after,
+.pricing-chart:after,
+#docs-container:after,
+#content .wrapper:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
