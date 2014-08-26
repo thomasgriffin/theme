@@ -116,23 +116,6 @@ add_action( 'template_redirect', 'affwp_redirect_coming_soon' );
 
 
 
-
-/**
- * Prevent adons from being added to cart (free or priced) with ?edd_action=add_to_cart&download_id=XXX
- *
- * @param int	$download_id Download Post ID
- *
- * @since 1.0.3
- */
-function affwp_pre_add_to_cart( $download_id ) {
-	// let customers buy affiliateWP
-	if ( $download_id === affwp_get_affiliatewp_id() )
-		return; 
-
-	wp_die( __( 'This add-on cannot be purchased', 'affwp' ), '', array( 'back_link' => true ) );
-}
-//add_action( 'edd_pre_add_to_cart', 'affwp_pre_add_to_cart' );
-
 /**
  * Output custom icons - favicon & apple touch icon
  * @link https://github.com/audreyr/favicon-cheat-sheet
@@ -163,9 +146,6 @@ function affwp_pre_get_posts( $query ) {
 
 		// show all add-ons
 		$query->set( 'posts_per_page', -1 );
-		
-		// remove affiliateWP from showing
-		$query->set( 'post__not_in', array( affwp_get_affiliatewp_id() ) );
 
 		// don't show downloads that belong to RCP
 		$term = get_term_by( 'slug', 'add-ons', 'download_category' );

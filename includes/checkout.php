@@ -60,17 +60,3 @@ function affwp_show_refund_policy() {
 }
 //add_action( 'wp_footer', 'affwp_show_refund_policy' );
 
-/**
- * Force account creation if developer license
- *
- * @since 1.1.7
- */
-function affwp_force_account_creation( $ret ) {
-
-	if ( edd_item_in_cart( affwp_get_affiliatewp_id(), array( 'price_id' => 2 ) ) )
-		$ret = (bool) true;
-
-	return $ret;
-}
-//add_filter( 'edd_no_guest_checkout', 'affwp_force_account_creation' );
-
