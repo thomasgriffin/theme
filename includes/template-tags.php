@@ -168,18 +168,21 @@ function affwp_pre_get_posts( $query ) {
 		$query->set( 'post__not_in', array( affwp_get_affiliatewp_id() ) );
 
 		// don't show downloads that belong to RCP
-		$term = get_term_by( 'slug', 'restrict-content-pro-add-ons', 'download_category' );
+		$term = get_term_by( 'slug', 'add-ons', 'download_category' );
 
-		$args = array(
-	       array(
-	           'taxonomy' => 'download_category',
-	           'field' => 'id',
-	           'terms' => array( $term->term_id ),
-	           'operator'=> 'NOT IN'
-	       )
-	    );
+		if ( $term ) {
+			$args = array(
+		       array(
+		           'taxonomy' => 'download_category',
+		           'field' => 'id',
+		           'terms' => array( $term->term_id ),
+		           'operator'=> 'NOT IN'
+		       )
+		    );
 
-		$query->set( 'tax_query', $args );
+			$query->set( 'tax_query', $args );
+		}
+		
 
 		return;
 	}
