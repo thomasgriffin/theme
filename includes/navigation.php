@@ -1,4 +1,39 @@
 <?php
+
+
+function pp_load_navigation() {
+
+	// don't load navigation on checkout
+	if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() )
+		return;
+
+		ob_start();
+	?>
+
+	<?php pp_show_cart_quantity_icon(); ?>
+	<?php get_search_form(); ?>	
+
+	<nav id="main" class="site-navigation primary-navigation" role="navigation">
+	<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'affwp' ); ?></a>
+	<?php
+		wp_nav_menu(
+		  array(
+		    'menu' 				=> 'main_nav',
+		    'menu_class' 		=> 'menu',
+		    'theme_location' 	=> 'primary',
+		    'container' 		=> '',
+		    'container_id' 		=> 'main',
+		    'depth' 			=> '3',
+		  )
+		);
+	?>
+	</nav>
+
+<?php 
+	echo ob_get_clean(); 
+}
+add_action( 'pp_masthead', 'pp_load_navigation' );
+
 /**
  * Append cart onto primary navigation
  *

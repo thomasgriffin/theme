@@ -42,36 +42,7 @@
 			</svg>
 		</a>
 
-		<?php if ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) : ?>
-
-		<?php pp_show_cart_quantity_icon(); ?>
-		<?php get_search_form(); ?>	
-
-		<nav id="main" class="site-navigation primary-navigation" role="navigation">
-		<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'affwp' ); ?></a>
-		<?php
-			wp_nav_menu(
-			  array(
-			    'menu' 				=> 'main_nav',
-			    'menu_class' 		=> 'menu',
-			    'theme_location' 	=> 'primary',
-			    'container' 		=> '',
-			    'container_id' 		=> 'main',
-			    'depth' 			=> '3',
-			  )
-			);
-		?>
-		</nav>
-		<?php endif; ?>
-
-		<?php 
-		/**
-		 * Navigation for checkout page
-		 */
-		if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) : ?>
-		
-		<?php endif; ?>	
-
+		<?php do_action( 'pp_masthead' ); ?>
 
 		<?php if ( is_home() ) : ?>
 			<header class="page-header">
