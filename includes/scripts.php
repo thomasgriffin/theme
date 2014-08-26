@@ -181,3 +181,14 @@ function affwp_social_js() {
 
 <?php }
 add_action( 'wp_footer', 'affwp_social_js', 100 );
+
+/**
+ * Adjust layout of items in header to compensate for the admin bar if it's showing
+ */
+function pp_offset_admin_bar() {
+	if ( is_admin_bar_showing() ) {
+		?>
+		<style>#masthead-logo,#masthead .search-form{top:32px;}</style>
+	<?php }
+}
+add_action( 'wp_head', 'pp_offset_admin_bar', 100 );
