@@ -188,7 +188,7 @@ add_action( 'wp_footer', 'affwp_social_js', 100 );
 function pp_offset_admin_bar() {
 	if ( is_admin_bar_showing() ) {
 		?>
-		<style>#masthead-logo,#masthead .search-form{top:32px;}</style>
+		<style>#masthead-logo,#masthead .search-form,#masthead .cart{top:32px;}</style>
 	<?php }
 }
 add_action( 'wp_head', 'pp_offset_admin_bar', 100 );
