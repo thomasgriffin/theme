@@ -3,10 +3,17 @@
 
 .box {
 //	background: #fff;
-	background: @light-grey;
+//	background: @light-grey;
+//	background: rgba(7, 36, 96, 0.05);
+	background: rgba(97, 141, 235, 0.08);
+	border: 1px solid rgba(97, 141, 235, 0.09);
+//	background: lighten( #74d7bf, 33% );
 //	background: #072460;
-	padding: 1rem;
+	padding: 1.5rem;
 	
+	.post-thumbnail {
+		
+	}
 
 	h2 {
 		margin-bottom: 0;
@@ -20,21 +27,84 @@
 	ul:last-child,
 	p:last-child,
 	h2:last-child {
-		padding-bottom: 2rem;
+	//	padding-bottom: 2rem;
 	}
 
 	p {
 	//	margin-top: 2rem;
 	//	color: #fff;
 		font-size: 1rem;
+		z-index: 1;
+		position: relative;
+	}
+
+	p:last-of-type {
+		margin-bottom: 0;
 	}
 
 	.button {
 	//	color: #fff;
 	//	border-color: #fff;
 	}
+
+	// documentation box
+	&.docs {
+	//	padding: 0;
+		position: relative;
+
+		svg {
+				position: absolute;
+				top: -20px;
+				right: -20px;
+				.opacity(25);
+			}
+	}
+
+	&.support {
+		position: relative;
+		overflow: hidden;
+
+		svg {
+			position: absolute;
+			bottom: -9px;
+			right: 0;
+			.opacity(25);
+		}
+	}
+
+	&.highlight {
+		.box-shadow( 0 5px 0 0px #22acda );
+	}
+
+	ul {
+		font-weight: 300;
+		li {
+			padding: 0;
+
+			a {
+				display: block;
+				padding: 0.5rem 0;
+				border-bottom:  1px solid rgba(97, 141, 235, 0.09);
+			}
+			
+			&:last-child a {
+				border-bottom: none;
+			}
+		}
+
+
+	}
+
+
 }
 
+.col.left .post-thumbnail {
+//	margin: -1.5rem -1.5rem 0 -1.5rem;
+}
+
+.primary-sidebar .box {
+	margin-bottom: 2.5rem;
+}
   // background: @light-grey;
   // padding: 2rem;
   // border: 1px solid darken( @light-grey, 3% );

@@ -314,30 +314,19 @@ function affwp_edd_thank_customer() {
  * @since  1.1.9
  */
 function pp_product_info( $position = '' ) {
-	$wp_plugin_slug = 'easy-digital-downloads';
-	$json_url       = file_get_contents( 'http://api.wordpress.org/plugins/info/1.0/' . $wp_plugin_slug . '.json' );
-	$obj            = json_decode( $json_url );
-	$post           = get_post ( get_the_ID() );
-
-	$is_edd = 'Easy Digital Downloads' == $post->post_title ? true : false;
-
-	$version        = $is_edd ? $obj->version : get_post_meta( get_the_ID(), '_edd_sl_version', true );
-
-	$released              = $is_edd ? $obj->added : get_the_date();
-	$updated               = intval ( get_post_meta( get_the_ID(), '_pp_product_last_updated', true ) );
-	
-	
-
-
-	$downloads = number_format( $obj->downloaded ); 
-	//$edd_version = $obj->version;
-
-	
-
-	//var_dump(expression)
+	$post                = get_post ( get_the_ID() );
+	$is_edd              = 'Easy Digital Downloads' == $post->post_title ? true : false;
+	$updated             = intval ( get_post_meta( get_the_ID(), '_pp_product_last_updated', true ) );
+	$pp_show_plugin_info = function_exists( 'pp_show_plugin_info' ) ? pp_show_plugin_info() : '';
+	$slug                = 'easy-digital-downloads';
+	$rating              = $pp_show_plugin_info ? $pp_show_plugin_info->get_info( $slug, 'rating' ) / 20 : '';
+	$num_ratings         = $pp_show_plugin_info ? $pp_show_plugin_info->get_info( $slug, 'num_ratings' ) : '';
+	$downloads           = $pp_show_plugin_info ? number_format( $pp_show_plugin_info->get_info( $slug, 'downloaded' ) ) : '';
+	$released            = $is_edd && $pp_show_plugin_info ? $pp_show_plugin_info->get_info( $slug, 'added' ) : get_the_date();
+	$version             = $is_edd && $pp_show_plugin_info ? $pp_show_plugin_info->get_info( $slug, 'version' ) : get_post_meta( get_the_ID(), '_edd_sl_version', true );
 ?>
-	<aside class="product-info<?php echo ' ' . $position; ?>">
-		
+	<aside class="box product-info<?php echo ' ' . $position; ?>">
+	
 		<?php if ( $version ) : ?>
 			<p><span>Version</span> v<?php echo esc_attr( $version ); ?></p>
 		<?php endif; ?>	
@@ -350,16 +339,16 @@ function pp_product_info( $position = '' ) {
 		/**
 		 * EDD Specific
 		 */
-		if ( $is_edd ) : ?>
+		if ( $is_edd && $pp_show_plugin_info ) : ?>
 		<p><span>Downloads </span><?php echo $downloads; ?></p>
+
+		<p><span>Rating </span><?php echo $rating; ?> / 5 from <?php echo $num_ratings; ?> reviews</p>
 		<?php endif; ?>
 
 		<?php if ( $updated ) : ?>
 		<p><span>Last Updated</span><?php echo date( 'F j, Y', $updated ); ?></p>
 		<?php endif; ?>
-		
-
-
+	
 	</aside>
 	<?php
 }

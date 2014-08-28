@@ -509,7 +509,7 @@ add_action( 'save_post',     'affwp_category_transient_flusher' );
  *
  * @return void
 */
-function affwp_post_thumbnail() {
+function affwp_post_thumbnail( $size = 'thumbnail' ) {
 	if ( post_password_required() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -520,9 +520,9 @@ function affwp_post_thumbnail() {
 	<div class="post-thumbnail">
 	<?php
 		if ( ( ! is_active_sidebar( 'sidebar-2' ) || is_page_template( 'page-templates/full-width.php' ) ) ) {
-			the_post_thumbnail( 'affwp-full-width' );
+			the_post_thumbnail( $size );
 		} else {
-			the_post_thumbnail();
+			the_post_thumbnail( $size );
 		}
 	?>
 	</div>
@@ -532,7 +532,7 @@ function affwp_post_thumbnail() {
 
 	<a title="<?php the_title_attribute(); ?>" class="post-thumbnail" href="<?php the_permalink(); ?>">
 	<?php
-		the_post_thumbnail( 'thumbnail' );
+		the_post_thumbnail( $size );
 	
 
 		// if ( ( ! is_active_sidebar( 'sidebar-2' ) || is_page_template( 'page-templates/full-width.php' ) ) ) {

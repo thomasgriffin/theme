@@ -24,33 +24,40 @@ get_header(); ?>
 	?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', $coming_soon ) ); ?>> 
 		    
-				<?php if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
+			<?php if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
 
-					<?php affwp_post_thumbnail(); ?>
+				<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
 
-		    		<h2>
-						<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-				    		<?php the_title(); ?>
-				    	</a>
-			    	</h2>
+	    		<?php /*<h2>
+					<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+			    		<?php the_title(); ?>
+			    	</a>
+		    	</h2> */ ?>
 
-			    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
-			    		  	
-		    		<h2><?php the_title(); ?></h2>
-		    		<div class="post-thumbnail">
-		    			<?php if ( current_user_can( 'manage_options' ) ) : ?>
-		    				<?php affwp_post_thumbnail(); ?>
-		    			<?php else : ?>
-		    				<img alt="<?php the_title(); ?> - Coming Soon" src="<?php echo get_stylesheet_directory_uri() . '/images/add-ons-coming-soon.png'; ?>">
-		    			<?php endif; ?>	
-		    			
-		    		</div>
+		    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
+		    	
+		    	<?php /*	  	
+	    		<h2><?php the_title(); ?></h2>
+	    		*/ ?>
+	    	
+	    		<div class="post-thumbnail">
+	    			<?php if ( current_user_can( 'manage_options' ) ) : ?>
+	    				<?php affwp_post_thumbnail(); ?>
+	    			<?php else : ?>
+	    				<img alt="<?php the_title(); ?> - Coming Soon" src="<?php echo get_stylesheet_directory_uri() . '/images/add-ons-coming-soon.png'; ?>">
+	    			<?php endif; ?>	
+	    			
+	    		</div>
 
-				<?php endif; ?>	
+			<?php endif; ?>	
 
-		       	<?php 
-			 		the_excerpt();
-			 	?>
+	       	<?php 
+		 		the_excerpt();
+		 	?>
+
+		 	<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+	    		View <?php the_title(); ?> &rarr;
+	    	</a>
 		</article>
 
 	<?php endwhile; ?>

@@ -8,24 +8,26 @@
 
 <div class="primary-sidebar widget-area col right" role="complementary">
 
+<?php //affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+
 	<?php echo pp_get_purchase_link( get_the_ID() ); ?>
 
 
-
-	<div class="support box">
-		<h2>100% Supported</h2>
-		<p><?php echo the_title(); ?> is a well supported product.</p>
+	<?php
+		$support_url = get_post_meta( get_the_ID(), '_pp_product_support_url', true ) ? get_post_meta( get_the_ID(), '_pp_product_support_url', true ) : site_url( 'plugin-support' );
+		$target     = get_post_meta( get_the_ID(), '_pp_product_support_url', true ) ? ' target="_blank"' : '';
+	// make dynamic
+	?>
+	<div class="support box highlight">
+		<h2>Need Help?</h2>
+		<p>For support related questions, please <a href="<?php echo esc_url( $support_url ); ?>" title="Support"<?php echo $target ;?>>open a support ticket</a>.</p>
 		
-		<?php /*
-		<svg width="32px" height="32px">
-		   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-support-2'; ?>"></use>
+		
+		<svg width="128px" height="128px">
+		   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-support-3'; ?>"></use>
 		</svg>
-		*/ ?>
-	
-		<a href="<?php echo site_url( 'plugin-support' ); ?>" title="Get Support" class="button">
 		
-		Get Support Now
-		</a>
+	
 	</div>
 
 	<?php 
@@ -37,8 +39,13 @@
 	?>
 
 	<?php if ( $connected->have_posts() ) : ?>
-	<div class="documentation box">
-	<h3>Related Documentation</h3>
+	<div class="docs box">
+
+		<svg width="128px" height="128px">
+		   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-docs'; ?>"></use>
+		</svg>
+
+	<h2>Related Documentation</h2>
 		<ul>
 	    <?php while ( $connected->have_posts() ) : $connected->the_post(); ?>  
 	        <li> 	

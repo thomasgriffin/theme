@@ -16,6 +16,8 @@ get_header(); ?>
 	?>
 	<div class="col left">
 		<?php echo pp_product_info( 'left' ); ?>
+		
+		<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
 	</div>
 	
 	<div class="primary col">
@@ -23,7 +25,7 @@ get_header(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					
-				<?php affwp_post_thumbnail(); ?>
+				<?php //affwp_post_thumbnail(); ?>
 					<div class="entry-content">
 						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'affwp' ) ); ?>
 					</div>
@@ -84,7 +86,7 @@ $connected = new WP_Query( array(
     <?php while ( $connected->have_posts() ) : $connected->the_post();
 	    $coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
     ?>  
-        <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', $coming_soon ) ); ?>> 
+        <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', $coming_soon ) ); ?>> 
         		    
 			<?php 
 			$external_download_url = get_post_meta( get_the_ID(), '_affwp_addon_download_url', true );
