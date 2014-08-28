@@ -314,17 +314,27 @@ function affwp_edd_thank_customer() {
  * @since  1.1.9
  */
 function pp_product_info( $position = '' ) {
-	$version               = get_post_meta( get_the_ID(), '_edd_sl_version', true );
-	$released              = get_the_date();
+	$wp_plugin_slug = 'easy-digital-downloads';
+	$json_url       = file_get_contents( 'http://api.wordpress.org/plugins/info/1.0/' . $wp_plugin_slug . '.json' );
+	$obj            = json_decode( $json_url );
+	$post           = get_post ( get_the_ID() );
+
+	$is_edd = 'Easy Digital Downloads' == $post->post_title ? true : false;
+
+	$version        = $is_edd ? $obj->version : get_post_meta( get_the_ID(), '_edd_sl_version', true );
+
+	$released              = $is_edd ? $obj->added : get_the_date();
 	$updated               = intval ( get_post_meta( get_the_ID(), '_pp_product_last_updated', true ) );
 	
-	$wp_plugin_slug = 'easy-digital-downloads';
-
-	$json_url = file_get_contents( 'http://api.wordpress.org/plugins/info/1.0/' . $wp_plugin_slug . '.json' );
 	
-	$obj = json_decode( $json_url );
 
 
+	$downloads = number_format( $obj->downloaded ); 
+	//$edd_version = $obj->version;
+
+	
+
+	//var_dump(expression)
 ?>
 	<aside class="product-info<?php echo ' ' . $position; ?>">
 		
@@ -336,7 +346,13 @@ function pp_product_info( $position = '' ) {
 			<p><span>Released </span><?php echo esc_attr( $released ); ?></p>
 		<?php endif; ?>
 
-		<p><span>Downloads </span><?php echo number_format( $obj->downloaded ); ?></p>
+		<?php 
+		/**
+		 * EDD Specific
+		 */
+		if ( $is_edd ) : ?>
+		<p><span>Downloads </span><?php echo $downloads; ?></p>
+		<?php endif; ?>
 
 		<?php if ( $updated ) : ?>
 		<p><span>Last Updated</span><?php echo date( 'F j, Y', $updated ); ?></p>
