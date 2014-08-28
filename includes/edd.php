@@ -11,6 +11,46 @@
 remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
 
 
+/**
+ * Custom Purchase button
+ *
+ * @since 1.0
+ */
+function pp_get_purchase_link( $download_id ) { 
+
+	$external_purchase_url = ( get_post_meta( $download_id, '_pp_product_download_url', true ) ) ? get_post_meta( $download_id, '_pp_product_download_url', true ) : '';
+
+	// overrides any variable/ multi priced options
+	if ( $external_purchase_url ) { ?>
+
+	<div class="edd_download_purchase_form">
+		<a href="<?php echo esc_url( $external_purchase_url ); ?>" class="button external" target="_blank">
+			<span><?php _e( 'Purchase', 'pp' ); ?></span>
+			<svg width="17px" height="16px">
+				<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-external'; ?>"></use>
+			</svg>
+		</a>
+	</div>
+
+	<?php }
+
+		// it's a free download ($0.00) so we don't want the button to say 'buy' or 'purchase'
+		elseif( '0' == edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) {
+			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => __( 'Add to', 'pp' ) ) );
+		}
+		// variable priced downloads
+		elseif( edd_has_variable_prices( get_the_ID() ) ) {
+			echo edd_get_purchase_link( array( 'class' => 'large primary' ) );
+		}
+		// normal downloads, don't show price on button
+		else {
+			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false ) );
+		}
+
+	?>
+
+	<?php }
+
 
 /**
  * Custom variable pricing options

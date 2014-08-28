@@ -32,6 +32,39 @@
   .transition ( all 0.2s linear );
 }
 
+.button {
+
+  span,
+  svg {
+    vertical-align: middle;
+  }
+
+  // icon
+  svg {
+    
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    .transition ( all 0.2s linear );
+  }
+
+  &.external {
+    padding-right: 3rem;
+    position: relative;
+  }
+
+  &.external:hover {
+    svg {
+      top: 14px;
+      right: 14px;
+      //margin: -0.5rem -5px 0 0;
+    }
+  }
+
+  &:hover {
+    border-color: #74d7bf;
+  }
+}
 
 #edd-purchase-button,
 .edd-add-to-cart,
@@ -60,17 +93,19 @@
   &:hover,
   &:focus {
     text-decoration: none;
-  //  color: #fff;
+    color: #072460;
   //  background: darken( @accent-color, 8% ); 
-  }        
+  }
+
+
     
 }
 
-.affiliates {
-  .button {
-    width:auto;
-  }
-}
+// .affiliates {
+//   .button {
+//     width: auto;
+//   }
+// }
 
 .button-secondary {
   padding: 0.75rem 0.875rem;
@@ -85,11 +120,3 @@
   }  
 
 }
-
-
-   
-    
-    // padding: 1rem;
-    // text-align: center;
-    // transition: all 0.25s ease-in-out 0s;
-    // vertical-align: middle;

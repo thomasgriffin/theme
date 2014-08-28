@@ -20,11 +20,11 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); 
 
-	$coming_soon = affwp_addon_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
+	$coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
 	?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', $coming_soon ) ); ?>> 
 		    
-				<?php if ( ! affwp_addon_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
+				<?php if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
 
 		    		<h2>
 						<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
@@ -34,7 +34,7 @@ get_header(); ?>
 
 			    	<?php affwp_post_thumbnail(); ?>
 
-			    <?php elseif ( affwp_addon_is_coming_soon( get_the_ID() ) ) : ?>
+			    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
 			    		  	
 		    		<h2><?php the_title(); ?></h2>
 		    		<div class="post-thumbnail">

@@ -14,7 +14,7 @@
 
 		<?php if ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) : ?>
 
-		<section class="section columns columns-5">
+		<section class="section columns columns-4">
 
 			<div class="col">
 				<nav class="site-navigation primary-navigation" role="navigation">
@@ -35,24 +35,25 @@
 			</div>
 
 			
-
+			<?php /*
 			<div class="col">
 				<h3>Follow Me</h3>
 				<p>There will be some social links here as per old site</p>
 
 				
 			</div>
-
+			
 			<div class="col">
 				
 			</div>
-
+				
+			
 			<div class="col">
 				
 
 				
 			</div>
-
+			
 			
 
 
@@ -71,6 +72,8 @@
 				</div>
 
 			</div>
+			*/ ?>
+
 
 		</section>
 

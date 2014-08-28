@@ -8,7 +8,12 @@
 
 <div class="primary-sidebar widget-area col right" role="complementary">
 
-	<?php echo edd_get_purchase_link( array( 'download_id' => get_the_ID() ) ); ?>
+	<?php 
+
+	echo pp_get_purchase_link( get_the_ID() );
+
+	//edd_get_purchase_link( array( 'download_id' => get_the_ID() ) ); 
+	?>
 
 	<section class="support">
 

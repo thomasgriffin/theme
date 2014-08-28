@@ -20,7 +20,7 @@
 <?php if ( $connected->have_posts() ) : ?>
 <section class="docs">
     <?php while ( $connected->have_posts() ) : $connected->the_post();
-	    $coming_soon = affwp_addon_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
+	    $coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
     ?>  
         <article id="post-<?php the_ID(); ?>" <?php post_class( array( $coming_soon ) ); ?>> 
         		    

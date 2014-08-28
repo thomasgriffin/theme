@@ -1,18 +1,17 @@
 <?php
-
+/**
+ * Functions
+ */
 
 /**
- * Determine if the download is coming soon or not
- * @param  $download_id ID of download to check
- * @return boolean true if addon is coming soon, false otherwise
- * @since  1.1.9
+ * Checks for existance of function in custom functionality plugin
+ * @return [type] [description]
  */
-function affwp_addon_is_coming_soon( $download_id ) {
-	$coming_soon = get_post_meta( $download_id, '_affwp_addon_coming_soon', true );
-
-	if ( $coming_soon ) {
-		return (bool) true;
+function pp_product_is_coming_soon( $id ) {
+	if ( ! function_exists( 'pp_custom_product_is_coming_soon' ) ) {
+		return;
 	}
 
-	return (bool) false;
+	return pp_custom_product_is_coming_soon( $id );	
+
 }

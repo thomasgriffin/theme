@@ -84,35 +84,7 @@ function affwp_twitter_card_meta() {
 <?php }
 add_action( 'wp_head', 'affwp_twitter_card_meta' );
 
-/**
- * Redirect if addon is accessed while coming soon
- * Admins can see addon just fine
- * @since 1.1.9
- */
-function affwp_redirect_coming_soon() {
-	global $post;
 
-	if ( ! is_singular( 'download' ) || current_user_can( 'manage_options' ) )
-		return;
-
-	$do_redirect = affwp_addon_is_coming_soon( get_the_ID() );
-
-	if ( $do_redirect ) {
-		$redirect_url = site_url( 'products' );
-
-		if ( isset( $_REQUEST['HTTP_REFERER'] ) ) {
-			$referer = esc_url( $_REQUEST['HTTP_REFERER '] );
-
-			if ( strpos( $referer, $redirect_url ) !== false ) {
-				$redirect_url = $referer;
-			}
-		}
-
-		wp_redirect( $redirect_url, 301 ); exit;
-	}
-	
-}
-add_action( 'template_redirect', 'affwp_redirect_coming_soon' );
 
 
 
