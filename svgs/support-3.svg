@@ -11,9 +11,9 @@
 	v-4C21,0.356,20.938,0.219,20.829,0.124z M13,20h-2V10h2V20z M13,8v1h-2.5C10.224,9,10,9.224,10,9.5v11c0,0.276,0.224,0.5,0.5,0.5
 	H13v2H7V8c0-1.317,0.881-2.498,2.143-2.873C9.355,5.063,9.5,4.869,9.5,4.647V3h1v1.647c0,0.221,0.146,0.416,0.357,0.479
 	C12.119,5.502,13,6.684,13,8z M20,3.929l-6.5-0.867V1.938L20,1.071V3.929z"/>
-<g>
+<g opacity="0.2">
 	<path fill="none" stroke="#072460" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M13,4.648V2.5h2
-		v2.148c1.447,0.43,2.5,1.768,2.5,3.352v15.5l-7,0V8C10.5,6.416,11.556,5.078,13,4.648z"/>
+		v2.148c1.447,0.43,2.5,1.768,2.5,3.352v15.5h-7V8C10.5,6.416,11.556,5.078,13,4.648z"/>
 	<path fill="none" stroke="#072460" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M19.5,0.5l-4.5,2
 		h0.022c3.025,0,5.478,2.454,5.478,5.478V20.5"/>
 	<polygon fill="none" stroke="#072460" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="3.5,0.5 
