@@ -17,12 +17,12 @@
   cursor: pointer;
   display: inline-block;
 //  text-transform: uppercase;
-  font-weight: 500;
+
   border-radius: 0px; // EDD override
   text-align: center;
   vertical-align: middle;
   background-image: none;
-  border: 5px solid #072460;
+
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -33,6 +33,7 @@
 }
 
 .button {
+  position: relative;
 
   span,
   svg {
@@ -40,8 +41,7 @@
   }
 
   // icon
-  svg {
-    
+  svg { 
     position: absolute;
     top: 18px;
     right: 18px;
@@ -51,13 +51,13 @@
   &.external {
     padding-right: 3rem;
     position: relative;
+    width: 100%;
   }
 
   &.external:hover {
     svg {
       top: 14px;
       right: 14px;
-      //margin: -0.5rem -5px 0 0;
     }
   }
 
@@ -81,14 +81,17 @@
   padding: 1rem 2rem;
 
   &.large {
-    font-size: 1.25rem;
+  //  font-size: 1.25rem;
+      font-weight: 500;
+      border: 5px solid #072460;
+
  //   padding: 0.875rem 1.25rem;
   }
 
-  &.huge {
-    font-size: 1.5rem;
-    padding: 1.5rem 4rem;
-  }
+  // &.huge {
+  //   font-size: 1.5rem;
+  //   padding: 1.5rem 4rem;
+  // }
 
   &:hover,
   &:focus {

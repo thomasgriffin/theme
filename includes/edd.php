@@ -18,14 +18,21 @@ remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
  */
 function pp_get_purchase_link( $download_id ) { 
 
-	$external_purchase_url = ( get_post_meta( $download_id, '_pp_product_download_url', true ) ) ? get_post_meta( $download_id, '_pp_product_download_url', true ) : '';
-
+	$external_download_url = get_post_meta( $download_id, '_pp_product_download_url', true ) ? get_post_meta( $download_id, '_pp_product_download_url', true ) : '';
+	
 	// overrides any variable/ multi priced options
-	if ( $external_purchase_url ) { ?>
+	if ( $external_download_url ) { 
+		// if a download has an external download URL, and is free
+		$text = '0' == edd_get_download_price( $download_id ) ? __( 'Free Download', 'pp' ) : __( 'Purchase', 'pp' );
+	?>
+
+	<?php
+		echo pp_edd_external_variable_pricing( $download_id );
+	?>
 
 	<div class="edd_download_purchase_form">
-		<a href="<?php echo esc_url( $external_purchase_url ); ?>" class="button external" target="_blank">
-			<span><?php _e( 'Purchase', 'pp' ); ?></span>
+		<a href="<?php echo esc_url( $external_download_url ); ?>" class="button external large" target="_blank">
+			<span><?php echo $text; ?></span>
 			<svg width="17px" height="16px">
 				<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-external'; ?>"></use>
 			</svg>
@@ -34,22 +41,81 @@ function pp_get_purchase_link( $download_id ) {
 
 	<?php }
 
-		// it's a free download ($0.00) so we don't want the button to say 'buy' or 'purchase'
-		elseif( '0' == edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) {
-			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false, 'text' => __( 'Add to', 'pp' ) ) );
-		}
-		// variable priced downloads
-		elseif( edd_has_variable_prices( get_the_ID() ) ) {
-			echo edd_get_purchase_link( array( 'class' => 'large primary' ) );
-		}
-		// normal downloads, don't show price on button
-		else {
-			echo edd_get_purchase_link( array( 'class' => 'large primary', 'price' => false ) );
-		}
+	// normal downloads, don't show price on button
+	else {
+		echo edd_get_purchase_link( array( 'class' => 'large', 'price' => false ) );
+	}
+
+}
+
+/**
+ * External variable pricing options
+ */
+function pp_edd_external_variable_pricing( $download_id = 0 ) {
+	global $edd_options;
+
+	$variable_pricing = edd_has_variable_prices( $download_id );
+
+	if ( ! $variable_pricing )
+		return;
+
+	$prices = apply_filters( 'edd_purchase_variable_prices', edd_get_variable_prices( $download_id ), $download_id );
 
 	?>
+	<div class="edd_price_options">
+		<ul>
+			<?php
+			if ( $prices ) :
+				foreach ( $prices as $key => $price ) :
+					echo '<li id="edd_price_option_' . $download_id . '_' . sanitize_key( $price['name'] ) . '" itemprop="offers" itemscope itemtype="http://schema.org/Offer">';
+					printf(
+						'<span class="label %1$s">%2$s</span>',
+						esc_attr( 'edd_price_option_' . $download_id . '_' . $key ), // label
+						
+						apply_filters( 'pp_test', $price )
+						
+					);
+					
+					echo '</li>';
+				endforeach;
+			endif;
+			
+			?>
+		</ul>
+	</div>
+<?php
+}
+remove_action( 'edd_after_price_option', 'edd_vpd_output_description', 10, 3 );
 
-	<?php }
+/**
+ * Outputs the description
+ * @since 1.0.2
+ */
+function pp_vpd_output_description( $price ) {
+//	var_dump( $price );
+
+//	'<span class="edd_price_option_name" itemprop="description">' . esc_html( $price['name'] ) . '</span><span class="edd_price_option_price" itemprop="price">' . edd_currency_filter( edd_format_amount( $price[ 'amount' ] ) ) . '</span>'
+	ob_start();
+	?>
+	<span class="edd_price_option_name" itemprop="description">
+	<?php 
+		echo esc_html( $price['name'] ) . '<span>' . esc_html( $price['description'] ) . '</span>';
+	?>
+	</span>
+
+
+	<span class="edd_price_option_price" itemprop="price">
+		<?php echo edd_currency_filter( edd_format_amount( $price[ 'amount' ] ) ); ?>
+	</span>
+
+
+	<?php
+	return ob_get_clean();
+}
+
+add_filter( 'pp_test', 'pp_vpd_output_description', 10, 1 );
+
+// add_action( 'edd_after_price_option', 'pp_vpd_output_description', 10, 3 );
 
 
 /**
@@ -75,16 +141,17 @@ function pp_edd_purchase_variable_pricing( $download_id = 0 ) {
 				foreach ( $prices as $key => $price ) :
 					echo '<li id="edd_price_option_' . $download_id . '_' . sanitize_key( $price['name'] ) . '" itemprop="offers" itemscope itemtype="http://schema.org/Offer">';
 					printf(
-						'<label for="%3$s"><input type="%2$s" %1$s name="edd_options[price_id][]" id="%3$s" class="%4$s" value="%5$s" %7$s/> <span class="label">%6$s</span></label>',
+						'<label for="%3$s"><input type="%2$s" %1$s name="edd_options[price_id][]" id="%3$s" class="%4$s" value="%5$s" %7$s/> <span class="price-label">%6$s</span></label>',
 						checked( apply_filters( 'edd_price_option_checked', 0, $download_id, $key ), $key, false ),
 						$type,
 						esc_attr( 'edd_price_option_' . $download_id . '_' . $key ),
 						esc_attr( 'edd_price_option_' . $download_id ),
 						esc_attr( $key ),
 						'<span class="edd_price_option_name" itemprop="description">' . esc_html( $price['name'] ) . '</span><span class="edd_price_option_sep">&nbsp;&ndash;&nbsp;</span><span class="edd_price_option_price" itemprop="price">' . edd_currency_filter( edd_format_amount( $price[ 'amount' ] ) ) . '</span>',
-						checked( isset( $_GET['price_option'] ), $key, false )
+						checked( isset( $_GET['price_option'] ), $key, false ),
+						do_action( 'edd_after_price_option', $key, $price, $download_id )
 					);
-					do_action( 'edd_after_price_option', $key, $price, $download_id );
+					
 					echo '</li>';
 				endforeach;
 			endif;
@@ -97,7 +164,6 @@ function pp_edd_purchase_variable_pricing( $download_id = 0 ) {
 }
 remove_action( 'edd_purchase_link_top', 'edd_purchase_variable_pricing', 10 );
 add_action( 'edd_purchase_link_top', 'pp_edd_purchase_variable_pricing', 10 );
-
 
 
 
@@ -247,59 +313,36 @@ function affwp_edd_thank_customer() {
  *
  * @since  1.1.9
  */
-function affwp_add_on_info( $position = '' ) {
+function pp_product_info( $position = '' ) {
 	$version               = get_post_meta( get_the_ID(), '_edd_sl_version', true );
-	$requires              = get_post_meta( get_the_ID(), '_affwp_addon_requires', true );
 	$released              = get_the_date();
-	$updated               = intval ( get_post_meta( get_the_ID(), '_affwp_addon_last_updated', true ) );
-	$edd_version_required  = get_post_meta( get_the_ID(), '_affwp_addon_edd_version_required', true );
-	$external_download_url = get_post_meta( get_the_ID(), '_affwp_addon_download_url', true );
-	$developer             = get_post_meta( get_the_ID(), '_affwp_addon_developer', true );
-	$developer_url         = get_post_meta( get_the_ID(), '_affwp_addon_developer_url', true );
+	$updated               = intval ( get_post_meta( get_the_ID(), '_pp_product_last_updated', true ) );
+	
+	$wp_plugin_slug = 'easy-digital-downloads';
+
+	$json_url = file_get_contents( 'http://api.wordpress.org/plugins/info/1.0/' . $wp_plugin_slug . '.json' );
+	
+	$obj = json_decode( $json_url );
+
+
 ?>
-	<aside class="add-on-info<?php echo ' ' . $position; ?>">
+	<aside class="product-info<?php echo ' ' . $position; ?>">
 		
 		<?php if ( $version ) : ?>
 			<p><span>Version</span> v<?php echo esc_attr( $version ); ?></p>
 		<?php endif; ?>	
 
-		<?php if ( $requires ) : ?>
-			<p><span>Requires AffiliateWP</span> v<?php echo esc_attr( $requires ); ?></p>
-		<?php endif; ?>
-
-		<?php if ( $edd_version_required ) : ?>
-			<p><span>Requires <a title="Easy Digital Downloads" target="_blank" href="http://easydigitaldownloads.com">Easy Digital Downloads</a></span> v<?php echo esc_attr( $edd_version_required ); ?></p>
-		<?php endif; ?>
-
 		<?php if ( $released ) : ?>
 			<p><span>Released </span><?php echo esc_attr( $released ); ?></p>
 		<?php endif; ?>
+
+		<p><span>Downloads </span><?php echo number_format( $obj->downloaded ); ?></p>
 
 		<?php if ( $updated ) : ?>
 		<p><span>Last Updated</span><?php echo date( 'F j, Y', $updated ); ?></p>
 		<?php endif; ?>
 		
-		<?php if ( $developer ) : ?>
 
-			<?php if ( $developer_url ) : ?>
-				<p><span>Developer </span><a href="<?php echo esc_url( $developer_url ); ?>" title="<?php echo esc_attr( $developer ); ?>" target="_blank"><?php echo esc_attr( $developer ); ?></a></p>
-			
-			<?php else : ?>
-				<p><span>Developer </span><?php echo esc_attr( $developer ); ?></p>
-			<?php endif; ?>
-
-		<?php endif; ?>
-
-
-
-		<?php if ( $external_download_url ) : ?>
-			<a title="Download Now" target="_blank" href="<?php echo esc_url( $external_download_url ); ?>" class="button">Download Now</a>
-		<?php endif; ?>
-
-
-		
-		
-		
 
 	</aside>
 	<?php

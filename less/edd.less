@@ -86,6 +86,13 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 		display: none;
 	}
 
+	.edd_price_option_name {
+		span {
+			display: block;
+			font-size: 0.875rem;
+		}
+	}
+
 	// price
 	.edd_price_option_price {
 		display: block;
@@ -95,16 +102,20 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 	li {
 		padding: 0;
 
-		label {
+		label,
+		span.label {
 			display: block;
-			cursor: pointer;
 			font-weight: 300;
 			font-size: 1rem;
 			padding: 0.75rem 1rem;
 			border: 1px solid @light-grey;
 			background: #fff;
 			.transition ( all 0.25s ease-in );
+		}
 
+		label {
+			cursor: pointer;
+			
 			&.selected {
 				.box-shadow( inset 5px 0 0 0 #74d7bf );
 				margin-left: -5px;
@@ -112,7 +123,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 		}
 	}
 
-	.label {
+	.price-label {
 		 display: inline-block;
    		 margin-left: 0rem;
 	}

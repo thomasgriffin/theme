@@ -532,11 +532,14 @@ function affwp_post_thumbnail() {
 
 	<a title="<?php the_title_attribute(); ?>" class="post-thumbnail" href="<?php the_permalink(); ?>">
 	<?php
-		if ( ( ! is_active_sidebar( 'sidebar-2' ) || is_page_template( 'page-templates/full-width.php' ) ) ) {
-			the_post_thumbnail();
-		} else {
-			the_post_thumbnail();
-		}
+		the_post_thumbnail( 'thumbnail' );
+	
+
+		// if ( ( ! is_active_sidebar( 'sidebar-2' ) || is_page_template( 'page-templates/full-width.php' ) ) ) {
+		// 	the_post_thumbnail();
+		// } else {
+		// 	the_post_thumbnail();
+		// }
 	?>
 	</a>
 

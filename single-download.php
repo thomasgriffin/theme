@@ -8,10 +8,14 @@ get_header(); ?>
 <?php affwp_page_header(); ?>
 
 <section class="section columns-3 columns">
-	<div class="col left">
-		<?php echo affwp_add_on_info( 'left' ); ?>
 
-		
+	<?php 
+	/**
+	 * Product information
+	 */
+	?>
+	<div class="col left">
+		<?php echo pp_product_info( 'left' ); ?>
 	</div>
 	
 	<div class="primary col">

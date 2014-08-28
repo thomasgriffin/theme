@@ -8,22 +8,25 @@
 
 <div class="primary-sidebar widget-area col right" role="complementary">
 
-	<?php 
+	<?php echo pp_get_purchase_link( get_the_ID() ); ?>
 
-	echo pp_get_purchase_link( get_the_ID() );
 
-	//edd_get_purchase_link( array( 'download_id' => get_the_ID() ) ); 
-	?>
 
-	<section class="support">
-
-		<a href="<?php echo site_url( 'plugin-support' ); ?>" title="Get Support">
-		<svg width="32px" height="32px" viewBox="0 0 32 32">
+	<div class="support box">
+		<h2>100% Supported</h2>
+		<p><?php echo the_title(); ?> is a well supported product.</p>
+		
+		<?php /*
+		<svg width="32px" height="32px">
 		   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-support-2'; ?>"></use>
 		</svg>
-		Get Support
+		*/ ?>
+	
+		<a href="<?php echo site_url( 'plugin-support' ); ?>" title="Get Support" class="button">
+		
+		Get Support Now
 		</a>
-	</section>
+	</div>
 
 	<?php 
 		$connected = new WP_Query( array(
@@ -34,7 +37,7 @@
 	?>
 
 	<?php if ( $connected->have_posts() ) : ?>
-	<section class="documentation">
+	<div class="documentation box">
 	<h3>Related Documentation</h3>
 		<ul>
 	    <?php while ( $connected->have_posts() ) : $connected->the_post(); ?>  
@@ -45,8 +48,23 @@
 			</li>
 	    <?php endwhile; wp_reset_postdata(); ?>
 	   </ul>	
-	</section>
+	</div>
 	<?php endif; ?>
 
+
+	<?php
+
+
+
+
+// 	$json = 'http://api.wordpress.org/plugins/info/1.0/easy-digital-downloads.json';
+
+// 	$safe_json = str_replace("\n", "\\n", $json);
+
+	
+
+// var_dump(json_decode($safe_json));
+
+	?>
 
 </div>

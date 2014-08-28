@@ -8,6 +8,7 @@ get_header(); ?>
 <?php affwp_page_header(); ?>
 
 <div class="primary content-area">
+	<div class="wrapper">
 	<?php if ( have_posts() ) : ?>
 
 		<?php
@@ -31,7 +32,7 @@ get_header(); ?>
 
 		endif;
 	?>
-
+	</div>
 </div>
 
 
