@@ -1,4 +1,49 @@
+// WordPress galleries
+.gallery {
+	text-align: justify;
+
+	.gallery-item {
+		display: inline-block;
+		margin: 0 0 2rem 0;
+		vertical-align: top;
+		max-width: 100%;
+
+		a {
+			display: block;
+		}
+	}
+
+}
+
 // clearfix
+.gallery:after {
+	content: "";
+	display: inline-block;
+	width: 100%;
+}
+
+@media only screen and ( min-width: 480px ) {
+	.gallery {
+		&.gallery-columns-3 .gallery-item,
+		&.gallery-columns-2 .gallery-item {
+			width: 47%;
+		}
+	}
+}
+
+@media only screen and ( min-width: 1024px ) {
+	.gallery {
+		&.gallery-columns-3 .gallery-item {
+			width: 31%;
+		}
+	}
+}
+
+// clearfix
+
+
+
+
 .image-gallery:after {
   content: "";
   display: inline-block;

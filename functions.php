@@ -22,6 +22,7 @@ require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'template-tags.php' );
 //require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'post-types.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'documentation.php' );
 
+require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'gallery.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'account.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'comment.php' );
