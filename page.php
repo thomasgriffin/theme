@@ -6,8 +6,6 @@
  * Please note that this is the WordPress construct of pages and that
  * other 'pages' on your WordPress site will use a different template.
  *
- * @package WordPress
- * @since AffiliateWP 1.0
  */
 
 get_header(); ?>
@@ -33,12 +31,6 @@ get_header(); ?>
 
 	</div>
 </div>
-
-<?php
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	}
-?>
 
 <?php
 get_footer();
