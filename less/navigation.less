@@ -1,6 +1,6 @@
 // navigation
 
-@secondary-color: #E44E44;
+@secondary-color: #072460;
 
   a.cart.hidden {
     visibility: hidden;
@@ -213,19 +213,25 @@
           -moz-transition: none; 
           -o-transition: none; 
           transition: none;
+
         }
 
         &:hover {
             > a {
                background-color: @secondary-color;
+               .box-shadow (none);
             } 
+        }
+
+        ul {
+           a { padding: 1rem 1.5rem; }
         }
       }
 
       ul li:hover > a {
         color: #fff;
         text-decoration: none;
-        background: darken( @accent-color, 3% );
+        background: darken( @secondary-color, 3% );
       }
 
       // only for the first <li> that has a sub menu
