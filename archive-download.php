@@ -26,14 +26,18 @@ get_header(); ?>
 		    
 			<?php if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
 
-				<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+				<?php if ( ! has_post_thumbnail() ) : ?>
+					<h2>
+						<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+				    		<?php the_title(); ?>
+				    	</a>
+			    	</h2>
 
-	    		<?php /*<h2>
-					<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-			    		<?php the_title(); ?>
-			    	</a>
-		    	</h2> */ ?>
+			    <?php else : ?>
+			    	<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
 
+				<?php endif; ?>
+				
 		    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
 		    	
 		    	<?php /*	  	

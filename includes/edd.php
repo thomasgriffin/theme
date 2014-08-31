@@ -326,7 +326,8 @@ function pp_product_info( $position = '' ) {
 	$version             = $is_edd && $pp_show_plugin_info ? $pp_show_plugin_info->get_info( $slug, 'version' ) : get_post_meta( get_the_ID(), '_edd_sl_version', true );
 ?>
 	<aside class="box product-info<?php echo ' ' . $position; ?>">
-	
+		
+
 		<?php if ( $version ) : ?>
 			<p><span>Version</span> v<?php echo esc_attr( $version ); ?></p>
 		<?php endif; ?>	
