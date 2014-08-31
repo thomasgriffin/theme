@@ -324,6 +324,9 @@ function pp_product_info( $position = '' ) {
 	$downloads           = $pp_show_plugin_info ? number_format( $pp_show_plugin_info->get_info( $slug, 'downloaded' ) ) : '';
 	$released            = $is_edd && $pp_show_plugin_info ? $pp_show_plugin_info->get_info( $slug, 'added' ) : get_the_date();
 	$version             = $is_edd && $pp_show_plugin_info ? $pp_show_plugin_info->get_info( $slug, 'version' ) : get_post_meta( get_the_ID(), '_edd_sl_version', true );
+
+	$changelog = stripslashes( wpautop( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ), true ) );
+					
 ?>
 	<aside class="box product-info<?php echo ' ' . $position; ?>">
 		
@@ -349,7 +352,51 @@ function pp_product_info( $position = '' ) {
 		<?php if ( $updated ) : ?>
 		<p><span>Last Updated</span><?php echo date( 'F j, Y', $updated ); ?></p>
 		<?php endif; ?>
-	
+
+		<?php if ( $changelog ) : ?>
+			<p><span>Changelog </span><a id="show-changelog" href="#changelog">View changelog</a></p>
+
+			<div id="changelog" class="entry-content" style="display: none;">
+				<h1>Changelog</h1>
+				<?php echo $changelog; ?>
+			</div>
+		<?php endif; ?>
+			
+		
+		
+
 	</aside>
 	<?php
 }
+
+/**
+ * Terms and conditions
+ */
+function pp_product_changelog() {
+
+	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+
+	if ( ! is_singular( 'download' ) || ! $changelog ) {
+		return;
+	}
+
+	?>
+
+	<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery("#show-changelog").fancybox({
+					type: 'inline',
+				//	padding: 32,
+					maxWidth: 720,
+					helpers: {
+				    overlay: null
+				  },
+				openEffect	: 'elastic',
+				closeEffect	: 'elastic'
+				});
+			});
+		</script>
+
+	<?php
+}
+add_action( 'wp_footer', 'pp_product_changelog', 100 );
