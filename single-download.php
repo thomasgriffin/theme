@@ -51,7 +51,7 @@ get_header(); ?>
 			echo easy_image_gallery(); 
 		}
 	
-		if ( easy_image_gallery_count_images() > 4 ) { ?>
+		if ( function_exists( 'easy_image_gallery_count_images' ) && easy_image_gallery_count_images() > 4 ) { ?>
 				<a href="#" id="show-gallery-images" class="button">Show more images</a>
 		<?php }
 	?>
