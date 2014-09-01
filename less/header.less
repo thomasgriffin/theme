@@ -2,14 +2,12 @@
 
 // the entry header used for headings and subheadings
 .page-header {
-//	margin: 0 -2rem 3rem -2rem;
-	padding: 4rem;
+	padding: 2rem 0;
 	text-align: center;
 	
 
 	h1, h2 {
 		margin: 0 auto;
-	//	max-width: 1220px;
 		color: #4a7e9a;
 	
 	}
@@ -54,15 +52,6 @@
 	 }
 }
 
-// turn off box-shadow
-// .addons,
-// .tax-doc_category,
-// .docs,
-// .documentation {
-// 	.page-header {
-// 		.box-shadow( none );
-// 	}
-// }
 
 // sub headers
 .sub-header {
@@ -70,5 +59,11 @@
 
 	h2 {
 		margin-bottom: 2rem;
+	}
+}
+
+@media only screen and ( min-width: 1024px ) {
+	.page-header {
+		padding: 4rem 0;	
 	}
 }

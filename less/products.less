@@ -30,15 +30,46 @@
 	
 }
 
-.single-download {
-	.product-info p {
+aside.product-info p {
 		margin-bottom: 0.875rem;
+	}
+
+// .single-download {
+	
+// }
+
+.product-info {
+//	font-size: 1rem;
+
+	&.left {
+		display: none;
+	}
+	span {
+		 display: block;
+		 text-transform: uppercase;
+		font-size: 0.875rem;
+		font-weight: 500;
 	}
 }
 
+@media only screen and ( min-width: 1024px ) {
+	.page-header .purchase {
+		display: none;
+	}
+}
 
+// addon and single download 3 columns
+@media only screen and ( min-width: 1440px ) {
+	   // hides add on info box
+      .product-info.right {
+        display: none;
+      }
 
-
+        // hides add on info box
+      .product-info.left {
+        display: block;
+      }
+}
 
 
 
@@ -101,11 +132,7 @@
 .single {
 
 	.col.left {	
-		span {
-			text-transform: uppercase;
-			font-size: 0.875rem;
-			font-weight: 500;
-		}
+		
 		
 		.button {
 			margin: 1rem 0;

@@ -8,10 +8,10 @@
 
 <div class="primary-sidebar widget-area col right" role="complementary">
 
-<?php //affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
 
 	<?php echo pp_get_purchase_link( get_the_ID() ); ?>
 
+	<?php echo pp_product_info( 'right' ); ?>
 
 	<?php
 		$support_url = get_post_meta( get_the_ID(), '_pp_product_support_url', true ) ? get_post_meta( get_the_ID(), '_pp_product_support_url', true ) : site_url( 'plugin-support' );

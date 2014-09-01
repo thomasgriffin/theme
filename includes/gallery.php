@@ -205,6 +205,9 @@ function affwp_gallery_shortcode( $attr ) {
 				</{$captiontag}>";
 		}
 		$output .= "</{$itemtag}>";
+
+		
+
 		if ( ! $html5 && $columns > 0 && ++$i % $columns == 0 ) {
 			$output .= '<br style="clear: both" />';
 		}
@@ -214,6 +217,9 @@ function affwp_gallery_shortcode( $attr ) {
 		$output .= "
 			<br style='clear: both' />";
 	}
+
+	// ADDED 
+		$output .= ' <div class="gap"></div> <div class="gap"></div>';
 
 	$output .= "
 		</div>\n";

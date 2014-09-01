@@ -11,7 +11,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<!-- <header class="entry-header"> -->
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 
 		<div class="entry-thumbnail">
@@ -34,7 +34,7 @@
 
 		<?php endif; ?>
 
-		<div class="entry-meta">
+		<!-- <div class="entry-meta"> -->
 			<?php /*
 			<span class="comments">
 				<?php comments_popup_link( __( '0', 'affwp' ), __( '1', 'affwp' ), __( '%', 'affwp' ) ); ?>
@@ -44,11 +44,11 @@
 			</span>
 			*/ ?>
 		
-			<?php affwp_posted_on(); //twentythirteen_entry_meta(); ?>
+			<?php //affwp_posted_on(); //twentythirteen_entry_meta(); ?>
 			<?php // edit_post_link( __( 'Edit', 'twentythirteen' ), '<span class="edit-link">', '</span>' ); ?>
-		</div>
+		<!-- </div> -->
 
-	</header>
+	<!-- </header> -->
 
 	<?php if ( is_search() || is_home() ) : // Only display Excerpts for Search ?>
 

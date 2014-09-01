@@ -1,16 +1,141 @@
-// #masthead {
-// 	h2 {
-		
-// 		color: #8ec5e2;
-// 	}
+html.ie {
+	background: none;
+	padding: 1000px;
+}
 
-// 	h1 {		
-// 		 margin: 0 auto 0 auto;
-// 		 color: #4a7e9a;
-// 		 font-weight: 600;
-// 		 text-align: center;
-// 		 word-wrap: normal;
-// 	//	 line-height: 1.2;
-// 		 font-size: 4rem;
-// 	}
+
+#masthead {
+	text-align: justify;
+	font-size: 0;
+	padding: 0 1rem;
+	position: relative;
+	background: rgb(7, 36, 96); // fallback for older browsers, including IE9
+	background: -moz-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
+	background: -webkit-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
+	background: -o-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
+	background: -ms-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
+	background: linear-gradient(343deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#072460', endColorstr='#74d7bf', GradientType=0 ); /* IE6-9 */
+
+	h1 {
+		color: #e1f0f8;
+		font-size: 3.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	h2 {
+		color: #bee8ff;
+		font-size: 1.75rem;
+
+	}
+	.button {
+		background: rgba( 7, 36, 96, .1 );
+		border: none;
+		padding: 24px 32px;
+		text-transform: uppercase;
+		font-size: 19.2px;
+		font-weight: 500;
+		color: #e1f0f8;
+
+
+		&:hover {
+	//			 .box-shadow(inset 0 0 0 3px #fff );
+		//	 background: rgba(0, 0, 0, 0.15);
+		//	 background: rgba( 7, 36, 96, .2 );
+		}
+	}
+
+	> .wrapper .col {
+		width: 100%;
+		vertical-align: top;
+
+		&.col-1, &.col-2 {
+			text-align: center;
+
+		}
+
+	}
+}
+
+// target only ie 10 and newer
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+  #masthead {
+  		font-size: 0.1px;
+  	}
+}
+
+
+
+
+// #masthead .search-form {
+// 	position: absolute;
+// 	z-index: 100;
 // }
+
+// #masthead .search-field {
+// 	background-color: transparent;
+// 	background: url( 'images/search.svg' ) no-repeat 24px 50%;
+// 	background-size: 24px 24px;
+
+// 	border: none;
+// 	cursor: pointer;
+// 	margin: 0;
+// //	padding: 2rem;
+// 	position: relative;
+// 	.transition( all 0.25s ease );
+// 	// -webkit-transition: all 400ms ease-out, background 400ms ease-out;
+// 	// transition:         all 400ms ease-out, background 400ms ease-out;
+// 	width: 0;
+// }
+
+// #masthead .search-field:focus {
+// 	background-color: #fff;
+// 	cursor: text;
+// 	outline: 0;
+// 	width: 224px;
+// 	background-position: 240px 50%;
+// }
+
+
+
+#masthead .wrapper:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+#masthead-logo {
+	display: block;
+	padding: 16px;	
+}
+
+
+@media only screen and ( min-width: 1024px ) {
+
+
+ #masthead {
+ 	text-align: justify;
+
+ 	> .wrapper .col {
+ 		display: inline-block;
+ 		width: 10%;
+ 		vertical-align: top;
+
+ 		&.col-1 {
+ 			text-align: left;
+ 		}
+
+ 		&.col-2 {
+ 			width: 75%;
+ 		//	text-align: center;
+ 		}
+
+ 		&.col-3 {
+ 			.cart, .search-form {
+ 				display: inline-block;
+ 			}
+ 		}
+ 	}
+ }
+
+}

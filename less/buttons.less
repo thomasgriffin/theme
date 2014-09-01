@@ -43,20 +43,25 @@
   // icon
   svg { 
     position: absolute;
-    top: 18px;
+    top: 50%;
     right: 18px;
+    margin-top: -9px;
     .transition ( all 0.2s linear );
   }
 
   &.external {
     padding-right: 3rem;
     position: relative;
+   
+  }
+
+  &.wide {
     width: 100%;
   }
 
   &.external:hover {
     svg {
-      top: 14px;
+      top: 40%;
       right: 14px;
     }
   }

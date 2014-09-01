@@ -10,8 +10,7 @@ function pp_load_navigation() {
 		ob_start();
 	?>
 
-	<?php pp_show_cart_quantity_icon(); ?>
-	<?php get_search_form(); ?>	
+	
 
 	<nav id="main" class="site-navigation primary-navigation" role="navigation">
 	<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'affwp' ); ?></a>
@@ -32,7 +31,7 @@ function pp_load_navigation() {
 <?php 
 	echo ob_get_clean(); 
 }
-add_action( 'pp_masthead', 'pp_load_navigation' );
+add_action( 'pp_masthead_col_2', 'pp_load_navigation' );
 
 /**
  * Append cart onto primary navigation

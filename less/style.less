@@ -9,7 +9,8 @@
 @import 'gallery';
 
 @import 'structure';
-@import 'typography';
+//@import 'typography';
+
 @import 'masthead';
 @import 'header';
 @import 'edd';
@@ -47,6 +48,7 @@
 
 body, html {
 	height: 100%;
+	font-size: 100%;
 }
 
 body {
@@ -54,6 +56,7 @@ body {
 //	background: #e5edf1;
 	background: #e1f0f8;
 	background: rgba(97, 141, 235, 0.08);
+	line-height: 1.5;
 }
 
 
@@ -94,17 +97,8 @@ a {
 
 
 
-#masthead-logo {
-	display: block;
-	// position: absolute;
-	// top: 0;
-	// left: 0;
-	font-size: 0;
-//	background: #8ec5e2;
-	padding: 1rem 1.5rem;
 
-	
-}
+
 
 // #masthead {
 // 	h1 {
@@ -373,3 +367,7 @@ and (max-device-width : 1024px ) {
 		// padding-right: 4rem;
 	}
 }
+
+@import 'masthead';
+@import 'widgets';
+@import 'typography-new';

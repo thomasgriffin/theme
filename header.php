@@ -8,13 +8,11 @@
  * @since AffiliateWP 1.0
  */
 ?><!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7" <?php language_attributes(); ?>>
+<!--[if IE]>
+<html class="ie no-js" <?php language_attributes(); ?>>
 <![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
+
+<!--[if !(IE) ]><!-->
 <html <?php language_attributes(); ?> class="no-js">
 <!--<![endif]-->
 <head>
@@ -36,13 +34,29 @@
 
 	<div id="masthead">
 		
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="masthead-logo" rel="home" title="<?php echo get_bloginfo( 'name' ); ?>">
-			<svg width="40px" height="48px" viewBox="0 0 40 48">
-				<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-logo'; ?>"></use>
-			</svg>
-		</a>
+	<div class="wrapper">
+		<div class="col col-1">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="masthead-logo" rel="home" title="<?php echo get_bloginfo( 'name' ); ?>">
+				<svg width="40px" height="48px" viewBox="0 0 40 48">
+					<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-logo'; ?>"></use>
+				</svg>
+			</a>
+		</div>
 
-		<?php do_action( 'pp_masthead' ); ?>
+		<div class="col col-2">
+			<?php do_action( 'pp_masthead_col_2' ); ?>
+		</div>
+
+		<div class="col col-3">
+			<?php //do_action( 'pp_masthead_col_3' ); ?>
+
+			<?php pp_show_cart_quantity_icon(); ?>
+			<?php get_search_form(); ?>	
+		</div>
+	</div>
+		
+
+		
 
 		<?php if ( is_home() ) : ?>
 			<header class="page-header">
@@ -50,7 +64,6 @@
 				<h2>Finely crafted WordPress plugins, tutorials, reviews and more</h2>
 				
 				<a class="button huge" href="<?php echo site_url( 'products' ); ?>">View the plugins</a>
-				
 			</header>
 
 			<section class="section columns columns-3 products">

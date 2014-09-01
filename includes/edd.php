@@ -10,6 +10,33 @@
  */
 remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
 
+/**
+ * Shows a purchase link in the header at mobile sizes which links to the pricing form
+ *
+ * @since 1.0
+ */
+function pp_mobile_purchase_link() {
+	$external_download_url = get_post_meta( get_the_ID(), '_pp_product_download_url', true ) ? get_post_meta( get_the_ID(), '_pp_product_download_url', true ) : '';
+
+	$text = '0' == edd_get_download_price( get_the_ID() ) ? __( 'Free Download', 'pp' ) : __( 'Purchase', 'pp' );
+	
+	if ( $external_download_url ) :	?>
+
+	
+		<a href="<?php echo esc_url( $external_download_url ); ?>" class="button external large purchase" target="_blank">
+			<span><?php echo $text; ?></span>
+			<svg width="17px" height="16px">
+				<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-external'; ?>"></use>
+			</svg>
+		</a>
+	
+
+	<?php else : ?>
+
+	<a href="#<?php echo 'edd_purchase_' . get_the_ID(); ?>" class="button large purchase"><?php echo $text; ?></a>
+<?php endif;
+}
+add_action( 'affwp_page_header_end', 'pp_mobile_purchase_link' );
 
 /**
  * Custom Purchase button
@@ -31,7 +58,7 @@ function pp_get_purchase_link( $download_id ) {
 	?>
 
 	<div class="edd_download_purchase_form">
-		<a href="<?php echo esc_url( $external_download_url ); ?>" class="button external large" target="_blank">
+		<a href="<?php echo esc_url( $external_download_url ); ?>" class="button external large wide" target="_blank">
 			<span><?php echo $text; ?></span>
 			<svg width="17px" height="16px">
 				<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-external'; ?>"></use>

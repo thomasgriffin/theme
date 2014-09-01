@@ -7,6 +7,8 @@ get_header(); ?>
 
 <?php affwp_page_header(); ?>
 
+
+
 <section class="section columns-3 columns">
 
 	<?php 
@@ -17,7 +19,7 @@ get_header(); ?>
 	<div class="col left">
 		<?php echo pp_product_info( 'left' ); ?>
 		
-		<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+		<?php //affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
 	</div>
 	
 	<div class="primary col">
@@ -42,14 +44,12 @@ get_header(); ?>
 
 <?php 
 	$has_gallery_images = get_post_meta( get_the_ID(), '_easy_image_gallery', true );
-	if ( $has_gallery_images ) : ?>
+	if ( $has_gallery_images && function_exists( 'easy_image_gallery' ) ) : ?>
 <section class="easy-image-gallery">
 	<h1>Take a closer look</h1>
 	<h2>Click on each image for a larger view</h2>
 	<?php 
-		if ( function_exists( 'easy_image_gallery' ) ) {
-			echo easy_image_gallery(); 
-		}
+		echo easy_image_gallery(); 
 	
 		if ( function_exists( 'easy_image_gallery_count_images' ) && easy_image_gallery_count_images() > 4 ) { ?>
 				<a href="#" id="show-gallery-images" class="button">Show more images</a>
