@@ -37,7 +37,7 @@
 @import 'mobile';
 //@import 'desktop';
 
-
+@body-bg-color: rgba(97, 141, 235, 0.08);
 @primary-color: #8ec5e2;
 @accent-color: #6BC145;
 @light-grey: #f7f7f7;
@@ -54,17 +54,17 @@ body, html {
 body {
 	font-family: 'Graphik Web', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
 //	background: #e5edf1;
-	background: #e1f0f8;
-	background: rgba(97, 141, 235, 0.08);
+//	background: #e1f0f8;
+	background: @body-bg-color;
 	line-height: 1.5;
 }
 
 
-blockquote {
-	footer {
-		color: @body-text-color;
-	}
-}
+// blockquote {
+// 	footer {
+// 		color: @body-text-color;
+// 	}
+// }
 
 
 .entry-content {
@@ -370,4 +370,5 @@ and (max-device-width : 1024px ) {
 
 @import 'masthead';
 @import 'widgets';
+@import 'restrict-content-pro';
 @import 'typography-new';

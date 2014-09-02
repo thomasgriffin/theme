@@ -13,13 +13,14 @@ if ( ! defined( 'AFFWP_INCLUDES_DIR' ) )
 //require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'home.php' );
 
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'scripts.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'easy-image-gallery.php' );
+
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'sharing.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'gforms.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'ajax-functions.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'navigation.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'template-tags.php' );
 //require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'post-types.php' );
+require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'testimonials.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'documentation.php' );
 
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'gallery.php' );
@@ -27,10 +28,14 @@ require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'account.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'comment.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'checkout.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'edd.php' );
+
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'custom-filters.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'blog.php' );
 
+// plugin mods
+require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'easy-image-gallery.php' );
+require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'restrict-content-pro.php' );
+require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'edd.php' );
 
 /**
  * Set up the content width value based on the theme's design.
@@ -188,6 +193,12 @@ function affwp_body_classes( $classes ) {
 	
 	if ( is_page_template( 'page-templates/pricing.php' ) )
 		$classes[] = 'pricing';
+
+	if ( is_page_template( 'page-templates/join-the-site.php' ) )
+		$classes[] = 'join';
+
+	if ( is_page_template( 'page-templates/no-sidebar.php' ) )
+		$classes[] = 'no-sidebar';
 
 	if ( is_page_template( 'page-templates/support.php' ) )
 		$classes[] = 'support';

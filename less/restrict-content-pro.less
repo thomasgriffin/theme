@@ -1,0 +1,71 @@
+.rcp_form {
+
+	.col {
+		margin-bottom: 0;
+	}
+
+	fieldset {
+		margin-bottom: 1rem;
+	}
+
+	p label {
+		margin-bottom: 0.5rem;
+		font-weight: 400;
+	}
+
+	.description {
+		font-size: 0.875rem;
+		margin-top: 0.25rem;
+		display: block;
+	}
+}
+
+.rcp_subscription_message {
+	font-weight: 400;
+}
+
+#rcp_subscription_levels {
+	list-style-type: none;
+	margin: 0;
+}
+
+.rcp_subscription_level {
+	padding: 0;
+
+	input {
+		margin: 0.5rem 1rem 0 0;
+		vertical-align: top;
+	}
+
+	label {
+		cursor: pointer;
+		display: block;
+		font-weight: 300;
+		font-size: 1rem;
+		padding: 0.75rem 1rem;
+		border: 1px solid @light-grey;
+		background: #fff;
+		.transition ( all 0.25s ease-in );
+
+
+		&.selected {
+			.box-shadow( inset 5px 0 0 0 #74d7bf );
+			margin-left: -5px;
+		}
+	}
+
+	.rcp_level_description {
+		display: block;
+		font-size: 0.875rem;
+	}
+
+	.rcp_price,
+	.rcp_level_duration {
+		font-weight: 500;
+	}
+
+	.label {
+		 display: inline-block;
+   		 max-width: 87%;
+	}
+}

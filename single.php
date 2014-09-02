@@ -17,7 +17,8 @@ get_header(); ?>
 ?>
 
 <section class="section columns-3 columns">
-	<div class="col left">
+
+	<div class="col left box">
 		<?php //echo get_avatar( get_the_author_meta('email'), '80' ); ?>
 		
 		<p>

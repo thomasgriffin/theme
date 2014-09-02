@@ -8,7 +8,7 @@ section.columns {
 // columns
 .columns {
   text-align: justify;
-  font-size: 0.1px;
+//  font-size: 0.1px;
 
   .col, .gap {
     display: inline-block;
@@ -20,7 +20,9 @@ section.columns {
     text-align: left;
     width: 100%;
     margin-bottom: 4%;
-    font-size: 1rem;
+ //   background: blue;
+//    font-size: 1rem;
+  //  font-size: 18px;
 
     p:last-child {
       margin-bottom: 0;
@@ -43,7 +45,6 @@ section.columns {
     }
 
     .recent + ul {
-    //  margin: 0 -1rem;
 
       li a {
         border-bottom: 1px solid @light-grey;
@@ -63,7 +64,9 @@ section.columns {
 }
 
 
-
+.entry-summary {
+//  font-size: 18px;
+}
 
 // 2 columns
 @media all and ( min-width: 600px ) {
@@ -83,7 +86,7 @@ section.columns {
   }
 }
 
-// // 3 columns
+// 3 columns
 @media only screen and ( min-width: 768px ) {
 
   .columns-3 {
@@ -107,9 +110,6 @@ section.columns {
       .col.left {
         width: 100%;
 
-        // p {
-        //   margin-bottom: 0;
-        // }
       }
 
       .primary {
@@ -124,12 +124,13 @@ section.columns {
 @media only screen and ( min-width: 1024px ) {
 
  .columns-main-side {
+
    .col {
         width: 62%;
    }
 
-   .col + .col {
-       width: 36%;
+   .primary-sidebar {
+      width: 36%;
        max-width: 300px;
    }
  }
@@ -146,17 +147,6 @@ section.columns {
 
       .columns-3 {
 
-        
-
-     
-
-     
-
-        .col.bdr {
-       //   border-top: 5px solid @accent-color;
-       //   padding-top: 1rem;
-        }
-
         .col.left {
           display: inline-block;
            width: 25%;
@@ -170,8 +160,6 @@ section.columns {
 
          .col.right {
           max-width: 300px;
-          // width: 25%;
-       //   background: red;
         }
 
         // main column
@@ -180,11 +168,6 @@ section.columns {
         }
       }
 
-      // &.pricing {
-      //   .col {
-      //     width: 31%;
-      //   }
-      // }
   }
 
   #secondary {
@@ -198,10 +181,6 @@ section.columns {
 
 // 4 columns
 @media all and ( min-width: 1220px ) {
-  // .columns .gap,
-  // .columns .col {
-  //   width: 22%;
-  // }
 
   .testimonials .col.wide {
     width: 74.5%;
@@ -214,48 +193,16 @@ section.columns {
     }
   }
 
-  // .primary-sidebar {
-  //   .col {
-  //     width: 70%;
-  //   }
-
-  //   .col + .col {
-  //     width: 20%;
-  //   }
-  // }
-
-  // .columns-main-side {
-  //   .col {
-  //        width: 58%;
-  //   }
-
-  //   .col + .col {
-  //       width: 36%;
-  //       max-width: 300px;
-  //   }
-  // }
-
 }
 
 .affiliates .entry-content {
   text-align: justify;
 }
 
-// flexbox
-// revisit this
-section.columns .wrapper {
-  // display: -webkit-flex;
-  // -webkit-flex-flow: row wrap;
-  // -webkit-justify-content: space-between;
-  // -webkit-align-content: flex-start;
-}
-
-
 // clearfix
 .affiliates .entry-content:after,
 .columns:after,
 .affiliates:after,
-#slider-nav:after,
 .columns .wrapper:after,
 section.used-by ul:after,
 .pre-sale:after,
@@ -265,4 +212,30 @@ section.used-by ul:after,
   content: "";
   display: inline-block;
   width: 100%;
+}
+
+// any overrides for the column responsive should go here
+
+
+
+@media all and ( min-width: 600px ) {
+
+
+  .no-sidebar {
+    .columns-2 {
+      .gap,
+      .col {
+        width: 40%;
+      }
+    }
+
+
+  }
+
+
+  
+
+  
+
+
 }

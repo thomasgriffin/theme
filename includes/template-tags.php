@@ -221,9 +221,10 @@ add_shortcode( 'show_shortcode', 'affwp_show_shortcode' );
 function affwp_page_header( $header = '', $sub_header = '' ) {
 	global $post;
 
-
 	?>
+	<?php do_action( 'affwp_page_header_before' ); ?>
 	<header class="page-header">
+
 		<?php affwp_the_title( $header ); ?>
 
 		<?php
@@ -238,6 +239,7 @@ function affwp_page_header( $header = '', $sub_header = '' ) {
 		<?php do_action( 'affwp_page_header_end' ); ?>
 
 	</header>
+	<?php do_action( 'affwp_page_header_after' ); ?>
 <?php }
 
 /**

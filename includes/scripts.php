@@ -191,4 +191,4 @@ function pp_offset_admin_bar() {
 		<style>#masthead-logo,#masthead .search-form,#masthead .cart{top:32px;}</style>
 	<?php }
 }
-add_action( 'wp_head', 'pp_offset_admin_bar', 100 );
+//add_action( 'wp_head', 'pp_offset_admin_bar', 100 );

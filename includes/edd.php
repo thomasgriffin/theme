@@ -16,6 +16,11 @@ remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
  * @since 1.0
  */
 function pp_mobile_purchase_link() {
+
+	if ( ! is_singular( 'download' ) ) {
+		return;
+	}
+
 	$external_download_url = get_post_meta( get_the_ID(), '_pp_product_download_url', true ) ? get_post_meta( get_the_ID(), '_pp_product_download_url', true ) : '';
 
 	$text = '0' == edd_get_download_price( get_the_ID() ) ? __( 'Free Download', 'pp' ) : __( 'Purchase', 'pp' );
@@ -99,7 +104,7 @@ function pp_edd_external_variable_pricing( $download_id = 0 ) {
 						'<span class="label %1$s">%2$s</span>',
 						esc_attr( 'edd_price_option_' . $download_id . '_' . $key ), // label
 						
-						apply_filters( 'pp_test', $price )
+						apply_filters( 'pp_vpd', $price )
 						
 					);
 					
@@ -140,7 +145,7 @@ function pp_vpd_output_description( $price ) {
 	return ob_get_clean();
 }
 
-add_filter( 'pp_test', 'pp_vpd_output_description', 10, 1 );
+add_filter( 'pp_vpd', 'pp_vpd_output_description', 10, 1 );
 
 // add_action( 'edd_after_price_option', 'pp_vpd_output_description', 10, 3 );
 

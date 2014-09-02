@@ -1,10 +1,6 @@
 <?php
 /**
- * Template Name: Full Width
- *
- * @package WordPress
- * @subpackage Twenty_Fourteen
- * @since Twenty Fourteen 1.0
+ * Template Name: No Sidebar
  */
 
 get_header(); ?>
@@ -26,9 +22,9 @@ get_header(); ?>
 </div>
 
 <?php
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	}
+	// if ( comments_open() || get_comments_number() ) {
+	// 	comments_template();
+	// }
 ?>
 
 <?php

@@ -9,12 +9,13 @@
 // 	padding: 4rem;
 // }
 
-.pricing .primary {
+.join .primary {
 	max-width: 1316px;
 	padding: 0;
+//	display: block;
 }
 
-.pricing .columns-3 {
+.join .columns-3 {
 	text-align: center;
 
 	.wrapper {
@@ -26,11 +27,13 @@
 	}
 }
 
-.clause {
-	max-width: 900px;
-	margin: 0 auto;
-	font-size: 1rem;
+.free-plan {
+	margin: 0 auto 4rem auto;
 	text-align: center;
+	
+	a {
+		font-weight: 500;
+	}
 }
 
 section.section.pre-sale-questions {
@@ -55,6 +58,10 @@ section.section.pre-sale-questions {
 	height: 100%;
 	margin-bottom: 2rem;
 	font-weight: 300;
+
+	p {
+		margin-bottom: 0;
+	}
 
 	h2 {
 		margin-bottom: 0;
@@ -82,8 +89,8 @@ section.section.pre-sale-questions {
 			font-weight: 500;
 		}
 
-		&.developer {
-			border: 8px solid @primary-color;			
+		&.best-value {
+			border: 10px solid #74d7bf;			
 			z-index: 1;
 			position: relative;
 			background: #fff;
@@ -106,10 +113,6 @@ section.section.pre-sale-questions {
 			margin-bottom: 0;
 			line-height: 1.5;
 		}
-	}
-
-	.name {
-
 	}
 }
 
@@ -134,10 +137,10 @@ section.section.pre-sale-questions {
 		position: relative;
 		display: inline-block;
 		
-		&.developer {
+		&.best-value {
 			margin: -2rem -2rem;
 			width: 36%;
-			min-height: 28rem;
+			min-height: 30rem;
 
 			h2 {
     			font-size: 2.5rem;
