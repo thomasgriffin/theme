@@ -9,12 +9,6 @@ get_header();
 
 <?php affwp_page_header(); ?>
 
-<?php while ( have_posts() ) : the_post(); ?>
-
-	<?php get_template_part( 'content', 'page' ); ?>
-
-<?php endwhile;  wp_reset_postdata(); // end of the loop. ?>
-
 <?php
 	/**
 	 * Displays the most recent post

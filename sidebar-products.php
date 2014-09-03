@@ -18,7 +18,7 @@
 		$target     = get_post_meta( get_the_ID(), '_pp_product_support_url', true ) ? ' target="_blank"' : '';
 	// make dynamic
 	?>
-	<div class="support box highlight">
+	<div class="support box">
 		<h2>Need Help?</h2>
 		<p>For support related questions, please <a href="<?php echo esc_url( $support_url ); ?>" title="Support"<?php echo $target ;?>>open a support ticket</a>.</p>
 		

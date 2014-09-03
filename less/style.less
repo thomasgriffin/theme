@@ -37,7 +37,8 @@
 @import 'mobile';
 //@import 'desktop';
 
-@body-bg-color: rgba(97, 141, 235, 0.08);
+//@body-bg-color: rgba(97, 141, 235, 0.08);
+@body-bg-color: #fff;
 @primary-color: #8ec5e2;
 @accent-color: #6BC145;
 @light-grey: #f7f7f7;
@@ -251,7 +252,7 @@ and (max-device-width : 1024px ) {
 
 
 #content {
-	background: #fff;
+	background: rgba(97, 141, 235, 0.08);
 	position: relative;
 //	padding: 1rem;
 	margin: 0 auto;
@@ -263,7 +264,7 @@ and (max-device-width : 1024px ) {
 }
 
 .home #content {
-	background: transparent;
+//	background: transparent;
 
 	> .wrapper {
 		padding: 0;
@@ -370,5 +371,8 @@ and (max-device-width : 1024px ) {
 
 @import 'masthead';
 @import 'widgets';
+@import 'ie';
 @import 'restrict-content-pro';
+@import 'testimonials';
+@import 'grid';
 @import 'typography-new';

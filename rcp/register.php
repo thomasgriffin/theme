@@ -1,6 +1,6 @@
 <?php global $rcp_options, $post; ?>
 
-<?php if( ! is_user_logged_in() ) { ?>
+<?php if ( ! is_user_logged_in() ) { ?>
 	
 <?php } else { ?>
 	<h3 class="rcp_header">
@@ -12,9 +12,15 @@
 rcp_show_error_messages( 'register' ); ?>
 
 <form id="rcp_registration_form" class="rcp_form" method="POST" action="<?php echo esc_url( rcp_get_current_url() ); ?>">
-<section class="columns columns-2">
+
+<?php 
+	$section_classes = ! is_user_logged_in() ? ' columns columns-2' : '';
+?>
+
+<section class="<?php echo $section_classes; ?>">
+
+	<?php if ( ! is_user_logged_in() ) { ?>
 	<div class="col">
-		<?php if ( ! is_user_logged_in() ) { ?>
 
 		<?php do_action( 'rcp_before_register_form_fields' ); ?>
 
@@ -48,10 +54,16 @@ rcp_show_error_messages( 'register' ); ?>
 			<?php do_action( 'rcp_after_password_registration_field' ); ?>
 
 		</fieldset>
-		<?php } ?>
-	</div>
+		
+		<?php echo pp_register_show_discount_field(); ?>
 
+	</div>
+	<?php } ?>
+
+	<?php if ( ! is_user_logged_in() ) : ?>
 	<div class="col">
+	<?php endif; ?>
+
 		<fieldset class="rcp_subscription_fieldset">
 		<?php $levels = rcp_get_subscription_levels( 'active' );
 		if( $levels ) : ?>
@@ -110,7 +122,17 @@ rcp_show_error_messages( 'register' ); ?>
 			<p><strong><?php _e( 'You have not created any subscription levels yet', 'rcp' ); ?></strong></p>
 		<?php endif; ?>
 		</fieldset>
+
+		<?php if ( is_user_logged_in() ) : ?>
+		<?php echo pp_register_show_discount_field(); ?>
+		<?php endif; ?>
+
+	<?php if ( ! is_user_logged_in() ) : ?>
 	</div>
+	<?php endif; ?>
+
+	
+
 </section>
 
 
@@ -119,18 +141,7 @@ rcp_show_error_messages( 'register' ); ?>
 
 	
 
-	<?php if( rcp_has_discounts() ) : ?>
-	<fieldset class="rcp_discounts_fieldset">
-		<p id="rcp_discount_code_wrap">
-			<label for="rcp_discount_code">
-				<?php _e( 'Discount Code', 'rcp' ); ?>
-				<span class="rcp_discount_valid" style="display: none;"> - <?php _e( 'Valid', 'rcp' ); ?></span>
-				<span class="rcp_discount_invalid" style="display: none;"> - <?php _e( 'Invalid', 'rcp' ); ?></span>
-			</label>
-			<input type="text" id="rcp_discount_code" name="rcp_discount" class="rcp_discount_code" value=""/>
-		</p>
-	</fieldset>
-	<?php endif; ?>
+	
 
 	<?php do_action( 'rcp_after_register_form_fields', $levels ); ?>
 

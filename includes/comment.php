@@ -32,9 +32,6 @@ function affwp_comment( $comment, $args, $depth ) {
 	
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
-	<section class="section columns-3 columns">
-
-		<div class="col left">
 			<div class="avatar-wrap">
 				<?php
 					$avatar_size = 72;
@@ -48,9 +45,12 @@ function affwp_comment( $comment, $args, $depth ) {
 					}
 				?>
 			</div>
-		</div>
+		
 
-		<div class="primary col content-area">
+			
+
+			<article id="comment-<?php comment_ID(); ?>" class="comment-body">
+
 			<div class="comment-author vcard">
 				<?php printf( __( '%1$s', 'affwp' ), sprintf( '<span class="fn">%s</span>', get_comment_author_link() ) ); ?>
 
@@ -69,8 +69,7 @@ function affwp_comment( $comment, $args, $depth ) {
 					
 				</div>
 			</div>
-
-			<article id="comment-<?php comment_ID(); ?>" class="comment-body">
+			
 				<div class="comment-content">
 
 					<?php comment_text(); ?>
@@ -89,11 +88,9 @@ function affwp_comment( $comment, $args, $depth ) {
 				</div>
 			</article>
 
-		</div>
+	
 
-		<div class="col right"></div>
 
-	</section>
 
 	<?php if ( $comment->comment_approved == '0' ) : ?>
 		<p class="comment-awaiting-moderation">

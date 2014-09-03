@@ -22,7 +22,11 @@ get_header(); ?>
 		<?php //echo get_avatar( get_the_author_meta('email'), '80' ); ?>
 		
 		<p>
+		
+		<?php /*
 		<span>Written by <?php the_author(); ?></span>
+		 */ ?>
+
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<?php printf( '<time datetime="%1$s">%2$s</time>',
 				esc_attr( get_the_date( 'c' ) ),
@@ -52,18 +56,21 @@ get_header(); ?>
 			<?php
 				
 
-					/*
-					 * Include the post format-specific template for the content. If you want to
-					 * use this in a child theme, then include a file called called content-___.php
-					 * (where ___ is the post format) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
+			/*
+			 * Include the post format-specific template for the content. If you want to
+			 * use this in a child theme, then include a file called called content-___.php
+			 * (where ___ is the post format) and that will be used instead.
+			 */
+			get_template_part( 'content', get_post_format() );
 
-					// Previous/next post navigation.
-				//	affwp_single_post_nav();
-					?>
+			// Previous/next post navigation.
+		//	affwp_single_post_nav();
+			?>
 
-				
+				<?php if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				} ?>
+	
 	</div>
 
 	<?php get_sidebar(); ?>
@@ -80,13 +87,7 @@ get_header(); ?>
 
 <?php do_action( 'affwp_single_content_after' ); ?>
 
-<?php while ( have_posts() ) : the_post(); ?>
 
-	<?php if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	} ?>
-
-<?php endwhile; ?>
 
 <?php
 get_footer();

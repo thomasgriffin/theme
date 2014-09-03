@@ -8,65 +8,63 @@ section.columns {
 // columns
 .columns {
   text-align: justify;
-//  font-size: 0.1px;
+  font-size: 0;
 
   .col, .gap {
     display: inline-block;
   }
 
-  // item
-  .col {
-    vertical-align: top;
-    text-align: left;
-    width: 100%;
-    margin-bottom: 4%;
- //   background: blue;
-//    font-size: 1rem;
-  //  font-size: 18px;
 
-    p:last-child {
-      margin-bottom: 0;
+
+
+}
+
+// item
+.col {
+  vertical-align: top;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 4%;
+  font-size: 1rem;
+//  font-size: 18px;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  li {
+    line-height: 1.62;  
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+
+    a {
+      display: block;
+    }
+  }
+
+  .recent {
+    margin: 1rem 0 0 0;
+  }
+
+  .recent + ul {
+
+    li a {
+      border-bottom: 1px solid @light-grey;
+      padding: 0.5rem 1rem;
+      display: block;
     }
 
-    li {
-      line-height: 1.62;  
-    }
-    
-    h2 {
-      margin-bottom: 1rem;
-
-      a {
-        display: block;
-      }
-    }
-
-    .recent {
-      margin: 1rem 0 0 0;
-    }
-
-    .recent + ul {
-
-      li a {
-        border-bottom: 1px solid @light-grey;
-        padding: 0.5rem 1rem;
-        display: block;
-      }
-
-      li:last-child a {
-        border: none;
-      }
-
+    li:last-child a {
+      border: none;
     }
 
   }
 
-
 }
 
 
-.entry-summary {
-//  font-size: 18px;
-}
 
 // 2 columns
 @media all and ( min-width: 600px ) {
@@ -88,6 +86,10 @@ section.columns {
 
 // 3 columns
 @media only screen and ( min-width: 768px ) {
+
+  .col {
+    margin-bottom: 0;
+  }
 
   .columns-3 {
     .gap,
@@ -221,21 +223,9 @@ section.used-by ul:after,
 @media all and ( min-width: 600px ) {
 
 
-  .no-sidebar {
-    .columns-2 {
-      .gap,
-      .col {
-        width: 40%;
-      }
-    }
-
-
+  .register .columns-2 .col {
+    width: 46%;
   }
-
-
-  
-
-  
 
 
 }

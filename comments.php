@@ -63,12 +63,6 @@ if ( post_password_required() ) {
 		<h2>Join the discussion</h2>
 	</header>
 
-	<section class="section columns-3 columns">
-		<div class="col left"></div>
-		<div class="primary col content-area">
-			<?php comment_form(); ?>
-		</div>
-		<div class="col right"></div>
-	</section>
+	<?php comment_form(); ?>
 
 </div>

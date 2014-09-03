@@ -1,0 +1,10 @@
+// These media queries detect whether the browser is ie10 or higher by relying on -ms-high-contrast which the browsers have
+// We need these rules to bring back the font-size on display inline-block items. IE ignores font-size: 0. 
+
+// target only ie 10 and newer
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+	#masthead,
+	.columns {
+		font-size: 0.1px;
+	}
+}

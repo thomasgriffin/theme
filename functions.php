@@ -197,6 +197,9 @@ function affwp_body_classes( $classes ) {
 	if ( is_page_template( 'page-templates/join-the-site.php' ) )
 		$classes[] = 'join';
 
+	if ( is_page( 'register' ) )
+		$classes[] = 'register';
+
 	if ( is_page_template( 'page-templates/no-sidebar.php' ) )
 		$classes[] = 'no-sidebar';
 

@@ -5,8 +5,6 @@ function pp_testimonials() {
 	<section class="section columns-3 columns testimonials">
 		<div class="wrapper">
 			
-			
-
 			<div class="col">
 				<blockquote>
 					<?php echo get_avatar( 'andrew@sumobi.com', '64', '', 'Andrew Munro, sumobi.com' ); ?>		
@@ -48,11 +46,17 @@ function pp_testimonials() {
 
 		</div>
 
+		<?php /*
 		<div class="action">
-			<a href="/join-the-site" class="button large">Join the site</a>
+			<a href="<?php echo site_url('/join-the-site/register'); ?>" class="button large">Join the site</a>
 		</div>
+		*/ ?>
+	
+	
 	</section>
-
+<div class="action">
+			<a href="<?php echo site_url('/join-the-site/register'); ?>" class="button large">Join the site</a>
+		</div>
 	<?php
 }
 //add_action( 'affwp_page_header_after', 'pp_testimonials' );

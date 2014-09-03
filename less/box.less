@@ -1,19 +1,18 @@
+// box componenet
+
 // used by docs and addons
+
+.box,
+article.page {
+	background: #fff;
+	.box-shadow( 0 1px 2px rgba( 0, 0, 0, 0.1 ) );
+	padding: 1.62rem;
+}
+
+
 
 
 .box {
-//	background: #fff;
-//	background: @light-grey;
-//	background: rgba(7, 36, 96, 0.05);
-	background: rgba(97, 141, 235, 0.08);
-	border: 1px solid rgba(97, 141, 235, 0.09);
-//	background: lighten( #74d7bf, 33% );
-//	background: #072460;
-	padding: 1.5rem;
-	
-	.post-thumbnail {
-		
-	}
 
 	span {
 		 display: block;
@@ -79,9 +78,9 @@
 		}
 	}
 
-	&.highlight {
-		.box-shadow( 0 5px 0 0px #22acda );
-	}
+	// &.highlight {
+	// 	.box-shadow( 0 5px 0 0px #22acda );
+	// }
 
 	ul {
 		font-weight: 300;
@@ -102,7 +101,11 @@
 
 	}
 
+}
 
+
+.box .post-thumbnail {
+	margin: -1.62rem -1.62rem 1.62rem -1.62rem;
 }
 
 .col.left .post-thumbnail {

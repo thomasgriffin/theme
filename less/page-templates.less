@@ -1,14 +1,24 @@
 // page template specific styles
 
-.no-sidebar #content > .wrapper {
-	max-width: 980px;
+.no-sidebar .content-area {
+	max-width: 720px;
+}
+
+// when logged out, the register form shows 2 columns. Fields on left and options on right
+.register .content-area {
+	max-width: 980px;	
+} 
+
+// when logged in, the register form only shows the "upgrade your subsription" fields
+.register.logged-in .content-area {
+	max-width: 640px;	
+} 
+
+.join .testimonials {
+	padding: 2rem;
+	margin: 0 -2rem 2rem -2rem;
 }
 
 @media all and ( min-width: 720px ) {
-	// support template
-	.support {
-		.primary {
-		//	width: 50%;
-		}
-	}
+
 }

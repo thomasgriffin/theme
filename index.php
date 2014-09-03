@@ -14,7 +14,7 @@
 get_header(); ?>
 
 
-	<section class="section columns-main-side columns alt3">
+	<section class="section columns-main-side columns">
 
 		<div class="wrapper">
 

@@ -15,19 +15,19 @@ get_header(); ?>
 	</header>
 
 
-<section class="section columns columns-3">
+<section class="section columns columns-3 grid">
 	<div class="wrapper">
 
 	<?php while ( have_posts() ) : the_post(); 
 
 	$coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
 	?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', $coming_soon ) ); ?>> 
+		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', $coming_soon ) ); ?>> 
 		    
 			<?php if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
 
 				<?php if ( ! has_post_thumbnail() ) : ?>
-					<h2>
+					<h2 class="entry-title">
 						<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
 				    		<?php the_title(); ?>
 				    	</a>
@@ -59,9 +59,13 @@ get_header(); ?>
 		 		the_excerpt();
 		 	?>
 
-		 	<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-	    		View <?php the_title(); ?> &rarr;
-	    	</a>
+		 	<?php /*
+		 			 	<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="link">
+		 		    		View <?php the_title(); ?> &rarr;
+		 		    	</a>
+		 	*/ ?>
+
+		 	
 		</article>
 
 	<?php endwhile; ?>
