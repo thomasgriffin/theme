@@ -64,7 +64,10 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 }
 
 
-
+// hide the preview image at checkout
+.edd_cart_item_image {
+	display: none;
+}
 
 
 
@@ -169,29 +172,22 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 	position: relative;
 	margin-bottom: 1rem;
 
+	svg, span {
+	//	display: inline-block;
+	}
+
+	svg {
+		position: absolute;
+		left: -73px;
+		top: -43px;
+	}
 	span {
 		font-weight: 500;
-		 color: @accent-color;
-		 display: block;
+		 color: @warning-color;
+	//	 display: block;
 		 line-height: 1.62;
 	}
 }
-
-#edd_secure_site_wrapper span.padlock:before {
-	 content: "\e013";
-	 font-family: "affiliatewp" !important;
-	 font-style: normal !important;
-	 font-weight: normal !important;
-	 font-variant: normal !important;
-	 text-transform: none !important;
-	 speak: none;
-	 line-height: 1;
-	 -webkit-font-smoothing: antialiased;
-	 -moz-osx-font-smoothing: grayscale;
-	 color: @accent-color;
-	 font-size: 2rem;
-}
-
 
 
 #edd_show_discount {
@@ -280,22 +276,28 @@ input.error {
 
 
 #edd_checkout_cart {
-	border: 1px solid darken( @light-grey, 3% );
+//	border: 1px solid @content-bg-color;
 	width: 100%;
 
 	.edd_cart_header_row th {
-	    background: @light-grey;
+	    background: @content-bg-color;
 	}
 
 	.edd_cart_total {
 		text-align: right;
 	}
 
+	
 	th, 
 	td {
-	    border: 1px solid @light-grey;
+	    border: 1px solid @content-bg-color;
+	 //   border-top: none;
 	    padding: 0.5rem 1rem;
 	    text-align: left;
+	}
+
+	td {
+	//	border: none;
 	}
 
 	.edd_cart_actions {
@@ -330,7 +332,7 @@ input.error {
 #edd_checkout_form_wrap {
 	
 	fieldset {
-	    background: @light-grey;
+	 //   background: @light-grey;
 		#edd_agree_to_terms {
 			float: left;
 			margin-right: 1rem;
@@ -363,9 +365,9 @@ input.error {
 
 
 
-#edd_checkout_wrap {
-	margin-bottom: 4rem;
-}
+// #edd_checkout_wrap {
+// 	margin-bottom: 4rem;
+// }
 
 // hide terms on checkout page
 #affwp-refund-policy {
@@ -447,15 +449,11 @@ iframe {
 
 @media only screen and ( min-width: 1024px ) {
 
-	#edd_secure_site_wrapper span.padlock:before {
-		 font-size: 4rem;
-		 position: absolute;
-		 left: -7.5rem;
-		 top: -2rem;
-	}
-
-	.edd_download_purchase_form {
-	//	margin-bottom: 4rem;
-	}
+	// #edd_secure_site_wrapper span.padlock:before {
+	// 	 font-size: 4rem;
+	// 	 position: absolute;
+	// 	 left: -7.5rem;
+	// 	 top: -2rem;
+	// }
 
 }
