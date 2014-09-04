@@ -1,61 +1,29 @@
+// styles related to the homepage
 
+.home {
+	#masthead {
+	//	height: 100%;
+	}
 
+	> .wrapper {
+	//	position: absolute;
+	}
 
-
-
-
-#masthead .button {
-
-    background-repeat: no-repeat;
-
-    background-image: -webkit-linear-gradient(
-        107deg,
-        rgba(255, 255, 255, 0) 25%,
-        rgba(255, 255, 255, 0.2) 34%,
-        rgba(255, 255, 255, 0.5) 42%,
-        rgba(255, 255, 255, 0) 50%
-    );
-
-    background-image: -moz-linear-gradient( 107deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.2) 34%, rgba(255, 255, 255, 0.4) 42%, rgba(255, 255, 255, 0) 50%);
-
-    background-image: -o-linear-gradient(
-        107deg,
-        rgba(255, 255, 255, 0) 25%,
-        rgba(255, 255, 255, 0.2) 34%,
-        rgba(255, 255, 255, 0.5) 42%,
-        rgba(255, 255, 255, 0) 50%
-    );
-
-    background-image: linear-gradient(
-       343deg,
-        rgba(255, 255, 255, 0) 25%,
-        rgba(255, 255, 255, 0.2) 34%,
-        rgba(255, 255, 255, 0.5) 42%,
-        rgba(255, 255, 255, 0) 50%
-    );
-
-    background-position: -250px -150px, 0 0;
- //   background-position: left center, 0 0;
-
-    -moz-background-size: 200% 200%, 100% 100%;
-         background-size: 200% 200%, 100% 100%;
-         //  -moz-background-size: 100%;
-         // background-size: 100%;
-
-    -webkit-transition: background-position 0s ease-in;
-       -moz-transition: background-position 0s ease-in;       
-         -o-transition: background-position 0s ease-in;
-            transition: background-position 0s ease-in;
+	// section.home > div {
+	//     display: table-cell;
+	//     vertical-align: middle;
+	// }
 }
 
-#masthead .button:hover,
-#masthead .button:focus {
-    background-position: 50px 50px, 0 0;
-    -webkit-transition-duration: 0.5s;
-       -moz-transition-duration: 0.5s;
-            transition-duration: 0.5s;
 
+
+#masthead {
+//  background: #e5edf1;
+//  text-align: center;
+  // width: 100%;
 }
+
+
 
 
 
@@ -128,140 +96,7 @@ section.products .wrapper {
 	max-width: 1440px;
 }
 
-// products
-.home section.section.products {
-	text-align: justify;
-	padding: 3rem 2rem 2rem;
 
-	// #home-products {
-	// 	position: absolute;
-	// 	background: none repeat scroll 0 0 #fff;
-	//     left: 0;
-	//     top: -157px;
-	//     width: 324px;
-
-	// }
-
-	.col {
-		margin-bottom: 0;
-		text-align: center;
-	}
-
-	// .col.last {
-	// 	position: relative;
-	// 	padding-top: 10rem;
-	// }
-
-	.wrapper {
-		max-width: 1220px;
-	}
-
-	svg {
-	//	margin-bottom: 1rem;
-		width: 100%;
-	}
-	
-
-
-	.col {
-	//	text-align: center;
-	//	padding: 0;
-	> a:first-child {
-	//	margin-bottom: 0.5rem;
-	}
-
-		p {
-		//	visibility: hidden;
-		//	font-size: 1.1rem;
-			max-width: 95%;
-//			color: darken( #e5edf1, 40% );
-			color: #fff;
-			
-		}
-
-		
-
-		img {
-			margin-bottom: 1.5rem;
-			display: block;
-		}
-
-		a {
-			display: block;
-			color: #4a7e9a;
-			position: relative;
-			min-height: 5rem;
-		//	padding: 2rem;
-			// border-right: 2px solid @light-grey;
-			// border-bottom: 2px solid @light-grey;
-
-			svg {
-				.opacity(100);
-				position: relative;
-				.transition( all 0.2s 0.2s ease-in );
-				margin: 0;
-			}
-
-			span {
-				display: block;
-			}
-
-			p {
-				visibility: hidden;
-				.opacity(0);
-			//	display: block;
-				position: absolute;
-				left: 0;
-				top: 1rem;
-			//	padding: 1rem;
-				width: 100%;
-				height: 100%;
-				.transition( all 0.2s 0.2s ease-out );
-
-			}
-
-			&:hover {
-				p {
-					visibility: visible;
-					.opacity(100);
-					top: 0;
-					.transition( all 0.2s 0.2s ease-in );
-				}
-
-				svg {
-					.opacity(0);
-					.transition( all 0.2s 0.2s ease-out );
-//					top: -1rem;
-				//	margin-top: -0.5rem;
-				}
-
-			//	background: #e44e44;
-			//	.box-shadow( inset 0 10px 0 0 #8ec5e2 );
-				
-				p {
-			//		visibility: visible;
-				}
-			}
-		}
-
-		h1 {
-		//	text-transform: uppercase;
-			font-size: 1.8rem;
-			font-weight: 500;
-//			color: @header-color;
-			color: #373737;
-			margin-bottom: 1.5rem;
-		}
-
-		// icon
-		i {
-			font-size: 6rem;
-			color: @accent-color;
-		}
-
-	}
-
-}
 
 // h1 followed by image
 h1 + figure {

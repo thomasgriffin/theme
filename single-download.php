@@ -25,7 +25,7 @@ get_header(); ?>
 	<div class="primary col">
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'box' ) ); ?>>
 					
 				<?php //affwp_post_thumbnail(); ?>
 					<div class="entry-content">

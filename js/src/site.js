@@ -13,7 +13,6 @@ jQuery(document).ready(function($) {
       $('input:checked').parent().addClass("selected");
     });    
 
-
     $('body').on('edd_cart_item_added', function( response ) {
       $('#masthead .cart').removeClass('hidden');
     });	
@@ -25,13 +24,31 @@ jQuery(document).ready(function($) {
     	$(this).hide();	
     });
 
-    // $('.rcp_subscription_level input:checked').closest('.rcp_subscription_level').addClass("selected");
+    jQuery(function () {
 
-    // $('.rcp_subscription_level input').click(function () {
-    //   $('input:not(:checked)').closest('.rcp_subscription_level').removeClass("selected");
-    //   $('input:checked').closest('.rcp_subscription_level').addClass("selected");
-    // });
+        var shrink = function() {
+            if (jQuery(this).scrollTop() > 0 ) {
+                jQuery('.home #masthead').addClass('shrink');
+            }
+            else {
+                jQuery('.home #masthead').removeClass('shrink');
+            }
+        };
 
+        jQuery(function() {
+            shrink();
+        });
 
+        jQuery(window).scroll(function () {
+             shrink();
+        });
+
+        jQuery('#back-top').click(function () {
+            jQuery('body, html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    }); 
 
 });

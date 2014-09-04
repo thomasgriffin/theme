@@ -10,7 +10,7 @@ if ( ! defined( 'AFFWP_INCLUDES_DIR' ) )
  * Includes
  * @since 1.0
 */
-//require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'home.php' );
+require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'home-products.php' );
 
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'scripts.php' );
 

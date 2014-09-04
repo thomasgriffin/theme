@@ -1,4 +1,9 @@
+// masthead astyles
+
+
 #masthead {
+	margin: 0;
+	width: 100%; // needed for Firefox 
 	padding: 0 1rem;
 	position: relative;
 	background: rgb(7, 36, 96); // fallback for older browsers, including IE9
@@ -8,31 +13,35 @@
 	background: -ms-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
 	background: linear-gradient(343deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#072460', endColorstr='#74d7bf', GradientType=0 ); /* IE6-9 */
+	
+	#masthead-logo {
+		display: block;
+		padding: 16px;	
+	}
+
 	h1 {
 		color: #e1f0f8;
 		font-size: 3.5rem;
 		margin-bottom: 0.5rem;
 	}
+	
 	h2 {
 		color: #bee8ff;
 		font-size: 1.75rem;
 
 	}
+	
 	.col {
 		font-size: 0;
 		margin-bottom: 0;
 	}
-	.button {
-		background: rgba( 7, 36, 96, .1 );
-		border: none;
-		padding: 24px 32px;
-		text-transform: uppercase;
-		font-size: 19.2px;
-		font-weight: 500;
-		color: #e1f0f8;
+	
+	.home-products,
+	div.columns {
+		width: 100%;
 	}
 
-	> .wrapper .col {
+	> div.columns .col {
 		width: 100%;
 		vertical-align: top;
 
@@ -42,61 +51,103 @@
 	}
 }
 
+#masthead .button {
+	background: rgba( 7, 36, 96, .1 );
+	border: none;
+	padding: 24px 32px;
+	text-transform: uppercase;
+	font-size: 19.2px;
+	font-weight: 500;
+	color: #e1f0f8;
 
 
+    background-repeat: no-repeat;
+    background-image: -webkit-linear-gradient(
+        107deg,
+        rgba(255, 255, 255, 0) 25%,
+        rgba(255, 255, 255, 0.2) 34%,
+        rgba(255, 255, 255, 0.5) 42%,
+        rgba(255, 255, 255, 0) 50%
+    );
 
+    background-image: -moz-linear-gradient( 107deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.2) 34%, rgba(255, 255, 255, 0.4) 42%, rgba(255, 255, 255, 0) 50%);
 
+    background-image: -o-linear-gradient(
+        107deg,
+        rgba(255, 255, 255, 0) 25%,
+        rgba(255, 255, 255, 0.2) 34%,
+        rgba(255, 255, 255, 0.5) 42%,
+        rgba(255, 255, 255, 0) 50%
+    );
 
-// #masthead .search-form {
-// 	position: absolute;
-// 	z-index: 100;
-// }
+    background-image: linear-gradient(
+       343deg,
+        rgba(255, 255, 255, 0) 25%,
+        rgba(255, 255, 255, 0.2) 34%,
+        rgba(255, 255, 255, 0.5) 42%,
+        rgba(255, 255, 255, 0) 50%
+    );
 
-// #masthead .search-field {
-// 	background-color: transparent;
-// 	background: url( 'images/search.svg' ) no-repeat 24px 50%;
-// 	background-size: 24px 24px;
+    background-position: -250px -150px, 0 0;
+ //   background-position: left center, 0 0;
 
-// 	border: none;
-// 	cursor: pointer;
-// 	margin: 0;
-// //	padding: 2rem;
-// 	position: relative;
-// 	.transition( all 0.25s ease );
-// 	// -webkit-transition: all 400ms ease-out, background 400ms ease-out;
-// 	// transition:         all 400ms ease-out, background 400ms ease-out;
-// 	width: 0;
-// }
+    -moz-background-size: 200% 200%, 100% 100%;
+         background-size: 200% 200%, 100% 100%;
+         //  -moz-background-size: 100%;
+         // background-size: 100%;
 
-// #masthead .search-field:focus {
-// 	background-color: #fff;
-// 	cursor: text;
-// 	outline: 0;
-// 	width: 224px;
-// 	background-position: 240px 50%;
-// }
-
-
-
-#masthead .wrapper:after {
-  content: "";
-  display: inline-block;
-  width: 100%;
+    -webkit-transition: background-position 0s ease-in;
+       -moz-transition: background-position 0s ease-in;       
+         -o-transition: background-position 0s ease-in;
+            transition: background-position 0s ease-in;
 }
 
-#masthead-logo {
-	display: block;
-	padding: 16px;	
+#masthead .button:hover,
+#masthead .button:focus {
+    background-position: 50px 50px, 0 0;
+    -webkit-transition-duration: 0.5s;
+       -moz-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+
 }
 
+// make the flexbox magic happen
+@media only screen and ( min-width: 720px ) and ( min-height: 720px ) {
+	.home #masthead {
+		height: 100%;
+		.transition ( height 0.25s ease-out );
+
+		&.shrink {
+			height: 50%;
+		}
+	}
+
+	#masthead {
+		display: -ms-flexbox;   // MID: IE 10
+		display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+
+		display: flex;          // NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+
+
+		-webkit-align-items: center;
+		align-items: center;
+
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+
+		// default is row (allows vertical centering)
+		-webkit-flex-flow: column;
+		flex-flow: column;
+	}	
+}
 
 @media only screen and ( min-width: 1024px ) {
 
 
  #masthead {
- 	text-align: justify;
+ 	div.columns {
+ 		text-align: justify;
+ 	}
 
- 	> .wrapper .col {
+ 	> div.columns .wrapper .col {
  		display: inline-block;
  		width: 10%;
  		vertical-align: top;
@@ -107,7 +158,6 @@
 
  		&.col-2 {
  			width: 75%;
- 		//	text-align: center;
  		}
 
  		&.col-3 {
