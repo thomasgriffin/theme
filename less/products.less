@@ -1,5 +1,41 @@
 // styles relating to the main archive-download page and also the single download pages
 
+
+.columns article.type-download {
+	.transition ( all 0.2s ease-out );
+	display: -ms-flexbox;   // MID: IE 10
+	display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+
+	display: flex;          // NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+
+
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+
+	// default is row (allows vertical centering)
+	-webkit-flex-flow: column;
+	flex-flow: column;
+
+	 // -webkit-flex-direction: column;
+  //  flex-direction: column;
+
+  // align the p tag to the top
+		
+	// IE 11 only
+  	a.post-thumbnail {
+  		-webkit-flex: 0 0 auto;
+  		flex: 0 0 auto;
+  	}
+
+	p {
+  		-webkit-flex: 1 0 auto;
+  	//	-ms-flex: 1 1 auto;
+		flex: 1 0 auto;
+	}
+}
+
+.columns article.type-download:hover {
+	.box-shadow( 0 0px 10px 0 rgba( 0, 0, 0, 0.1 ) );
+}
+
 .products {
 
 	// article {
