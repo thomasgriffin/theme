@@ -2,7 +2,8 @@
 
 
 .columns article.type-download {
-	.transition ( all 0.2s ease-out );
+	.transition ( box-shadow 0.2s ease-out );
+
 	display: -ms-flexbox;   // MID: IE 10
 	display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+
 	display: flex;          // NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+
@@ -36,6 +37,20 @@
 	.box-shadow( 0 0px 10px 0 rgba( 0, 0, 0, 0.1 ) );
 }
 
+// products grid
+.products-grid .wrapper {
+	max-width: 480px;
+}
+
+@media only screen and ( min-width: 768px ) {
+	.products-grid .wrapper {
+		max-width: 1220px;
+	}
+}
+
+
+
+
 .products {
 
 	// article {
@@ -61,6 +76,7 @@
 
 	
 }
+
 
 
 
@@ -127,13 +143,7 @@ aside.product-info p {
 
 
 
-.products {
-	.columns-3 {
-		.wrapper {
-			max-width: 1220px;
-		}
-	}
-}
+
 
 /**
  * Clean up 
