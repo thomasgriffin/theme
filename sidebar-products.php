@@ -41,7 +41,7 @@
 	<?php if ( $connected->have_posts() ) : ?>
 	<div class="docs box">
 
-		<svg width="128px" height="128px">
+		<svg width="96px" height="96px">
 		   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-docs'; ?>"></use>
 		</svg>
 
