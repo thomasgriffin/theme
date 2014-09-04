@@ -15,7 +15,7 @@ get_header(); ?>
 	</header>
 
 
-<section class="section columns columns-3 grid products-grid">
+<section class="section columns columns-3 grid product-grid">
 	<div class="wrapper">
 
 	<?php while ( have_posts() ) : the_post(); 

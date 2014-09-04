@@ -25,7 +25,7 @@ get_header(); ?>
 	<div class="primary col">
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'box' ) ); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'box', 'product' ) ); ?>>
 					
 				<?php //affwp_post_thumbnail(); ?>
 					<div class="entry-content">
@@ -75,7 +75,7 @@ $connected = new WP_Query( array(
 
 
 <?php if ( $connected->have_posts() ) : ?>
-<section class="section columns columns-3 products">
+<section class="section columns columns-3 product-grid">
 
 	<div class="wrapper">
 		<header class="entry-header">
@@ -86,7 +86,7 @@ $connected = new WP_Query( array(
     <?php while ( $connected->have_posts() ) : $connected->the_post();
 	    $coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
     ?>  
-        <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', $coming_soon ) ); ?>> 
+        <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', $coming_soon ) ); ?>> 
         		    
 			<?php 
 			$external_download_url = get_post_meta( get_the_ID(), '_affwp_addon_download_url', true );
