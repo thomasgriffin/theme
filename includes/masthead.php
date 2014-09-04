@@ -24,10 +24,7 @@ function pp_home_products() {
 				</div>
 
 				<div class="col col-3">
-					<?php //do_action( 'pp_masthead_col_3' ); ?>
-
-					<?php pp_show_cart_quantity_icon(); ?>
-					<?php get_search_form(); ?>	
+					<?php do_action( 'pp_masthead_col_3' ); ?>
 				</div>
 			</div>
 		</div>

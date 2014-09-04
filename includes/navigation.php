@@ -1,7 +1,7 @@
 <?php
 
 
-function pp_load_navigation() {
+function pp_load_main_navigation() {
 
 	// don't load navigation on checkout
 	if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() )
@@ -31,7 +31,22 @@ function pp_load_navigation() {
 <?php 
 	echo ob_get_clean(); 
 }
-add_action( 'pp_masthead_col_2', 'pp_load_navigation' );
+add_action( 'pp_masthead_col_2', 'pp_load_main_navigation' );
+
+function pp_load_navigation_extras() {
+
+	// don't load on checkout
+	if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() )
+		return;
+
+	pp_show_cart_quantity_icon();
+
+	get_search_form();
+}
+add_action( 'pp_masthead_col_3', 'pp_load_navigation_extras' );
+
+
+
 
 /**
  * Append cart onto primary navigation
