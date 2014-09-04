@@ -216,9 +216,6 @@ function affwp_body_classes( $classes ) {
 	if ( is_page_template( 'page-templates/changelog.php' ) )
 		$classes[] = 'changelog';
 
-	if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() )
-		$classes[] = 'checkout';
-
 	if ( function_exists( 'edd_is_success_page' ) && edd_is_success_page() )
 		$classes[] = 'purchase-confirmation';
 
