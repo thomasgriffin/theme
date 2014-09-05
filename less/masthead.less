@@ -14,10 +14,7 @@
 	background: linear-gradient(343deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#072460', endColorstr='#74d7bf', GradientType=0 ); /* IE6-9 */
 	
-	#masthead-logo {
-		display: block;
-		padding: 16px;	
-	}
+	
 
 	h1 {
 		color: #e1f0f8;
@@ -49,6 +46,16 @@
 			text-align: center;
 		}
 	}
+}
+
+#masthead-logo {
+	display: inline-block;
+	padding: 16px;
+}
+
+// on checkout page, reduce the padding
+.edd-checkout #masthead-logo {
+	padding: 8px;	
 }
 
 #masthead .button {
