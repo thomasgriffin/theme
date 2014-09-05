@@ -9,21 +9,13 @@ function pp_home_products() {
 
 		<?php do_action( 'pp_masthead_start' ); ?>
 
+		<?php if ( ! edd_is_checkout() ) : ?>
 		<div class="columns">
 			<div class="wrapper">
 				<div class="col col-1">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="masthead-logo" rel="home" title="<?php echo get_bloginfo( 'name' ); ?>">
-						<?php
-							if ( edd_is_checkout() ) {
-								$width = '20px';
-								$height = '24px';
-							} else {
-								$width = '40px';
-								$height = '48px';
-							}
-						?>
-
-						<svg width="<?php echo $width; ?>" height="<?php echo $height; ?>">
+					
+						<svg width="40px" height="48px">
 							<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-logo'; ?>"></use>
 						</svg>
 					</a>
@@ -38,6 +30,16 @@ function pp_home_products() {
 				</div>
 			</div>
 		</div>
+
+		<?php else : ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="masthead-logo" rel="home" title="<?php echo get_bloginfo( 'name' ); ?>">
+				
+				<svg width="40px" height="48px">
+					<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-logo'; ?>"></use>
+				</svg>
+			</a>
+		<?php endif; ?>
+
 		<?php do_action( 'pp_masthead_end' ); ?>
 
 	
