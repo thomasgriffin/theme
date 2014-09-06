@@ -61,7 +61,7 @@ function pp_home_products() {
 				<div class="wrapper">
 				<div class="col">
 					<a id="p1" href="<?php echo site_url('products/affiliatewp'); ?>">
-						<svg width="378px" height="45px">
+						<svg height="45px" viewbox="0 0 303 45">
 							<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-affwp'; ?>"></use>
 						</svg>
 						<p>The best WordPress affiliate management system <span>&rarr;</span></p>
@@ -71,7 +71,7 @@ function pp_home_products() {
 
 				<div class="col">
 					<a id="p2" href="<?php echo site_url('products/easy-digital-downloads'); ?>">
-						<svg width="378px" height="45px">
+						<svg height="45px" viewbox="0 0 303 45">
 							<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-edd'; ?>"></use>
 						</svg>
 						<p>The best WordPress e-commerce solution for digital products <span>&rarr;</span></p>
@@ -81,7 +81,7 @@ function pp_home_products() {
 
 				<div class="col">
 					<a id="p3" href="<?php echo site_url('products/restrict-content-pro'); ?>">
-						<svg width="378px" height="45px">
+						<svg height="45px" viewbox="0 0 303 45">
 							<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-rcp'; ?>"></use>
 						</svg>
 						<p>The best WordPress membership &amp; premium content manager solution <span>&rarr;</span></p>
@@ -91,6 +91,12 @@ function pp_home_products() {
 				</div>
 				
 			</section>
+
+		
+
+
+
+			
 		
 	<?php endif; ?>
 

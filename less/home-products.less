@@ -9,7 +9,7 @@
 	}
 
 	.col {
-		margin-bottom: 0;
+		margin-bottom: 1rem;
 		text-align: center;
 	}
 
@@ -21,7 +21,6 @@
 		display: block;
 		color: #4a7e9a;
 		position: relative;
-		min-height: 5rem;
 	}
 
 	p {
@@ -54,17 +53,31 @@
 	}
 }
 
-// hover effect
-.home-products a:hover {
-	p {
-		visibility: visible;
-		top: 0;
-		.opacity(100);
-		.transition( all 0.2s 0.2s ease-in );
+
+
+@media only screen and ( min-width: 520px ) {
+	.home-products {
+		a {
+			min-height: 5rem;
+		}
 	}
 
-	svg {
-		.opacity(0);
-		.transition( all 0.2s 0.2s ease-out );
+	.home-products .col {
+		margin-bottom: 2rem;	
+	}
+
+	// hover effect
+	.home-products a:hover {
+		p {
+			visibility: visible;
+			top: 0;
+			.opacity(100);
+			.transition( all 0.2s 0.2s ease-in );
+		}
+
+		svg {
+			.opacity(0);
+			.transition( all 0.2s 0.2s ease-out );
+		}
 	}
 }
