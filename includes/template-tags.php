@@ -11,9 +11,10 @@
  * Limit excerpt length to 20 characters
  */
 function affwp_excerpt_length( $length ) {
-	return 60;
+	return 20;
 }
-//add_filter( 'excerpt_length', 'affwp_excerpt_length' );
+//add_filter( 'excerpt_length', 'affwp_excerpt_length', 999 );
+
 
 /**
  * Filter excerpt
