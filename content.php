@@ -14,10 +14,7 @@
 	<!-- <header class="entry-header"> -->
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 
-		<div class="entry-thumbnail">
-			<?php //the_post_thumbnail(); ?>
-			<?php affwp_post_thumbnail(); ?>
-		</div>
+		
 
 		<?php endif; ?>
 
@@ -53,6 +50,10 @@
 	<?php if ( is_search() || is_home() ) : // Only display Excerpts for Search ?>
 
 	<div class="entry-summary">
+	<div class="entry-thumbnail">
+				<?php //the_post_thumbnail(); ?>
+				<?php affwp_post_thumbnail('thumbnail'); ?>
+			</div>
 		<?php the_excerpt(); ?>
 	</div>
 	

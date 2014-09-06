@@ -9,7 +9,7 @@
 function pp_product_grid_excerpt_length( $length ) {
 	return 10;
 }
-add_filter( 'excerpt_length', 'pp_product_grid_excerpt_length' );
+//add_filter( 'excerpt_length', 'pp_product_grid_excerpt_length' );
 
 
 /**
