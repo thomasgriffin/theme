@@ -39,7 +39,19 @@
 	// }
 }
 
+article.post {
+	display: -ms-flexbox;   // MID: IE 10
+	display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+
+	display: flex;          // NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+
 
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+
+	// default is row (allows vertical centering)
+	-webkit-flex-flow: column;
+	flex-flow: column;
+
+}
 
 
 
@@ -147,7 +159,7 @@ article.post {
 
 
 .post-thumbnail {
-	margin-bottom: 2rem;
+//	margin-bottom: 2rem;
 	display: block;
 
 	img {
@@ -431,7 +443,7 @@ img.aligncenter {
 @media all and ( min-width: 720px ) {
 	.entry-thumbnail {
 		float: right;
-		margin: 0 0 2rem 2rem;
+		margin: 0 0 0 2rem;
 		max-width: 250px;
 	}
 }
