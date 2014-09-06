@@ -29,7 +29,13 @@
 			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 		</h2>
 
+		<div class="entry-meta">
+			<?php pp_entry_meta(); ?>
+		</div>
+		
 		<?php endif; ?>
+
+		
 
 		<!-- <div class="entry-meta"> -->
 			<?php /*
@@ -41,7 +47,7 @@
 			</span>
 			*/ ?>
 		
-			<?php //affwp_posted_on(); //twentythirteen_entry_meta(); ?>
+			
 			<?php // edit_post_link( __( 'Edit', 'twentythirteen' ), '<span class="edit-link">', '</span>' ); ?>
 		<!-- </div> -->
 
@@ -50,19 +56,18 @@
 	<?php if ( is_search() || is_home() ) : // Only display Excerpts for Search ?>
 
 	<div class="entry-summary">
-	<div class="entry-thumbnail">
-				<?php //the_post_thumbnail(); ?>
-				<?php affwp_post_thumbnail('thumbnail'); ?>
-			</div>
+		<div class="entry-thumbnail">
+			<?php affwp_post_thumbnail( 'thumbnail' ); ?>
+		</div>
 		<?php the_excerpt(); ?>
 	</div>
 	
-	<a href="<?php the_permalink(); ?>">Continue reading &rarr;</a>
+	<a href="<?php the_permalink(); ?>">Read now &rarr;</a>
 
 	<?php else : ?>
 
 	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?>
+		<?php the_content( __( 'Read now <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
 	</div>
 

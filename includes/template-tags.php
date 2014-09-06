@@ -418,15 +418,13 @@ function affwp_single_post_nav() {
 }
 
 
-if ( ! function_exists( 'affwp_posted_on' ) ) :
+if ( ! function_exists( 'pp_posted_on' ) ) :
 /**
  * Print HTML with meta information for the current post-date/time and author.
  *
- * @since AffiliateWP 1.0
- *
  * @return void
  */
-function affwp_posted_on() {
+function pp_posted_on() {
 	if ( is_sticky() && is_home() && ! is_paged() ) {
 		echo '<span class="featured-post">' . __( 'Sticky', 'affwp' ) . '</span>';
 	}
@@ -456,6 +454,59 @@ function affwp_posted_on() {
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() )
 	);
+}
+endif;
+
+/**
+ * Entry Meta
+ *
+ * @since       1.0
+*/
+if ( ! function_exists( 'pp_entry_meta' ) ) :
+/**
+ * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
+ *
+ * Create your own pp_entry_meta() to override in a child theme.
+ *
+ * @since 1.0
+ */
+function pp_entry_meta() {
+	// Translators: used between list items, there is a space after the comma.
+	$categories_list = get_the_category_list( __( ', ', 'pp' ) );
+
+	// Translators: used between list items, there is a space after the comma.
+	$tag_list = get_the_tag_list( '', __( ', ', 'pp' ) );
+
+	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>',
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
+
+	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		esc_attr( sprintf( __( 'View all posts by %s', 'pp' ), get_the_author() ) ),
+		get_the_author()
+	);
+
+	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
+	if ( $tag_list ) {
+		$utility_text = __( 'Posted on %1$s <span class="by-author">by %2$s</span> in %3$s and tagged %4$s.', 'pp' );
+	} elseif ( $categories_list ) {
+		$utility_text = __( 'Posted on %1$s <span class="by-author">by %2$s</span> in %3$s.', 'pp' );
+	} else {
+		$utility_text = __( 'Posted on %1$s by <span class="by-author"> by %2$s</span>.', 'pp' );
+	}
+
+	printf(
+		$utility_text,
+		$date,
+		$author,
+		$categories_list,
+		$tag_list
+	);
+
 }
 endif;
 
