@@ -85,40 +85,53 @@ $connected = new WP_Query( array(
 
 	<div class="wrapper">
 
-    <?php while ( $connected->have_posts() ) : $connected->the_post();
-	    $coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
-    ?>  
-        <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', $coming_soon ) ); ?>> 
-        		    
-			<?php 
-			$external_download_url = get_post_meta( get_the_ID(), '_affwp_addon_download_url', true );
+	    <?php while ( $connected->have_posts() ) : $connected->the_post();
+		    $coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
+	    ?>  
+	        <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', $coming_soon ) ); ?>> 
+	        		    
+				<?php 
+				$external_download_url = get_post_meta( get_the_ID(), '_affwp_addon_download_url', true );
 
-			if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
+				if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
 
-	    		<h2 class="entry-title">
-					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-			    		<?php the_title(); ?>
-			    	</a>
-		    	</h2>
+		    		<?php if ( ! has_post_thumbnail() ) : ?>
+						<h2 class="entry-title">
+							<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+					    		<?php the_title(); ?>
+					    	</a>
+				    	</h2>
 
-		    	<?php affwp_post_thumbnail(); ?>
+				    <?php else : ?>
+				    	<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+					<?php endif; ?>
 
-		    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
-		    		  	
-	    		<h2 class="entry-title"><?php the_title(); ?></h2>
-	    		<div class="post-thumbnail">
-	    			<?php the_post_thumbnail(); ?>
-	    		</div>
+			    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
+			    		  	
+		    		<?php if ( ! has_post_thumbnail() ) : ?>
+						<h2 class="entry-title">
+							<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+					    		<?php the_title(); ?>
+					    	</a>
+				    	</h2>
 
-			<?php endif; ?>	
+				    <?php else : ?>
+				    	<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+					<?php endif; ?>
 
-	       	<?php the_excerpt(); ?>
-	</article>
-       
-    <?php endwhile; wp_reset_postdata(); ?>
-   	
-   	<div class="gap"></div>
-	<div class="gap"></div>
+				<?php endif; ?>	
+
+		       	<?php the_excerpt(); ?>
+
+			 		<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="link">
+	 		    		Learn More  &rarr;
+	 		    	</a>
+		</article>
+	       
+	    <?php endwhile; wp_reset_postdata(); ?>
+	   	
+	   	<div class="gap"></div>
+		<div class="gap"></div>
 	</div>
 
 </section>

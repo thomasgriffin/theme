@@ -558,9 +558,7 @@ add_action( 'save_post',     'affwp_category_transient_flusher' );
  *
  * Wraps the post thumbnail in an anchor element on index
  * views, or a div element when on single views.
- *
- * @since AffiliateWP 1.0
- *
+ * 
  * @return void
 */
 function affwp_post_thumbnail( $size = 'thumbnail' ) {
@@ -568,8 +566,7 @@ function affwp_post_thumbnail( $size = 'thumbnail' ) {
 		return;
 	}
 
-	if ( is_singular() ) :
-	?>
+	if ( is_singular() && ! is_singular( 'download' ) ) : ?>
 
 	<div class="post-thumbnail">
 	<?php
@@ -581,20 +578,10 @@ function affwp_post_thumbnail( $size = 'thumbnail' ) {
 	?>
 	</div>
 
-
 	<?php else : ?>
 
 	<a title="<?php the_title_attribute(); ?>" class="post-thumbnail" href="<?php the_permalink(); ?>">
-	<?php
-		the_post_thumbnail( $size );
-	
-
-		// if ( ( ! is_active_sidebar( 'sidebar-2' ) || is_page_template( 'page-templates/full-width.php' ) ) ) {
-		// 	the_post_thumbnail();
-		// } else {
-		// 	the_post_thumbnail();
-		// }
-	?>
+	<?php the_post_thumbnail( $size ); ?>
 	</a>
 
 	<?php endif; // End is_singular()
