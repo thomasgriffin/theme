@@ -52,11 +52,10 @@ function pp_testimonials() {
 		</div>
 		*/ ?>
 	
-	
-	</section>
-<div class="action">
-			<a href="<?php echo site_url('/join-the-site/register'); ?>" class="button large">Join the site</a>
+		<div class="action">
+			<a href="<?php echo site_url('/join-the-site/register'); ?>" class="button huge">Join the site</a>
 		</div>
+	</section>
+	
 	<?php
 }
-//add_action( 'affwp_page_header_after', 'pp_testimonials' );

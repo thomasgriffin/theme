@@ -4,6 +4,8 @@
 
 // #affwp_save_notifications_wrap input[type="submit"],
 
+@button-color: #74d7bf; // aqua
+
 .button-secondary,
 #edd-purchase-button,
 .edd-add-to-cart,
@@ -12,8 +14,8 @@
 .affwp_submit,
 .button,
 #submit {
-  background: transparent;
-  color: #072460;
+  background: @button-color;
+  color: #fff;
   cursor: pointer;
   display: inline-block;
 //  text-transform: uppercase;
@@ -31,9 +33,11 @@
   outline: none;
   .transition ( all 0.2s linear );
   font-weight: 500;
-  border: 5px solid #072460;
+  
+//  border: 5px solid #072460;
 }
 
+// button component
 .button {
   position: relative;
 
@@ -69,9 +73,11 @@
   }
 
   &:hover {
-    border-color: #74d7bf;
-    color: #072460;
+  //  border-color: #74d7bf;
+    color: #fff;
+   .box-shadow( 0 0 0 5px darken( @button-color, 10% ) inset );
   }
+
 }
 
 #edd-purchase-button,
@@ -95,10 +101,10 @@
  //   padding: 0.875rem 1.25rem;
   }
 
-  // &.huge {
-  //   font-size: 1.5rem;
-  //   padding: 1.5rem 4rem;
-  // }
+  &.huge {
+    font-size: 1.5rem;
+    padding: 1.5rem 4rem;
+  }
 
   &:hover,
   &:focus {
