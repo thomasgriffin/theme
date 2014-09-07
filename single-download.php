@@ -75,13 +75,15 @@ $connected = new WP_Query( array(
 
 
 <?php if ( $connected->have_posts() ) : ?>
-<section class="section columns columns-3 product-grid">
+<section class="section columns columns-3 grid product-grid">
+
+	
+		<header class="page-header">
+			<h1>Related add-ons</h1>
+		</header>
+	
 
 	<div class="wrapper">
-		<header class="entry-header">
-			<h2 class="entry-title">Related add-ons</h2>
-		</header>
-	</div>
 
     <?php while ( $connected->have_posts() ) : $connected->the_post();
 	    $coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
@@ -93,7 +95,7 @@ $connected = new WP_Query( array(
 
 			if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
 
-	    		<h2>
+	    		<h2 class="entry-title">
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 			    		<?php the_title(); ?>
 			    	</a>
@@ -103,7 +105,7 @@ $connected = new WP_Query( array(
 
 		    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
 		    		  	
-	    		<h2><?php the_title(); ?></h2>
+	    		<h2 class="entry-title"><?php the_title(); ?></h2>
 	    		<div class="post-thumbnail">
 	    			<?php the_post_thumbnail(); ?>
 	    		</div>
@@ -117,7 +119,7 @@ $connected = new WP_Query( array(
    	
    	<div class="gap"></div>
 	<div class="gap"></div>
-
+	</div>
 
 </section>
 <?php endif; ?>
