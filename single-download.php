@@ -17,9 +17,7 @@ get_header(); ?>
 	 */
 	?>
 	<div class="col left">
-		<?php echo pp_product_info( 'left' ); ?>
-		
-		<?php //affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+		<?php echo pp_product_info(); ?>
 	</div>
 	
 	<div class="primary col">
@@ -38,7 +36,6 @@ get_header(); ?>
 	</div>
 
 	<?php get_sidebar( 'products' ); ?>
-	
 		
 </section>
 

@@ -17,3 +17,16 @@
 		border-bottom:  1px solid rgba(97, 141, 235, 0.09);
 	}
 }
+
+@media only screen and ( min-width: 768px ) {
+	.primary-sidebar {
+		max-width: 300px;
+	}
+}
+
+@media all and ( min-width: 1440px ) {
+	// hide post info as it's now shown in the left column
+	.primary-sidebar .post-info {
+		display: none;
+	}
+}

@@ -16,7 +16,6 @@
 	<?php
 		$support_url = get_post_meta( get_the_ID(), '_pp_product_support_url', true ) ? get_post_meta( get_the_ID(), '_pp_product_support_url', true ) : site_url( 'plugin-support' );
 		$target     = get_post_meta( get_the_ID(), '_pp_product_support_url', true ) ? ' target="_blank"' : '';
-	// make dynamic
 	?>
 	<div class="support box">
 		<h2>Need Help?</h2>
@@ -57,21 +56,5 @@
 	   </ul>	
 	</div>
 	<?php endif; ?>
-
-
-	<?php
-
-
-
-
-// 	$json = 'http://api.wordpress.org/plugins/info/1.0/easy-digital-downloads.json';
-
-// 	$safe_json = str_replace("\n", "\\n", $json);
-
-	
-
-// var_dump(json_decode($safe_json));
-
-	?>
 
 </div>

@@ -81,6 +81,11 @@ section.columns {
   }
 }
 
+ // single blog posts can keep the left column up until 768px
+.single-post .col.left {
+  display: block;
+}
+
 // 3 columns
 @media only screen and ( min-width: 768px ) {
 
@@ -102,20 +107,28 @@ section.columns {
     }
   }
 
-  // .page,
-  // .single {
-  //   .columns-3 {
 
-  //     .col.left {
-  //       width: 100%;
+  // single products, pages and blog posts
+  .page,
+  .single {
+    .columns-3 {
 
-  //     }
+      .col.left {
+        display: none;
+     //   width: 100%;
+      }
 
-  //     .primary {
-  //       width: 62%;
-  //     }
-  //   }
+      .primary {
+        width: 62%;
+      }
+    }
+  }
+
+  // hide product info
+  // .product-info {
+  //   display: none;
   // }
+
 
 }
 

@@ -440,8 +440,7 @@ function pp_product_info( $position = '' ) {
 	$changelog = stripslashes( wpautop( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ), true ) );
 					
 ?>
-	<aside class="box product-info<?php echo ' ' . $position; ?>">
-		
+	<aside class="box product-info<?php if ( $position ) { echo ' ' . $position; } ?>">	
 
 		<?php if ( $version ) : ?>
 			<p><span>Version</span> v<?php echo esc_attr( $version ); ?></p>

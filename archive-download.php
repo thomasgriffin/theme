@@ -34,10 +34,7 @@ get_header(); ?>
 			    	</h2>
 
 			    <?php else : ?>
-			    	<?php 
-			    		affwp_post_thumbnail( 'affwp-product-thumbnail' ); 
-			    	?>
-
+			    	<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
 				<?php endif; ?>
 				
 		    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
@@ -62,8 +59,8 @@ get_header(); ?>
 		 	?>
 
 		 		<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="link">
-		 		    		Learn More  &rarr;
-		 		    	</a>
+ 		    		Learn More  &rarr;
+ 		    	</a>
 
 		 	<?php /*
 		 			 	<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="link">
