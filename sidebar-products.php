@@ -34,6 +34,8 @@
 		  'connected_items' => get_queried_object(),
 		  'nopaging'        => true,
 		) );
+
+	//	 var_dump( $connected );
 	?>
 
 	<?php if ( $connected->have_posts() ) : ?>
@@ -43,7 +45,7 @@
 		   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-docs'; ?>"></use>
 		</svg>
 
-	<h2>Related Documentation</h2>
+		<h2>Documentation</h2>
 		<ul>
 	    <?php while ( $connected->have_posts() ) : $connected->the_post(); ?>  
 	        <li> 	
@@ -51,8 +53,15 @@
 		    		<?php the_title(); ?>
 		    	</a>
 			</li>
-	    <?php endwhile; wp_reset_postdata(); ?>
-	   </ul>	
+	    <?php endwhile; 
+
+	    wp_reset_postdata(); ?>
+	    	<?php /*
+	    	 <li><a href="#">View all &rarr;</a></li>
+	    	 */ ?>
+	   </ul>
+
+	  
 	</div>
 	<?php endif; ?>
 

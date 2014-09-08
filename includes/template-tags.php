@@ -306,6 +306,9 @@ function affwp_page_header( $header = '', $sub_header = '' ) {
 	<?php do_action( 'affwp_page_header_after' ); ?>
 <?php }
 
+
+
+
 /**
  * Filter the subheadings
  */
@@ -323,13 +326,15 @@ function affwp_modify_excerpts( $sub_header ) {
 		$sub_header = $term->description ? sprintf( '<h2>%s</h2>', $term->description ) : '';
 	}
 
-	if ( is_tax( 'download_category' ) ) {
+	// download category and documentation category sub headers
+	if ( is_tax( 'download_category' ) || is_tax( 'doc_category' ) ) {
 		$term = $wp_query->queried_object;
 
 		if ( $term->description ) {
 			$sub_header = sprintf( '<h2>%s</h2>', $term->description );
 		}
 	}
+
 
 	return $sub_header;
 }

@@ -8,11 +8,7 @@ get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
 
-		<header class="page-header">
-		<h1 class="page-title">Products</h1>
-		<h2>A really awesome sub heading goes here</h2>
-
-	</header>
+<?php affwp_page_header( 'Products', '<h2>A really awesome sub heading goes here</h2>' ); ?>
 
 
 <section class="section columns columns-3 grid product-grid">
@@ -74,11 +70,10 @@ get_header(); ?>
 	<?php endwhile; ?>
 	<div class="gap"></div>
 	<div class="gap"></div>
-	<?php endif; ?>
+	
 
 	</div>
 </section>
-
-
+<?php endif; ?>
 
 <?php get_footer();

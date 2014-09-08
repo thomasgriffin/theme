@@ -21,7 +21,10 @@
 <?php if ( $connected->have_posts() ) : ?>
 	<aside class="box">
 
-		<h3>Related Products</h3>
+	<?php 
+		$heading = $connected->post_count > 1 ? __( 'Related Products', 'pp' ) : __( 'Related Product', 'pp' );
+	?>
+		<h3><?php echo $heading; ?></h3>
 	 
 		<ul>
 	    <?php while ( $connected->have_posts() ) : $connected->the_post(); ?>  
