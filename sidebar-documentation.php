@@ -20,17 +20,20 @@
 
 <?php if ( $connected->have_posts() ) : ?>
 	<aside class="box">
-	<p>
-		<span>Related Products</span>
-	
-    <?php while ( $connected->have_posts() ) : $connected->the_post(); ?>  
-     
-	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		<?php the_title(); ?>
-	</a>
-       
-    <?php endwhile; wp_reset_postdata(); ?>
-   	</p>
+
+		<h3>Related Products</h3>
+	 
+		<ul>
+	    <?php while ( $connected->have_posts() ) : $connected->the_post(); ?>  
+	    
+	    <li>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+				<?php the_title(); ?>
+			</a>
+	    </li>   
+	    <?php endwhile; wp_reset_postdata(); ?>
+	    </ul>
+  
 
 </aside>
 <?php endif; ?>
