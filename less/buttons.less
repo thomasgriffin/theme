@@ -33,18 +33,16 @@
   outline: none;
   .transition ( all 0.2s linear );
   font-weight: 500;
-  
+
 //  border: 5px solid #072460;
 }
 
-// button component
-.button {
-  position: relative;
 
-  span,
-  svg {
-    vertical-align: middle;
-  }
+
+// external link buttons
+.button.external {
+  padding-right: 3rem;
+  position: relative;
 
   // icon
   svg { 
@@ -55,27 +53,33 @@
     .transition ( all 0.2s linear );
   }
 
-  &.external {
-    padding-right: 3rem;
-    position: relative;
-   
+  span,
+  svg {
+    vertical-align: middle;
   }
+
+  &:hover {
+     svg {
+        top: 40%;
+        right: 14px;
+      }
+  }
+}
+
+
+// button component
+.button {
+  position: relative;
 
   &.wide {
     width: 100%;
   }
 
-  &.external:hover {
-    svg {
-      top: 40%;
-      right: 14px;
-    }
-  }
-
   &:hover {
   //  border-color: #74d7bf;
     color: #fff;
-   .box-shadow( 0 0 0 5px darken( @button-color, 10% ) inset );
+    background: darken( @button-color, 10% );
+   //.box-shadow( 0 0 0 5px darken( @button-color, 10% ) inset );
   }
 
 }

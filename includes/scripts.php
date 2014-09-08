@@ -30,8 +30,6 @@ function affwp_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'affwp_enqueue_scripts' );
 
-
-
 /**
  * Fittext
  *
@@ -69,7 +67,7 @@ function affwp_flexslider() {
 		});
 	</script>
 <?php }
-add_action( 'wp_footer', 'affwp_flexslider', 50 );
+//add_action( 'wp_footer', 'affwp_flexslider', 50 );
 
 /**
  * Fancybox

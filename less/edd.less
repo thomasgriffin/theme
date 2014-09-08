@@ -30,7 +30,19 @@
 	line-height: 1;
 }
 
-a.edd-add-to-cart .edd-loading { position: absolute; left: 50%; top: 50%; opacity: 0; filter: alpha(opacity=0); }
+a.edd-add-to-cart .edd-loading { 
+	position: absolute; 
+	left: 50%; 
+	top: 50%; 
+	opacity: 0; 
+	filter: alpha(opacity=0);
+
+	// image inside needs this to get correct height
+	img {
+		display: block;
+	}
+}
+
 a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
   -webkit-transition:.1s  opacity !important;
   -moz-transition:.1s  opacity !important;
@@ -38,12 +50,35 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
   -o-transition:.1s opacity !important;
   transition:.1s  opacity !important
  }
-.edd-add-to-cart[data-edd-loading] .edd-add-to-cart-label { opacity: 0; filter: alpha(opacity=0); }
-.edd-add-to-cart[data-edd-loading] .edd-loading { opacity: 1; filter: alpha(opacity=100); }
-.edd-cart-added-alert { color: #567622; display: block; position: absolute;  }
+
+.edd-add-to-cart[data-edd-loading] .edd-add-to-cart-label { 
+	opacity: 0; 
+	filter: alpha(opacity=0);
+}
+
+.edd-add-to-cart[data-edd-loading] .edd-loading { 
+	opacity: 1; 
+	filter: alpha(opacity=100);
+}
+
+// added to cart alert
+.edd-cart-added-alert { 
+//	color: #567622; 
+	display: block; 
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	margin: -16px 0 0 0;
+}
 
 
-.edd-icon-spin { display: inline-block; -moz-animation: edd-icon-spin 2s infinite linear; -o-animation: edd-icon-spin 2s infinite linear; -webkit-animation: edd-icon-spin 2s infinite linear; animation: edd-icon- spin 2s infinite linear;  }
+.edd-icon-spin { 
+	display: inline-block; 
+	-moz-animation: edd-icon-spin 2s infinite linear; 
+	-o-animation: edd-icon-spin 2s infinite linear; 
+	-webkit-animation: edd-icon-spin 2s infinite linear; 
+	animation: edd-icon- spin 2s infinite linear;
+}
 
 @-moz-keyframes edd-icon-spin {
     0% { -moz-transform: rotate(0deg) }
@@ -75,7 +110,9 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 	display: none;
 }
 
-
+// .edd_go_to_checkout {
+// 	.transition ( all 3s ease-in );
+// }
 
 
 
@@ -389,7 +426,7 @@ input.error {
 // ajax add to cart
 .edd-cart-ajax-alert {
 //	margin-top: 1rem;
-	display: none;
+//	display: none;
 }
 
 // added to cart message

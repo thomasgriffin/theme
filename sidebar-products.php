@@ -8,8 +8,7 @@
 
 <div class="primary-sidebar widget-area col right" role="complementary">
 
-
-	<?php echo pp_get_purchase_link( get_the_ID() ); ?>
+	<?php echo pp_purchase_link( get_the_ID() ); ?>
 
 	<?php echo pp_product_info( 'right' ); ?>
 
