@@ -50,7 +50,8 @@ get_header(); ?>
    				<a href="<?php echo $doc_url; ?>"<?php echo $external; ?>>View documentation &rarr;</a>
    			</article>	
    		<?php endforeach; ?>
-
+      <div class="gap"></div>
+      <div class="gap"></div>
 	</div>
 </section>
 
