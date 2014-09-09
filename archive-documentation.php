@@ -23,9 +23,24 @@ get_header(); ?>
    		$terms = get_terms( $taxonomy, $args );
 	  	
    		foreach( $terms as $term ) : ?>
+
+       <?php
+          if ( $term->slug == 'easy-digital-downloads' ) {
+             $doc_url = 'https://easydigitaldownloads.com/documentation/';
+             $external = true;
+          } elseif( $term->slug == 'affiliatewp' ) {
+            $doc_url = 'http://affiliatewp.com/support/documentation/';
+             $external = true;
+          } else {
+            $doc_url = get_term_link( $term, $taxonomy );
+          }
+
+          $external = isset( $external ) &&  $external == true ? ' target="_blank"' : '';
+        ?>
+
    			<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
    				<h2 class="entry-title">
-   					<a href="<?php echo get_term_link( $term, $taxonomy ); ?>"><?php echo $term->name; ?></a>
+   					<a href="<?php echo $doc_url; ?>"<?php echo $external; ?>><?php echo $term->name; ?></a>
    				</h2>
    				
    				<?php if ( $term->description ) : ?>
@@ -33,20 +48,7 @@ get_header(); ?>
    				<?php endif; ?>
 
 
-          <?php
-            if ( $term->slug == 'easy-digital-downloads' ) {
-               $doc_url = 'https://easydigitaldownloads.com/documentation/';
-               $external = true;
-            } elseif( $term->slug == 'affiliatewp' ) {
-              $doc_url = 'http://affiliatewp.com/support/documentation/';
-               $external = true;
-            } else {
-              $doc_url = get_term_link( $term, $taxonomy );
-            }
-
-            $external = isset( $external ) &&  $external == true ? ' target="_blank"' : '';
          
-          ?>
    				<a href="<?php echo $doc_url; ?>"<?php echo $external; ?>>View documentation &rarr;</a>
    			</article>	
    		<?php endforeach; ?>
