@@ -44,7 +44,7 @@ get_header(); ?>
               $doc_url = get_term_link( $term, $taxonomy );
             }
 
-            $external = isset( $external ) == true ? ' target="_blank"' : '';
+            $external = isset( $external ) &&  $external == true ? ' target="_blank"' : '';
          
           ?>
    				<a href="<?php echo $doc_url; ?>"<?php echo $external; ?>>View documentation &rarr;</a>
