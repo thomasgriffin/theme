@@ -1,17 +1,26 @@
 // grid component. Adds margin to all nested .cols and applies flexbox attributes
 
+.grid.columns {
+	font-size: 1rem;
+}
+
+.grid .post-thumbnail {
+	margin: -24px -24px 24px -24px;
+}
+
 
 .grid .col {
 	margin-bottom: 2rem;
 }
 
-// .col h2 {
-// 	margin-bottom: 1.62rem;
-// }
+.grid .col:hover {
+	.box-shadow( 0 2px 2px 0 rgba( 0, 0, 0, 0.15 ) );
+}
 
-// .col h2 a {
-// 	color: #292929;
-// }
+// product grid
+.grid .wrapper {
+	max-width: 480px;
+}
 
 // product grid
 // IE9 falls back to using the display-inline-block in our columns.less
@@ -30,6 +39,64 @@
   // justify-content: center;
 
 }
+
+.grid.columns .col {
+		.transition ( box-shadow 0.2s ease-out );
+
+		display: -ms-flexbox;   // MID: IE 10
+		display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+
+		display: flex;          // NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+
+
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+
+		// default is row (allows vertical centering)
+		-webkit-flex-flow: column;
+		flex-flow: column;
+
+		 // -webkit-flex-direction: column;
+	  //  flex-direction: column;
+
+	  // align the p tag to the top
+			
+		// IE 11 only
+	  	a.post-thumbnail {
+	  		-webkit-flex: 0 0 auto;
+	  		flex: 0 0 auto;
+	  	}
+
+		p {
+	  		-webkit-flex: 1 0 auto;
+	  	//	-ms-flex: 1 1 auto;
+			flex: 1 0 auto;
+			width: 100%;
+		}
+
+		h2 {
+			margin-bottom: 1rem;
+		}
+
+		* {
+//			width: 100%;
+		}
+}
+
+@media only screen and ( min-width: 768px ) {
+	.product-grid .wrapper {
+		max-width: 1220px;
+	}
+}
+
+
+// .col h2 {
+// 	margin-bottom: 1.62rem;
+// }
+
+// .col h2 a {
+// 	color: #292929;
+// }
+
+
 
 // .grid .col {
 // 	-webkit-box-flex: 1;

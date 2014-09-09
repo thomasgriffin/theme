@@ -17,7 +17,7 @@ get_header(); ?>
 	if ( $term_children ) :
 ?>
 
-	<section class="section columns columns-3 grid product-grid">
+	<section class="section columns columns-3 grid">
 		<div class="wrapper">
 		<?php foreach ( $term_children as $term ) :
 			$term = get_term_by( 'id', $term, $taxonomy );
@@ -72,7 +72,7 @@ get_header(); ?>
 	 * The sub term page
 	 */
 	if ( have_posts() ) : ?>
-	<section class="section columns columns-3 grid product-grid">
+	<section class="section columns columns-3 grid">
 	     <div class="wrapper">
 
 	     <?php while ( have_posts() ) : the_post(); ?>

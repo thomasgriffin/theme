@@ -5,10 +5,10 @@
 
 get_header(); ?>
 
-<?php affwp_page_header( 'Documentation', '<h2>Helpful docs on all my plugins</h2>' ); ?>
+<?php affwp_page_header( 'Documentation' ); ?>
 
 
-<section class="section columns columns-3 grid product-grid">
+<section class="section columns columns-3 grid">
 	<div class="wrapper">
 
     <?php
