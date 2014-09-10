@@ -210,12 +210,17 @@ function affwp_body_classes( $classes ) {
 	if ( is_page_template( 'page-templates/about.php' ) )
 		$classes[] = 'about';
 
-
 	if ( is_user_logged_in() && isset( $post->post_content ) && has_shortcode( $post->post_content, 'purchase_history' ) )
 		$classes[] = 'purchase-history';
 
 	if ( is_page_template( 'page-templates/changelog.php' ) )
 		$classes[] = 'changelog';
+
+
+	if ( wp_unslash( site_url('/') ) == wp_get_referer() )
+		$classes[] = 'from-home';
+
+
 
 	if ( function_exists( 'edd_is_success_page' ) && edd_is_success_page() )
 		$classes[] = 'purchase-confirmation';
