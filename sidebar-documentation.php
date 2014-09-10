@@ -7,7 +7,7 @@
 ?>
 
 <div class="primary-sidebar widget-area col right" role="complementary">
-	<?php echo pp_single_doc_info(); ?>
+	<?php echo pp_single_post_type_info(); ?>
 
 <?php 
 	// Find connected pages

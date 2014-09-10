@@ -12,7 +12,7 @@ get_header(); ?>
 <section class="section columns-3 columns">
 
 	<div class="col left">
-		<?php echo pp_blog_post_info(); ?>
+		<?php echo pp_single_post_type_info(); ?>
 	</div>
 
 	<div class="primary col content-area">

@@ -16,52 +16,14 @@ function affwp_excerpt_length( $length ) {
 //add_filter( 'excerpt_length', 'affwp_excerpt_length', 999 );
 
 /**
- * Single blog post information box
+ * Single post type information box
  */
-
-function pp_blog_post_info() {
+function pp_single_post_type_info() {
 	?>
-	<aside class="box post-info">
+	<aside class="box <?php echo get_post_type(); ?>-info">
 		<p>
 			<span>Posted On</span>
-
-			<?php if ( 'post' == get_post_type() ) : ?>
-				<?php printf( '<time datetime="%1$s">%2$s</time>',
-					esc_attr( get_the_date( 'c' ) ),
-					esc_html( get_the_date() )
-				); ?>
-			<?php endif; ?>
-		</p>
-
-		<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && affwp_categorized_blog() ) : ?>
-		<p>
-			<span>Categories</span>
-			<?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'affwp' ) ); ?>
-		</p>
-		<?php endif; ?>
-
-		<?php the_tags( '<p><span>Tags</span> ', ', ', '</p>' ); ?>
-		<p>
-			<span>Comments</span>
-			<?php comments_popup_link( __( 'Leave a comment', 'affwp' ), __( '1', 'affwp' ), __( '%', 'affwp' ) ); ?>
-		</p>
-	</aside>
-	<?php
-}
-
-/**
- * Single documentation information box
- */
-
-function pp_single_doc_info() {
-	?>
-	<aside class="box doc-info">
-		<p>
-			<span>Posted On</span>
-
-			<?php 
-
-			if ( 'documentation' == get_post_type() ) : ?>
+			<?php if ( 'documentation' == get_post_type() || 'series' == get_post_type() || 'post' == get_post_type() ) : ?>
 				<?php printf( '<time datetime="%1$s">%2$s</time>',
 					esc_attr( get_the_date( 'c' ) ),
 					esc_html( get_the_date() )
@@ -72,6 +34,20 @@ function pp_single_doc_info() {
 		<?php if ( in_array( 'doc_category', get_object_taxonomies( get_post_type() ) ) && affwp_categorized_blog() ) : ?>
 			<p><span>Categories</span>
 			<?php echo get_the_term_list( get_the_ID(), 'doc_category', '', '<br/>' ); ?>
+			</p>
+		<?php endif; ?>
+
+		<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && affwp_categorized_blog() ) : ?>
+			<p><span>Categories</span>
+			<?php echo get_the_term_list( get_the_ID(), 'category', '', '<br/>' ); ?>
+			</p>
+		<?php endif; ?>
+
+		<?php if ( 'post' == get_post_type() ) : ?>
+			<?php the_tags( '<p><span>Tags</span> ', ', ', '</p>' ); ?>
+			<p>
+				<span>Comments</span>
+				<?php comments_popup_link( __( 'Leave a comment', 'affwp' ), __( '1', 'affwp' ), __( '%', 'affwp' ) ); ?>
 			</p>
 		<?php endif; ?>
 

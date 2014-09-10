@@ -111,6 +111,7 @@ function pp_get_purchase_link( $args = array() ) {
 					esc_attr( $type ),
 					$button_display,
 					'<img class="edd-icon-spin" src="'. get_stylesheet_directory_uri() . "/svgs/spinner.svg" .' " />'
+				//	'<img class="edd-icon-spin" src="'. get_stylesheet_directory_uri() . "/svgs/spinner.svg" .' " />'
 
 				);
 			}
