@@ -186,16 +186,6 @@ function pp_add_to_cart_success() {
 
 
 
-
-/**
- * Limit excerpt length to 20 characters
- */
-function pp_product_grid_excerpt_length( $length ) {
-	return 10;
-}
-//add_filter( 'excerpt_length', 'pp_product_grid_excerpt_length' );
-
-
 /**
  * Remove and deactivate all styling included with EDD. Theme uses unique styling
  *
