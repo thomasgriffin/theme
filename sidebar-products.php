@@ -14,42 +14,53 @@
 
 	
 
-	<?php 
-		$connected = new WP_Query( array(
-		  'connected_type'  => 'docs_to_downloads',
-		  'connected_items' => get_queried_object(),
-		  'nopaging'        => true,
-		) );
+	
 
-	//	 var_dump( $connected );
+	<?php
+		// get top level terms and their links
+		$doc_term_id = (int) get_post_meta( get_the_ID(), '_pp_product_doc_term_id', true );
+		$taxonomy = 'doc_category';
+
+		$args = array(
+			'parent' => $doc_term_id,
+			'hide_empty' => false
+		);
+
+		$terms = get_terms( $taxonomy, $args );
+
+		$main_doc_link = get_term_link( $doc_term_id, $taxonomy );
+		$main_doc_link = ! is_wp_error( $main_doc_link ) ? $main_doc_link : '';
 	?>
-
-	<?php if ( $connected->have_posts() ) : ?>
-	<div class="docs box">
-
+	<aside class="docs box">
 		<svg width="96px" height="96px">
 		   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-docs'; ?>"></use>
 		</svg>
 
 		<h2>Documentation</h2>
+		
+
+	
 		<ul>
-	    <?php while ( $connected->have_posts() ) : $connected->the_post(); ?>  
-	        <li> 	
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		    		<?php the_title(); ?>
-		    	</a>
-			</li>
-	    <?php endwhile; 
+			<?php foreach( $terms as $term ) : 
+				// The $term is an object, so we don't need to specify the $taxonomy.
+				$term_link = get_term_link( $term );
+				
+				// If there was an error, continue to the next term.
+				if ( is_wp_error( $term_link ) ) {
+				    continue;
+				}
+			?>
+				<li>
+					<a href="<?php echo esc_url( $term_link ); ?>"><?php echo $term->name; ?></a>
 
-	    wp_reset_postdata(); ?>
-	    	<?php /*
-	    	 <li><a href="#">View all &rarr;</a></li>
-	    	 */ ?>
-	   </ul>
+				</li>
+			<?php endforeach; ?>
+			
+		</ul>
+		<a href="<?php echo $main_doc_link; ?>">View all &rarr;</a>
+	</aside>
 
-	  
-	</div>
-	<?php endif; ?>
+
 
 	<?php
 		$support_url = get_post_meta( get_the_ID(), '_pp_product_support_url', true ) ? get_post_meta( get_the_ID(), '_pp_product_support_url', true ) : site_url( 'plugin-support' );
@@ -66,5 +77,5 @@
 		
 	
 	</div>
-	
+
 </div>
