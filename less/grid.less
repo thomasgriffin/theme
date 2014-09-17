@@ -11,10 +11,15 @@
 
 .grid .col {
 	margin-bottom: 2rem;
+//	.transition ( position 0.2s linear );
+	position: relative;
+	top:0;
 }
 
 .grid .col:hover {
-	.box-shadow( 0 2px 2px 0 rgba( 0, 0, 0, 0.15 ) );
+	.box-shadow( 0 3px 3px 0 rgba( 0, 0, 0, 0.15 ) );
+	top: -3px;
+//	position: relative;
 }
 
 // product grid
@@ -36,7 +41,8 @@
 }
 
 .grid.columns .col {
-		.transition ( box-shadow 0.2s ease-out );
+	//	.transition ( box-shadow 0.2s ease-out );
+		.transition ( all 0.2s ease-out );
 
 		display: -ms-flexbox;   // MID: IE 10
 		display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+
@@ -60,7 +66,7 @@
 	  		flex: 0 0 auto;
 	  	}
 
-		p {
+		p, ul {
 	  		-webkit-flex: 1 0 auto;
 	  	//	-ms-flex: 1 1 auto;
 			flex: 1 0 auto;
