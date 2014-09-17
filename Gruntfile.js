@@ -81,10 +81,6 @@ module.exports = function(grunt) {
       }
     },
 
-
-
-
-
     // watch our project for changes
     watch: {
       // JS
@@ -92,7 +88,7 @@ module.exports = function(grunt) {
         files: ['js/src/**/*.js'],
         tasks: ['concat:js', 'uglify:js'],
         options: {
-          livereload: true,
+      //    livereload: true,
         }
       },
       svgstore: {
@@ -104,7 +100,7 @@ module.exports = function(grunt) {
         files: ['less/*.less'],
         tasks: ['less:style'],
         options: {
-          livereload: true,
+      //    livereload: true,
         }
       },
       // Add banner
