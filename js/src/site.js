@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
       $(this).addClass('edd-items-in-cart');
     });	
 
-    $(".menu-icon.connect").hover( function() {
+    $(".menu-icon.connect").click( function() {
 
         $('#main').fadeOut( 250, function() {
             $(this).hide();
@@ -59,7 +59,7 @@ jQuery(document).ready(function($) {
            $('.menu-icon.connect').removeClass('hidethis');
            $('.menu-connect').removeClass('show');
         },
-        250,
+        750,
         'mouseover');
 
 
