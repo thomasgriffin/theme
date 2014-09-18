@@ -2,6 +2,7 @@
 
 // checkout, no sidebar template, and category pages will all be slim
 .edd-checkout .content-area,
+
 .no-sidebar .content-area,
 .category .content-area {
 	max-width: 720px;
@@ -10,6 +11,11 @@
 // when logged out, the register form shows 2 columns. Fields on left and options on right
 .register .content-area {
 	max-width: 980px;	
+} 
+
+
+.about .content-area {
+	max-width: 720px;	
 } 
 
 // when logged in, the register form only shows the "upgrade your subsription" fields
@@ -22,6 +28,103 @@
 	margin: 0 -2rem 2rem -2rem;
 }
 
-@media all and ( min-width: 720px ) {
 
+
+// .about .widget .post-thumbnail {
+// 	margin: -24px -24px 24px -24px;
+// 	display: block;
+// }
+
+.about .primary .post-thumbnail {
+	margin-bottom: 24px;
+
+}
+
+@media all and ( min-width: 720px ) {
+	// about
+	// .about .alignright {
+	// 	margin: 0 -3rem 3rem 3rem;
+	// }
+	// .about .grid {
+	// 	margin-top: 2rem;
+	// }
+
+	.about .profile {
+		
+	//	display: block;
+		margin: 0 auto -100px auto;
+	//	padding: 48px 0;
+		width: 200px;
+		position: relative;
+		overflow: hidden;
+
+		img {
+			border-radius: 100%;
+			border: 10px solid #fff;
+			display: block;
+		}
+
+		a {
+		//	display: none;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius: 100%;
+			border: 10px solid #fff;
+		//	border-radius: 100%;
+
+			
+		}
+
+		svg {
+				position: absolute;
+				left: 50%;
+				top: 60%;
+				margin: -40px 0 0 -40px;
+				visibility: hidden;
+				.opacity(0);
+				-webkit-transition: all 0.2s linear;
+				transition: all 0.2s linear;
+			}
+	}
+
+	.about .profile:hover {
+		a {
+//			top: 0;
+			background: rgba( 7, 36, 96, 0.5 );
+			background: rgba( 116, 215, 191, 0.5 );
+			background: rgba( 255, 255, 255, 0.7 );
+		//	.opacity(50);
+			
+		}
+
+		svg {
+			visibility: visible;
+			.opacity(100);
+			top: 50%;
+		}
+	}
+	// .about .enlarge {
+	// 	position: relative;
+	// }
+
+	.about .page-header {
+		padding-bottom: 24px;
+	}
+
+	.about article.page {
+		padding-top: 130px;
+	}
+
+
+	.about .primary .post-thumbnail {
+	//	float: right;
+	//	width: 40%;
+	//	padding: 0 0 64px 64px;
+	//	margin: 0 0 64px 64px;
+	}
+
+	.about .entry-content {
+	//	width: 54%;
+	}
 }

@@ -217,7 +217,7 @@ function affwp_docs_getting_started() {
 					                        	</a>
 					                        </h2>	
 					                           	<?php 
-											 		affwp_post_thumbnail();
+											 		pp_post_thumbnail();
 											 		the_excerpt();
 											 	?>
 					                    </div>
@@ -291,7 +291,7 @@ function affwp_docs_tax() {
 			 </h2>
 
 		 	<?php 
-		 		affwp_post_thumbnail();
+		 		pp_post_thumbnail();
 		 		the_excerpt();
 		 	?>
 		
@@ -480,7 +480,7 @@ function affwp_docs_singular() {
 	                    	</h2>
 
 						   <?php 
-					   	 		affwp_post_thumbnail();
+					   	 		pp_post_thumbnail();
 					   	 		the_excerpt();
 					   	 	?>
 	                 </div>

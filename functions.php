@@ -14,6 +14,7 @@ require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'masthead.php' );
 
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'scripts.php' );
 
+require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'page-mods.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'sharing.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'gforms.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'ajax-functions.php' );
@@ -207,7 +208,7 @@ function affwp_body_classes( $classes ) {
 	if ( is_page_template( 'page-templates/support.php' ) )
 		$classes[] = 'support';
 
-	if ( is_page_template( 'page-templates/about.php' ) )
+	if ( is_page( 'about' ) )
 		$classes[] = 'about';
 
 	if ( is_user_logged_in() && isset( $post->post_content ) && has_shortcode( $post->post_content, 'purchase_history' ) )
@@ -244,7 +245,7 @@ function affwp_body_classes( $classes ) {
 add_filter( 'body_class', 'affwp_body_classes' );
 
 /**
- * Register three AffiliateWP widget areas.
+ * Register sidebars
  *
  * @since 1.0
  *
@@ -254,12 +255,28 @@ function affwp_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Primary Sidebar', 'affwp' ),
 		'id'            => 'sidebar-1',
+		'class'         => 'box',
 		'description'   => __( 'Main sidebar', 'affwp' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+		
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'About', 'affwp' ),
+		'id'            => 'sidebar-about',
+		'class'         => 'box',
+		'description'   => __( 'About sidebar', 'affwp' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+		
+	) );
+
+	
 }
 add_action( 'widgets_init', 'affwp_widgets_init' );
 

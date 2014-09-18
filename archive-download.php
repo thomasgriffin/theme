@@ -30,7 +30,7 @@ get_header(); ?>
 			    	</h2>
 
 			    <?php else : ?>
-			    	<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+			    	<?php pp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
 				<?php endif; ?>
 				
 		    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
@@ -41,7 +41,7 @@ get_header(); ?>
 	    	
 	    		<div class="post-thumbnail">
 	    			<?php if ( current_user_can( 'manage_options' ) ) : ?>
-	    				<?php affwp_post_thumbnail(); ?>
+	    				<?php pp_post_thumbnail(); ?>
 	    			<?php else : ?>
 	    				<img alt="<?php the_title(); ?> - Coming Soon" src="<?php echo get_stylesheet_directory_uri() . '/images/add-ons-coming-soon.png'; ?>">
 	    			<?php endif; ?>	

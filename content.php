@@ -57,7 +57,7 @@
 
 	<div class="entry-summary">
 		<div class="entry-thumbnail">
-			<?php affwp_post_thumbnail( 'thumbnail' ); ?>
+			<?php pp_post_thumbnail( 'thumbnail' ); ?>
 		</div>
 		<?php the_excerpt(); ?>
 	</div>

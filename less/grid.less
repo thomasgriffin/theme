@@ -1,5 +1,34 @@
 // grid component. Adds margin to all nested .cols and applies flexbox attributes
 
+.col-image,
+.col-info {
+	display: inline-block;
+	width: 48%;
+	vertical-align: top;
+}
+
+.columns-1 .col img {
+//	background: blue;
+//	max-width: 400px;
+}
+
+.columns-1 .col {
+	margin-bottom: 64px;
+}
+
+
+.col-image a {
+	display: block;
+}
+
+
+
+
+
+
+
+
+
 .grid.columns {
 	font-size: 1rem;
 }
@@ -16,7 +45,7 @@
 	top:0;
 }
 
-.grid .col:hover {
+.grid.columns.product-grid .col:hover {
 	.box-shadow( 0 3px 3px 0 rgba( 0, 0, 0, 0.15 ) );
 	top: -3px;
 //	position: relative;
@@ -40,9 +69,20 @@
 
 }
 
+.grid.product-grid.columns .col {
+	-webkit-transition: box-shadow 0.1s linear, top 0.1s linear;
+	transition: box-shadow 0.1s linear, top 0.1s linear;
+}
+
 .grid.columns .col {
 	//	.transition ( box-shadow 0.2s ease-out );
-		.transition ( all 0.2s ease-out );
+	//	.transition ( box-shadow 0.2s ease-out );
+
+		
+
+	
+	
+
 
 		display: -ms-flexbox;   // MID: IE 10
 		display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+

@@ -20,7 +20,7 @@ get_header(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'box', 'product' ) ); ?>>
 					
-				<?php //affwp_post_thumbnail(); ?>
+				<?php //pp_post_thumbnail(); ?>
 					<div class="entry-content">
 						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'affwp' ) ); ?>
 					</div>
@@ -95,7 +95,7 @@ $connected = new WP_Query( array(
 				    	</h2>
 
 				    <?php else : ?>
-				    	<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+				    	<?php pp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
 					<?php endif; ?>
 
 			    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
@@ -108,7 +108,7 @@ $connected = new WP_Query( array(
 				    	</h2>
 
 				    <?php else : ?>
-				    	<?php affwp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+				    	<?php pp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
 					<?php endif; ?>
 
 				<?php endif; ?>	

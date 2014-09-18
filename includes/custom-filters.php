@@ -59,7 +59,8 @@ function affwp_show_the_title( $title, $id ) {
 
 	// about
 	if ( 'page-templates/about.php' == get_post_meta( $id, '_wp_page_template', true ) ) {
-		$title = __( 'Who we are', 'affwp' );
+	//	$title = __( 'About', 'affwp' );
+		$title = __( 'Pippin Williamson', 'affwp' );
 	}
 
 	// purchase confirmation

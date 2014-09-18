@@ -69,7 +69,7 @@ function affwp_blog() {
 				<?php affwp_posted_on(); ?>
 				<h2><a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	        	
-	        	<?php //affwp_post_thumbnail(); ?>
+	        	<?php //pp_post_thumbnail(); ?>
 	        	
 	        	<a title="<?php the_title_attribute(); ?>" class="post-thumbnail" href="<?php the_permalink(); ?>">
 	        	<?php

@@ -605,7 +605,7 @@ add_action( 'save_post',     'affwp_category_transient_flusher' );
  * 
  * @return void
 */
-function affwp_post_thumbnail( $size = 'thumbnail' ) {
+function pp_post_thumbnail( $size = 'thumbnail' ) {
 	if ( post_password_required() || ! has_post_thumbnail() ) {
 		return;
 	}

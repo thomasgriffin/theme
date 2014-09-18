@@ -5,15 +5,15 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-		// Page thumbnail and title.
-		affwp_post_thumbnail();
-	//	affwp_the_title();
-	?>
+	<?php pp_post_thumbnail(); ?>
 
 	<div class="entry-content">
-		<?php
-			the_content();
-		?>
+	<?php do_action( 'pp_entry_content_start' ); ?>
+
+		<?php the_content(); ?>
+
+	<?php do_action( 'pp_entry_content_end' ); ?>	
 	</div>
+
+	<?php do_action( 'pp_entry_content_after' ); ?>
 </article>
