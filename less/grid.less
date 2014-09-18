@@ -45,11 +45,28 @@
 	top:0;
 }
 
-.grid.columns.product-grid .col:hover {
-	.box-shadow( 0 3px 3px 0 rgba( 0, 0, 0, 0.15 ) );
-	top: -3px;
-//	position: relative;
+.grid.columns .col {
+	-webkit-transition: box-shadow 0.1s linear;
+	transition: box-shadow 0.1s linear;
 }
+
+.grid.columns .col:hover {
+//	border: 10px solid @primary-color;
+	.box-shadow( 0 0px 0px 10px @accent-color );
+
+}
+
+// sublte box shadow lift
+
+// .grid.columns .col {
+// 	-webkit-transition: box-shadow 0.1s linear, top 0.1s linear;
+// 	transition: box-shadow 0.1s linear, top 0.1s linear;
+// }
+
+// .grid.columns .col:hover {
+// 	.box-shadow( 0 3px 3px 0 rgba( 0, 0, 0, 0.15 ) );
+// 	top: -3px;
+// }
 
 // product grid
 // IE9 falls back to using the display-inline-block in our columns.less
@@ -67,11 +84,6 @@
 	 //  align-items: center;
   // justify-content: center;
 
-}
-
-.grid.product-grid.columns .col {
-	-webkit-transition: box-shadow 0.1s linear, top 0.1s linear;
-	transition: box-shadow 0.1s linear, top 0.1s linear;
 }
 
 .grid.columns .col {

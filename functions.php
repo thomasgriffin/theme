@@ -92,7 +92,7 @@ function affwp_setup() {
 	set_post_thumbnail_size( 672, 372, true );
 
 	add_image_size( 'affwp-full-width', 1038, 576, true );
-	add_image_size( 'affwp-product-thumbnail', 480, 280, false );
+	add_image_size( 'affwp-grid-thumbnail', 480, 280, false );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(

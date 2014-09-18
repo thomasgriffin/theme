@@ -12,8 +12,8 @@ get_header(); ?>
 		<div class="profile">
 			<a href="http://twitter.com/pippinsplugins" title="Follow Pippin on Twitter" target="_blank">
 				<svg width="80px" height="80px">
-			   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-twitter'; ?>"></use>
-			</svg>
+				   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-twitter'; ?>"></use>
+				</svg>
 			</a>
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/about.jpg" alt="Pippin Williamson" />
 		</div>

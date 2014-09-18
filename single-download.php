@@ -100,7 +100,7 @@ $connected = new WP_Query( array(
 				    	</h2>
 
 				    <?php else : ?>
-				    	<?php pp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+				    	<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
 					<?php endif; ?>
 
 			    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
@@ -113,7 +113,7 @@ $connected = new WP_Query( array(
 				    	</h2>
 
 				    <?php else : ?>
-				    	<?php pp_post_thumbnail( 'affwp-product-thumbnail' ); ?>
+				    	<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
 					<?php endif; ?>
 
 				<?php endif; ?>	
