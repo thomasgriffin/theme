@@ -3,17 +3,78 @@
 @secondary-color: #072460;
 //@secondary-color: #8ec5e2;
 
+#main {
+  position: relative;
+}
+
+// #masthead .col-2 {
+//   position: relative;
+// }
+
+// hide menu connect on homepage
+
+  .menu-connect li {
+    display: inline-block;
+    padding: 0;
+  }
+
+
+.home .menu-icon.connect {
+  display: none;
+}
+
+
+
+.menu-icon.connect.hidethis {
+  .opacity(0);
+
+}
+
+.menu-icon.connect {
+  top: -100%;
+  .opacity(100);
+     -webkit-transition: all 0.25s ease-in-out; 
+    -moz-transition: all 0.25s ease-in-out; 
+    -o-transition: all 0.25s ease-in-out; 
+    transition: all 0.25s ease-in-out;
+}
+
+.menu-connect {
+ // display: none;
+}
+
+  .menu-connect {
+    position: absolute;
+    right: 64px;
+    top: -100%;
+ //   visibility: hidden;
+    -webkit-transition: all 0.25s ease-in-out; 
+    -moz-transition: all 0.25s ease-in-out; 
+    -o-transition: all 0.25s ease-in-out; 
+    transition: all 0.25s ease-in-out;
+  }
 
   a.cart.hidden {
     visibility: hidden;
     top: -60px;
   }
 
-.cart {
-  position: absolute;
-   right: 64px;
-   top: 0;
+.connect {
+  right: 64px;
+//  font-size: 16px;
+}
+
+.menu-icon {
   padding: 24px 0;
+  position: absolute;
+  top: 0;
+}
+
+.cart {
+  
+   right: 64px;
+   
+  
     -webkit-transition: all 0.25s ease-in-out; 
   -moz-transition: all 0.25s ease-in-out; 
   -o-transition: all 0.25s ease-in-out; 
@@ -374,7 +435,38 @@ ul.menu {
 
 
   #main ul.menu a {
-     padding: 32px 1.5rem;
+     padding: 32px 20px;
   }
 
+  .menu-icon.connect {
+    top: 0;
+  // display: block;
+  //   visibility: hidden;
+  }
+
+
+
+
+
+  .menu-icon.connect {
+    padding: 28px 0;
+  }
+
+  .menu-connect li a {
+     padding: 28px 12px;
+     display: block;
+  }
+
+  .menu-connect.show {
+    top: 0;
+//     display: block;
+   //  visibility: visible;
+  //  .opacity(100);
+  }
+
+  // items exist in cart, bump icon over
+  .edd-items-in-cart .menu-connect,
+  .edd-items-in-cart .connect {
+      right: 112px;
+  }
 }

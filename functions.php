@@ -221,7 +221,9 @@ function affwp_body_classes( $classes ) {
 	if ( wp_unslash( site_url('/') ) == wp_get_referer() )
 		$classes[] = 'from-home';
 
-
+	if ( edd_get_cart_contents() ) {
+		$classes[] = 'edd-items-in-cart';
+	}
 
 	if ( function_exists( 'edd_is_success_page' ) && edd_is_success_page() )
 		$classes[] = 'purchase-confirmation';

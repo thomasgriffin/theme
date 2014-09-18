@@ -3,6 +3,23 @@ jQuery(window).load(function() {
    jQuery('body').addClass('loaded');
 });
 
+(function($){
+   $.fn.lazybind = function(event, fn, timeout, abort){
+        var timer = null;
+        $(this).bind(event, function(){
+            timer = setTimeout(fn, timeout);
+        });
+        if(abort == undefined){
+            return;
+        }
+        $(this).bind(abort, function(){
+            if(timer != null){
+                clearTimeout(timer);
+            }
+        });
+    };
+})(jQuery);
+
 jQuery(document).ready(function($) {
 
     // adds a "selected" CSS class to the label when pricing or membership options are selected
@@ -15,7 +32,36 @@ jQuery(document).ready(function($) {
 
     $('body').on('edd_cart_item_added', function( response ) {
       $('#masthead .cart').removeClass('hidden');
+      $(this).addClass('edd-items-in-cart');
     });	
+
+    $(".menu-icon.connect").hover( function() {
+
+        $('#main').fadeOut( 250, function() {
+            $(this).hide();
+        });
+
+        $('.menu-connect').addClass('show');
+        $(this).addClass('hidethis');
+
+    });
+
+
+    $('#masthead').lazybind(
+        'mouseout',
+        function(){
+ 
+            $('#main').fadeIn( 250, function() {
+                 $(this).show();
+            });
+
+           
+           $('.menu-icon.connect').removeClass('hidethis');
+           $('.menu-connect').removeClass('show');
+        },
+        250,
+        'mouseover');
+
 
     $('#show-gallery-images').click(function(e) {
     	e.preventDefault();

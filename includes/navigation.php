@@ -26,7 +26,10 @@ function pp_load_main_navigation() {
 		  )
 		);
 	?>
+	
 	</nav>
+
+	<?php pp_sharing_navigation(); ?>
 
 <?php 
 	echo ob_get_clean(); 
@@ -38,6 +41,8 @@ function pp_load_navigation_extras() {
 	// don't load on checkout
 	if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() )
 		return;
+
+	pp_share_icon();	
 
 	pp_show_cart_quantity_icon();
 

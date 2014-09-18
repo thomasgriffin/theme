@@ -394,7 +394,7 @@ function pp_show_cart_quantity_icon() {
 	$quantity = edd_get_cart_quantity() == 1 ? ' item' : ' items';
 
 ?>
-	<a href="<?php echo esc_url( edd_get_checkout_uri() ); ?>" class="cart<?php echo $class; ?>" title="You have <?php echo edd_get_cart_quantity() . $quantity; ?> ready for purchase">
+	<a href="<?php echo esc_url( edd_get_checkout_uri() ); ?>" class="menu-icon cart<?php echo $class; ?>" title="You have <?php echo edd_get_cart_quantity() . $quantity; ?> ready for purchase">
 		<div class="bag">
 			<span class="edd-cart-quantity"><?php echo edd_get_cart_quantity(); ?></span>
 			<img class="checkout" src="<?php echo get_stylesheet_directory_uri() . '/images/arrow-right.svg'; ?> " />
