@@ -1,41 +1,69 @@
-// .about img.profile {
-// 	margin: 0 auto 2rem auto;
-// 	display: block;
-// }
+// CSS relating to the about page
 
-// .about .col.box {
-// 	background: @light-grey;
-// }
-
-@media only screen and ( min-width: 1024px ) {
-
-	// .about img.profile {
-	// 	float: left;
-	// 	margin: 0 2rem 1.5rem -2.5rem;
-	// 	border-left: 8px solid @accent-color;
-	// }
+.about .page-header {
+	padding-bottom: 24px;
 }
 
-// // 2 columns
-// @media all and ( min-width: 600px ) {
-//   .about .columns-2 {
-//     .columns-2 {
-//     	.gap,
-// 	    .col {
-// 	      width: 100%;
-// 	    }
-//     }
-//   }
-// }
+.about article.page {
+	padding-top: 130px;
+}
 
-// // 2 columns
-// @media all and ( min-width: 1024px ) {
-//   .about .columns-2 {
-//     .columns-2 {
-//     	.gap,
-// 	    .col {
-// 	      width: 48%;
-// 	    }
-//     }
-//   }
-// }
+.about .profile {
+	margin: 0 auto -100px auto;
+	width: 200px;
+	position: relative;
+	overflow: hidden;
+
+	img {
+		border-radius: 100%;
+		border: 10px solid #fff;
+		display: block;
+	}
+
+	a {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+		border: 10px solid #fff;
+		background: rgba( 116, 215, 191, 0.2 );
+	}
+
+	svg {
+		position: absolute;
+		left: 50%;
+		top: 60%;
+		margin: -40px 0 0 -40px;
+		visibility: hidden;
+		.opacity(0);
+		-webkit-transition: all 0.2s linear;
+		transition: all 0.2s linear;
+		transition-delay: .25s;
+		-webkit-transition-delay: .25s;
+	}
+}
+
+
+
+
+@media only screen and ( min-width: 720px ) {
+
+
+.about .profile:hover {
+	a {
+		background: rgba( 255, 255, 255, 0.7 );
+	}
+
+	svg {
+		visibility: visible;
+		.opacity(100);
+		top: 50%;
+	}
+}
+
+
+
+
+
+
+}
