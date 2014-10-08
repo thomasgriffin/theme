@@ -617,8 +617,18 @@ function pp_product_info( $position = '' ) {
 	<aside class="box product-info<?php if ( $position ) { echo ' ' . $position; } ?>">	
 
 		<?php if ( $version ) : ?>
-			<p><span>Version</span> v<?php echo esc_attr( $version ); ?></p>
+			<p><span>Version</span> v<?php echo esc_attr( $version ); ?>
+				<?php if ( $changelog ) : ?>
+					<br /><a id="show-changelog" href="#changelog">View changelog</a>
+
+					<div id="changelog" class="entry-content" style="display: none;">
+						<h1>Changelog</h1>
+						<?php echo $changelog; ?>
+					</div>
+				<?php endif; ?>
+			</p>
 		<?php endif; ?>	
+		
 
 		<?php if ( $released ) : ?>
 			<p><span>Released </span><?php echo esc_attr( $released ); ?></p>
@@ -638,14 +648,7 @@ function pp_product_info( $position = '' ) {
 		<p><span>Last Updated</span><?php echo date( 'F j, Y', $updated ); ?></p>
 		<?php endif; ?>
 
-		<?php if ( $changelog ) : ?>
-			<p><span>Changelog </span><a id="show-changelog" href="#changelog">View changelog</a></p>
-
-			<div id="changelog" class="entry-content" style="display: none;">
-				<h1>Changelog</h1>
-				<?php echo $changelog; ?>
-			</div>
-		<?php endif; ?>
+		
 			
 		
 		
@@ -655,7 +658,7 @@ function pp_product_info( $position = '' ) {
 }
 
 /**
- * Terms and conditions
+ * Changelog
  */
 function pp_product_changelog() {
 
