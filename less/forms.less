@@ -58,6 +58,14 @@ textarea {
 	border: 1px solid darken( @light-grey, 3% );
 }
 
+select {
+	width: 100%;
+	padding: 0.95rem;
+	color: @body-text-color;
+	background: #fff;
+	border: 1px solid darken( @light-grey, 3% );
+}
+
 input  {  
   display: inline-block;
   line-height: 1;
@@ -100,117 +108,6 @@ button {
 	display: block;
 }
 
-// gravity forms
-
-.gfield_required {
-	display: none;
-}
-
-.entry-content .gform_wrapper ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.gform_button {
-	background: #e44e44;
-	padding: 1rem;
-	font-weight: 600;
-	color: #fff;
-	text-transform: uppercase;
-}
-
-.ginput_container {
-//	margin-bottom: 0.5rem;
-}
-
-.validation_error {
-	margin-bottom: 2rem;
-	color: #ED6D62;
-	font-weight: 500;
-}
-
-.gfield_label {
-	margin-bottom: 0.5rem;
-	display: block;
-	font-size: 1rem;
-	font-weight: 500;
-}
-
-.gfield_description.validation_message,
-.validation_message {
-	margin: 0.5rem 0;
-	color: #e44e44;
-	font-weight: 500;
-}
-
-.gform_footer {
-	position: relative;
-}
-.gform_ajax_spinner {
-	position: absolute;
-	right: 20px;
-	top: 13px;
-}
-
-.gform_confirmation_message {
-	margin: 0 auto;
-	line-height: 1.62;
-	color: #696969;
-}
-
-.gfield {
-	margin-bottom: 0.5rem;
-}
-
-.ginput_complex span label {
-	color: @label;
-	margin-top: 0.5rem;
-}
-
-.gfield_description {
-	margin-bottom: 0.5rem;
-	color: @label;
-}
-
-
-
-.ginput_complex {
-
-//	text-align: justify;
-
-	span {
-		
-		display: inline-block;
-		margin-bottom: 1rem;
-		width: 100%;
-		
-		label {
-			display: block;
-		}
-		
-	}
-}
-
-.gfield_radio {
-
-	label {
-		cursor: pointer;
-		padding-left: 0.5rem;
-	}
-
-	input[type="text"] {
-		width: auto;
-		margin-left: 0.5rem;
-	}
-}
-
-// clearfix
-// .ginput_complex:after {
-// 	content: "";
-// 	display: inline-block;
-// 	width: 100%;
-// }
 
 // support form
 
@@ -236,16 +133,5 @@ button {
 }
 
 
-@media all and ( min-width: 980px ) {
-	.support .gform_wrapper form {
 
-		.ginput_complex span {
-			width: 48%;
-		//	display: inline-block;
 
-			&.ginput_right {
-				float: right;
-			}
-		}
-	}
-}
