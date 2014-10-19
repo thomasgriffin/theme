@@ -10,11 +10,29 @@
 
 	<?php echo pp_purchase_link( get_the_ID() ); ?>
 
+	<?php 
+		$terms = get_posts(
+		    array(
+		        'name'      => 'terms-conditions',
+		        'post_type' => 'page',
+		        'posts_per_page' => 1
+		    )
+		);
+	?>
+
+	<?php if ( $terms ) : ?>
+	<p>Extensions are subject to a yearly license for support and updates. <a href="#terms-conditions" class="open">View license terms</a>.</p>
+
+	<div id="terms-conditions" class="popup entry-content" style="display: none;">
+		<h1>
+			<?php echo $terms[0]->post_title; ?>
+		</h1>
+
+		<?php echo stripslashes( wpautop( $terms[0]->post_content, true ) ); ?>
+	</div>
+	<?php endif; ?>
+
 	<?php echo pp_product_info( 'right' ); ?>
-
-	
-
-	
 
 	<?php
 		// get top level terms and their links

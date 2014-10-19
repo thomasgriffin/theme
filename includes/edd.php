@@ -619,9 +619,9 @@ function pp_product_info( $position = '' ) {
 		<?php if ( $version ) : ?>
 			<p><span>Version</span> v<?php echo esc_attr( $version ); ?>
 				<?php if ( $changelog ) : ?>
-					<br /><a id="show-changelog" href="#changelog">View changelog</a>
+					<br /><a href="#changelog" class="open">View changelog</a>
 
-					<div id="changelog" class="entry-content" style="display: none;">
+					<div id="changelog" class="popup entry-content" style="display: none;">
 						<h1>Changelog</h1>
 						<?php echo $changelog; ?>
 					</div>
@@ -672,7 +672,7 @@ function pp_product_changelog() {
 
 	<script type="text/javascript">
 			jQuery(document).ready(function() {
-				jQuery("#show-changelog").fancybox({
+				jQuery(".open").fancybox({
 					type: 'inline',
 				//	padding: 32,
 					maxWidth: 720,
