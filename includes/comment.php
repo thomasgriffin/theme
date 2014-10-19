@@ -8,6 +8,27 @@
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
 
+
+/**
+ * Add an opening div tag before the comment fields 
+ */
+function pp_comment_form_after_fields() {
+	echo '<div class="comment-fields">';
+}
+add_action( 'comment_form_top', 'pp_comment_form_after_fields' );
+
+
+/**
+ * Add closing div just after the comment box
+ */
+function pp_comment_form_field_comment( $args ) {
+	$args = $args . '</div>';
+	return $args;
+}
+add_filter( 'comment_form_field_comment', 'pp_comment_form_field_comment' );
+
+
+
 function affwp_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
@@ -52,7 +73,7 @@ function affwp_comment( $comment, $args, $depth ) {
 					}
 				?>
 			</div>
-			
+
 			<div class="comment-author vcard">
 				<?php printf( __( '%1$s', 'affwp' ), sprintf( '<span class="fn">%s</span>', get_comment_author_link() ) ); ?>
 

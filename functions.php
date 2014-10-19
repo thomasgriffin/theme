@@ -48,6 +48,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 585;
 }
 
+
 /**
  * EDD Default labels
  * Set back to downloads which is changed by using EDD_SLUG constant
