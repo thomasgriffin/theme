@@ -13,7 +13,7 @@
 	<?php 
 		$terms = get_posts(
 		    array(
-		        'name'      => 'terms-conditions',
+		        'name'      => 'terms-and-conditions',
 		        'post_type' => 'page',
 		        'posts_per_page' => 1
 		    )
