@@ -12,7 +12,7 @@ get_header(); ?>
  */
     $args = array(
       'post_type' => 'series',
-      'posts_per_page' => 3,
+      'posts_per_page' => -1,
     );
 
     $series = new WP_Query( $args );
@@ -25,15 +25,14 @@ get_header(); ?>
     <div class="wrapper">
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
               <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-            	<?php if ( ! has_post_thumbnail() ) : ?>
-            		<h2 class="entry-title">
-            			<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-            	    		<?php the_title(); ?>
-            	    	</a>
-                	</h2>
-                <?php else : ?>
-                	<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
-            	<?php endif; ?>
+            	
+            	<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+                <h2 class="entry-title">
+                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+                        <?php the_title(); ?>
+                    </a>
+                </h2>
+            	
 
             <?php the_excerpt(); ?>
 
@@ -70,15 +69,12 @@ get_header(); ?>
     <div class="wrapper">
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
               <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-                <?php if ( ! has_post_thumbnail() ) : ?>
-                    <h2 class="entry-title">
-                        <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-                            <?php the_title(); ?>
-                        </a>
-                    </h2>
-                <?php else : ?>
-                    <?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
-                <?php endif; ?>
+               <?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+                               <h2 class="entry-title">
+                                   <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+                                       <?php the_title(); ?>
+                                   </a>
+                               </h2>
 
             <?php the_excerpt(); ?>
 
@@ -115,15 +111,12 @@ get_header(); ?>
     <div class="wrapper">
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
               <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-                <?php if ( ! has_post_thumbnail() ) : ?>
-                    <h2 class="entry-title">
-                        <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-                            <?php the_title(); ?>
-                        </a>
-                    </h2>
-                <?php else : ?>
-                    <?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
-                <?php endif; ?>
+               <?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+                               <h2 class="entry-title">
+                                   <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+                                       <?php the_title(); ?>
+                                   </a>
+                               </h2>
 
             <?php the_excerpt(); ?>
 

@@ -63,6 +63,6 @@ if ( post_password_required() ) {
 		<h2>Join the discussion</h2>
 	</header>
 
-	<?php comment_form(); ?>
+	<?php comment_form( array('comment_notes_after' => '' ) ); ?>
 
 </div>

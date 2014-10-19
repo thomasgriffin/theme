@@ -3,6 +3,7 @@ jQuery(window).load(function() {
    jQuery('body').addClass('loaded');
 });
 
+
 (function($){
    $.fn.lazybind = function(event, fn, timeout, abort){
         var timer = null;
@@ -21,6 +22,12 @@ jQuery(window).load(function() {
 })(jQuery);
 
 jQuery(document).ready(function($) {
+
+    $('.single-post #series-meta').append('<a href="JavaScript:void(0);" class="show-all">Show All</a>');
+    
+    $('a.show-all').click(function() {
+        $('#series-list').toggle();
+    });
 
     // adds a "selected" CSS class to the label when pricing or membership options are selected
     $('input:checked').closest("label").addClass("selected");

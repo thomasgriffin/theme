@@ -1,0 +1,158 @@
+// comments
+
+
+#respond {
+	background: #fff;
+	padding: 24px;
+	.box-shadow( 0 1px 2px rgba( 0, 0, 0, 0.1 ) );
+	
+	margin-bottom: 1rem;
+}
+
+.comment-list .comment-body {
+	background: #fff;
+	padding: 24px;
+	.box-shadow( 0 1px 2px rgba( 0, 0, 0, 0.1 ) );
+	margin-bottom: 1rem;
+	position: relative;
+}
+
+
+.bypostauthor > .comment-body {
+	border-left: 5px solid @accent-color;
+}
+
+// comment form
+#commentform .form-submit {
+	margin-bottom: 0;
+}
+
+.avatar-wrap {
+	position: absolute;
+	right: 0;
+	top:0;
+}
+
+
+
+// comment list
+.comment-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+
+
+	.pingback {
+	//	border-bottom: 5px solid @light-grey;
+	}
+
+
+
+	.comment ~ .comment {
+	//	border: none;
+	//	border-top: 5px solid @light-grey;
+	}
+
+	li.comment:first-of-type {
+			border: none;
+		}
+
+	
+
+	.comment .comment {
+		border-top: none;
+		padding: 0;
+		margin: 0;
+
+		.fn, p {
+			font-size: 1rem;
+		}
+
+	}
+
+	.comment.depth-2 {
+		
+		// .primary {
+		// 	border-left: 4px solid @light-grey;
+		// 	padding-left: 1rem;
+		// }
+
+		margin-bottom: 1rem;
+
+		.children {
+			margin-left: 1rem;
+		}
+	}
+
+	.depth-3 {
+		// .primary {
+		// 	border-left: 4px solid @light-grey;
+		// 	padding-left: 1rem;
+		// }
+	}
+	// name
+	.fn {
+		margin-bottom: 0.5rem;
+		font-size: 1.2rem;
+		display: block;
+		font-weight: 300;
+
+
+	}
+
+	.avatar-wrap {
+		text-align: right;
+	}
+	.comment-author {
+		
+		margin-bottom: 1rem;
+		// position: absolute;
+		// left: -25rem;
+		// top: 0;
+
+	
+
+		// .fn,
+		// .avatar-wrap {
+		// 	display: block;
+		// }
+	}
+
+	.comment-metadata {
+		font-size: 0.875rem;
+	}
+
+	.comment-author b {
+		font-size: 1.2rem;
+		font-weight: 300;
+		margin-bottom: 1rem;
+	}
+
+	.comment-reply-title {
+		font-weight: 300;
+	}
+
+	p {
+	//	font-size: 1rem;
+	}
+
+	.comment-meta {
+		position: relative;
+		margin-bottom: 1rem;
+	}
+
+	// .avatar {
+	// 	position: absolute;
+	// 	left: -5rem;
+	// 	top: 0;
+	// }
+
+	.says {
+		display: none;
+	}
+
+	.children {
+		list-style-type: none;
+	//	margin-top: 1rem;
+	}
+}

@@ -21,19 +21,30 @@ aside.box {
 
 .box {
 	padding: 24px;
+
+	li {
+		padding: 0;
+	}
+	
+	ul a {
+		padding: 0.5rem 0;
+		border-bottom: 1px solid rgba(97, 141, 235, 0.09);
+	}
 }
 
-.box.support {
-		position: relative;
-		overflow: hidden;
 
-		svg {
-			position: absolute;
-			bottom: -9px;
-			right: 0;
-		//	.opacity(30);
-		}
+
+.box.support {
+	position: relative;
+	overflow: hidden;
+
+	svg {
+		position: absolute;
+		bottom: -9px;
+		right: 0;
+	//	.opacity(30);
 	}
+}
 
 
 .col.left .post-thumbnail {
@@ -43,6 +54,7 @@ aside.box {
 .primary-sidebar .box {
 	margin-bottom: 2.5rem;
 }
-  // background: @light-grey;
-  // padding: 2rem;
-  // border: 1px solid darken( @light-grey, 3% );
+
+.col.left .box {
+	margin-bottom: 2rem;
+}

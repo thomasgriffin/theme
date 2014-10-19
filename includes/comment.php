@@ -32,6 +32,13 @@ function affwp_comment( $comment, $args, $depth ) {
 	
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
+			
+			
+
+			
+
+			<article id="comment-<?php comment_ID(); ?>" class="comment-body">
+
 			<div class="avatar-wrap">
 				<?php
 					$avatar_size = 72;
@@ -45,12 +52,7 @@ function affwp_comment( $comment, $args, $depth ) {
 					}
 				?>
 			</div>
-		
-
 			
-
-			<article id="comment-<?php comment_ID(); ?>" class="comment-body">
-
 			<div class="comment-author vcard">
 				<?php printf( __( '%1$s', 'affwp' ), sprintf( '<span class="fn">%s</span>', get_comment_author_link() ) ); ?>
 
