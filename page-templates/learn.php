@@ -36,7 +36,7 @@ get_header(); ?>
 
             <?php the_excerpt(); ?>
 
-            <a href="<?php the_permalink(); ?>">View Series&rarr;</a>
+            <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
         </article> 
 
         <?php endwhile; wp_reset_query(); ?>
@@ -78,7 +78,7 @@ get_header(); ?>
 
             <?php the_excerpt(); ?>
 
-            <a href="<?php the_permalink(); ?>">View Series&rarr;</a>
+            <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
         </article> 
 
         <?php endwhile; wp_reset_query(); ?>
@@ -120,7 +120,7 @@ get_header(); ?>
 
             <?php the_excerpt(); ?>
 
-            <a href="<?php the_permalink(); ?>">View Series&rarr;</a>
+            <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
         </article> 
 
         <?php endwhile; wp_reset_query(); ?>
