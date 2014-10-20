@@ -101,10 +101,24 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 }
 
 
-
+// changelog and terms and conditions
 .popup {
 	padding: 2rem;
 }
+
+// software licensing
+#edd-license-key-container-wrap {
+	margin-bottom: 2rem;
+}
+
+// credit card fields
+#card_exp_month,
+#card_exp_year {
+	width: auto;
+}
+
+
+
 
 // cart widget in sidebar
 
@@ -287,7 +301,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 }
 
 
-#edd_show_discount {
+#edd-show-discount {
 	margin-bottom: 0;
 }
 
@@ -404,6 +418,30 @@ input.error {
 
 	
 }
+
+#edd-discount-code-wrap label {
+	display: none;
+}
+
+#edd-show-discount {
+	margin-bottom: 0;
+}
+
+#edd-discount-code-wrap {
+	margin-top: 1rem;
+}
+
+#edd_sl_show_renewal_form_wrap {
+	margin-bottom: 1rem;
+}
+
+#edd_sl_show_renewal_form_wrap svg,
+#edd-show-discount svg {
+	display: inline-block;
+	vertical-align: top;
+	margin: -2px 0.5rem 0 0;
+}
+
 
 #edd_purchase_form > fieldset#edd_discount_code {
 	padding: 0 0 2rem 0;
@@ -529,17 +567,6 @@ iframe {
 	}
 }
 
-@media only screen and ( min-width: 680px ) {
-	#edd-discount {
-		width: 79%;
-		vertical-align: top;
-		font-size: 1rem;
-	}
-
-	input.edd-apply-discount {
-		width: 20%;
-	}
-}
 
 
 

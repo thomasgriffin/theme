@@ -1,0 +1,36 @@
+// ninety login plugin styling
+
+.nd_tabs li {
+	padding: 0;
+	float: left;
+
+	a {
+		display: block;
+	}
+
+	&.active a {
+		background: #fff;
+		font-weight: 500;
+	}
+
+}
+
+.nd_tabs {
+	border-bottom: 2px solid @light-grey;
+	margin-bottom: 1rem;
+	overflow: hidden;
+}
+
+.widget.widget_nd_ajax_login .box .nd_tabs a {
+	border-bottom: none;
+	padding-left: 1rem;
+}
+
+.widget.widget_nd_ajax_login .box .nd_tabs li:first-child {
+
+	a {
+		border-right: 2px solid @light-grey;
+		padding-left: 0;
+		padding-right: 1rem;
+	}
+}

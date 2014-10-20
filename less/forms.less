@@ -109,9 +109,6 @@ button {
 }
 
 
-// support form
-
-
 // search form
 .search-form {
 	position: relative;
@@ -135,3 +132,26 @@ button {
 
 
 
+@media only screen and ( min-width: 640px ) {
+
+	// allows an input field and a submit button to stay on the same line
+	.input-wrap {
+		display: -ms-flexbox;   // MID: IE 10
+		display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+
+		display: flex;          // NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+
+	}
+
+	.input-wrap .edd-input {
+		-webkit-flex: 1; // Safari 6.1+
+		-ms-flex: 1; // IE 10
+		flex: 1;
+		vertical-align: top;
+	}
+
+	.edd-renew-license,
+	.edd-apply-discount {
+		width: 25%;
+	}
+
+
+}
