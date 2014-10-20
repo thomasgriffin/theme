@@ -22,6 +22,21 @@ jQuery(window).load(function() {
 })(jQuery);
 
 jQuery(document).ready(function($) {
+ 
+    // When discount link is clicked, hide the link, then show the discount input and set focus.
+    $('body').on('click', '.edd-discount-link', function(e) {
+        e.preventDefault();
+        $('#edd-discount-code-wrap').toggle();
+        $('#edd-discount').focus();
+    });
+
+
+    // software licensing
+    $('#edd_sl_show_renewal_form').click(function(e) {
+        e.preventDefault();
+        $('#edd-license-key-container-wrap').toggle();
+        $('#edd-license-key').focus();
+    });
 
     $('.single-post #series-meta').append('<a href="JavaScript:void(0);" class="show-all">Show All</a>');
     
