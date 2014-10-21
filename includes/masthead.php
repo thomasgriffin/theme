@@ -35,7 +35,7 @@ function pp_home_products() {
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="masthead-logo" rel="home" title="<?php echo get_bloginfo( 'name' ); ?>">
 				
 				<svg width="40px" height="48px">
-					<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-logo'; ?>"></use>
+					<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-logo-checkout'; ?>"></use>
 				</svg>
 			</a>
 		<?php endif; ?>
