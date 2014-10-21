@@ -683,7 +683,7 @@ function pp_product_changelog() {
 				openEffect	: 'elastic',
 				closeEffect	: 'elastic'
 				});
-				
+
 			});
 		</script>
 
@@ -709,3 +709,199 @@ function pp_edd_checkout_final_total() {
 }
 remove_action( 'edd_purchase_form_before_submit', 'edd_checkout_final_total', 999 );
 add_action( 'edd_purchase_form_before_submit', 'pp_edd_checkout_final_total', 999 );
+/**
+ * Software licensing
+ * @return [type] [description]
+ */
+function pp_edd_sl_renewal_form() {
+
+	if( ! edd_sl_renewals_allowed() )
+		return;
+
+	$renewal     = EDD()->session->get( 'edd_is_renewal' );
+	$renewal_key = EDD()->session->get( 'edd_renewal_key' );
+	$preset_key  = ! empty( $_GET['key'] ) ? urldecode( $_GET['key'] ) : '';
+
+	ob_start(); ?>
+	
+
+	<form method="post" id="edd_sl_renewal_form">
+		<fieldset id="edd_sl_renewal_fields">
+			<?php if( empty( $renewal ) || empty( $renewal_key ) ) : ?>
+
+			<p id="edd_sl_show_renewal_form_wrap">
+				<a href="#" id="edd_sl_show_renewal_form">
+					<svg width="32" height="32">
+					   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-renew'; ?>"></use>
+					</svg>
+					<?php _e( 'Renewing a License Key?', 'edd_sl' ); ?>
+				</a>
+			</p>
+
+			<p id="edd-license-key-container-wrap" style="display:none;">
+				<span class="edd-description"><?php _e( 'Enter the license key you wish to renew. Leave blank to purchase a new one.', 'edd_sl' ); ?></span>
+					
+
+			<span class="input-wrap">
+				<input class="edd-input required" type="text" name="edd_license_key" placeholder="<?php _e( 'Enter your license key', 'edd_sl' ); ?>" id="edd-license-key" value="<?php echo $preset_key; ?>"/>
+				<input type="submit" class="edd-submit button edd-renew-license" value="<?php _e( 'Renew', 'edd_sl' ); ?>" />
+			</span>
+
+				<input type="hidden" name="edd_action" value="apply_license_renewal"/>
+
+			</p>
+
+			<?php else : ?>
+			<div id="edd-license-key-container-wrap">
+				<p id="edd-license-key-wrap">
+					<label class="edd-label" for="edd-license-key"><?php _e( 'License Key Being Renewed', 'edd_sl' ); ?></label>
+					<span class="edd-renewing-key"><?php echo $renewal_key; ?></span>
+				</p>
+				<p id="edd-license-key-submit">
+					<input type="hidden" name="edd_action" value="cancel_license_renewal"/>
+					<input type="submit" class="edd-submit button" value="<?php _e( 'Cancel License Renewal', 'edd_sl' ); ?>"/>
+				</p>
+			</div>
+			<?php endif; ?>
+		</fieldset>
+	</form>
+	<?php
+	echo ob_get_clean();
+}
+remove_action( 'edd_before_purchase_form', 'edd_sl_renewal_form', -1 );
+add_action( 'edd_before_purchase_form', 'pp_edd_sl_renewal_form', -1 );
+
+
+/**
+ * EDD discount field
+*/
+function pp_edd_discount_field() {
+
+	if( isset( $_GET['payment-mode'] ) && edd_is_ajax_disabled() ) {
+		return; // Only show before a payment method has been selected if ajax is disabled
+	}
+
+	if ( edd_has_active_discounts() && edd_get_cart_total() ) :
+
+		$color = edd_get_option( 'checkout_color', 'blue' );
+		$color = ( $color == 'inherit' ) ? '' : $color;
+		$style = edd_get_option( 'button_style', 'button' );
+?>
+		<fieldset id="edd_discount_code">
+			
+			<p id="edd-show-discount">
+				<a href="#" class="edd-discount-link">
+					<svg width="32" height="32">
+					   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-discount'; ?>"></use>
+					</svg>
+					<?php echo _x( 'Have a discount code?', 'Entering a discount code', 'edd' ); ?>
+				</a>
+			</p>
+
+			<p id="edd-discount-code-wrap">
+				<label class="edd-label" for="edd-discount">
+					<img src="<?php echo EDD_PLUGIN_URL; ?>assets/images/loading.gif" id="edd-discount-loader" style="display:none;"/>
+				</label>
+				<span class="edd-description"><?php _e( 'Enter a coupon code if you have one.', 'edd' ); ?></span>
+
+				<span class="input-wrap">
+					<input class="edd-input" type="text" id="edd-discount" name="edd-discount" placeholder="<?php _e( 'Enter discount', 'edd' ); ?>"/>
+					<input type="submit" class="edd-apply-discount edd-submit button <?php echo $color . ' ' . $style; ?>" value="<?php echo _x( 'Apply', 'Apply discount at checkout', 'edd' ); ?>"/>
+				</span>
+
+				
+				
+				<span id="edd-discount-error-wrap" class="edd_errors" style="display:none;"></span>
+			</p>
+
+		</fieldset>
+<?php
+	endif;
+}
+remove_action( 'edd_checkout_form_top', 'edd_discount_field', -1 );
+add_action( 'edd_checkout_form_top', 'pp_edd_discount_field', -1 );
+
+/**
+ * Discount remove icon
+ */
+function pp_edd_get_cart_discounts_html( $html, $discounts, $rate, $remove_url ) {
+	if ( ! $discounts ) {
+		$discounts = edd_get_cart_discounts();
+	}
+
+	if ( ! $discounts ) {
+		return;
+	}
+
+	 $html = '';
+
+	 foreach ( $discounts as $discount ) {
+	 	$discount_id  = edd_get_discount_id_by_code( $discount );
+	 	$rate         = edd_format_discount_rate( edd_get_discount_type( $discount_id ), edd_get_discount_amount( $discount_id ) );
+
+		$remove_url   = add_query_arg(
+			array(
+				'edd_action'    => 'remove_cart_discount',
+				'discount_id'   => $discount_id,
+				'discount_code' => $discount
+			),
+			edd_get_checkout_uri()
+		);
+
+		$svg = '<svg width="16" height="16" viewBox="0 0 16 16"><use xlink:href="'. get_stylesheet_directory_uri() . "/images/svg-defs.svg#icon-remove" . '"></use></svg>';
+
+		$html .= "<span class=\"edd_discount\">\n";
+			$html .= "<span class=\"edd_discount_rate\">$discount&nbsp;&ndash;&nbsp;$rate</span>\n";
+			$html .= "<a href=\"$remove_url\" data-code=\"$discount\" class=\"edd_discount_remove\">$svg</a>\n";
+		$html .= "</span>\n";
+	 }
+
+	return $html;
+}
+add_filter( 'edd_get_cart_discounts_html', 'pp_edd_get_cart_discounts_html', 10, 4 );
+
+/**
+ * Load jQuery chosen on the checkout and contact page
+ */
+function pp_edd_load_scripts( $hook ) {
+	
+	if ( ! ( edd_is_checkout() || is_page( 'contact' ) ) ) {
+		return;
+	}
+
+	$js_dir  = EDD_PLUGIN_URL . 'assets/js/';
+	$css_dir = EDD_PLUGIN_URL . 'assets/css/';
+
+	// Use minified libraries if SCRIPT_DEBUG is turned off
+	$suffix  = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+	wp_enqueue_style( 'jquery-chosen', $css_dir . 'chosen' . $suffix . '.css', array(), EDD_VERSION );
+	wp_enqueue_script( 'jquery-chosen', $js_dir . 'chosen.jquery' . $suffix . '.js', array( 'jquery' ), EDD_VERSION );
+	
+}
+add_action( 'wp_enqueue_scripts', 'pp_edd_load_scripts', 100 );
+
+/**
+ * Skin the select menus after the ajax call for the payment method has run
+ * Can't think of a better way to do this
+ */
+function pp_edd_checkout_js() {
+	if ( ! ( edd_is_checkout() || is_page( 'contact' ) ) ) {
+		return;
+	}
+
+	?>
+	<script>
+		jQuery(document).ready(function($) {
+			 $(".edd-select").chosen({disable_search_threshold: 15});
+		//	 $(".gfield_select").chosen();
+		});
+			
+		jQuery( document ).ajaxComplete(function( event,request, settings ) {
+			jQuery(".edd-select").chosen({disable_search_threshold: 15});
+			console.log( event );
+		});
+	</script>
+	<?php
+}
+add_action( 'wp_footer', 'pp_edd_checkout_js' );
