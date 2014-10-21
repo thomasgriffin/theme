@@ -3,7 +3,6 @@ jQuery(window).load(function() {
    jQuery('body').addClass('loaded');
 });
 
-
 (function($){
    $.fn.lazybind = function(event, fn, timeout, abort){
         var timer = null;
@@ -29,7 +28,6 @@ jQuery(document).ready(function($) {
         $('#edd-discount-code-wrap').toggle();
         $('#edd-discount').focus();
     });
-
 
     // software licensing
     $('#edd_sl_show_renewal_form').click(function(e) {
