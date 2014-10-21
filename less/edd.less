@@ -267,17 +267,6 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 	margin-top: 3rem;
 }
 
-#edd_checkout_cart .edd_cart_discount {
-	text-align: right;
-}
-
-.edd_discount_remove {
-    background: url("images/xit.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    display: inline-block;
-    height: 10px;
-    position: relative;
-    width: 10px;
-}
 
 #edd_secure_site_wrapper {
 	position: relative;
@@ -301,9 +290,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 }
 
 
-#edd-show-discount {
-	margin-bottom: 0;
-}
+
 
 .edd-payment-icons {
 	margin-bottom: 1.5rem;
@@ -344,9 +331,7 @@ input.error {
 	margin-bottom: 0;
 }
 
-#edd-discount-error-wrap {
-	margin: 1rem 0 0 0;
-}
+
 
 // margins for fieldsets
 #edd_cc_address, 
@@ -419,6 +404,31 @@ input.error {
 	
 }
 
+// EDD discount and SL fields at checkout
+
+
+#edd_checkout_cart .edd_cart_discount {
+	text-align: right;
+}
+
+.edd_discount_remove {
+	display: inline-block;
+	margin-top: 2px;
+	vertical-align: top;
+}
+
+// .edd_discount_remove {
+//     background: url("images/xit.gif") no-repeat scroll 0 0 rgba( 0, 0, 0, 0 );
+//     display: inline-block;
+//     height: 10px;
+//     position: relative;
+//     width: 10px;
+// }
+
+#edd-discount-error-wrap {
+	margin: 1rem 0 0 0;
+
+}
 #edd-discount-code-wrap label {
 	display: none;
 }
@@ -442,15 +452,14 @@ input.error {
 	margin: -2px 0.5rem 0 0;
 }
 
-
 #edd_purchase_form > fieldset#edd_discount_code {
 	padding: 0 0 2rem 0;
 }
 
+
 #edd_purchase_form > fieldset#edd_purchase_submit {
 	padding: 0;
 }
-
 
 #edd_purchase_form {
 	fieldset fieldset {
