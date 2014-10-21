@@ -115,6 +115,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 #card_exp_month,
 #card_exp_year {
 	width: auto;
+	width: 64px;
 }
 
 
@@ -474,29 +475,49 @@ input.error {
 	}
 }
 
+// Agree to terms and mailchimp signup
+#edd_agree_to_terms,
+#edd_mailchimp_signup {
+	margin: 7px 0 0 0;
+	vertical-align: top;
+}
 
+#edd_purchase_submit label,
+#edd_purchase_submit label {
+	padding: 0 0 0 0.5rem;
+//	vertical-align: top;
+}
+
+.edd_cart_amount {
+	font-weight: 500;
+	color: @accent-color;
+}
+
+#edd_purchase_form #edd_purchase_submit fieldset {
+	margin-bottom: 0.5rem;
+}
+
+// make the labels look like they can be clicked
+#edd_purchase_submit label {
+	cursor: pointer;
+}
+
+#edd_final_total_wrap {
+	margin-top: 1.5rem;
+	font-size: 1.5rem;
+}
 
 #edd_checkout_form_wrap {
 	
 	fieldset {
-	 //   background: @light-grey;
-		#edd_agree_to_terms {
-			float: left;
-			margin-right: 1rem;
-		}
 
 		#edd_terms_agreement {
-			margin-bottom: 2rem;
-			background: none;
-			border: none;
-			padding: 0;
+			// background: none;
+			// border: none;
+			// padding: 0;
 		}
 	}
 
-	label {
-		color: #787878;
-		font-weight: 500;
-	}
 
 	.edd-description {
 		display: block;
@@ -509,8 +530,12 @@ input.error {
 #edd_checkout_form_wrap label {
 	font-size: 1rem;
 	color: #373737;
+	font-weight: 500;
 }
 
+#edd_purchase_submit label {
+	font-weight: 300;
+}
 
 
 // #edd_checkout_wrap {

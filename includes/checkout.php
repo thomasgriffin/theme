@@ -10,10 +10,11 @@ function affwp_edd_terms_agreement() {
 	if ( isset( $edd_options['show_agree_to_terms'] ) ) : ?>
 	
 	<fieldset id="edd_terms_agreement">
-		<label for="edd_agree_to_terms">
-			I agree to the <?php echo '<a id="load-refund-policy" target="_blank" href="#affwp-refund-policy">refund policy</a>'; ?>
-		</label>
 		<input name="edd_agree_to_terms" class="required" type="checkbox" id="edd_agree_to_terms" value="1" />
+		<label for="edd_agree_to_terms">
+			I agree to the <?php echo '<a href="#refund-policy" class="open">refund policy</a>'; ?>
+		</label>
+		
 	</fieldset>
 	
 	<?php endif;
@@ -24,39 +25,33 @@ add_action( 'edd_purchase_form_before_submit', 'affwp_edd_terms_agreement' );
 /**
  * Terms and conditions
  */
-function affwp_show_refund_policy() {
-	if ( ! function_exists( 'edd_is_checkout' ) || ! edd_is_checkout() )
-		return;
+function pp_show_refund_policy() {
 
-	$refund_policy = affwp_get_post_by_title( 'refund policy', 'page' );
-
-	if ( ! $refund_policy )
+	if ( ! function_exists( 'edd_is_checkout' ) || ! edd_is_checkout() ) {
 		return;
+	}
+
+	$terms = get_posts(
+	    array(
+	        'name'      => 'terms-and-conditions',
+	        'post_type' => 'page',
+	        'posts_per_page' => 1
+	    )
+	);
+	
+
+	if ( ! $terms ) {
+		return;
+	}
 	?>
 
-	<div id="affwp-refund-policy" class="entry-content">
-		<h1><?php echo $refund_policy->post_title; ?></h1>
-		<?php echo wpautop( $refund_policy->post_content, true ); ?>
-	</div>
 
-	<script type="text/javascript">
-			jQuery(document).ready(function() {
-				jQuery("#load-refund-policy").fancybox({
-					type: 'inline',
-					padding: 32,
-					maxWidth: 720,
-					helpers: {
-					    overlay: {
-					      locked: false
-					    }
-					  },
-					 openEffect	: 'fade',
-					 closeEffect	: 'fade'
-				});
-			});
-		</script>
+	<div id="refund-policy" class="popup entry-content" style="display: none;">
+		<h1><?php echo $terms[0]->post_title; ?></h1>
+		<?php echo stripslashes( wpautop( $terms[0]->post_content, true ) ); ?>
+	</div>
 
 	<?php
 }
-//add_action( 'wp_footer', 'affwp_show_refund_policy' );
+add_action( 'wp_footer', 'pp_show_refund_policy' );
 

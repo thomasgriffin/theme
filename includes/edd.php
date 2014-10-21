@@ -664,7 +664,7 @@ function pp_product_changelog() {
 
 	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
 
-	if ( ! is_singular( 'download' ) || ! $changelog ) {
+	if ( ! ( is_singular( 'download' ) || $changelog || edd_is_checkout() ) ) {
 		return;
 	}
 
@@ -672,6 +672,7 @@ function pp_product_changelog() {
 
 	<script type="text/javascript">
 			jQuery(document).ready(function() {
+
 				jQuery(".open").fancybox({
 					type: 'inline',
 				//	padding: 32,
@@ -682,9 +683,29 @@ function pp_product_changelog() {
 				openEffect	: 'elastic',
 				closeEffect	: 'elastic'
 				});
+				
 			});
 		</script>
 
 	<?php
 }
 add_action( 'wp_footer', 'pp_product_changelog', 100 );
+
+/**
+ * Shows the final purchase total at the bottom of the checkout page
+ *
+ * @since 1.5
+ * @return void
+ */
+function pp_edd_checkout_final_total() {
+?>
+<p id="edd_final_total_wrap">
+	<?php _e( 'Purchase Total:', 'edd' ); ?>
+	<span class="edd_cart_amount" data-subtotal="<?php echo edd_get_cart_subtotal(); ?>" data-total="<?php echo edd_get_cart_subtotal(); ?>">
+		<?php edd_cart_total(); ?>
+	</span>
+</p>
+<?php
+}
+remove_action( 'edd_purchase_form_before_submit', 'edd_checkout_final_total', 999 );
+add_action( 'edd_purchase_form_before_submit', 'pp_edd_checkout_final_total', 999 );
