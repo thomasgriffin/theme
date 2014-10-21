@@ -1,5 +1,28 @@
 <?php
 
+
+/**
+ * Filter the chosen options and remove searching on select menus
+ * @see  http://www.gravityhelp.com/documentation/page/Gform_chosen_options
+ */
+function pp_contact_form_js() {
+	if ( ! is_page( 'contact' ) ) {
+		return;
+	}
+
+?>
+	<script type="text/javascript">
+		gform.addFilter("gform_chosen_options", "set_chosen_options_js");
+		function set_chosen_options_js(options, element){
+				options.disable_search_threshold = 15;
+
+			return options;
+		}
+	</script>
+	<?php
+}
+add_action( 'wp_footer', 'pp_contact_form_js' );
+
 /**
  * Prevent tabbing from one form to another accidentally
  *
@@ -56,3 +79,4 @@ function affwp_gform_pre_enqueue_scripts() { ?>
 	<i class="icon icon-mail"></i>
 <?php }
 add_action( 'gform_post_submission', 'affwp_gform_pre_enqueue_scripts' );
+
