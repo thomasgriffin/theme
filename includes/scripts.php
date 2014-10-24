@@ -31,6 +31,37 @@ function affwp_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'affwp_enqueue_scripts' );
 
 /**
+ * Simple masthead parallax scrolling effect
+ * @since  1.0
+ */
+function pp_home_masthead() {
+	if ( ! is_home() ) {
+		return;
+	}
+
+	?>
+
+	<script>
+		jQuery(document).ready(function($) {
+
+			var div = jQuery('#masthead'),
+			divHeight = div.height(),
+			    scroll;
+
+			jQuery(window).scroll(function(e){
+
+			if ( jQuery("#masthead").css("min-height") == "600px" ) {
+			    scroll = jQuery(this).scrollTop();
+			    div.height(divHeight - scroll)
+			}
+		});
+	});
+	</script>
+	<?php
+}
+add_action( 'wp_footer', 'pp_home_masthead' );
+
+/**
  * Fancybox
  * @since  1.0
  */

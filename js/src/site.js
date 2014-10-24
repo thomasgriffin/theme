@@ -1,3 +1,5 @@
+
+
 // add loaded class
 jQuery(window).load(function() {
    jQuery('body').addClass('loaded');
@@ -20,19 +22,18 @@ jQuery(window).load(function() {
     };
 })(jQuery);
 
+
+
 jQuery(document).ready(function($) {
 
 
-    var div = $('.home #masthead'),
-        divHeight = div.height(),
-        scroll;
+  
 
-    $(window).scroll(function () {
-        if ( $(".home #masthead").css("display") == "flex" ) {
-            scroll = $(this).scrollTop();
-            div.height(divHeight - scroll)
-        }
-    });
+    // $(window).resize(function(){    
+    //      $("body").addClass('test');
+    //  });
+     
+  
 
     // When discount link is clicked, hide the link, then show the discount input and set focus.
     $('body').on('click', '.edd-discount-link', function(e) {
