@@ -28,6 +28,8 @@
 	</form>
 <?php else : ?>
 	
-	<a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e( 'Logout', 'rcp' ); ?></a>
+	<div class="box">
+		<a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e( 'Logout', 'rcp' ); ?></a>
+	</div>
 	
 <?php endif; ?>
