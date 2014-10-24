@@ -66,9 +66,24 @@ get_header(); ?>
 		</article>
 
 	<?php endwhile; ?>
+
+			<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
+	    			<h2 class="entry-title">
+	    				<a href="https://profiles.wordpress.org/mordauk/">
+	    		    		Want more plugins?
+	    		    	</a>
+	    	    	</h2>
+					
+		       <p>I also have over 50 freely available plugins on the WordPress repository.</p>
+
+		 		<a href="https://profiles.wordpress.org/mordauk/" class="link">
+ 		    		View Plugins  &rarr;
+ 		    	</a>
+
+			</article>
+
 	<div class="gap"></div>
 	<div class="gap"></div>
-	
 
 	</div>
 </section>
