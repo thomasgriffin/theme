@@ -28,8 +28,16 @@
 	</form>
 <?php else : ?>
 	
+	<?php 
+	$class = is_page( 'account' ) ? ' class="active"' : '';
+
+	?>
 	<div class="box">
-		<a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e( 'Logout', 'rcp' ); ?></a>
+		<ul class="linked list">
+			<li <?php echo $class; ?>><a href="<?php echo home_url('account'); ?>"><?php _e( 'Your Account', 'rcp' ); ?></a></li>
+			<li><a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e( 'Logout', 'rcp' ); ?></a></li>
+		</ul>
+		
 	</div>
 	
 <?php endif; ?>

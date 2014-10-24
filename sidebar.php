@@ -7,9 +7,11 @@
 ?>
 
 <div class="primary-sidebar widget-area col right" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-
 	<?php 
 	// RCP login form
 	echo do_shortcode( '[login_form]' ); ?>
+	
+	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+
+	
 </div>
