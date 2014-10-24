@@ -34,7 +34,28 @@ aside.box {
 // 	border-bottom: 1px solid rgba(97, 141, 235, 0.09);
 // }
 
+// upsell component
+.box.upsell {
+	background: @accent-color;
+	.box-shadow( none );
+	margin: 48px -48px -48px -48px;
+	padding: 0;
 
+	a {
+		padding: 24px 48px;
+		display: block;
+	}
+
+	p {
+		color: #fff;
+		font-weight: 400;
+	}
+
+	.button {
+		background: darken( @accent-color, 10%);
+	}
+
+}
 
 .box.support {
 	position: relative;
@@ -48,6 +69,9 @@ aside.box {
 	}
 }
 
+.box.upsell .col + .col {
+	margin-bottom: 0;
+}
 
 .col.left .post-thumbnail {
 //	margin: -1.5rem -1.5rem 0 -1.5rem;
@@ -59,4 +83,19 @@ aside.box {
 
 .col.left .box {
 	margin-bottom: 2rem;
+}
+
+@media all and ( min-width: 720px ) {
+	.box.upsell .col {
+		width: 66%;
+	}
+
+	.box.upsell .col + .col {
+		width: 31%;
+	}
+
+	// align content within column to the right
+	.col.align-right {
+	  text-align: right;
+	}
 }

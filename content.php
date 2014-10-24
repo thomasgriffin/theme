@@ -80,11 +80,31 @@
 		<?php endif; ?>
 	</footer>
 	*/ ?>
+
+<?php
+	// Upsell non-members to premium content
+if ( has_category( 'member-restricted' ) && is_singular() && ! rcp_is_active() ) : ?>
+		<div class="box upsell columns columns-2">
+			<a href="<?php echo site_url('join-the-site'); ?>">
+				<div class="col">
+					<?php if ( has_category( 'subscriber-only' ) ) : ?>
+						<p>Join now to gain access to this tutorial and more.</p>
+					<?php elseif ( has_category( 'free-members' ) ) : ?>
+						<p>Join now to gain access to an ever-growing vault of information.</p>
+					<?php endif; ?>
+				</div>
+
+				<div class="col align-right">
+					<span class="button">Join Now</span>
+				</div>
+			</a>
+		</div>
+<?php endif; ?>
+
 </article>
 
 
-
-						
+					
 
 								
 		
