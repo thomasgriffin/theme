@@ -21,7 +21,19 @@ jQuery(window).load(function() {
 })(jQuery);
 
 jQuery(document).ready(function($) {
- 
+
+
+    var div = $('#masthead'),
+        divHeight = div.height(),
+        scroll;
+
+    $(window).scroll(function () {
+        if ( $("#masthead").css("display") == "flex" ) {
+            scroll = $(this).scrollTop();
+            div.height(divHeight - scroll)
+        }
+    });
+
     // When discount link is clicked, hide the link, then show the discount input and set focus.
     $('body').on('click', '.edd-discount-link', function(e) {
         e.preventDefault();
@@ -91,23 +103,6 @@ jQuery(document).ready(function($) {
     });
 
     jQuery(function () {
-
-        var shrink = function() {
-            if (jQuery(this).scrollTop() > 0 ) {
-                jQuery('.home #masthead').addClass('shrink');
-            }
-            else {
-                jQuery('.home #masthead').removeClass('shrink');
-            }
-        };
-
-        jQuery(function() {
-            shrink();
-        });
-
-        jQuery(window).scroll(function () {
-             shrink();
-        });
 
         jQuery('#back-top').click(function () {
             jQuery('body, html').animate({
