@@ -23,12 +23,12 @@ jQuery(window).load(function() {
 jQuery(document).ready(function($) {
 
 
-    var div = $('#masthead'),
+    var div = $('.home #masthead'),
         divHeight = div.height(),
         scroll;
 
     $(window).scroll(function () {
-        if ( $("#masthead").css("display") == "flex" ) {
+        if ( $(".home #masthead").css("display") == "flex" ) {
             scroll = $(this).scrollTop();
             div.height(divHeight - scroll)
         }
