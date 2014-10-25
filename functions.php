@@ -35,7 +35,7 @@ require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'custom-filters.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'blog.php' );
 
 // plugin mods
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'easy-image-gallery.php' );
+//require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'easy-image-gallery.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'restrict-content-pro.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'edd.php' );
 
