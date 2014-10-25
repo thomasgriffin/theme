@@ -21,9 +21,15 @@
 	?>
 
 	<?php if ( $terms ) : ?>
-	<p>Extensions are subject to a yearly license for support and updates. <a href="#terms-conditions" class="open">View license terms</a>.</p>
+	<p><small>Extensions are subject to a yearly license for support and updates. <a href="#terms-conditions" class="popup-content" data-effect="mfp-move-from-bottom">View license terms</a>.</small></p>
 
-	<div id="terms-conditions" class="popup entry-content" style="display: none;">
+
+
+
+				
+
+
+	<div id="terms-conditions" class="popup entry-content mfp-with-anim mfp-hide">
 		<h1>
 			<?php echo $terms[0]->post_title; ?>
 		</h1>

@@ -619,12 +619,13 @@ function pp_product_info( $position = '' ) {
 		<?php if ( $version ) : ?>
 			<p><span>Version</span> v<?php echo esc_attr( $version ); ?>
 				<?php if ( $changelog ) : ?>
-					<br /><a href="#changelog" class="open">View changelog</a>
+					<br /><a href="#changelog" class="popup-content" data-effect="mfp-move-from-bottom">View changelog</a>
 
-					<div id="changelog" class="popup entry-content" style="display: none;">
-						<h1>Changelog</h1>
-						<?php echo $changelog; ?>
-					</div>
+					<div id="changelog" class="popup entry-content mfp-with-anim mfp-hide">
+				    	<h1>Changelog</h1>
+				    	<?php echo $changelog; ?>
+				    </div>
+
 				<?php endif; ?>
 			</p>
 		<?php endif; ?>	
@@ -657,39 +658,7 @@ function pp_product_info( $position = '' ) {
 	<?php
 }
 
-/**
- * Changelog
- */
-function pp_product_changelog() {
 
-	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
-
-	if ( ! ( is_singular( 'download' ) || $changelog || edd_is_checkout() ) ) {
-		return;
-	}
-
-	?>
-
-	<script type="text/javascript">
-			jQuery(document).ready(function() {
-
-				jQuery(".open").fancybox({
-					type: 'inline',
-				//	padding: 32,
-					maxWidth: 720,
-					helpers: {
-				    overlay: null
-				  },
-				openEffect	: 'elastic',
-				closeEffect	: 'elastic'
-				});
-
-			});
-		</script>
-
-	<?php
-}
-add_action( 'wp_footer', 'pp_product_changelog', 100 );
 
 /**
  * Shows the final purchase total at the bottom of the checkout page
@@ -880,28 +849,3 @@ function pp_edd_load_scripts( $hook ) {
 	
 }
 add_action( 'wp_enqueue_scripts', 'pp_edd_load_scripts', 100 );
-
-/**
- * Skin the select menus after the ajax call for the payment method has run
- * Can't think of a better way to do this
- */
-function pp_edd_checkout_js() {
-	if ( ! ( edd_is_checkout() || is_page( 'contact' ) ) ) {
-		return;
-	}
-
-	?>
-	<script>
-		jQuery(document).ready(function($) {
-			 $(".edd-select").chosen({disable_search_threshold: 15});
-		//	 $(".gfield_select").chosen();
-		});
-			
-		jQuery( document ).ajaxComplete(function( event,request, settings ) {
-			jQuery(".edd-select").chosen({disable_search_threshold: 15});
-			console.log( event );
-		});
-	</script>
-	<?php
-}
-add_action( 'wp_footer', 'pp_edd_checkout_js' );

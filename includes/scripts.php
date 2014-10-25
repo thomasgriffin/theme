@@ -4,14 +4,13 @@
  */
 
 
-function affwp_enqueue_scripts() {
+function pp_enqueue_scripts() {
 
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'affwp-style', get_stylesheet_uri(), array(), AFFWP_THEME_VERSION );
 
 	/**
 	 * JS
-	 * Modernizer, FancyBox, Respond.js, affwp.js
 	 */
 	wp_register_script( 'pippinsplugins-js', get_template_directory_uri() . '/js/pippinsplugins.min.js', array( 'jquery' ), AFFWP_THEME_VERSION, true );
 	wp_enqueue_script( 'pippinsplugins-js' );
@@ -28,7 +27,7 @@ function affwp_enqueue_scripts() {
 	// dequeue AffiliateWP's form.css stylesheet
 	wp_dequeue_style( 'affwp-forms' );
 }
-add_action( 'wp_enqueue_scripts', 'affwp_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'pp_enqueue_scripts' );
 
 /**
  * Simple masthead parallax scrolling effect
@@ -62,29 +61,77 @@ function pp_home_masthead() {
 add_action( 'wp_footer', 'pp_home_masthead' );
 
 /**
- * Fancybox
+ * Lightbox JS
  * @since  1.0
  */
-function affwp_fancybox() {
+function pp_lightbox_js() {
 ?>
 
-
 	<script type="text/javascript">
-		jQuery(document).ready(function() {
-		//	jQuery(".enlarge").fancybox({
-			jQuery("a:has(img)[href$='.jpg'], a:has(img)[href$='.png'], a:has(img)[href$='.gif']").addClass('enlarge').append('<span class="enlarge"><span class="icon"></span></span>').fancybox({	
-				helpers: {
-				    overlay: null
-				  },
-				openEffect	: 'elastic',
-				closeEffect	: 'elastic'
+		jQuery(document).ready(function($) {
+			
+			// single images
+			$("a:has(img)[href$='.jpg'], a:has(img)[href$='.png'], a:has(img)[href$='.gif']").not(".gallery a").addClass('zoom').magnificPopup({
+				type: 'image',
+				mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+				closeOnContentClick: true,
+				closeBtnInside: true,
+				zoom: {
+					enabled: true,
+					duration: 250,
+					easing: 'ease-in-out',
+					opener: function(openerElement) {
+						return openerElement.is('img') ? openerElement : openerElement.find('img');
+					}
+				}
+
 			});
 
 		});
 	</script>
 <?php }
-add_action( 'wp_footer', 'affwp_fancybox', 100 );
+add_action( 'wp_footer', 'pp_lightbox_js' );
 
+/**
+ * Changelog
+ */
+function pp_product_changelog() {
+
+	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+
+
+	if ( ! ( is_singular( 'download' ) || $changelog || edd_is_checkout() ) ) {
+		return;
+	}
+
+	?>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+
+		// inline
+		$('.popup-content').magnificPopup({
+			type: 'inline',
+			fixedContentPos: true,
+			fixedBgPos: true,
+			overflowY: 'scroll',
+			closeBtnInside: true,
+			preloader: false,
+			callbacks: {
+				beforeOpen: function() {
+				this.st.mainClass = this.st.el.attr('data-effect');
+				}
+			},
+			midClick: true,
+			removalDelay: 300
+        });
+
+		});
+	</script>
+
+	<?php
+}
+add_action( 'wp_footer', 'pp_product_changelog', 100 );
 
 /**
  * Adjust layout of items in header to compensate for the admin bar if it's showing

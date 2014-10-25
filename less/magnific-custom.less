@@ -1,0 +1,175 @@
+// Styles for dialog window
+.popup {
+  background: #fff;
+  padding: 48px;
+  text-align: left;
+  max-width: 720px;
+  margin: 48px auto;
+  position: relative;
+}
+
+@media all and ( min-width: 1440px ) {
+  .popup {
+     max-width: 46%;
+  }
+}
+
+// zoom anchor links
+.zoom {
+  cursor: zoom-in;
+}
+
+// move up from bottom
+.mfp-move-from-bottom {
+  
+  .mfp-content {
+    padding: 48px;
+  }
+  
+  /* start state */
+  .mfp-with-anim {
+    opacity: 0;
+    transition: all 0.25s cubic-bezier( .31,1.12,.53,1.16 );
+    -webkit-transform: translateY(300px);
+    transform: translateY(300px);
+  }
+  
+  &.mfp-bg {
+    opacity: 0;
+    transition: all 0.2s;
+  }
+  
+  /* animate in */
+  &.mfp-ready {
+    .mfp-with-anim {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+
+    &.mfp-bg {
+      opacity: 0.5;
+    }
+  }
+  
+  /* animate out */
+  &.mfp-removing {
+    
+    .mfp-with-anim {
+      -webkit-transform: translateY(300px);
+      transform: translateY(300px);
+      opacity: 0;
+    }
+    &.mfp-bg {
+      opacity: 0;
+    }
+    
+  }
+  
+}
+
+
+
+// zoom images
+
+
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+    opacity: 1;
+}
+.mfp-with-zoom.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container, 
+.mfp-with-zoom.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+  /* ideally, transition speed should match zoom duration */
+  -webkit-transition: all 0.3s ease-out; 
+  -moz-transition: all 0.3s ease-out; 
+  -o-transition: all 0.3s ease-out; 
+  transition: all 0.3s ease-out;
+}
+
+
+
+.image-source-link {
+  color: #98C3D1;
+}
+
+/**
+       * Fade-move animation for second dialog
+       */
+      
+      /* at start */
+      // .my-mfp-slide-bottom .zoom-anim-dialog {
+      //   opacity: 0;
+      //   -webkit-transition: all 0.2s ease-out;
+      //   -moz-transition: all 0.2s ease-out;
+      //   -o-transition: all 0.2s ease-out;
+      //   transition: all 0.2s ease-out;
+
+      //   -webkit-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+      //   -moz-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+      //   -ms-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+      //   -o-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+      //   transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+
+      // }
+      
+      /* animate in */
+      // .my-mfp-slide-bottom.mfp-ready .zoom-anim-dialog {
+      //   opacity: 1;
+      //   -webkit-transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+      //   -moz-transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+      //   -ms-transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+      //   -o-transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+      //   transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+      // }
+
+      /* animate out */
+      // .my-mfp-slide-bottom.mfp-removing .zoom-anim-dialog {
+      //   opacity: 0;
+
+      //   -webkit-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+      //   -moz-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+      //   -ms-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+      //   -o-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+      //   transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+      // }
+
+      /* Dark overlay, start state */
+      // .my-mfp-slide-bottom.mfp-bg {
+      //   opacity: 0.01;
+
+      //   -webkit-transition: opacity 0.3s ease-out; 
+      //   -moz-transition: opacity 0.3s ease-out; 
+      //   -o-transition: opacity 0.3s ease-out; 
+      //   transition: opacity 0.3s ease-out;
+      // }
+      /* animate in */
+      // .my-mfp-slide-bottom.mfp-ready.mfp-bg {
+      //   opacity: 0.5;
+      // }
+      /* animate out */
+      // .my-mfp-slide-bottom.mfp-removing.mfp-bg {
+      //   opacity: 0;
+      // }

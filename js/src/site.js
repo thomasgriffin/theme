@@ -26,15 +26,6 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function($) {
 
-
-  
-
-    // $(window).resize(function(){    
-    //      $("body").addClass('test');
-    //  });
-     
-  
-
     // When discount link is clicked, hide the link, then show the discount input and set focus.
     $('body').on('click', '.edd-discount-link', function(e) {
         e.preventDefault();
