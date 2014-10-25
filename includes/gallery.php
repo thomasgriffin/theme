@@ -219,7 +219,7 @@ function affwp_gallery_shortcode( $attr ) {
 	}
 
 	// ADDED 
-		$output .= ' <div class="gap"></div> <div class="gap"></div>';
+		$output .= ' <div class="gap"></div> <div class="gap"></div> <div class="gap"></div> <div class="gap"></div>';
 
 	$output .= "
 		</div>\n";
