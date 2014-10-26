@@ -61,11 +61,11 @@ add_action( 'pp_masthead_col_3', 'pp_load_navigation_extras' );
 function affwp_wp_nav_menu_items( $items, $args ) {
     if ( 'primary' == $args->theme_location ) {
     	
-    	$home = ! is_front_page() ? affwp_nav_home() : '';
-  //  	$items .= affwp_nav_account();
-//    	$items .= affwp_nav_buy_now();
+    //	$home = ! is_front_page() ? pp_nav_home() : '';
+    	$items .= pp_nav_account();
 
-    	return $home . $items;
+    //	return $home . $items;
+    	return $items;
     }
 
 	return $items;
@@ -103,44 +103,41 @@ add_filter( 'nav_menu_css_class', 'affwp_highlight_menu_item' );
  * Append account to main navigation
  * @return [type] [description]
  */
-function affwp_nav_account() { 
+function pp_nav_account() { 
 	global $current_user;
 	get_currentuserinfo();
 
-	$account_link_text 	= 'Account';
+
 	$account_page 		= '/account';
 	$affiliates_page 	= '/affiliates';
-	$active 			= is_page( 'account' ) || is_page( 'affiliates' ) ? ' current-menu-item' : '';
+	
 
 
 	 ob_start();
 	?>
 
+	<?php
+		$active = is_page( 'join-the-site' ) ? ' current-menu-item' : '';
 
-		<li class="menu-item has-sub-menu account<?php echo $active; ?>">
-			<a title="<?php echo $account_link_text; ?>" href="<?php echo site_url( $account_page ); ?>"><?php echo $account_link_text; ?></a>
-			<ul class="sub-menu">
-				<?php if (  is_user_logged_in() ) : ?>
-					<li>
-						<a title="<?php echo $account_link_text; ?>" href="<?php echo site_url( $account_page ); ?>"><?php echo $account_link_text; ?></a>
-					</li>
-				<?php endif; ?>	
-				<li>
-					<a title="<?php _e( 'Affiliates', 'affwp' ); ?>" href="<?php echo site_url( $account_page . $affiliates_page ); ?>"><?php _e( 'Affiliates', 'affwp' ); ?></a>
-				</li>
-				<?php if( ! is_user_logged_in() ) : ?>
-					<li>
-						<a title="<?php _e( 'Log in', 'affwp' ); ?>" href="<?php echo site_url( $account_page ); ?>"><?php _e( 'Log in', 'affwp' ); ?></a>
-					</li>
-				<?php else: ?>
-					
-					<li>
-						<a title="<?php _e( 'Log out', 'affwp' ); ?>" href="<?php echo wp_logout_url( add_query_arg( 'logout', 'success', site_url( $account_page ) ) ); ?>"><?php _e( 'Log out', 'affwp' ); ?></a>
-					</li>
-				<?php endif; ?>		
+		if ( ! is_user_logged_in() ) :
+	?>
+		<li class="menu-item account<?php echo $active; ?>">
+			<a title="<?php _e( 'Join the site', 'affwp' ); ?>" href="<?php echo site_url( 'join-the-site' ); ?>"><?php _e( 'Join', 'affwp' ); ?></a>
+		</li>
+	<?php endif; ?>
 
-				
-			</ul>
+
+	<?php
+		$active = is_page( 'account' ) || is_page( 'affiliates' ) ? ' current-menu-item' : '';
+	?>
+		<li class="menu-item account<?php echo $active; ?>">
+			
+			<?php if ( is_user_logged_in() ) : ?>
+				<a title="<?php echo 'Your Account'; ?>" href="<?php echo site_url( $account_page ); ?>"><?php echo 'Account'; ?></a>
+			<?php else : ?>
+				<a title="<?php _e( 'Log in', 'affwp' ); ?>" href="<?php echo site_url( $account_page ); ?>"><?php _e( 'Log in', 'affwp' ); ?></a>
+			<?php endif; ?>	
+
 		</li>
 
 	<?php $content = ob_get_contents();
@@ -156,7 +153,7 @@ function affwp_nav_account() {
  * Prepend home link to main navigation
  * @return [type] [description]
  */
-function affwp_nav_home() { 
+function pp_nav_home() { 
 	 ob_start();
 	?>
 	
