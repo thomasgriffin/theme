@@ -20,6 +20,7 @@ get_header(); ?>
 
 			<div class="col">
 				<div class="primary content-area">
+
 						<?php
 							if ( have_posts() ) :
 								// Start the Loop.
@@ -33,6 +34,9 @@ get_header(); ?>
 									get_template_part( 'content', get_post_format() );
 
 								endwhile;
+
+								// Previous/next post navigation.
+								pp_paging_nav();
 
 							else :
 								// If no content, include the "No posts found" template.
