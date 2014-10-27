@@ -18,10 +18,10 @@
 		<?php if ( ! ( is_front_page() || function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) ) : ?>
 
 		<section class="section columns columns-4">
-			<div class="wrapper">
+			<div class="wrapper clear">
 				
 				<div class="col">
-				<h3>Links</h3>
+				<h3>Site Links</h3>
 					<nav class="site-navigation primary-navigation" role="navigation">
 					
 					<?php
@@ -39,25 +39,39 @@
 					</nav>
 				</div>
 
-				
+				<div class="col">
+					<h3>Other Useful Links</h3>
+					<nav class="site-navigation primary-navigation" role="navigation">
+										
+						<?php
+							wp_nav_menu(
+							  array(
+							    'menu' 				=> 'main_nav',
+							    'menu_class' 		=> 'menu',
+							    'theme_location' 	=> 'useful_links',
+							    'container' 		=> '',
+							    'container_id' 		=> '',
+							    'depth' 			=> '1',
+							  )
+							);
+						?>
+						</nav>
+					
+				</div>
 				
 				<div class="col">
-					<h3>Products</h3>
+					<h3>Recommended Products</h3>
 					<ul>
-						<li><a href="#">AffiliateWP</a></li>
+						<li><a href="<?php echo site_url( 'products/affiliatewp' ); ?>">AffiliateWP</a></li>
+						<li><a href="<?php echo site_url( 'products/easy-digital-downloads' ); ?>">Easy Digital Downloads</a></li>
+						<li><a href="<?php echo site_url( 'products/restrict-content-pro' ); ?>">Restrict Content Pro</a></li>
 					</ul>
 
 					
 				</div>
 				
 				
-				<div class="col">
-					<h3>Useful Links</h3>
-					<ul>
-						<li><a href="#">Pippin's Wood Shop</a></li>
-					</ul>
-					
-				</div>
+				
 				
 				
 
@@ -69,7 +83,7 @@
 						
 						<?php 
 							if ( function_exists( 'gravity_form' ) ) {
-								gravity_form( 6, false, false, false, '', true );
+								gravity_form( 'Weekly Newsletter', false, false, false, '', true );
 							}
 						?>
 					
