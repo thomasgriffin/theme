@@ -163,6 +163,24 @@ get_header(); ?>
 
 </section>
 
+<?php
+/**
+ * Stats
+ */
+?>
+<section class="section home alt3">
+
+	<header class="page-header">
+		<h1>30 Day Money Back Guarantee</h1>
+		<h2>If you are unhappy with your purchase, or you have an issue that we are unable to resolve that makes the system unusable, we are more than happy to provide a complete refund within 30 days of your original purchase. See our complete refund policy.</h2>
+	</header>
+
+</section>
+<?php
+/**
+ * Stats
+ */
+?>
 <section class="section home columns columns-3 grid row">
 
 	<header class="page-header">
@@ -308,7 +326,7 @@ get_header(); ?>
 	</header>
 		<?php 
 			if ( function_exists( 'gravity_form' ) ) {
-				gravity_form( 16, false, false, false, '', true );
+				gravity_form( 'Weekly Newsletter - Home', false, false, false, '', true );
 			}
 		?>
 		<p>Subscribe to my weekly newsletter above and never miss out on new tutorials, posts, products or reviews. No spam, I promise.</p>
