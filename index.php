@@ -36,7 +36,10 @@ get_header(); ?>
 								endwhile;
 
 								// Previous/next post navigation.
-								pp_paging_nav();
+								if ( function_exists( 'pp_paging_nav' ) ) {
+									pp_paging_nav();
+								}
+								
 
 							else :
 								// If no content, include the "No posts found" template.
