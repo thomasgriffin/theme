@@ -9,12 +9,9 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-<section class="section primary columns-3 columns">
+<section class="section clear columns-3 columns">
 
 	<div class="col left">
-
-		
-		
 		<?php echo pp_single_post_type_info(); ?>
 	</div>
 

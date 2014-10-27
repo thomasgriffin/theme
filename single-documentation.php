@@ -8,7 +8,7 @@ get_header(); ?>
 
 <?php affwp_page_header(); ?>
 
-<section class="section columns-3 columns">
+<section class="section columns-3 columns clear">
 	<div class="col left">
 		<?php echo pp_single_post_type_info(); ?>
 	</div>

@@ -9,7 +9,7 @@ get_header(); ?>
 
 
 
-<section class="section primary columns-3 columns">
+<section class="section clear columns-3 columns">
 
 	<?php 
 	/**
