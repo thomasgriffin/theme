@@ -35,10 +35,7 @@ get_header(); ?>
 
 								endwhile;
 
-								// Previous/next post navigation.
-								// if ( function_exists( 'pp_paging_nav' ) ) {
-								// 	pp_paging_nav();
-								// }
+								pp_paging_nav();
 								
 
 							else :
