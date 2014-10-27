@@ -11,11 +11,15 @@
     vertical-align: middle;
 }
 
+#masthead .columns .wrapper {
+	font-size: 0;
+}
+
 #masthead {
 	margin: 0;
 	width: 100%; // needed for Firefox 
 	padding: 0 1rem;
-	position: relative;
+//	position: relative;
 	background: rgb(7, 36, 96); // fallback for older browsers, including IE9
 	background: -moz-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
 	background: -webkit-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
@@ -24,7 +28,9 @@
 	background: linear-gradient(343deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#072460', endColorstr='#74d7bf', GradientType=0 ); /* IE6-9 */
 	
-	
+	.page-header {
+		margin-bottom: 0;
+	}
 
 	h1 {
 		color: #e1f0f8;
@@ -160,6 +166,7 @@
 	.home #masthead {
 		height: 100%;
 		min-height: 600px;
+		position: relative;
 
 	}
 

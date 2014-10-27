@@ -10,7 +10,7 @@ section.columns {
 // columns
 .columns {
   text-align: justify;
-  font-size: 0;
+//  font-size: 0;
 
   .col, .gap {
     display: inline-block;
@@ -23,13 +23,13 @@ section.columns {
   vertical-align: top;
   text-align: left;
   width: 100%;
-  margin-bottom: 4%;
+//  margin-bottom: 4%;
   font-size: 1rem;
 //  font-size: 18px;
 
-  p:last-child {
-    margin-bottom: 0;
-  }
+  // p:last-child {
+  //   margin-bottom: 0;
+  // }
 
   li {
     line-height: 1.62;  
@@ -94,7 +94,7 @@ section.columns {
 @media only screen and ( min-width: 768px ) {
 
   .col {
-    margin-bottom: 0;
+  //  margin-bottom: 0;
   }
 
   .columns-3 .gap,
@@ -139,17 +139,11 @@ section.columns {
 // // 3 columns
 @media only screen and ( min-width: 1024px ) {
 
- .columns-main-side {
+ .columns-main-side .wrapper > .col { width: 62%; }
 
-   .col {
-        width: 62%;
-   }
-
-   .primary-sidebar {
+ .columns-main-side .primary-sidebar {
       width: 36%;
-     // max-width: 348px;
       max-width: 300px;
-   }
  }
   
 }
@@ -208,12 +202,18 @@ section.columns {
 }
 
 // clearfix
+// 
+// #content .wrapper:after 
+//.columns .wrapper:after,
+//.columns:after,
+#masthead .columns .wrapper:after,
+#footer .columns-4 .wrapper:after,
+.primary.columns:after,
+.primary.columns .wrapper:after,
+.columns-main-side > .wrapper:after,
 .affiliates .entry-content:after,
-.columns:after,
 .affiliates:after,
-.columns .wrapper:after,
-.pricing-chart:after,
-#content .wrapper:after {
+.pricing-chart:after {
   content: "";
   display: inline-block;
   width: 100%;

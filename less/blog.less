@@ -1,8 +1,8 @@
 // blog styling
 
-.entry-title {
-	margin-bottom: 0;
-}
+// .entry-title {
+// 	margin-bottom: 0;
+// }
 
 .entry-title a {
 	color: #292929;
@@ -12,10 +12,10 @@
 .entry-meta {
 	font-size: 0.875rem;
 	margin-bottom: 1rem;
-	color: #B7B7B7;
+	color: @meta-grey;
 
 	a {
-		color: #B7B7B7;
+		color: @meta-grey;
 	}
 
 	// .comments {
@@ -52,7 +52,7 @@ article.post {
 	flex-flow: column;
 
 	.post-thumbnail {
-		margin-bottom: 0;
+	//	margin-bottom: 0;
 	}
 }
 
@@ -271,7 +271,8 @@ article.post {
 	}
 
 	.nav-next {
-
+		text-align: right;
+		
 		a {
 			&:hover span { margin-right: 1.5rem; }
 		}

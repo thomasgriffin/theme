@@ -1,6 +1,14 @@
 // styles related to the homepage
 
 .home {
+
+
+
+	.input-wrap .edd-input {
+	    flex: 1 1 0;
+	    vertical-align: top;
+	}
+
 	#masthead {
 	//	height: 100%;
 	}
@@ -15,17 +23,110 @@
 	// }
 }
 
+.home .page-header {
+	padding: 0;
+	margin-bottom: 4rem;
 
-
-#masthead {
-//  background: #e5edf1;
-//  text-align: center;
-  // width: 100%;
+	h2 {
+		max-width: none;
+	}
 }
 
 
 
 
+// site stats on homepage
+.site-stats {
+	font-size: 0;
+
+	.total {
+		font-size: 4rem;
+		display: block;
+		font-weight: 500;
+		line-height: 1;
+		color: @accent-color;
+	}
+
+	li {
+		padding: 0;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	li a {
+		display: block;
+		font-size: 1rem;
+		color: @body-text-color;
+		padding: 2rem;
+	}
+
+	li a:hover {
+		background: @accent-color;
+		color: #fff;
+	}
+
+	li a:hover span {
+		color: #fff;
+	}
+}
+
+@media only screen and ( min-width: 720px ) {
+	.site-stats li {
+	//	width: 15%;
+	}
+}
+
+
+@media only screen and ( min-width: 640px ) {
+	.home .newsletter .wrapper {
+		max-width: 520px;
+	}
+
+	.home .newsletter .gform_wrapper {
+		margin-bottom: 1rem;
+	}
+
+	.home .newsletter h1 {
+		margin-bottom: 2rem;
+	}
+
+	.home .newsletter form {
+		display: -ms-flexbox;   // MID: IE 10
+		display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+
+		display: flex;          // NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+
+	}
+
+	.home .newsletter .button,
+	.home .newsletter input {
+		line-height: 1.5;
+		font-size: 1.2rem;
+	}
+
+	.home .newsletter input {
+		padding: 1rem;
+	}
+
+	.home .newsletter .gform_body {
+		-webkit-flex: 1; // Safari 6.1+
+		-ms-flex: 1; // IE 10
+		flex: 1;
+		vertical-align: top;
+	}
+
+	.home .newsletter .gfield {
+		padding: 0;
+		margin: 0;
+	}
+
+	.home .newsletter .gform_footer {
+		width: 35%;
+	}
+
+	.home .newsletter .gfield_label {
+		display: none;
+	}
+
+}
 
 
 
@@ -47,7 +148,7 @@
 	}
 
 	#content section {
-		padding: 3rem 2rem;
+	//	padding: 3rem 2rem;
 	}
 }
 
@@ -320,9 +421,27 @@ h1 + figure {
 // 	}
 // }
 
+// featured product
+section.home.featured-product {
+	padding-bottom: 0;
 
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+}
 
-section.section {
+#alf {
+	background: url( 'images/home-alf.png' ) no-repeat 0 0;
+	width: 200px;
+	height: 134px;
+	background-size: contain;
+	 position: absolute;
+    right: 10%;
+    bottom: 0;
+}
+
+section {
 	position: relative;
 	text-align: center;
 
@@ -341,12 +460,12 @@ section.section {
 	
 
 	&.home {
-		padding: 3rem 2rem;
+		padding: 4rem 2rem;
 
 		h2 {
-			color: @body-text-color;
-			font-weight: 300;
-			margin-bottom: 3rem;
+		//	color: @body-text-color;
+		//	font-weight: 300;
+		//	margin-bottom: 3rem;
 		}
 	}
 

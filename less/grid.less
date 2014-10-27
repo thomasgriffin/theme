@@ -7,66 +7,52 @@
 	vertical-align: top;
 }
 
-.columns-1 .col img {
-//	background: blue;
-//	max-width: 400px;
-}
-
 .columns-1 .col {
 	margin-bottom: 64px;
 }
-
 
 .col-image a {
 	display: block;
 }
 
-
-
-
-
-
-
-
-
 .grid.columns {
-	font-size: 1rem;
+//	font-size: 1rem;
 }
 
 .grid .post-thumbnail {
 	margin: -24px -24px 24px -24px;
 }
 
+.grid article.post {
+	padding: 24px;
+}
+
+.grid .date {
+	color: @meta-grey;
+}
 
 .grid .col {
 	margin-bottom: 2rem;
-//	.transition ( position 0.2s linear );
 	position: relative;
-	top:0;
 }
+
+.grid.row .action {
+	margin-top: 4rem;
+}
+
 
 .grid.columns .col {
 	-webkit-transition: box-shadow 0.1s linear;
 	transition: box-shadow 0.1s linear;
 }
 
-.grid.columns .col:hover {
-//	border: 10px solid @primary-color;
-	.box-shadow( 0 0px 0px 10px rgba( 116, 215, 191, 0.3 ) );
-
+// no touch styles
+.no-touch {
+	.grid.columns .col:hover {
+		.box-shadow( 0 0px 0px 10px rgba( 116, 215, 191, 0.3 ) );
+	}
 }
 
-// sublte box shadow lift
-
-// .grid.columns .col {
-// 	-webkit-transition: box-shadow 0.1s linear, top 0.1s linear;
-// 	transition: box-shadow 0.1s linear, top 0.1s linear;
-// }
-
-// .grid.columns .col:hover {
-// 	.box-shadow( 0 3px 3px 0 rgba( 0, 0, 0, 0.15 ) );
-// 	top: -3px;
-// }
 
 // product grid
 // IE9 falls back to using the display-inline-block in our columns.less
@@ -81,20 +67,10 @@
 	flex-flow: row wrap;
 	justify-content: space-between;
 	align-content: flex-start;
-	 //  align-items: center;
-  // justify-content: center;
 
 }
 
 .grid.columns .col {
-	//	.transition ( box-shadow 0.2s ease-out );
-	//	.transition ( box-shadow 0.2s ease-out );
-
-		
-
-	
-	
-
 
 		display: -ms-flexbox;   // MID: IE 10
 		display: -webkit-flex;  // NEW, Chrome 21–28, Safari 6.1+
@@ -106,9 +82,6 @@
 		// default is row (allows vertical centering)
 		-webkit-flex-flow: column;
 		flex-flow: column;
-
-		 // -webkit-flex-direction: column;
-	  //  flex-direction: column;
 
 	  // align the p tag to the top
 			
@@ -129,43 +102,16 @@
 			margin-bottom: 1rem;
 		}
 
-		* {
-//			width: 100%;
-		}
+
 }
 
 @media only screen and ( min-width: 768px ) {
 	.grid .wrapper {
 		max-width: 1220px;
 	}
+
+	// remove margins in 1 row
+	.grid.row .col {
+		margin-bottom: 0;
+	}
 }
-
-
-// .col h2 {
-// 	margin-bottom: 1.62rem;
-// }
-
-// .col h2 a {
-// 	color: #292929;
-// }
-
-
-
-// .grid .col {
-// 	-webkit-box-flex: 1;
-// 	-moz-box-flex: 1;
-// 	box-flex: 1;
-
-// 	-webkit-box-orient: vertical;
-// 	display: -webkit-box;
-// }
-
-// .grid .post-thumbnail {
-// 	-webkit-box-flex: 1;
-// }
-
-// .grid .link {
-// 	align-self: flex-end;
-// }
-
- // display: flex;

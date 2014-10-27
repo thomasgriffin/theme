@@ -12,6 +12,7 @@
 
 @accent-color: #74d7bf;
 @light-grey: #f7f7f7;
+@meta-grey: #bfbfbf;
 
 @header-color: #4a7e9a;
 @body-text-color: #787878;
@@ -52,34 +53,6 @@ a {
 }
 
 
-
-
-// #masthead {
-// 	h1 {
-// 		position: absolute;
-// 		top: 1rem;
-// 		left: 1rem;
-// 		margin: 0;
-// 		display: none;
-
-// 		.logo {
-// 			display: block;
-// 			line-height: 1;
-// 		}
-// 	}
-// }
-
-// .logo {
-// 	text-indent: -9999px;
-// }
-
-// .site-title {
-// 	padding: 1rem 0;
-// 	margin: 0;
-//     display: inline-block;
-//     vertical-align: bottom;
-// }
-
 #main {
 	font-size: 1rem;
 }
@@ -93,38 +66,8 @@ a {
 	}
 }
 
-
-
-// #masthead {
-// 	background: #fff;
-
-
-// 	.wrapper {
-// 		padding: 4rem 0;
-// 		position: relative;
-// 	}
-// }
-
-// .home {
-// 	#masthead {
-
-// 	}
-
-// 	.site-title a {
-// 		background: url( 'images/logo-home.png' ) no-repeat 0 0;
-// 	}
-
-// 	#content {
-// 		padding-top: 4rem;
-// 	}
-// }
-
-
-
-
 .site-title {
 	text-align: left;
-//	max-width: 250px;
 	
 	a {
 		background: url( 'images/logo.png' ) no-repeat 0 0;
@@ -153,8 +96,6 @@ and (max-device-width : 1024px ) {
 	// }
 
 
-
-	
 }
 
 @media only screen 
@@ -176,17 +117,19 @@ and (max-device-width : 1024px ) {
 	position: relative;
 	margin: 0 auto;
 	text-align: center;
+	padding: 0 2rem 2rem 2rem;
 
-	> .wrapper {
-		padding: 0 2rem;
-	}
+	// > .wrapper {
+	// 	padding: 0 2rem;
+	// }
 }
 
 .home #content {
+	padding: 0;
 
-	> .wrapper {
-		padding: 0;
-	}
+	// > .wrapper {
+	// 	padding: 0;
+	// }
 }
 
 .wrapper {
@@ -229,15 +172,6 @@ and (max-device-width : 1024px ) {
 		padding: 40px 0 0.5rem;
 	}
 
-	// .logo-wrapper {
-	// 	text-align: justify;
-	// }
-
-	// logo is centered on checkout page
-	// .checkout .logo-wrapper {
-	// 	text-align: center;
-	// }
-
 	#main {
 	    display: inline-block;
 	    vertical-align: bottom;
@@ -247,27 +181,12 @@ and (max-device-width : 1024px ) {
 
 @media only screen and ( min-width: 500px ) {
 
-	#content {
-	//	padding: 0 2rem 2rem;
-	}
 
-	// .home #masthead {
-	// 	padding-bottom: 0;
-	// }
-
-	// #masthead {
-	// 	padding: 0 2rem 2rem 2rem;
-	// }
 
 }
 
 @media only screen and ( min-width: 1024px ) {
 
-
-	#content {
-		// padding-left: 4rem;
-		// padding-right: 4rem;
-	}
 }
 
 @import 'helpers';
@@ -310,6 +229,8 @@ and (max-device-width : 1024px ) {
 //@import 'flexslider';
 
 @import 'about';
+
+@import 'account';
 
 @import 'footer';
 @import 'box';
