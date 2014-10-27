@@ -1,25 +1,22 @@
 footer#footer {
-	color: #222;
+	color: @dark-grey;
 	text-align: center;
 	position: relative;
-//	font-size: 0;
-//	font-size: 0.875rem;
+	font-size: 0.875rem;
 
-	// .copyright {
-	// 	text-align: left;
-	// }
+	.copyright {
+		border-top: 1px solid @light-grey;
+		padding-top: 2rem;
+		margin-top: 4rem;
+		color: @medium-grey;
+	}
 
 	.columns-4 .wrapper {
 		font-size: 0;
 	}
 
-	.columns-4 {
-		background: #eee;
-	}
-
 	.col {
 		display: inline-block;
-		background: #ccc;
 	}
 
 	> .columns-2 .col + .col {
@@ -27,17 +24,17 @@ footer#footer {
 	}
 
 	.no-spam {
-		color: #222;
+		color: @dark-grey;
 		text-align: center;
 		font-weight: 400;
 	}
 
-	.gform_wrapper {
-		margin-bottom: 2rem;
+	.gform_body {
+		margin-bottom: 0.5rem;
 	}
 
 	.gform_confirmation_message {
-		color: #222;
+		color: @dark-grey;
 		margin-bottom: 2rem;
 	}
 
@@ -47,7 +44,7 @@ footer#footer {
 
 	> .wrapper {
 		padding: 4rem 2rem;
-		max-width: 1220px;
+		max-width:95%;
 	}
 
 	h3 {

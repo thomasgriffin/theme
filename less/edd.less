@@ -139,9 +139,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 .edd-cart {
 
 
-	.subtotal {
-		font-weight: 500;
-	}
+	
 
 	.edd-cart-item {
 		position: relative;
@@ -149,7 +147,8 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 
 	.edd-cart-item > span {
 		display: inline-block;
-		width: 89%;
+		width: 92%;
+		padding-right: 1rem;
 	}
 
 	.edd-remove-from-cart {
@@ -168,6 +167,21 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
 		padding: 0.75rem 1rem;
 		background: #fff;
 		.box-shadow( 0 1px 2px rgba( 0, 0, 0, 0.1 ) );
+	}
+
+	.edd_subtotal {
+		text-align: center;
+		
+		.price {
+			font-weight: 500;
+			color: @accent-color;
+		}
+
+		> span {
+			display: block;
+			margin-bottom: 1rem;
+			font-size: 1.2rem;
+		}
 	}
 
 	.edd-cart-item a {
