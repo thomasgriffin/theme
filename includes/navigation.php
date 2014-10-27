@@ -22,7 +22,7 @@ function pp_load_main_navigation() {
 		    'theme_location' 	=> 'primary',
 		    'container' 		=> '',
 		    'container_id' 		=> 'main',
-		    'depth' 			=> '3',
+		    'depth' 			=> '1',
 		  )
 		);
 	?>

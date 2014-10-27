@@ -2,7 +2,7 @@
 
 function pp_testimonials() {
 	?>
-	<section class="section columns-3 columns testimonials">
+	<section class="section primary columns-3 columns testimonials">
 		<div class="wrapper">
 			
 			<div class="col">

@@ -9,7 +9,7 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-<section class="section columns-3 columns">
+<section class="section primary columns-3 columns">
 
 	<div class="col left">
 

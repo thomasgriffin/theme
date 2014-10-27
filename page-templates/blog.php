@@ -10,11 +10,12 @@ get_header();
 <?php affwp_page_header(); ?>
 
 <?php
-	/**
-	 * Displays the most recent post
-	 */
+
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 	$args = array(
-		'posts_per_page' => 10
+		'posts_per_page' => 10,
+		'paged'          => $paged,
 	);
 
 	$temp = $wp_query; // assign original query to temp variable for later use  
@@ -30,6 +31,17 @@ get_header();
 				<?php get_template_part( 'content', get_post_format() ); ?>
 
 			<?php endwhile; ?>
+			
+			<nav class="nav-links columns columns-2">
+				<span class="nav-previous col">
+					<?php next_posts_link( __( '&larr; Older', 'affwp' ) ); ?>
+				</span>
+
+				<span class="nav-next col">
+					<?php previous_posts_link( __( 'Newer &rarr;', 'affwp' ) ); ?>
+				</span>
+			</nav>
+
 			</div>
 		
 	<?php endif; $wp_query = $temp; //reset back to original query ?>

@@ -34,31 +34,78 @@ add_action( 'wp_enqueue_scripts', 'pp_enqueue_scripts' );
  * @since  1.0
  */
 function pp_home_masthead() {
-	if ( ! is_home() ) {
+	if ( ! is_front_page() ) {
 		return;
 	}
 
-	?>
+?>
 
 	<script>
+
+
 		jQuery(document).ready(function($) {
 
-			var div = jQuery('#masthead'),
-			divHeight = div.height(),
-			    scroll;
+	var div = jQuery('#masthead'),
+   		       		divHeight = div.height(),
+   		       		    scroll;
 
-			jQuery(window).scroll(function(e){
 
-			if ( jQuery("#masthead").css("min-height") == "600px" ) {
-			    scroll = jQuery(this).scrollTop();
-			    div.height(divHeight - scroll)
-			}
+			jQuery(window).scroll(function(e) {
+				if ( Modernizr.mq('only screen and (min-width: 768px)') ) {
+					console.log('true');
+
+   		    	
+		   		
+				    scroll = jQuery(this).scrollTop();
+				    div.height(divHeight - scroll)
+				}	
+			});
+
+
+			jQuery(window).resize(function () {
+				if ( Modernizr.mq('only screen and (min-width: 768px)') ) {
+					console.log('true');
+
+						   				   		
+   		    	
+		   		
+				    scroll = jQuery(this).scrollTop();
+				    div.height(divHeight - scroll)
+								
+
+				}
+			}); 
+
+			
+
+
 		});
-	});
+			// if ( ! $(window).scrollTop() ) {
+			// 	console.log('yes');
+
+
+			// }
+
+			
+
+   // if ( jQuery("#masthead").css("position") == "relative" ) {
+
+			   		
+			   // }
+
+			
+
+			// if ( jQuery("#masthead").css("position") == "relative" ) {
+
+
+				
+			// }
+
+
 	</script>
 	<?php
 }
-add_action( 'wp_footer', 'pp_home_masthead' );
+//add_action( 'wp_footer', 'pp_home_masthead' );
 
 /**
  * Lightbox JS

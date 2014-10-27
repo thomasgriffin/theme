@@ -9,7 +9,7 @@ get_header(); ?>
 
 
 
-<section class="section columns-3 columns">
+<section class="section primary columns-3 columns">
 
 	<div class="col left">
 		<?php echo pp_single_post_type_info(); ?>

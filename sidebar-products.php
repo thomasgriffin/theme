@@ -64,7 +64,7 @@
 		
 
 	
-		<ul class="list">
+		<ul class="linked list">
 			<?php foreach( $terms as $term ) : 
 				// The $term is an object, so we don't need to specify the $taxonomy.
 				$term_link = get_term_link( $term );

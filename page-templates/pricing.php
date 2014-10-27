@@ -19,6 +19,11 @@ get_header(); ?>
 		?>
 
 
+
+
+
+
+
 <section class="pricing">
 	<?php
 	// get ID of download by slug

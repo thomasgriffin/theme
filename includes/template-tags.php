@@ -56,6 +56,26 @@ function pp_single_post_type_info() {
 }
 
 /**
+ * Show 5 blog posts on homepage
+ * Overrides the "Blog pages show at most" setting
+ */
+
+function pp_modify_main_loops( $query ) {
+
+	// bail if in the admin or we're not working with the main WP query
+	if ( is_admin() || ! $query->is_main_query() )
+		return;
+
+	if ( is_front_page() ) {
+		$query->set( 'posts_per_page', 3 ); 
+		return;
+	}
+
+}
+
+add_action( 'pre_get_posts', 'pp_modify_main_loops', 1 );
+
+/**
  * Filter excerpt
  */
 function affwp_custom_excerpt_more( $more ) {
@@ -347,7 +367,7 @@ if ( ! function_exists( 'affwp_paging_nav' ) ) :
  *
  * @return void
  */
-function affwp_paging_nav() {
+function pp_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -525,7 +545,7 @@ function pp_entry_meta() {
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
+		esc_html( get_the_date( 'M d, Y' ) )
 	);
 
 	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
@@ -538,7 +558,7 @@ function pp_entry_meta() {
 	if ( $tag_list ) {
 		$utility_text = __( 'Posted on %1$s <span class="by-author">by %2$s</span> in %3$s and tagged %4$s.', 'pp' );
 	} elseif ( $categories_list ) {
-		$utility_text = __( 'Posted on %1$s <span class="by-author">by %2$s</span> in %3$s.', 'pp' );
+		$utility_text = __( '%1$s <span class="by-author">by %2$s</span> in %3$s.', 'pp' );
 	} else {
 		$utility_text = __( 'Posted on %1$s by <span class="by-author"> by %2$s</span>.', 'pp' );
 	}

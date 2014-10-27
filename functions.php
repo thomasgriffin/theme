@@ -26,7 +26,6 @@ require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'testimonials.php' );
 
 
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'gallery.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'account.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'comment.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'checkout.php' );
@@ -93,7 +92,7 @@ function affwp_setup() {
 	set_post_thumbnail_size( 672, 372, true );
 
 	add_image_size( 'affwp-full-width', 1038, 576, true );
-	add_image_size( 'affwp-grid-thumbnail', 480, 280, false );
+	add_image_size( 'affwp-grid-thumbnail', 480, 240, true );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(

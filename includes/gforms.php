@@ -47,6 +47,9 @@ add_filter( 'gform_validation_message', 'affwp_gform_validation_message', 10, 2 
 */
 function affwp_gform_ajax_spinner_url( $uri, $form ) {
 	return get_stylesheet_directory_uri() . '/images/ajax-loader.gif';
+
+	//$spinner = '<img class="edd-icon-spin" src="' . get_stylesheet_directory_uri() . '/svgs/spinner.svg' . '" />';
+	//return $spinner;
 }
 add_filter( 'gform_ajax_spinner_url', 'affwp_gform_ajax_spinner_url', 10, 2 );
 

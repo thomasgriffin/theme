@@ -44,7 +44,7 @@ function pp_home_products() {
 
 	
 
-	<?php if ( is_home() ) : ?>
+	<?php if ( is_front_page() ) : ?>
 
 		
 
