@@ -94,10 +94,10 @@ function affwp_setup() {
 	add_image_size( 'affwp-full-width', 1038, 576, true );
 	add_image_size( 'affwp-grid-thumbnail', 480, 240, true );
 
-	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'primary'   => __( 'Primary menu', 'affwp' ),
 		'footer'   => __( 'Footer menu', 'affwp' ),
+		'useful_links'   => __( 'Useful links', 'affwp' ),
 	) );
 
 	/*
