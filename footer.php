@@ -12,7 +12,7 @@
 </div> <!-- #content -->
 <?php do_action( 'affwp_content_after' ); ?>
 
-	<footer id="footer">
+	<footer id="footer"<?php if ( ! is_front_page() ) { echo ' class="inner"'; } ?>>
 		<div class="wrapper">
 
 		<?php if ( ! ( is_front_page() || function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) ) : ?>
