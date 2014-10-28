@@ -15,6 +15,7 @@ function affwp_excerpt_length( $length ) {
 }
 //add_filter( 'excerpt_length', 'affwp_excerpt_length', 999 );
 
+
 /**
  * Single post type information box
  */

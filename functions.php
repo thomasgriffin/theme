@@ -257,7 +257,6 @@ function affwp_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Primary Sidebar', 'affwp' ),
 		'id'            => 'sidebar-1',
-		'class'         => 'box',
 		'description'   => __( 'Main sidebar', 'affwp' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
@@ -269,7 +268,6 @@ function affwp_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'About', 'affwp' ),
 		'id'            => 'sidebar-about',
-		'class'         => 'box',
 		'description'   => __( 'About sidebar', 'affwp' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
