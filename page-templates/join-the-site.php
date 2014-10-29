@@ -23,7 +23,7 @@ get_header(); ?>
 			<span class="button">Join now</span>
 		</a>
 
-		<a href="<?php echo site_url( 'join-the-site/register/?level=3' ); ?>" class="col box pricing best-value">
+		<a href="<?php echo site_url( 'join-the-site/register/?level=3' ); ?>" class="col box pricing">
 			<h2>Code Monkey</h2>
 
 			<p>You spend so much time coding you start thinking in IF / ELSE statements</p>
@@ -50,17 +50,12 @@ get_header(); ?>
 		</a>
 	</div>
 
-	<div class="align-center">
+	<div class="align-center best-value">
 		<svg width="209px" height="76px">
 		   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-best-value'; ?>"></use>
 		</svg>
 	</div>
 </section>
-
-
-<div class="action">
-		<p class="free-plan">Not sure which one? <a href="<?php echo site_url( 'join-the-site/register/?level=0' ); ?>">Try my free membership plan</a>. You can always upgrade later.</p>
-		</div>
 
 
 <?php /*

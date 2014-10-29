@@ -2,8 +2,8 @@
 
 function pp_testimonials() {
 	?>
-	<section class="section primary columns-3 columns testimonials">
-		<div class="wrapper">
+	<section class="section columns-3 columns testimonials">
+		<div class="wrapper clear">
 			
 			<div class="col">
 				<blockquote>

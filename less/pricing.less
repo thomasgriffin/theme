@@ -2,16 +2,15 @@
 
 a.pricing {
 	text-align: center;
+	margin-top: 1rem;
 
 	.list {
 		margin-bottom: 1rem;
 	}
 
-	
-	&.best-value {
-	//	background: #000;
-	//.box-shadow-double(  0 0 0 20px rgba(255, 255, 255, 1), 0 1px 2px rgba(0, 0, 0, 0.1) ); 
-	}
+	&:nth-child(2) {
+		margin-top: 0;
+	} 
 
 	.price {
 		font-size: 3rem;
@@ -54,12 +53,9 @@ section.pricing svg {
 	}
 }
 
-
-
-
-
-
-
+.join .best-value {
+	margin-bottom: 2rem;
+}
 
 
 
@@ -70,7 +66,7 @@ section.pricing svg {
 .page.pricing #content {
 //	padding-top: 2rem;
 
-	font-size: 0; // remove gap at bottom
+//	font-size: 0; // remove gap at bottom
 //	padding: 2rem 0 0 0;
 }
 
@@ -80,15 +76,15 @@ section.pricing svg {
 
 .join .primary {
 //	max-width: 1316px;
-	padding: 0;
+//	padding: 0;
 //	display: block;
 }
 
 .join .columns-3 {
-	text-align: center;
+//	text-align: center;
 
 	.wrapper {
-		text-align: justify;
+//		text-align: justify;
 	}
 
 	.col {
@@ -98,126 +94,126 @@ section.pricing svg {
 
 
 
-section.section.pre-sale-questions {
-	padding: 0;
-	margin-top: 4rem;
+// section.section.pre-sale-questions {
+// 	padding: 0;
+// 	margin-top: 4rem;
 
-	.wrapper {
-		max-width: 1220px;
-	}
+// 	.wrapper {
+// 		max-width: 1220px;
+// 	}
 
-	h4 {
-		font-weight: 500;
-	}
+// 	h4 {
+// 		font-weight: 500;
+// 	}
 
-	article {
-		margin-bottom: 1rem;
-	}
-}
+// 	article {
+// 		margin-bottom: 1rem;
+// 	}
+// }
 
-.pricing-chart {
-	text-align: justify;
-	height: 100%;
-	margin-bottom: 2rem;
-	font-weight: 300;
+// .pricing-chart {
+// 	text-align: justify;
+// 	height: 100%;
+// 	margin-bottom: 2rem;
+// 	font-weight: 300;
 
-	p {
-		margin-bottom: 0;
-	}
+// 	p {
+// 		margin-bottom: 0;
+// 	}
 
-	h2 {
-		margin-bottom: 0;
-	}
+// 	h2 {
+// 		margin-bottom: 0;
+// 	}
 
-	> li {
-		vertical-align: top;
-		text-align: center;
-		margin-bottom: 2rem;
-		font-size: 1rem;
-		background: #fff;
-		color: darken( @light-grey, 50% );
-		border: 10px solid #072460;
+// 	> li {
+// 		vertical-align: top;
+// 		text-align: center;
+// 		margin-bottom: 2rem;
+// 		font-size: 1rem;
+// 		background: #fff;
+// 		color: darken( @light-grey, 50% );
+// 		border: 10px solid #072460;
 
-		.price {
-			font-size: 3rem;
-			font-weight: 400;
-		}
+// 		.price {
+// 			font-size: 3rem;
+// 			font-weight: 400;
+// 		}
 
-		a {
-			font-size: 1.1rem;
-			margin-top: 2rem;
-		}
+// 		a {
+// 			font-size: 1.1rem;
+// 			margin-top: 2rem;
+// 		}
 
-		.highlight {
-			font-weight: 500;
-		}
+// 		.highlight {
+// 			font-weight: 500;
+// 		}
 
-		&.best-value {
-			border: 10px solid #74d7bf;			
-			z-index: 1;
-			position: relative;
-			background: #fff;
+// 		&.best-value {
+// 			border: 10px solid #74d7bf;			
+// 			z-index: 1;
+// 			position: relative;
+// 			background: #fff;
 			
-			i {
-				font-size: 2rem;
-			}
+// 			i {
+// 				font-size: 2rem;
+// 			}
 
 			
 
-			.button {
-				margin-top: 2.5rem;
-			}
+// 			.button {
+// 				margin-top: 2.5rem;
+// 			}
 
-		}
+// 		}
 
-		ul li {
-			border-bottom: 1px solid @light-grey;
-			padding: 0.5rem 0;
-			margin-bottom: 0;
-			line-height: 1.5;
-		}
-	}
-}
+// 		ul li {
+// 			border-bottom: 1px solid @light-grey;
+// 			padding: 0.5rem 0;
+// 			margin-bottom: 0;
+// 			line-height: 1.5;
+// 		}
+// 	}
+// }
 
 
-.primary .pricing-chart > li {
-	padding: 2rem;
+// .primary .pricing-chart > li {
+// 	padding: 2rem;
 	
-}
+// }
 
-@media all and ( min-width: 1024px ) {
-	.pricing-chart {
-		margin-top: 3rem;
-	}
+// @media all and ( min-width: 1024px ) {
+// 	.pricing-chart {
+// 		margin-top: 3rem;
+// 	}
 	
-	// .pricing .primary {
-	// 	padding: 0 4rem;
-	// }
+// 	// .pricing .primary {
+// 	// 	padding: 0 4rem;
+// 	// }
 
-	.pricing-chart > li {
-		width: 33%;
-		min-height: 21rem;
-		position: relative;
-		display: inline-block;
+// 	.pricing-chart > li {
+// 		width: 33%;
+// 		min-height: 21rem;
+// 		position: relative;
+// 		display: inline-block;
 		
-		&.best-value {
-			margin: -2rem -2rem;
-			width: 36%;
-			min-height: 30rem;
+// 		&.best-value {
+// 			margin: -2rem -2rem;
+// 			width: 36%;
+// 			min-height: 30rem;
 
-			h2 {
-    			font-size: 2.5rem;
-			}
-		}
+// 			h2 {
+//     			font-size: 2.5rem;
+// 			}
+// 		}
 
-	}
+// 	}
 
-	section.section.pre-sale-questions {
-		article {
-			margin-bottom: 3rem;
-		}
-	}
+// 	section.section.pre-sale-questions {
+// 		article {
+// 			margin-bottom: 3rem;
+// 		}
+// 	}
 
 	
 
-}
+// }

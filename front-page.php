@@ -124,7 +124,7 @@ get_header(); ?>
 			<span class="button">Join now</span>
 		</a>
 
-		<a href="<?php echo site_url( 'join-the-site/register/?level=3' ); ?>" class="col box pricing best-value">
+		<a href="<?php echo site_url( 'join-the-site/register/?level=3' ); ?>" class="col box pricing">
 
 			<h2>Code Monkey</h2>
 
@@ -155,7 +155,7 @@ get_header(); ?>
 
 
 	</div>
-	<div class="align-center">
+	<div class="align-center best-value">
 		<svg width="184px" height="69px">
 		   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-best-value'; ?>"></use>
 		</svg>
