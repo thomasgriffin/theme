@@ -9,32 +9,20 @@
 <div class="primary-sidebar widget-area col right" role="complementary">
 
 	<?php echo pp_purchase_link( get_the_ID() ); ?>
-
+	
 	<?php 
-		$terms = get_posts(
-		    array(
-		        'name'      => 'terms-and-conditions',
-		        'post_type' => 'page',
-		        'posts_per_page' => 1
-		    )
-		);
+		$terms = get_page_by_title( 'Terms & Conditions' );
 	?>
 
 	<?php if ( $terms ) : ?>
 	<p><small>Extensions are subject to a yearly license for support and updates. <a href="#terms-conditions" class="popup-content" data-effect="mfp-move-from-bottom">View license terms</a>.</small></p>
 
-
-
-
-				
-
-
 	<div id="terms-conditions" class="popup entry-content mfp-with-anim mfp-hide">
 		<h1>
-			<?php echo $terms[0]->post_title; ?>
+			<?php echo $terms->post_title; ?>
 		</h1>
 
-		<?php echo stripslashes( wpautop( $terms[0]->post_content, true ) ); ?>
+		<?php echo stripslashes( wpautop( $terms->post_content, true ) ); ?>
 	</div>
 	<?php endif; ?>
 

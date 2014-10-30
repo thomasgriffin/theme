@@ -80,13 +80,8 @@ get_header(); ?>
 		<p>If you are unhappy with your purchase, or you have an issue that we are unable to resolve that makes the system unusable, we are more than happy to provide a complete refund within 30 days of your original purchase.</p>
 		<p><a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">See my complete refund policy &rarr;</a></p>
 
-		<?php
-
-			$refund_policy = get_page_by_title( 'refund policy' );
-			//$refund_policy = get_post( $refund_policy->ID );
-
-			
-			
+		<?php 
+		$refund_policy = get_page_by_title( 'refund policy' );
 		?>
 		<div id="refund-policy" class="popup entry-content mfp-with-anim mfp-hide">
 			<h1>
