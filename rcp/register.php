@@ -14,7 +14,7 @@ rcp_show_error_messages( 'register' ); ?>
 <form id="rcp_registration_form" class="rcp_form" method="POST" action="<?php echo esc_url( rcp_get_current_url() ); ?>">
 
 <?php 
-	$section_classes = ! is_user_logged_in() ? ' columns columns-2' : '';
+	$section_classes = ! is_user_logged_in() ? 'columns columns-2 clear' : '';
 ?>
 
 <section class="<?php echo $section_classes; ?>">

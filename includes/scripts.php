@@ -147,7 +147,7 @@ function pp_product_changelog() {
 	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
 
 
-	if ( ! ( is_singular( 'download' ) || $changelog || edd_is_checkout() ) ) {
+	if ( ! ( is_singular( 'download' ) || $changelog || edd_is_checkout() || is_front_page() ) ) {
 		return;
 	}
 
