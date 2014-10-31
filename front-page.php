@@ -73,7 +73,7 @@ get_header(); ?>
 	</div>
 
 	<div class="refund-policy">
-		<svg width="100px" height="89px">
+		<svg width="100px" height="91px" class="pulse animated infinite">
 			   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-heart'; ?>"></use>
 			</svg>
 		<h2>30 Day Money Back Guarantee</h2>
@@ -383,15 +383,15 @@ get_header(); ?>
 	<div class="wrapper">
 		
 	<header class="page-header">
-		<h1>Get ahead</h1>
-		<h2>Always be the first to be notified</h2>
+		<h1>Weekly Newsletter</h1>
+		<h2>Never miss out on new tutorials, products or reviews. No spam, I promise.</h2>
 	</header>
 		<?php 
 			if ( function_exists( 'gravity_form' ) ) {
 				gravity_form( 'Weekly Newsletter - Home', false, false, false, '', true );
 			}
 		?>
-		<p>Subscribe to my weekly newsletter above and never miss out on new tutorials, posts, products or reviews. No spam, I promise.</p>
+		<!-- <p>Subscribe to my weekly newsletter above and </p> -->
 	</div>
 </section>
 
