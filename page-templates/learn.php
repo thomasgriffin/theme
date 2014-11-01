@@ -26,7 +26,7 @@ get_header(); ?>
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
               <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
             	
-            	<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+            	<?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
                 <h2 class="entry-title">
                     <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
                         <?php the_title(); ?>
@@ -69,12 +69,12 @@ get_header(); ?>
     <div class="wrapper">
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
               <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-               <?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
-                               <h2 class="entry-title">
-                                   <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-                                       <?php the_title(); ?>
-                                   </a>
-                               </h2>
+               <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
+                 <h2 class="entry-title">
+                     <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+                         <?php the_title(); ?>
+                     </a>
+                 </h2>
 
             <?php the_excerpt(); ?>
 
@@ -111,7 +111,7 @@ get_header(); ?>
     <div class="wrapper">
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
               <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-               <?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+               <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
                                <h2 class="entry-title">
                                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
                                        <?php the_title(); ?>

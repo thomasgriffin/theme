@@ -620,36 +620,34 @@ add_action( 'save_post',     'affwp_category_transient_flusher' );
 
 /**
  * Display an optional post thumbnail.
- *
- * Wraps the post thumbnail in an anchor element on index
- * views, or a div element when on single views.
  * 
  * @return void
 */
-function pp_post_thumbnail( $size = 'thumbnail' ) {
+function pp_post_thumbnail( $size = 'thumbnail', $link = false ) {
+
 	if ( post_password_required() || ! has_post_thumbnail() ) {
 		return;
 	}
 
-	if ( is_singular() && ! is_singular( 'download' ) ) : ?>
+	if ( $link ) : ?>
+	
+	<a title="<?php the_title_attribute(); ?>" class="post-thumbnail" href="<?php the_permalink(); ?>">
+		<?php the_post_thumbnail( $size ); ?>
+	</a>
+
+   <?php elseif ( is_singular() ) : ?>
 
 	<div class="post-thumbnail">
-	<?php
-		if ( ( ! is_active_sidebar( 'sidebar-2' ) || is_page_template( 'page-templates/full-width.php' ) ) ) {
-			the_post_thumbnail( $size );
-		} else {
-			the_post_thumbnail( $size );
-		}
-	?>
+		<?php the_post_thumbnail( $size ); ?>
 	</div>
 
 	<?php else : ?>
 
 	<a title="<?php the_title_attribute(); ?>" class="post-thumbnail" href="<?php the_permalink(); ?>">
-	<?php the_post_thumbnail( $size ); ?>
+		<?php the_post_thumbnail( $size ); ?>
 	</a>
 
-	<?php endif; // End is_singular()
+	<?php endif; 
 }
 
 
