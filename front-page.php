@@ -78,7 +78,7 @@ get_header(); ?>
 			</svg>
 		<h2>30 Day Money Back Guarantee</h2>
 		<p>If you are unhappy with your purchase, or you have an issue that we are unable to resolve that makes the system unusable, we are more than happy to provide a complete refund within 30 days of your original purchase.</p>
-		<p><a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">See my complete refund policy &rarr;</a></p>
+		<p><a href="#refund-policy" class="popup-content" data-effect="mfp-move-from-bottom">View refund policy</a></p>
 
 		<?php 
 		$refund_policy = get_page_by_title( 'refund policy' );
@@ -223,38 +223,28 @@ get_header(); ?>
 </section>
 
 
-
-
-
-
+<?php
+/**
+ * Featured product
+ */
+?>
 <section class="section home featured-product alt3">
-
-
 
 	<div class="wrapper">
 		
-	<header class="page-header">
-		<span class="meta">Featured Product</span>
-		<h1>AffiliateWP</h1>
-		<h2>An efficient and reliable affiliate marketing plugin for WordPress</h2>
-		<a href="<?php echo site_url('products/affiliatewp'); ?>" class="button">Learn more</a>
-	</header>
+		<header class="page-header">
+			<span class="meta">Featured Product</span>
+			<h1>AffiliateWP</h1>
+			<h2>An efficient and reliable affiliate marketing plugin for WordPress</h2>
+			<a href="<?php echo site_url('products/affiliatewp'); ?>" class="button">Learn more</a>
+		</header>
 
-
-		<img src="<?php echo get_stylesheet_directory_uri() . '/images/home-feature.png'; ?>" alt="">
-		<div id="alf"></div>
+		<div class="image">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/images/home-feature.png'; ?>" alt="">
+			<div id="alf"></div>
+		</div>	
 	</div>
 </section>
-
-
-<?php 
-// only show this section to those not logged in. Show premium members an upgrade section if they can upgrade. Show premium members something else
-
-?>
-
-
-
-
 
 
 
