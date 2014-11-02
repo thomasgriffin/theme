@@ -7,7 +7,7 @@ get_header(); ?>
 
 <?php affwp_page_header(); ?>
 
-<div class="primary content-area">
+<div class="primary slim content-area">
 	<div class="wrapper">
 	<?php if ( have_posts() ) : ?>
 
