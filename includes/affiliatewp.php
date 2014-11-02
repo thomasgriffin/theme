@@ -7,6 +7,10 @@
 function pp_shortcode_affiliate_area() {
 	ob_start();
 
+	if ( ! function_exists( 'affiliate_wp' ) ) {
+		return;
+	}
+
 	if ( is_user_logged_in() && affwp_is_affiliate() ) {
 
 		affiliate_wp()->templates->get_template_part( 'dashboard' );
