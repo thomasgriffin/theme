@@ -67,7 +67,7 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
+			<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', 'more-plugins' ) ); ?>> 
 	    			<h2 class="entry-title">
 	    				<a href="https://profiles.wordpress.org/mordauk/">
 	    		    		Want more plugins?

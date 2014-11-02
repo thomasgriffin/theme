@@ -38,5 +38,5 @@
 
 	<?php do_action( 'affwp_content_before' ); ?>
 	<div id="content">
-		<?php //do_action( 'affwp_content_start' ); ?>
+		<?php do_action( 'pp_content_start' ); ?>
 		<!-- <div class="wrapper"> -->

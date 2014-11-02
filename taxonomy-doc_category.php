@@ -49,7 +49,7 @@ get_header(); ?>
 		          	
 		          	if ( $wp_query->have_posts() ) : ?>
 
-		          	<ul>
+		          	<ul class="list linked">
 					<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?> 
 		   				<li>
 							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
