@@ -23,6 +23,7 @@ require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'template-tags.php' );
 //require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'post-types.php' );
 //require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'documentation.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'testimonials.php' );
+require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'affiliatewp.php' );
 
 
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'gallery.php' );
