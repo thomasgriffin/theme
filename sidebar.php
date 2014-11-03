@@ -13,26 +13,25 @@
 	?>
 
 	<?php if ( is_page( $affiliate_area_id ) && ! is_user_logged_in() ) : ?>
-
 		<div class="box">
-		<?php echo affiliate_wp()->login->login_form(); ?>
+			<?php echo affiliate_wp()->login->login_form(); ?>
 		</div>
-
-	<?php elseif( is_page( $affiliate_area_id ) && is_user_logged_in() ) : ?>
+	<?php elseif( is_user_logged_in() ) : ?>	
 		<div class="box">
 			<ul class="linked list">
-				<li><a href="<?php echo wp_logout_url( get_permalink( $affiliate_area_id ) ); ?>"><?php _e( 'Logout', 'pp' ); ?></a></li>
-			</ul>
-		</div>
-	<?php endif; ?>
+				<li<?php if ( is_page( 'account' ) ) { echo ' class="active"'; } ?>><a href="<?php echo site_url( 'account' ); ?>"><?php _e( 'Your Account', 'pp' ); ?></a></li>
 
-	<?php if ( is_page( 'account' ) && is_user_logged_in() ) : ?>
-	<div class="box">
-		<ul class="linked list">
-			<li><a href="<?php echo wp_logout_url( site_url( 'account' ) ); ?>"><?php _e( 'Logout', 'pp' ); ?></a></li>
-		</ul>
-	</div>
+				<?php if ( affwp_is_affiliate() ) : ?>
+				<li<?php if ( is_page( $affiliate_area_id ) ) { echo ' class="active"'; } ?>><a href="<?php echo get_permalink( $affiliate_area_id ); ?>"><?php _e( 'Affiliate Dashboard', 'pp' ); ?></a></li>
+				<?php endif; ?>
+
+				<li><a href="<?php echo wp_logout_url( site_url( 'account' ) ); ?>"><?php _e( 'Logout', 'pp' ); ?></a></li>
+			</ul>
+		</div>	
 	<?php endif; ?>
+	
+
+
 
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 
