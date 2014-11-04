@@ -192,6 +192,7 @@ get_header(); ?>
 						'field'    => 'slug',
 						'terms'    => array( 'subscriber-only' ),
 						'operator' => 'NOT IN'
+					)
 				)
 			);
 
