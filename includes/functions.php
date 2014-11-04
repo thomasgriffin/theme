@@ -28,14 +28,14 @@ function pp_get_category_post_count( $category_to_search = '' ) {
 
 	if( 'free-members' === $category_to_search ) {
 
-		$all   = get_category( 'tutorials' );
-		$paid  = get_category( 'subscriber-only' );
-		$count = $all->category_count - $paid->category_count;
+		$all   = get_term_by( 'slug', 'tutorials', 'category' );
+		$paid  = get_term_by( 'slug', 'subscriber-only', 'category' );
+		$count = $all->count - $paid->count;
 
 	} else {
 
-		$cat   = get_category( $category_to_search );
-		$count = $cat->category_count;
+		$cat   = get_term_by( 'slug', $category_to_search, 'category' );
+		$count = $cat->count;
 
 	}
 
