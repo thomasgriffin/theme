@@ -185,13 +185,7 @@ get_header(); ?>
 					array(
 						'taxonomy' => 'category',
 						'field'    => 'slug',
-						'terms'    => array( 'tutorials' )
-					),
-					array(
-						'taxonomy' => 'category',
-						'field'    => 'slug',
-						'terms'    => array( 'subscriber-only' ),
-						'operator' => 'NOT IN'
+						'terms'    => array( 'subscriber-only' )
 					)
 				)
 			);
@@ -340,7 +334,20 @@ get_header(); ?>
 		    $args = array(
 		      'post_type' => 'post',
 		      'posts_per_page' => 3,
-		      'category_name' => 'free-members'
+		      'tax_query' =>  array(
+					'relation' => 'AND',
+					array(
+						'taxonomy' => 'category',
+						'field'    => 'slug',
+						'terms'    => array( 'tutorials' )
+					),
+					array(
+						'taxonomy' => 'category',
+						'field'    => 'slug',
+						'terms'    => array( 'subscriber-only' ),
+						'operator' => 'NOT IN'
+					)
+				)
 		    );
 
 		    $tutorials = new WP_Query( $args );
