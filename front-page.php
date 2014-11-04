@@ -177,11 +177,23 @@ get_header(); ?>
 
 	<div class="wrapper">
 		<?php
-		    $args = array(
-		      'post_type' => 'post',
-		      'posts_per_page' => 3,
-		      'category_name' => 'subscriber-only'
-		    );
+			$args = array(
+				'post_type' => 'post',
+				'posts_per_page' => 3,
+				'tax_query' =>  array(
+					'relation' => 'AND',
+					array(
+						'taxonomy' => 'category',
+						'field'    => 'slug',
+						'terms'    => array( 'tutorials' )
+					),
+					array(
+						'taxonomy' => 'category',
+						'field'    => 'slug',
+						'terms'    => array( 'subscriber-only' ),
+						'operator' => 'NOT IN'
+				)
+			);
 
 		    $tutorials = new WP_Query( $args );
 		?>
