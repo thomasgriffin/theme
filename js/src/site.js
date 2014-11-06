@@ -26,6 +26,9 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function($) {
 
+   $("#rcp_registration_form select").select2({minimumResultsForSearch: 15});
+
+
     // When discount link is clicked, hide the link, then show the discount input and set focus.
     $('body').on('click', '.edd-discount-link', function(e) {
         e.preventDefault();

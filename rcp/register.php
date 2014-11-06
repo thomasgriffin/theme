@@ -151,12 +151,13 @@ rcp_show_error_messages( 'register' ); ?>
 	if( count( $gateways ) > 1 ) : $display = rcp_has_paid_levels() ? '' : ' style="display: none;"'; ?>
 		<fieldset class="rcp_gateways_fieldset">
 			<p id="rcp_payment_gateways"<?php echo $display; ?>>
+				<label for="rcp_gateway"><?php _e( 'Choose Your Payment Method', 'rcp' ); ?></label>
 				<select name="rcp_gateway" id="rcp_gateway">
 					<?php foreach( $gateways as $key => $gateway ) : ?>
 						<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $gateway ); ?></option>
 					<?php endforeach; ?>
 				</select>
-				<label for="rcp_gateway"><?php _e( 'Choose Your Payment Method', 'rcp' ); ?></label>
+				
 			</p>
 		</fieldset>
 	<?php else: ?>
