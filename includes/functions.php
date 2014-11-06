@@ -26,18 +26,17 @@ function pp_get_category_post_count( $category_to_search = '' ) {
 		return;
 	}
 
-	$args = array(
-		'type'     => 'post',
-		'taxonomy' => 'category',
-	); 
+	if( 'free-members' === $category_to_search ) {
 
-	$categories = get_categories( $args );
+		$all   = get_term_by( 'slug', 'tutorials', 'category' );
+		$paid  = get_term_by( 'slug', 'subscriber-only', 'category' );
+		$count = $all->count - $paid->count;
 
-	foreach ( $categories as $category ) {
+	} else {
 
-		if ( $category->slug == $category_to_search ) {
-			$count = $category->count;
-		}
+		$cat   = get_term_by( 'slug', $category_to_search, 'category' );
+		$count = $cat->count;
+
 	}
 
 	return $count;
