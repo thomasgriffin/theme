@@ -80,26 +80,7 @@ function pp_home_masthead() {
 
 
 		});
-			// if ( ! $(window).scrollTop() ) {
-			// 	console.log('yes');
 
-
-			// }
-
-			
-
-   // if ( jQuery("#masthead").css("position") == "relative" ) {
-
-			   		
-			   // }
-
-			
-
-			// if ( jQuery("#masthead").css("position") == "relative" ) {
-
-
-				
-			// }
 
 
 	</script>
