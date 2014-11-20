@@ -97,6 +97,12 @@ jQuery(document).ready(function($) {
     	$(this).hide();	
     });
 
+    $('.scroll').click(function(event){
+      event.preventDefault();
+      var offset = $($(this).attr('href')).offset().top;
+      $('html, body').animate({scrollTop:offset}, 800);
+    });
+    
     jQuery(function () {
 
         jQuery('#back-top').click(function () {
