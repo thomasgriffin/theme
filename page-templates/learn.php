@@ -24,18 +24,16 @@ get_header(); ?>
     </div>
     <div class="wrapper">
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
-              <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-            	
-            	<?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
+            	<div class="flex-wrapper">
+                <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
                 <h2 class="entry-title">
                     <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
                         <?php the_title(); ?>
                     </a>
                 </h2>
-            	
-
-            <?php the_excerpt(); ?>
-
+              <?php the_excerpt(); ?>
+              </div>
             <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
         </article> 
 
@@ -68,17 +66,18 @@ get_header(); ?>
     </div>
     <div class="wrapper">
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
-              <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-               <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
-                 <h2 class="entry-title">
-                     <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-                         <?php the_title(); ?>
-                     </a>
-                 </h2>
+        <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
+          <div class="flex-wrapper">
+            <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
+            <h2 class="entry-title">
+               <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+                   <?php the_title(); ?>
+               </a>
+            </h2>
 
             <?php the_excerpt(); ?>
-
-            <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
+          </div>
+          <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
         </article> 
 
         <?php endwhile; wp_reset_query(); ?>
@@ -110,18 +109,22 @@ get_header(); ?>
     </div>
     <div class="wrapper">
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
-              <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-               <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
-                               <h2 class="entry-title">
-                                   <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-                                       <?php the_title(); ?>
-                                   </a>
-                               </h2>
+          
+      <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
 
-            <?php the_excerpt(); ?>
+        <div class="flex-wrapper">
+          <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
+          <h2 class="entry-title">
+            <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+            </a>
+          </h2>
 
-            <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
-        </article> 
+          <?php the_excerpt(); ?>
+        </div>
+
+        <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
+      </article> 
 
         <?php endwhile; wp_reset_query(); ?>
         <div class="gap"></div>

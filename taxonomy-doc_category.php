@@ -23,6 +23,8 @@ get_header(); ?>
 			$term = get_term_by( 'id', $term, $taxonomy );
 		?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
+				<div class="flex-wrapper">
+
 				<a href="<?php echo get_term_link( $term, $taxonomy ); ?>">
 					<h2 class="entry-title"><?php echo $term->name; ?></h2>
 				</a>
@@ -57,6 +59,7 @@ get_header(); ?>
 					<?php endwhile; ?>
 					</ul>
 					
+					</div>
 					<a href="<?php echo get_term_link( $term, $taxonomy ); ?>">View all &rarr;</a>
 					<?php wp_reset_query(); endif; ?>
 

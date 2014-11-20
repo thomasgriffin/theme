@@ -39,7 +39,9 @@ get_header(); ?>
         ?>
 
    			<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-   				<h2 class="entry-title">
+   				<div class="flex-wrapper">
+
+          <h2 class="entry-title">
    					<a href="<?php echo $doc_url; ?>"<?php echo $external; ?>><?php echo $term->name; ?></a>
    				</h2>
    				
@@ -48,7 +50,7 @@ get_header(); ?>
    				<?php endif; ?>
 
 
-         
+          </div>
    				<a href="<?php echo $doc_url; ?>"<?php echo $external; ?>>View documentation &rarr;</a>
    			</article>	
    		<?php endforeach; ?>

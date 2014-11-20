@@ -19,7 +19,7 @@ get_header(); ?>
 	$coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
 	?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', $coming_soon ) ); ?>> 
-		    
+		    <div class="flex-wrapper">
 			<?php if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
 
 	    		<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
@@ -55,24 +55,25 @@ get_header(); ?>
 		 		Coming Soon
  		    	
 			<?php endif; ?>	
-
+			</div>
 		</article>
 
 	<?php endwhile; ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', 'more-plugins' ) ); ?>> 
+    			<div class="flex-wrapper">
 	    			<h2 class="entry-title">
 	    				<a href="https://profiles.wordpress.org/mordauk/">
 	    		    		Want more plugins?
 	    		    	</a>
 	    	    	</h2>
-					
-		       <p>I also have over 50 freely available plugins on the WordPress repository.</p>
+						
+			       <p>I also have over 50 freely available plugins on the WordPress repository.</p>
 
+	 		    </div>
 		 		<a href="https://profiles.wordpress.org/mordauk/" class="link">
  		    		View Plugins  &rarr;
  		    	</a>
-
 			</article>
 
 	<div class="gap"></div>
