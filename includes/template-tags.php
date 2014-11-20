@@ -261,6 +261,16 @@ function affwp_the_title_filters( $title ) {
 		}
 	}
 
+	// tag pages
+	if ( is_tag() ) {
+		if ( in_the_loop() ) {
+			$title = the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		}
+		else {
+			$title = sprintf( __( '<h1>Posts Tagged with: %s</h1>', 'affwp' ), single_tag_title( '', false ) );
+		}
+	}
+
 	return $title;
 	
 }
