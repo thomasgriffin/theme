@@ -33,13 +33,18 @@ function pp_shortcode_affiliate_area() {
 	return ob_get_clean();
 }
 
-$affiliate_wp = affiliate_wp();
+if ( function_exists( 'affiliate_wp' ) ) {
+	$affiliate_wp = affiliate_wp();
 
-// remove old shortcode
-remove_shortcode( 'affiliate_area', array( $affiliate_wp, 'affiliate_area' ) );
+	// remove old shortcode
+	remove_shortcode( 'affiliate_area', array( $affiliate_wp, 'affiliate_area' ) );
 
-// add our custom shortcode
-add_shortcode( 'affiliate_area', 'pp_shortcode_affiliate_area' );
+	// add our custom shortcode
+	add_shortcode( 'affiliate_area', 'pp_shortcode_affiliate_area' );
+}
+
+
+
 
 /**
  * Adds terms of use directly into register form so we can open it in a modal window
