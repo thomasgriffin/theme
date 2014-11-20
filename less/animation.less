@@ -31,15 +31,15 @@
 @-webkit-keyframes pulse {
 
   0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  98% {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
-
-  50% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-
+  
   100% {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -50,13 +50,13 @@
 @keyframes pulse {
 
   0% {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 
-  50% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
+  98% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
   
   100% {
@@ -66,19 +66,20 @@
 
 }
 
-.pulse {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-}
 
-.animated {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
+  .pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+  }
 
-.animated.infinite {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
+  .animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
