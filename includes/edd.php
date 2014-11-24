@@ -631,6 +631,32 @@ function pp_product_info( $position = '' ) {
 		<?php endif; ?>	
 		
 
+		<?php
+			// external doc url
+			$external_doc_url = get_post_meta( get_the_ID(), '_pp_product_doc_url', true );
+			
+			$doc_term_id      = get_post_meta( get_the_ID(), '_pp_product_doc_term_id', true );
+			$doc_url          = get_term_link( (int) $doc_term_id, 'doc_category' );
+
+			if ( ! is_wp_error( $doc_url ) ) {
+				$documentation_url = esc_url( $doc_url );
+				$external = '';
+		    } elseif ( $external_doc_url ) {
+				$documentation_url = esc_url( $external_doc_url );
+				$external = ' target="blank"';
+			} else {
+				$documentation_url = '';
+				$external = '';
+			}
+
+			if ( $external_doc_url || $doc_url ) : 
+		?>
+		<p>
+			<span>Documentation</span>
+			<a href="<?php echo $documentation_url; ?>" <?php echo $external; ?>>View Documentation</a>
+		</p>
+		<?php endif; ?>
+
 		<?php if ( $released ) : ?>
 			<p><span>Released </span><?php echo esc_attr( $released ); ?></p>
 		<?php endif; ?>

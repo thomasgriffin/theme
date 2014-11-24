@@ -11,6 +11,7 @@ get_header(); ?>
 	<div class="wrapper">
 
     <?php
+
     	$taxonomy = 'doc_category';
 
 	    $args = array(
@@ -22,27 +23,30 @@ get_header(); ?>
 
    		$terms = get_terms( $taxonomy, $args );
 	  	
+
    		foreach( $terms as $term ) : ?>
 
        <?php
-          if ( $term->slug == 'easy-digital-downloads' ) {
-             $doc_url = 'https://easydigitaldownloads.com/documentation/';
-             $external = true;
-          } elseif( $term->slug == 'affiliatewp' ) {
-            $doc_url = 'http://affiliatewp.com/support/documentation/';
-             $external = true;
-          } else {
-            $doc_url = get_term_link( $term, $taxonomy );
-          }
 
-          $external = isset( $external ) &&  $external == true ? ' target="_blank"' : '';
+        $term_name        = $term->name;
+        $download         = get_page_by_title( $term_name, '', 'download' );
+        $external_doc_url = $download ? get_post_meta( $download->ID, '_pp_product_doc_url', true ) : '';
+
+        if ( $external_doc_url ) {
+          $doc_url = $external_doc_url;
+          $target = 'target="_blank"';
+        } else {
+          $doc_url = get_term_link( $term, $taxonomy );
+          $target = '';
+        }
+
         ?>
 
-   			<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
+   			<article class="col box"> 
    				<div class="flex-wrapper">
 
           <h2 class="entry-title">
-   					<a href="<?php echo $doc_url; ?>"<?php echo $external; ?>><?php echo $term->name; ?></a>
+   					<a href="<?php echo $doc_url; ?>"<?php echo $target; ?>><?php echo $term->name; ?></a>
    				</h2>
    				
    				<?php if ( $term->description ) : ?>
@@ -51,7 +55,7 @@ get_header(); ?>
 
 
           </div>
-   				<a href="<?php echo $doc_url; ?>"<?php echo $external; ?>>View documentation &rarr;</a>
+   				<a href="<?php echo $doc_url; ?>"<?php echo $target; ?>>View documentation &rarr;</a>
    			</article>	
    		<?php endforeach; ?>
       <div class="gap"></div>

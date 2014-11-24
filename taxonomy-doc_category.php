@@ -15,13 +15,30 @@ get_header(); ?>
 	$term_children = get_term_children( get_queried_object_id(), $taxonomy );
 
 	if ( $term_children ) :
+
 ?>
 
 	<section class="section columns columns-3 grid">
 		<div class="wrapper">
 		<?php foreach ( $term_children as $term ) :
 			$term = get_term_by( 'id', $term, $taxonomy );
-		?>
+
+			$args = array(
+				'post_type'      => 'documentation',
+				'posts_per_page' => 3,
+				'tax_query'      => array(
+					array(
+						'taxonomy' => $taxonomy,
+						'field'    => 'id',
+						'terms'    => $term->term_id
+					)
+				)
+			);
+
+			$wp_query = new WP_Query( $args );
+
+			if ( $wp_query->have_posts() ) : ?>
+
 			<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
 				<div class="flex-wrapper">
 
@@ -33,23 +50,7 @@ get_header(); ?>
 					<p><?php echo $term->description; ?></p>
 				<?php endif; ?>
 
-		          <?php
-
-					$args = array(
-						'post_type'      => 'documentation',
-						'posts_per_page' => 3,
-						'tax_query'      => array(
-							array(
-								'taxonomy' => $taxonomy,
-								'field'    => 'id',
-								'terms'    => $term->term_id
-							)
-						)
-					);
-
-					$wp_query = new WP_Query( $args );
-		          	
-		          	if ( $wp_query->have_posts() ) : ?>
+		         
 
 		          	<ul class="list linked">
 					<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?> 
@@ -61,9 +62,12 @@ get_header(); ?>
 					
 					</div>
 					<a href="<?php echo get_term_link( $term, $taxonomy ); ?>">View all &rarr;</a>
-					<?php wp_reset_query(); endif; ?>
+					
 
 			</article>
+			
+			<?php wp_reset_query(); endif; ?>
+
 		<?php endforeach; ?>
 		</div>
 	</section>
