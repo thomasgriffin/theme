@@ -22,10 +22,7 @@
 		<?php if ( is_single() ) : ?>
 
 			<?php pp_post_thumbnail( 'large' ); ?>
-			
-			<?php /*
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-	*/ ?>
+		
 		<?php else : ?>
 
 		<div class="entry-meta">
