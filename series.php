@@ -15,12 +15,16 @@ get_header(); ?>
                 while ( have_posts() ) : the_post(); ?>
 
           <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-                <h2 class="entry-title">
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </h2>
-                
-                <?php the_excerpt(); ?>
+                <div class="flex-wrapper">
+                    <?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
 
+                    <h2 class="entry-title">
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    </h2>
+                    
+                    <?php the_excerpt(); ?>
+                </div>
+                
                 <a href="<?php the_permalink(); ?>">View Series&rarr;</a>
             </article>  
             <?php endwhile;
