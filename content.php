@@ -14,12 +14,15 @@
 	<!-- <header class="entry-header"> -->
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 
+			
 		
 
 		<?php endif; ?>
 
 		<?php if ( is_single() ) : ?>
 
+			<?php pp_post_thumbnail( 'large' ); ?>
+			
 			<?php /*
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	*/ ?>
