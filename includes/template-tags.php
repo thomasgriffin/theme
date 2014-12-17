@@ -300,10 +300,11 @@ function affwp_page_header( $header = '', $sub_header = '' ) {
 
 		<?php
 			
-			if ( ! $sub_header && isset( $post->ID ) ) {
+			if ( ! $sub_header && isset( $post->ID ) && ! is_post_type_archive() ) {
 				$sub_header = function_exists( 'get_the_subheading' ) && get_the_subheading() ? '<h2>' . get_the_subheading() . '</h2>' : '';
 			}
 			
+
 			echo apply_filters( 'affwp_excerpt', $sub_header );
 		?>
 
