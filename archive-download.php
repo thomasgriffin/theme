@@ -19,9 +19,9 @@ get_header(); ?>
 	$coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
 	?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', $coming_soon ) ); ?>> 
-		    <div class="flex-wrapper">
+		   
 			<?php if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
-
+				<div class="flex-wrapper">
 	    		<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
 
     			<h2 class="entry-title">
@@ -32,12 +32,14 @@ get_header(); ?>
 				
 				<?php the_excerpt(); ?>
 
+				</div>
+
 		 		<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="link">
  		    		Learn More  &rarr;
  		    	</a>
 
 		    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
-		    	
+		    	<div class="flex-wrapper">
 		    	<div class="post-thumbnail">
 		    		<?php if ( current_user_can( 'manage_options' ) ) : ?>
 		    		<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
@@ -52,10 +54,13 @@ get_header(); ?>
 		       	</h2>
 	    		
 	    		<?php the_excerpt(); ?>
+
+	    		</div>
+	    		
 		 		Coming Soon
  		    	
 			<?php endif; ?>	
-			</div>
+			
 		</article>
 
 	<?php endwhile; ?>
