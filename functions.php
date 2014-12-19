@@ -86,6 +86,9 @@ function affwp_setup() {
 	// Add RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
 
+	// add post format support
+	add_theme_support( 'post-formats', array( 'video' ) );
+
 	add_post_type_support( 'page', 'excerpt' );
 
 	// Enable support for Post Thumbnails, and declare two sizes.
@@ -114,8 +117,6 @@ function affwp_setup() {
 }
 endif; // affwp_setup
 add_action( 'after_setup_theme', 'affwp_setup' );
-
-
 
 
 /**
