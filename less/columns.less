@@ -133,19 +133,33 @@ section.columns {
   //   display: none;
   // }
 
+  
 
+}
+
+@media only screen and ( min-width: 968px ) {
+  .columns-main-side .primary { 
+    width: 62%;
+    max-width: 720px;
+  }
 }
 
 // // 3 columns
 @media only screen and ( min-width: 1024px ) {
 
- .columns-main-side .wrapper > .col { width: 62%; }
+
 
  .columns-main-side .primary-sidebar {
       width: 36%;
       max-width: 300px;
  }
   
+}
+
+@media only screen and ( min-width: 500px ) {
+  .columns .col {
+    margin-bottom: 2rem;
+  }
 }
 
 
@@ -167,6 +181,7 @@ section.columns {
         // main column
         .primary.col {
           width: 46%;
+          max-width: 720px;
         }
       }
 
