@@ -4,7 +4,7 @@
  */
 get_header(); ?>
 
-<?php affwp_page_header( 'Learn Plugin Development', '<h2>Learning By Doing</h2>' ); ?>
+<?php affwp_page_header( 'Learn Plugin Development' ); ?>
 
 <?php
 /**
@@ -105,7 +105,7 @@ get_header(); ?>
 ?> 
 <section class="section columns columns-3 grid">
     <div class="wrapper">
-        <h2>Members - Free Subscribers</h2> 
+        <h2>Everyone</h2> 
     </div>
     <div class="wrapper">
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
