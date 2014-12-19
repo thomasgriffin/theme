@@ -3,6 +3,20 @@
  * EDD Modifications
  */
 
+/**
+ * Change download labels
+ */
+function pp_edd_download_labels( $labels ) {
+
+	$labels = array(
+	   'singular' => __( 'Product', 'pp' ),
+	   'plural'   => __( 'Products', 'pp')
+	);
+
+	return $labels;
+
+}
+add_filter( 'edd_default_downloads_name', 'pp_edd_download_labels' );
 
 /**
  * Get Purchase Link

@@ -49,22 +49,6 @@ if ( ! isset( $content_width ) ) {
 }
 
 
-/**
- * EDD Default labels
- * Set back to downloads which is changed by using EDD_SLUG constant
- *
- * @since  1.1.7
- */
-function affwp_edd_get_default_labels( $defaults ) {
-	
-	$defaults = array(
-	   'singular' => __( 'Download', 'affwp' ),
-	   'plural' => __( 'Downloads', 'affwp')
-	);
-
-	return $defaults;
-}
-add_filter( 'edd_default_downloads_name', 'affwp_edd_get_default_labels' );
 
 
 if ( ! function_exists( 'affwp_setup' ) ) :
