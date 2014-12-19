@@ -649,7 +649,7 @@ function pp_product_info( $position = '' ) {
 				$external = '';
 			}
 
-			if ( $external_doc_url || $doc_url ) : 
+			if ( $documentation_url ) : 
 		?>
 		<p>
 			<span>Documentation</span>
