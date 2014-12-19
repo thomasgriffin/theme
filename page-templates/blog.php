@@ -25,7 +25,7 @@ get_header();
 	if ( have_posts() ) : ?>
 	<div class="columns-main-side columns">
 		<div class="wrapper">
-			<div class="col content-area">
+			<div class="primary col content-area">
 			<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>

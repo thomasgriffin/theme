@@ -67,11 +67,7 @@ $connected = new WP_Query( array(
   'nopaging'        => true,
 ) );
 
-?>
-
-
-
-<?php if ( $connected->have_posts() ) : ?>
+if ( $connected->have_posts() ) : ?>
 <section class="section columns columns-3 grid product-grid">
 
 	
