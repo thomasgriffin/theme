@@ -17,11 +17,7 @@ article.page {
 
 
 
-.columns-main-side {
-	.wrapper {
-		max-width: 1220px;
-	}
-}
+
 
 .post-info p:last-child,
 .entry-content > p:last-child,
@@ -33,12 +29,38 @@ article.page {
 .page.support,
 .single {
 	.columns-3 {
-		max-width: 95%;
+//		max-width: 95%;
+//		max-width: 1440px;
 		margin: 0 auto;
 	}
 }
 
 
+@media only screen and ( min-width: 768px ) {
+	.page.blog,
+	.page.support,
+	.single {
+		.columns-3 {
+			max-width: 1100px;
+		}
+	}
+}
+
+@media only screen and ( min-width: 1440px ) {
+	.page.blog,
+	.page.support,
+	.single {
+		.columns-3 {
+			max-width: 1440px;
+		}
+	}
+}
+
+.columns-main-side {
+	.wrapper {
+		max-width: 1100px;
+	}
+}
 
 .page.purchase-history,
 .page.account-logged-in {
