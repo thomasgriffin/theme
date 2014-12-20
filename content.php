@@ -12,7 +12,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'box' ) ); ?>>
 
-	<?php do_action( 'pp_content_single_start' ); ?>
+	<?php //do_action( 'pp_content_single_start' ); ?>
 
 
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
@@ -23,7 +23,9 @@
 		<?php if ( is_single() ) : ?>
 
 			<?php pp_post_thumbnail( 'large' ); ?>
-		
+			
+			<?php do_action( 'pp_content_single_start' ); ?>
+
 		<?php else : ?>
 
 		<div class="entry-meta">
