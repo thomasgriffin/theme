@@ -11,13 +11,14 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'box' ) ); ?>>
-	<!-- <header class="entry-header"> -->
+
+	<?php do_action( 'pp_content_single_start' ); ?>
+
+
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 
-			
-		
-
 		<?php endif; ?>
+
 
 		<?php if ( is_single() ) : ?>
 
@@ -34,7 +35,6 @@
 		</h2>
 
 		
-
 		<?php endif; ?>
 
 		

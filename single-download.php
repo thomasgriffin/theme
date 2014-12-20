@@ -25,7 +25,7 @@ get_header(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'box', 'product' ) ); ?>>
 					
-				<?php //pp_post_thumbnail(); ?>
+				<?php pp_post_thumbnail( 'large' ); ?>
 					<div class="entry-content">
 						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'affwp' ) ); ?>
 					</div>
@@ -70,34 +70,29 @@ $connected = new WP_Query( array(
 if ( $connected->have_posts() ) : ?>
 <section class="section columns columns-3 grid product-grid">
 
-	
 		<header class="page-header">
 			<h1>Related add-ons</h1>
 		</header>
 	
-
 	<div class="wrapper">
 
 	    <?php while ( $connected->have_posts() ) : $connected->the_post();
 		    $coming_soon = pp_product_is_coming_soon( get_the_ID() ) ? 'coming-soon' : '';
 	    ?>  
 	        <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box', $coming_soon ) ); ?>> 
-	        		    
+	        	<div class="flex-wrapper">
+
 				<?php 
 				$external_download_url = get_post_meta( get_the_ID(), '_affwp_addon_download_url', true );
 
 				if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
 
-		    		<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+		    		<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
 						<h2 class="entry-title">
 							<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
 					    		<?php the_title(); ?>
 					    	</a>
 				    	</h2>
-
-				   
-				    	
-					
 
 			    <?php elseif ( pp_product_is_coming_soon( get_the_ID() ) ) : ?>
 			    		  	
@@ -109,13 +104,13 @@ if ( $connected->have_posts() ) : ?>
 				    	</h2>
 
 				    <?php else : ?>
-				    	<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+				    	<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
 					<?php endif; ?>
 
 				<?php endif; ?>	
 
 		       	<?php the_excerpt(); ?>
-
+		       	</div>
 			 		<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="link">
 	 		    		Learn More  &rarr;
 	 		    	</a>

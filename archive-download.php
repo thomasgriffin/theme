@@ -22,7 +22,7 @@ get_header(); ?>
 		   
 			<?php if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
 				<div class="flex-wrapper">
-	    		<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+	    		<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
 
     			<h2 class="entry-title">
     				<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
@@ -42,7 +42,7 @@ get_header(); ?>
 		    	<div class="flex-wrapper">
 		    	<div class="post-thumbnail">
 		    		<?php if ( current_user_can( 'manage_options' ) ) : ?>
-		    		<?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+		    		<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
 		    		<?php else : ?>
 		    			<img alt="<?php the_title(); ?> - Coming Soon" src="<?php echo get_stylesheet_directory_uri() . '/images/product-coming-soon.png'; ?>">
 		    		<?php endif; ?>	

@@ -16,7 +16,7 @@ get_header(); ?>
 
           <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
                 <div class="flex-wrapper">
-                    <?php pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
+                    <?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
 
                     <h2 class="entry-title">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

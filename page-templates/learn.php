@@ -26,7 +26,7 @@ get_header(); ?>
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
             <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
             	<div class="flex-wrapper">
-                <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
+                <?php pp_post_thumbnail( 'pp-grid-thumbnail', true ); ?>
                 <h2 class="entry-title">
                     <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
                         <?php the_title(); ?>
@@ -68,7 +68,7 @@ get_header(); ?>
         <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
         <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
           <div class="flex-wrapper">
-            <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
+            <?php pp_post_thumbnail( 'pp-grid-thumbnail', true ); ?>
             <h2 class="entry-title">
                <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
                    <?php the_title(); ?>
@@ -113,7 +113,7 @@ get_header(); ?>
       <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
 
         <div class="flex-wrapper">
-          <?php pp_post_thumbnail( 'affwp-grid-thumbnail', true ); ?>
+          <?php pp_post_thumbnail( 'pp-grid-thumbnail', true ); ?>
           <h2 class="entry-title">
             <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
             <?php the_title(); ?>

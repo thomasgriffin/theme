@@ -79,8 +79,8 @@ function affwp_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 672, 372, true );
 
-	add_image_size( 'affwp-full-width', 1038, 576, true );
-	add_image_size( 'affwp-grid-thumbnail', 480, 240, true );
+	add_image_size( 'pp-full-width', 1038, 576, true );
+	add_image_size( 'pp-grid-thumbnail', 480, 240, true );
 
 	register_nav_menus( array(
 		'primary'   => __( 'Primary menu', 'affwp' ),

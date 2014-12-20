@@ -197,23 +197,21 @@ get_header(); ?>
 		        <?php while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>  
 		              <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
 		            	
-		            	<?php //pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
-		            	<span class="date">
-						<?php echo esc_html( get_the_date( 'M d' ) ); ?>
-						</span>
-		                <h2 class="entry-title">
-		                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-		                        <?php the_title(); ?>
-		                    </a>
-		                </h2>
-		            	
+		            	<div class="flex-wrapper">
+			            	<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
+			            	<span class="date">
+							<?php echo esc_html( get_the_date( 'M d' ) ); ?>
+							</span>
 
-		            <?php the_excerpt(); ?>
+			                <h2 class="entry-title">
+			                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+			                        <?php the_title(); ?>
+			                    </a>
+			                </h2>
+			            	
+			            <?php the_excerpt(); ?>
 
-		            <?php if (  has_category( 'free-members' ) ) {
-		            	echo 'yes';
-		            }
-		            ?>
+		            	</div>
 		            <a href="<?php the_permalink(); ?>">View tutorial &rarr;</a>
 		        </article> 
 
@@ -260,20 +258,17 @@ get_header(); ?>
 
 <section class="section home columns columns-3 grid row">
 
-	
 	<header class="page-header">
 		<h1>Latest Articles</h1>
 	</header>
 
 	<div class="wrapper">
 
-	<?php while ( have_posts() ) : the_post(); 
-
-	
-	?>
+	<?php while ( have_posts() ) : the_post(); ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-		    
-			<?php if ( ! pp_product_is_coming_soon( get_the_ID() ) || current_user_can( 'manage_options' ) ) : ?>
+		    <div class="flex-wrapper">
+			<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
+				
 				<span class="date">
 				<?php echo esc_html( get_the_date( 'M d' ) ); ?>
 				</span>
@@ -285,12 +280,10 @@ get_header(); ?>
 		    	</h2>	
 				
 
-			<?php endif; ?>	
+			
 
-	       	<?php 
-		 		the_excerpt();
-		 	?>
-
+	       	<?php the_excerpt(); ?>
+		 	</div>
 		 		<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="link">
  		    		Read Now  &rarr;
  		    	</a>
@@ -356,21 +349,23 @@ get_header(); ?>
 		        <?php while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>  
 		              <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
 		            	
-		            	<?php //pp_post_thumbnail( 'affwp-grid-thumbnail' ); ?>
-		            	<span class="date">
-						<?php echo esc_html( get_the_date( 'M d' ) ); ?>
-						</span>
-		                <h2 class="entry-title">
-		                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-		                        <?php the_title(); ?>
-		                    </a>
-		                </h2>
-		            	
+		            	<div class="flex-wrapper">
+		            		<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
+			            	<?php //pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
+			            	<span class="date">
+							<?php echo esc_html( get_the_date( 'M d' ) ); ?>
+							</span>
+			                <h2 class="entry-title">
+			                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+			                        <?php the_title(); ?>
+			                    </a>
+			                </h2>
+			            	
 
-		            <?php the_excerpt(); ?>
+			            	<?php the_excerpt(); ?>
+		            	</div>
 
-
-		            <a href="<?php the_permalink(); ?>">View tutorial &rarr;</a>
+		            	<a href="<?php the_permalink(); ?>">View tutorial &rarr;</a>
 		        </article> 
 
 		        <?php endwhile; wp_reset_query(); ?>
