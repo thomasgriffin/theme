@@ -26,6 +26,11 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function($) {
 
+
+    $(".post-video").fitVids();
+ 
+
+
    $("#rcp_registration_form select").select2({minimumResultsForSearch: 15});
 
 
