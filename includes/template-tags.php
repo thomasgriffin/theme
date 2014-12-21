@@ -445,7 +445,7 @@ function affwp_post_nav() {
 	?>
 	<nav class="navigation post-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'affwp' ); ?></h1>
-		<div class="nav-links columns columns-2">
+		<div class="nav-links columns columns-2 clear">
 			<?php
 			if ( is_attachment() ) :
 				previous_post_link( '%link', __( '<span class="meta-nav col">Published In</span>%title', 'affwp' ) );
@@ -473,7 +473,7 @@ endif;
 function affwp_single_post_nav() {
 	?>
 
-	<nav class="nav-links columns columns-2">
+	<nav class="nav-links columns columns-2 clear">
 
 	<?php
 		$prev_post = get_adjacent_post( false, '', true );
@@ -547,39 +547,56 @@ if ( ! function_exists( 'pp_entry_meta' ) ) :
  */
 function pp_entry_meta() {
 	// Translators: used between list items, there is a space after the comma.
-	$categories_list = get_the_category_list( __( ', ', 'pp' ) );
+	//$categories_list = get_the_category_list( __( ', ', 'pp' ) );
 
 	// Translators: used between list items, there is a space after the comma.
 	$tag_list = get_the_tag_list( '', __( ', ', 'pp' ) );
 
-	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>',
+	// $date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>',
+	// 	esc_url( get_permalink() ),
+	// 	esc_attr( get_the_time() ),
+	// 	esc_attr( get_the_date( 'c' ) ),
+	// 	esc_html( get_the_date( 'M d, Y' ) )
+	// );
+
+	$date = sprintf( '<time class="entry-date" datetime="%3$s">%4$s</time>',
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date( 'M d, Y' ) )
 	);
 
-	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'pp' ), get_the_author() ) ),
-		get_the_author()
-	);
+	// $author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+	// 	esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+	// 	esc_attr( sprintf( __( 'View all posts by %s', 'pp' ), get_the_author() ) ),
+	// 	get_the_author()
+	// );
 
 	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
-	if ( $tag_list ) {
-		$utility_text = __( 'Posted on %1$s <span class="by-author">by %2$s</span> in %3$s and tagged %4$s.', 'pp' );
-	} elseif ( $categories_list ) {
-		$utility_text = __( '%1$s <span class="by-author">by %2$s</span> in %3$s.', 'pp' );
-	} else {
-		$utility_text = __( 'Posted on %1$s by <span class="by-author"> by %2$s</span>.', 'pp' );
-	}
+	// if ( $tag_list ) {
+	// 	$utility_text = __( 'Posted on %1$s <span class="by-author">by %2$s</span> in %3$s and tagged %4$s.', 'pp' );
+	// } elseif ( $categories_list ) {
+	// 	$utility_text = __( '%1$s <span class="by-author">by %2$s</span> in %3$s.', 'pp' );
+	// } else {
+	// 	$utility_text = __( 'Posted on %1$s by <span class="by-author"> by %2$s</span>.', 'pp' );
+	// }
+
+	$utility_text = __( '%1$s', 'pp' );
+
+	// printf(
+	// 	$utility_text,
+	// 	$date,
+	// 	$author,
+	// 	$categories_list,
+	// 	$tag_list
+	// );
 
 	printf(
 		$utility_text,
-		$date,
-		$author,
-		$categories_list,
-		$tag_list
+		$date
+	//	$author,
+	//	$categories_list,
+	//	$tag_list
 	);
 
 }
