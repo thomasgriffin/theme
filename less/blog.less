@@ -10,13 +10,13 @@
 
 // entry-meta
 .entry-meta {
-	font-size: 0.875rem;
-	margin-bottom: 1rem;
+//	font-size: 0.875rem;
+//	margin-bottom: 1rem;
 	color: @medium-grey;
 
 	a {
 		color: @medium-grey;
-		font-weight: 500;
+//		font-weight: 500;
 	}
 
 }
@@ -139,13 +139,40 @@ article.post {
 
 article.documentation,
 article.download,
-article.post {
+article.post,
+article.page {
 	margin-bottom: 1rem;
 }
+
 
 .entry-summary {
 	margin-bottom: 1rem;
 }
+
+.entry-summary p {
+	margin-bottom: 0;
+}
+
+.entry-wrap {
+	text-align: justify;
+	
+}
+
+.entry-wrap .entry-thumbnail,
+.entry-wrap .entry-summary {
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+}
+
+.has-post-thumbnail .entry-summary {
+	width: 58%;
+}
+
+.entry-thumbnail {
+	width: 34%;
+}
+
 
 
 
@@ -282,11 +309,8 @@ article.post {
 
 
 @media all and ( min-width: 720px ) {
-	.entry-thumbnail {
-		float: right;
-		margin: 0 0 0 2rem;
-		max-width: 250px;
-	}
+	
+	
 
 	
 	// alignment 
