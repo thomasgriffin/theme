@@ -12,21 +12,11 @@ get_header();
 // global $current_user;
 // get_currentuserinfo();
 
-$current_user = wp_get_current_user();
 
-$name = $current_user->user_firstname ? $current_user->user_firstname : $current_user->display_name;
 ?>
 
 <header class="page-header">
 	<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-	<h2>
-		<?php if ( is_user_logged_in() ) : ?>
-			<?php printf( __( 'Welcome %s', 'affwp' ), $name ); ?>
-		<?php else : ?>
-			<?php _e( 'Welcome back!', 'affwp' ); ?>
-		<?php endif; ?>
-	</h2>
 </header>
 
 <?php

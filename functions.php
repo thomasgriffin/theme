@@ -30,6 +30,7 @@ require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'gallery.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'comment.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'checkout.php' );
+require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'banners.php' );
 
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'custom-filters.php' );
 require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'blog.php' );

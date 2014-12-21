@@ -25,8 +25,8 @@ get_header(); ?>
 	
 	</div>
 
-	<?php get_sidebar( 'single' ); ?>
-		
+	
+	<?php get_sidebar(); ?>
 </section>
 
 <?php endwhile; ?>

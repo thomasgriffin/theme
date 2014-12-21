@@ -11,13 +11,37 @@
 	<?php 
 		$affiliate_area_id = affiliate_wp()->settings->get( 'affiliates_page' );
 	?>
+	
+	<?php 
+	/**
+	 * Show a button for non logged in users to join the site
+	 */
+	if ( ! is_user_logged_in() ) : ?>
+	<aside class="box">
+		<h2>Join the site</h2>
+		<p>Gain access to exclusive member-only plugins and tutorials.</p>
+		<a href="#" class="button wide">Join today</a>
+	</aside>
+	<?php endif; ?>
 
-	<?php if ( is_page( $affiliate_area_id ) && ! is_user_logged_in() ) : ?>
-		<div class="box">
-			<?php echo affiliate_wp()->login->login_form(); ?>
-		</div>
-	<?php elseif( is_user_logged_in() ) : ?>	
-		<div class="box">
+
+	<?php 
+	/**
+	 * User is logged in
+	 * Show them the account box and latest member-only content
+	 */
+	if ( is_user_logged_in() ) : ?>	
+		<aside class="box">
+
+		<h2>
+			<?php 
+
+			$current_user = wp_get_current_user();
+			$name         = $current_user->user_firstname ? $current_user->user_firstname : $current_user->display_name;
+
+			printf( __( 'Hi %s', 'pp' ), $name ); ?>
+		</h2>
+
 			<ul class="linked list">
 				<li<?php if ( is_page( 'account' ) ) { echo ' class="active"'; } ?>><a href="<?php echo site_url( 'account' ); ?>"><?php _e( 'Your Account', 'pp' ); ?></a></li>
 
@@ -27,12 +51,92 @@
 
 				<li><a href="<?php echo wp_logout_url( site_url( 'account' ) ); ?>"><?php _e( 'Logout', 'pp' ); ?></a></li>
 			</ul>
-		</div>	
+		</aside>
+
+		<?php
+		/**
+		 * Latest member-only content for logged-in users
+		 */
+		?>
+		<aside class="box">
+			<h2>Your latest tutorials</h2>
+			
+			<?php
+			    $args = array(
+			      'posts_per_page' => 5,
+			      'category_name' => 'subscriber-only'
+			    );
+
+			    $query = new WP_Query( $args );
+			?>
+			<?php if ( $query->have_posts() ) : ?> 
+			   <ul class="linked list small">
+			        <?php while ( $query->have_posts() ) : $query->the_post(); ?>  
+			            <li id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
+			                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+			                        <?php the_title(); ?>
+			                    </a>
+			              </li>
+			        <?php endwhile; wp_reset_query(); ?>
+
+			     </ul>  
+			<?php endif; ?>
+
+			<a href="<?php echo get_category_link( get_cat_ID( 'Subscriber Only' ) ); ?>" class="button wide">View all</a>
+		</aside>
+
 	<?php endif; ?>
-	
 
+	<?php if ( is_page( 'learn' ) ) : ?>
+		
+		<aside class="box">
+			<h2>What's your skill level?</h2>
 
+			<div class="difficulty">
+				<a href="<?php echo get_category_link( get_cat_ID( 'beginner' ) ); ?>" class="tutorial beginner" title="These tutorials require a beginner skill level">Beginner</a>
+				<a href="<?php echo get_category_link( get_cat_ID( 'intermediate' ) ); ?>" class="tutorial intermediate" title="These tutorials require an intermediate skill level">Intermediate</a>
+				<a href="<?php echo get_category_link( get_cat_ID( 'advanced' ) ); ?>" class="tutorial advanced" title="These tutorials require an advanced skill level">Advanced</a>
+			</div>
+		</aside>
+
+		<aside class="box">
+			<h2>Tutorial Series</h2>
+
+			<?php
+			/**
+			 * Series
+			 */
+			    $args = array(
+			      'post_type' => 'series',
+			      'posts_per_page' => -1,
+			    );
+
+			    $query = new WP_Query( $args );
+
+			?>
+			<?php if ( $query->have_posts() ) : ?> 
+			   <ul class="linked list small">
+			        <?php while ( $query->have_posts() ) : $query->the_post(); ?>  
+			            <li id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
+			            	
+			               
+			              
+			                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
+			                        <?php the_title(); ?>
+			                    </a>
+			              </li>
+			             
+			            
+			        <?php endwhile; wp_reset_query(); ?>
+			     </ul>  
+			<?php endif; ?>
+		</aside>
+
+	<?php endif; ?>
+
+	<?php pp_banner_affwp(); ?>
+
+	<?php pp_banner_edd(); ?>
 
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-
 </div>

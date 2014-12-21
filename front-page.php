@@ -112,25 +112,18 @@ get_header(); ?>
 
 		<ul class="site-stats">
 			<li>
-				
-					<span class="total"><?php echo pp_get_category_post_count( 'free-members' ); ?></span> Free tutorials
-				
+				<span class="total"><?php echo pp_get_category_post_count( 'free-members' ); ?></span> Free tutorials
 			</li>
+
 			<li>
-				
-					<span class="total"><?php echo pp_get_category_post_count( 'subscriber-only' ); ?></span> Premium tutorials
-				
+				<span class="total"><?php echo pp_get_category_post_count( 'subscriber-only' ); ?></span> Premium tutorials
 			</li>
 			
 			<li>
-				
-					<span class="total"><?php echo pp_get_download_count(); ?></span> Products
-				
+				<span class="total"><?php echo pp_get_download_count(); ?></span> Products
 			</li>
 			<li>
-				
-					<span class="total"><?php echo pp_get_post_count(); ?></span> Blog Posts
-			
+				<span class="total"><?php echo pp_get_post_count(); ?></span> Blog Posts
 			</li>
 		</ul>
 
@@ -172,22 +165,23 @@ get_header(); ?>
 	
 	<header class="page-header">
 		<h1>Start learning today</h1>
-		<h2>Get a head start with my premium tutorials on WordPress Plugin Development</h2>
+		<h2>Get a head start with premium tutorials on WordPress Plugin Development</h2>
 	</header>
 
 	<div class="wrapper">
 		<?php
 			$args = array(
-				'post_type' => 'post',
+				'post_type'      => 'post',
 				'posts_per_page' => 3,
-				'tax_query' =>  array(
-					'relation' => 'AND',
-					array(
-						'taxonomy' => 'category',
-						'field'    => 'slug',
-						'terms'    => array( 'subscriber-only' )
-					)
-				)
+				'category_name'  => 'tutorials'
+				// 'tax_query' =>  array(
+				// 	'relation' => 'AND',
+				// 	array(
+				// 		'taxonomy' => 'category',
+				// 		'field'    => 'slug',
+				// 		'terms'    => array( 'subscriber-only' )
+				// 	)
+				// )
 			);
 
 		    $tutorials = new WP_Query( $args );
@@ -212,7 +206,44 @@ get_header(); ?>
 			            <?php the_excerpt(); ?>
 
 		            	</div>
-		            <a href="<?php the_permalink(); ?>">View tutorial &rarr;</a>
+
+		            	<footer>
+		            		<a href="<?php the_permalink(); ?>">Learn now &rarr;</a>
+
+		            		
+		            		<div class="tutorial-meta">
+		            		<?php if ( ! has_category( 'subscriber-only' ) ) : ?>
+		            			<a href="#" class="tutorial everyone" title="These tutorials are available for everyone">For Everyone</a>
+		            		<?php endif; ?>	
+
+		            		<?php if ( has_category( 'subscriber-only' ) ) : ?>
+		            			<a href="<?php echo get_category_link( get_cat_ID( 'subscriber-only' ) ); ?>" class="tutorial members" title="These tutorials are available for members only">For Members</a>
+		            		<?php endif; ?>	
+
+		            		<?php if ( has_category( 'beginner' ) ) : ?>
+		            			<a href="<?php echo get_category_link( get_cat_ID( 'beginner' ) ); ?>" class="tutorial beginner" title="This tutorial requires a beginner skill level">Beginner</a>
+		            		<?php endif; ?>	
+
+		            		<?php if ( has_category( 'intermediate' ) ) : ?>
+		            			<a href="<?php echo get_category_link( get_cat_ID( 'intermediate' ) ); ?>" class="tutorial intermediate" title="This tutorial requires an intermediate skill level">Intermediate</a>
+		            		<?php endif; ?>	
+
+		            		<?php if ( has_category( 'advanced' ) ) : ?>
+		            			<a href="<?php echo get_category_link( get_cat_ID( 'advanced' ) ); ?>" class="tutorial advanced" title="This tutorial requires an advanced skill level">Advanced</a>
+		            		<?php endif; ?>
+
+		            		<?php if ( get_post_meta( get_the_ID(), 'series_id', true ) ) : ?>
+		            			<a href="<?php echo get_post_type_archive_link( 'series' ); ?>" class="tutorial series" title="This tutorial is part of a series">Part Of Series</a>
+		            		<?php endif; ?>
+
+		            		
+
+
+		            		</div>
+
+		            	</footer>
+
+		          
 		        </article> 
 
 		        <?php endwhile; wp_reset_query(); ?>
@@ -222,7 +253,7 @@ get_header(); ?>
 
 	
 	<div class="action">
-		<a href="<?php echo site_url( 'category/member-restricted/subscriber-only' ); ?>" class="button huge">Start Learning</a>
+		<a href="<?php echo site_url( 'learn' ); ?>" class="button huge">Start Learning</a>
 	</div>
 	
 </section>
@@ -310,78 +341,6 @@ get_header(); ?>
 <?php endif; ?>
 
 
-<?php
-/**
- * Latest free tutorials
- */
-?>
-<section class="section home columns columns-3 grid row">
-
-	<header class="page-header">
-		<h1>Latest Free Tutorials</h1>
-		<h2>Free tutorials on WordPress plugin development, who can argue with that?</h2>
-	</header>
-	
-	<div class="wrapper">
-		<?php
-		    $args = array(
-		      'post_type' => 'post',
-		      'posts_per_page' => 3,
-		      'tax_query' =>  array(
-					'relation' => 'AND',
-					array(
-						'taxonomy' => 'category',
-						'field'    => 'slug',
-						'terms'    => array( 'tutorials' )
-					),
-					array(
-						'taxonomy' => 'category',
-						'field'    => 'slug',
-						'terms'    => array( 'subscriber-only' ),
-						'operator' => 'NOT IN'
-					)
-				)
-		    );
-
-		    $tutorials = new WP_Query( $args );
-		?>
-		<?php if ( $tutorials->have_posts() ) : ?> 
-		        <?php while ( $tutorials->have_posts() ) : $tutorials->the_post(); ?>  
-		              <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-		            	
-		            	<div class="flex-wrapper">
-		            		<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
-			            	<?php //pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
-			            	<span class="date">
-							<?php echo esc_html( get_the_date( 'M d' ) ); ?>
-							</span>
-			                <h2 class="entry-title">
-			                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-			                        <?php the_title(); ?>
-			                    </a>
-			                </h2>
-			            	
-
-			            	<?php the_excerpt(); ?>
-		            	</div>
-
-		            	<a href="<?php the_permalink(); ?>">View tutorial &rarr;</a>
-		        </article> 
-
-		        <?php endwhile; wp_reset_query(); ?>
-		        <div class="gap"></div>
-		        <div class="gap"></div>
- 
-		<?php endif; ?>
-	</div>
-
-	<?php /*
-	<div class="action">
-		<a href="<?php echo site_url('/category/member-restricted/free-members/'); ?>" class="button">Start learning, for free</a>
-	</div>
-	*/ ?>
-
-</section>
 
 
 <section class="section home newsletter">

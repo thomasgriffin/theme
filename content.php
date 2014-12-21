@@ -15,10 +15,7 @@
 	<?php //do_action( 'pp_content_single_start' ); ?>
 
 
-		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
-
-		<?php endif; ?>
-
+		
 
 		<?php if ( is_single() ) : ?>
 
@@ -30,6 +27,12 @@
 
 		<div class="entry-meta">
 			<?php pp_entry_meta(); ?>
+
+
+			
+
+
+
 		</div>
 		
 		<h2 class="entry-title">
@@ -57,33 +60,80 @@
 
 	<!-- </header> -->
 
-	<?php if ( is_search() || is_home() ) : // Only display Excerpts for Search ?>
-
-	<div class="entry-summary">
-		<div class="entry-thumbnail">
-			<?php pp_post_thumbnail( 'thumbnail' ); ?>
-		</div>
-		<?php the_excerpt(); ?>
-	</div>
-	
-	<a href="<?php the_permalink(); ?>">Read now &rarr;</a>
-
-	<?php else : ?>
-
+	<?php if ( is_single() ) : ?>
 	<div class="entry-content">
-		<?php the_content( __( 'Read now <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
-	</div>
+		<?php
+			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyfourteen' ) );
+			
+		?>
+	</div><!-- .entry-content -->
+	
+	<?php else : // blog listing or learning page ?>
 
+		<?php if ( has_post_thumbnail() ) : ?>
+			<div class="entry-wrap clear">
+				<div class="entry-summary">
+					<?php the_excerpt(); ?>
+				</div>
+
+				<div class="entry-thumbnail">
+					<?php pp_post_thumbnail( 'large' ); ?>
+				</div>
+
+			</div>
+		<?php else : ?>
+			<div class="entry-summary">
+				<?php the_excerpt(); ?>
+			</div>
+		<?php endif; ?>
+		
+		<?php if ( is_category( 'tutorials' ) ) : ?>
+
+			<footer>
+				<a href="<?php the_permalink(); ?>">Learn now &rarr;</a>
+
+				
+				<div class="tutorial-meta">
+				<?php if ( ! has_category( 'subscriber-only' ) ) : ?>
+					<a href="#" class="tutorial everyone" title="These tutorials are available for everyone">For Everyone</a>
+				<?php endif; ?>	
+
+				<?php if ( has_category( 'subscriber-only' ) ) : ?>
+					<a href="<?php echo get_category_link( get_cat_ID( 'subscriber-only' ) ); ?>" class="tutorial members" title="These tutorials are available for members only">For Members</a>
+				<?php endif; ?>	
+
+				<?php if ( has_category( 'beginner' ) ) : ?>
+					<a href="<?php echo get_category_link( get_cat_ID( 'beginner' ) ); ?>" class="tutorial beginner" title="This tutorial requires a beginner skill level">Beginner</a>
+				<?php endif; ?>	
+
+				<?php if ( has_category( 'intermediate' ) ) : ?>
+					<a href="<?php echo get_category_link( get_cat_ID( 'intermediate' ) ); ?>" class="tutorial intermediate" title="This tutorial requires an intermediate skill level">Intermediate</a>
+				<?php endif; ?>	
+
+				<?php if ( has_category( 'advanced' ) ) : ?>
+					<a href="<?php echo get_category_link( get_cat_ID( 'advanced' ) ); ?>" class="tutorial advanced" title="This tutorial requires an advanced skill level">Advanced</a>
+				<?php endif; ?>
+
+				<?php if ( get_post_meta( get_the_ID(), 'series_id', true ) ) : ?>
+					<a href="<?php echo get_post_type_archive_link( 'series' ); ?>" class="tutorial series" title="This tutorial is part of a series">Part Of Series</a>
+				<?php endif; ?>
+
+				
+
+
+				</div>
+
+			</footer>
+		<?php else : ?>
+			<footer>
+			<a href="<?php the_permalink(); ?>">Read now &rarr;</a>
+			</footer>
+		<?php endif; ?>
+			
 	<?php endif; ?>
 
-	<?php /*
-	<footer class="entry-meta">
-		<?php if ( is_single() && get_the_author_meta( 'description' ) && is_multi_author() ) : ?>
-			<?php get_template_part( 'author-bio' ); ?>
-		<?php endif; ?>
-	</footer>
-	*/ ?>
+
+
 
 <?php
 	// Upsell non-members to premium content

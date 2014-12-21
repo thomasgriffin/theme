@@ -16,6 +16,7 @@ get_header();
 	$args = array(
 		'posts_per_page' => 10,
 		'paged'          => $paged,
+		'category_name'  => 'news'
 	);
 
 	$temp = $wp_query; // assign original query to temp variable for later use  
@@ -32,7 +33,7 @@ get_header();
 
 			<?php endwhile; ?>
 			
-			<nav class="nav-links columns columns-2">
+			<nav class="nav-links columns columns-2 clear">
 				<span class="nav-previous col">
 					<?php next_posts_link( __( '&larr; Older', 'affwp' ) ); ?>
 				</span>

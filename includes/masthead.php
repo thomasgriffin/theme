@@ -52,9 +52,15 @@ function pp_home_products() {
 				<h1 class="page-title">Pippin’s Plugins</h1>
 				<h2>Finely crafted WordPress plugins, tutorials, reviews and more</h2>
 				
-				<a class="button huge" href="<?php echo site_url( 'products' ); ?>">View plugins</a>
+				<a class="button huge" href="<?php echo site_url( 'products' ); ?>">See my plugins</a>
 				<span class="or">or</span>
+				<a class="button huge" href="<?php echo site_url( 'learn' ); ?>">Start learning</a>
+
+				<?php
+				/*
 				<a class="button huge" href="<?php echo site_url( 'join-the-site' ); ?>">Join the site</a>
+				*/
+				?>
 			</header>
 
 			<section class="section columns columns-3 home-products">
@@ -78,6 +84,7 @@ function pp_home_products() {
 					</a>
 						
 				</div>
+
 
 				<div class="col">
 					<a id="p3" href="<?php echo site_url('products/restrict-content-pro'); ?>">

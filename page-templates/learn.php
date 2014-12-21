@@ -2,141 +2,57 @@
 /**
  * Template Name: Learn
  */
-get_header(); ?>
 
-<?php affwp_page_header( 'Learn Plugin Development' ); ?>
+get_header(); 
+
+$tutorials_total = pp_get_category_post_count( 'free-members' ) + pp_get_category_post_count( 'subscriber-only' );
+?>
+
+
+<?php affwp_page_header( 'Learn Plugin Development', '<h2>' . $tutorials_total . ' tutorials, ready when you are.</h2>' ); ?>
 
 <?php
-/**
- * Series
- */
-    $args = array(
-      'post_type' => 'series',
-      'posts_per_page' => -1,
-    );
 
-    $series = new WP_Query( $args );
-?>
-<?php if ( $series->have_posts() ) : ?> 
-<section class="section columns columns-3 grid">
+  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+  $args = array(
+    'posts_per_page' => 10,
+    'paged'          => $paged,
+    'category_name'  => 'tutorials'
+  );
+
+  $temp = $wp_query; // assign original query to temp variable for later use  
+  $wp_query = null;
+  $wp_query = new WP_Query( $args ); 
+
+  if ( have_posts() ) : ?>
+  <div class="columns-main-side columns">
     <div class="wrapper">
-        <h2>Series</h2> 
+      <div class="primary col content-area">
+      <?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+
+        <?php get_template_part( 'content', get_post_format() ); ?>
+
+      <?php endwhile; ?>
+      
+      <nav class="nav-links columns columns-2 clear">
+        <span class="nav-previous col">
+          <?php next_posts_link( __( '&larr; Older', 'affwp' ) ); ?>
+        </span>
+
+        <span class="nav-next col">
+          <?php previous_posts_link( __( 'Newer &rarr;', 'affwp' ) ); ?>
+        </span>
+      </nav>
+
+      </div>
+    
+  <?php endif; $wp_query = $temp; //reset back to original query ?>
+
+    <?php get_sidebar(); ?>
     </div>
-    <div class="wrapper">
-        <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
-            <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-            	<div class="flex-wrapper">
-                <?php pp_post_thumbnail( 'pp-grid-thumbnail', true ); ?>
-                <h2 class="entry-title">
-                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                    </a>
-                </h2>
-              <?php the_excerpt(); ?>
-              </div>
-            <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
-        </article> 
+  </div>
 
-        <?php endwhile; wp_reset_query(); ?>
-        <div class="gap"></div>
-        <div class="gap"></div>
-    </div>
-</section>    
-<?php endif; ?>
-
-
-<?php
-/**
- * Members - subscriber only (paid)
- */
-    $args = array(
-      'post_type' => 'post',
-      'posts_per_page' => 3,
-      'category_name' => 'subscriber-only'
-    );
-
-    $series = new WP_Query( $args );
-?>
-<?php if ( $series->have_posts() ) : ?>
-<?php //echo pp_get_category_post_count( 'subscriber-only' ); 
-?> 
-<section class="section columns columns-3 grid">
-    <div class="wrapper">
-        <h2>Members - Paid Subscribers</h2> 
-    </div>
-    <div class="wrapper">
-        <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
-        <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-          <div class="flex-wrapper">
-            <?php pp_post_thumbnail( 'pp-grid-thumbnail', true ); ?>
-            <h2 class="entry-title">
-               <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-                   <?php the_title(); ?>
-               </a>
-            </h2>
-
-            <?php the_excerpt(); ?>
-          </div>
-          <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
-        </article> 
-
-        <?php endwhile; wp_reset_query(); ?>
-        <div class="gap"></div>
-        <div class="gap"></div>
-    </div>
-</section>    
-<?php endif; ?>
-
-
-<?php
-/**
- * Members - subscriber only (paid)
- */
-    $args = array(
-      'post_type' => 'post',
-      'posts_per_page' => 3,
-      'category_name' => 'free-members'
-    );
-
-    $series = new WP_Query( $args );
-?>
-<?php if ( $series->have_posts() ) : ?>
-<?php //echo pp_get_category_post_count( 'free-members' ); 
-?> 
-<section class="section columns columns-3 grid">
-    <div class="wrapper">
-        <h2>Everyone</h2> 
-    </div>
-    <div class="wrapper">
-        <?php while ( $series->have_posts() ) : $series->the_post(); ?>  
-          
-      <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
-
-        <div class="flex-wrapper">
-          <?php pp_post_thumbnail( 'pp-grid-thumbnail', true ); ?>
-          <h2 class="entry-title">
-            <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
-            <?php the_title(); ?>
-            </a>
-          </h2>
-
-          <?php the_excerpt(); ?>
-        </div>
-
-        <a href="<?php the_permalink(); ?>">View Series &rarr;</a>
-      </article> 
-
-        <?php endwhile; wp_reset_query(); ?>
-        <div class="gap"></div>
-        <div class="gap"></div>
-    </div>
-</section>    
-<?php endif; ?>
-
-<?php /* only show this to logged out users  */ ?>
-<div class="action">
-    <a class="button huge" href="<?php echo site_url('join-the-site/register'); ?>">Join the site</a>
-</div>
 
 <?php
 get_footer();
