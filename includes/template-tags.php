@@ -72,6 +72,10 @@ function pp_post_footer() {
  * Single post type information box
  */
 function pp_single_post_type_info() {
+	
+	if ( ! is_singular() ) {
+		return;
+	}
 	?>
 	<aside class="box <?php echo get_post_type(); ?>-info">
 		<p>
