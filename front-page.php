@@ -302,7 +302,13 @@ get_header(); ?>
 
 
 
-<?php if ( have_posts() ) : ?>
+<?php 
+
+$post_query = new WP_Query( array(
+	'category__not_in' => array( 29, 20, 114 ) 
+) );
+
+if ( $post_query->have_posts() ) : ?>
 
 <section class="section home columns columns-3 grid row">
 
@@ -312,7 +318,7 @@ get_header(); ?>
 
 	<div class="wrapper">
 
-	<?php while ( have_posts() ) : the_post(); ?>
+	<?php while ($post_query-> have_posts() ) : $post_query->the_post(); ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
 		    <div class="flex-wrapper">
 			<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
@@ -327,10 +333,7 @@ get_header(); ?>
 			    	</a>
 		    	</h2>	
 				
-
-			
-
-	       	<?php the_excerpt(); ?>
+				<?php the_excerpt(); ?>
 		 	</div>
 		 		<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" class="link">
  		    		Read Now  &rarr;
@@ -340,7 +343,7 @@ get_header(); ?>
 		</article>
 
 	<?php endwhile; ?>
-
+	<?php wp_reset_postdata(); ?>
 	<div class="gap"></div>
 	<div class="gap"></div>
 
