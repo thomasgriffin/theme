@@ -19,15 +19,12 @@
 #masthead {
 	margin: 0;
 	width: 100%; // needed for Firefox 
-//	padding: 0 1rem;
-//	position: relative;
-	background: rgb(7, 36, 96); // fallback for older browsers, including IE9
+	background: @primary-color; // fallback for older browsers, including IE9
 	background: -moz-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
 	background: -webkit-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
 	background: -o-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
 	background: -ms-linear-gradient(107deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
 	background: linear-gradient(343deg, rgb(116, 215, 191) 0%, rgb(7, 36, 96) 90%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#072460', endColorstr='#74d7bf', GradientType=0 ); /* IE6-9 */
 	
 	.page-header {
 		margin-bottom: 0;
@@ -111,55 +108,14 @@
 	color: #e1f0f8;
 	.box-shadow(none);
 
- //    background-repeat: no-repeat;
- //    background-image: -webkit-linear-gradient(
- //        107deg,
- //        rgba(255, 255, 255, 0) 25%,
- //        rgba(255, 255, 255, 0.2) 34%,
- //        rgba(255, 255, 255, 0.5) 42%,
- //        rgba(255, 255, 255, 0) 50%
- //    );
-
- //    background-image: -moz-linear-gradient( 107deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.2) 34%, rgba(255, 255, 255, 0.4) 42%, rgba(255, 255, 255, 0) 50%);
-
- //    background-image: -o-linear-gradient(
- //        107deg,
- //        rgba(255, 255, 255, 0) 25%,
- //        rgba(255, 255, 255, 0.2) 34%,
- //        rgba(255, 255, 255, 0.5) 42%,
- //        rgba(255, 255, 255, 0) 50%
- //    );
-
- //    background-image: linear-gradient(
- //       343deg,
- //        rgba(255, 255, 255, 0) 25%,
- //        rgba(255, 255, 255, 0.2) 34%,
- //        rgba(255, 255, 255, 0.5) 42%,
- //        rgba(255, 255, 255, 0) 50%
- //    );
-
- //    background-position: -250px -150px, 0 0;
- // //   background-position: left center, 0 0;
-
- //    -moz-background-size: 200% 200%, 100% 100%;
- //         background-size: 200% 200%, 100% 100%;
- //         //  -moz-background-size: 100%;
- //         // background-size: 100%;
-
- //    -webkit-transition: background-position 0s ease-in;
- //       -moz-transition: background-position 0s ease-in;       
- //         -o-transition: background-position 0s ease-in;
- //            transition: background-position 0s ease-in;
 }
 
 #masthead .button:hover,
 #masthead .button:focus {
 	background: rgba( 7, 36, 96, .2 );
-  //  background-position: 50px 50px, 0 0;
     -webkit-transition-duration: 0.2s;
        -moz-transition-duration: 0.2s;
-            transition-duration: 0.2s;
- //   .box-shadow(0 0 0 10px rgba( 7, 36, 96, .1 ) );        
+            transition-duration: 0.2s;       
 
 }
 
