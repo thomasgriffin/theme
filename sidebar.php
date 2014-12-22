@@ -8,6 +8,8 @@
 
 <div class="primary-sidebar widget-area col right" role="complementary">
 	
+	<?php echo pp_single_post_type_info( 'right' ); ?>
+	
 	<?php 
 		$affiliate_area_id = affiliate_wp()->settings->get( 'affiliates_page' );
 	?>
