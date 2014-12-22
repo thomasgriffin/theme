@@ -87,8 +87,6 @@
 			</div>
 		<?php endif; ?>
 		
-	
-
 		<?php pp_post_footer(); ?>
 
 	<?php endif; ?>
