@@ -52,9 +52,9 @@ if ( ! isset( $content_width ) ) {
 
 
 
-if ( ! function_exists( 'affwp_setup' ) ) :
+if ( ! function_exists( 'pp_setup' ) ) :
 /**
- * AffiliateWP setup.
+ * Setup.
  *
  * Set up theme defaults and registers support for various WordPress features.
  *
@@ -64,9 +64,9 @@ if ( ! function_exists( 'affwp_setup' ) ) :
  *
  * @since AffiliateWP 1.0
  */
-function affwp_setup() {
+function pp_setup() {
 
-	load_theme_textdomain( 'affwp', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'pp', get_template_directory() . '/languages' );
 
 	// Add RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -100,8 +100,8 @@ function affwp_setup() {
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 }
-endif; // affwp_setup
-add_action( 'after_setup_theme', 'affwp_setup' );
+endif; // pp_setup
+add_action( 'after_setup_theme', 'pp_setup' );
 
 
 /**
@@ -109,7 +109,7 @@ add_action( 'after_setup_theme', 'affwp_setup' );
  *
  * @since 1.0
 */
-function affwp_add_has_sub_menu_parent_class( $items ) {
+function pp_add_has_sub_menu_parent_class( $items ) {
   
   $parents = array();
   foreach ( $items as $item ) {
@@ -126,13 +126,13 @@ function affwp_add_has_sub_menu_parent_class( $items ) {
   
   return $items;    
 }
-add_filter( 'wp_nav_menu_objects', 'affwp_add_has_sub_menu_parent_class' );
+add_filter( 'wp_nav_menu_objects', 'pp_add_has_sub_menu_parent_class' );
 
 
 /**
  * Remove unwanted class names from homepage
  */
-function affwp_remove_body_classes( $wp_classes, $extra_classes ) {
+function pp_remove_body_classes( $wp_classes, $extra_classes ) {
     $blacklist = array( 'blog' );
 
     $wp_classes = array_diff( $wp_classes, $blacklist );
@@ -140,14 +140,14 @@ function affwp_remove_body_classes( $wp_classes, $extra_classes ) {
     // Add the extra classes back untouched
     return array_merge( $wp_classes, (array) $extra_classes );
 }
-add_filter( 'body_class', 'affwp_remove_body_classes', 10, 2 );
+add_filter( 'body_class', 'pp_remove_body_classes', 10, 2 );
 
 /**
  * Adds custom classes to the array of body classes.
  *
  * @since 1.0
  */
-function affwp_body_classes( $classes ) {
+function pp_body_classes( $classes ) {
 	global $post;
 
 	// Adds a class of 'has-featured-image' if the current post has a featured image
@@ -231,7 +231,7 @@ function affwp_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'affwp_body_classes' );
+add_filter( 'body_class', 'pp_body_classes' );
 
 /**
  * Register sidebars
@@ -240,7 +240,7 @@ add_filter( 'body_class', 'affwp_body_classes' );
  *
  * @return void
  */
-function affwp_widgets_init() {
+function pp_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Primary Sidebar', 'affwp' ),
 		'id'            => 'sidebar-1',
@@ -265,7 +265,7 @@ function affwp_widgets_init() {
 
 	
 }
-add_action( 'widgets_init', 'affwp_widgets_init' );
+add_action( 'widgets_init', 'pp_widgets_init' );
 
 /**
  * Create a nicely formatted and more specific title element text for output
@@ -277,7 +277,7 @@ add_action( 'widgets_init', 'affwp_widgets_init' );
  * @param string $sep Optional separator.
  * @return string The filtered title.
  */
-function affwp_wp_title( $title, $sep ) {
+function pp_wp_title( $title, $sep ) {
 	global $paged, $page;
 
 	if ( is_feed() ) {
@@ -301,4 +301,4 @@ function affwp_wp_title( $title, $sep ) {
 
 	return $title;
 }
-add_filter( 'wp_title', 'affwp_wp_title', 10, 2 );
+add_filter( 'wp_title', 'pp_wp_title', 10, 2 );
