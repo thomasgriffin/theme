@@ -355,7 +355,7 @@ function affwp_page_header( $header = '', $sub_header = '' ) {
 	<header class="page-header">
 
 		<?php if( is_home() ) : ?>
-			Blog
+			<?php affwp_the_title( 'Blog' ); ?>
 		<?php else : ?>
 
 			<?php affwp_the_title( $header ); ?>
