@@ -9,7 +9,7 @@
 <div class="primary-sidebar widget-area col right" role="complementary">
 	
 	<?php echo pp_single_post_type_info( 'right' ); ?>
-	
+
 	<?php 
 		$affiliate_area_id = affiliate_wp()->settings->get( 'affiliates_page' );
 	?>
@@ -22,7 +22,7 @@
 	<aside class="box">
 		<h2>Join the site</h2>
 		<p>Gain access to exclusive member-only plugins and tutorials.</p>
-		<a href="#" class="button wide">Join today</a>
+		<a href="<?php echo site_url( 'join-the-site' ); ?>" class="button wide">Join today</a>
 	</aside>
 	<?php endif; ?>
 
@@ -95,9 +95,9 @@
 			<h2>What's your skill level?</h2>
 
 			<div class="difficulty">
-				<a href="<?php echo get_category_link( get_cat_ID( 'beginner' ) ); ?>" class="tutorial beginner" title="These tutorials require a beginner skill level">Beginner</a>
-				<a href="<?php echo get_category_link( get_cat_ID( 'intermediate' ) ); ?>" class="tutorial intermediate" title="These tutorials require an intermediate skill level">Intermediate</a>
-				<a href="<?php echo get_category_link( get_cat_ID( 'advanced' ) ); ?>" class="tutorial advanced" title="These tutorials require an advanced skill level">Advanced</a>
+				<a href="<?php echo get_category_link( get_cat_ID( 'beginner' ) ); ?>" class="label beginner" title="These tutorials require a beginner skill level">Beginner</a>
+				<a href="<?php echo get_category_link( get_cat_ID( 'intermediate' ) ); ?>" class="label intermediate" title="These tutorials require an intermediate skill level">Intermediate</a>
+				<a href="<?php echo get_category_link( get_cat_ID( 'advanced' ) ); ?>" class="label advanced" title="These tutorials require an advanced skill level">Advanced</a>
 			</div>
 		</aside>
 
