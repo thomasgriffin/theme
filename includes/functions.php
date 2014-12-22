@@ -87,3 +87,18 @@ function pp_get_download_count() {
 
 	return $posts->post_count;
 }
+
+
+/**
+ * Exclude certain categories from the Blog
+ */
+function pp_pre_get_posts( $query ) {
+
+	if( is_home() ) {
+
+		$query->set( 'category__not_in', array( 29, 20, 114 ) );
+
+	}
+
+}
+add_action( 'pre_get_posts', 'pp_pre_get_posts' );
