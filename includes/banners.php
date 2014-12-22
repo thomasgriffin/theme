@@ -9,8 +9,8 @@
 function pp_banner_affwp() {
 ?>
 	<aside class="widget">
-		<a href="http://affiliatewp.com">
-			<img title="AffiliateWP" src="http://affiliatewp.com/wp-content/themes/affiliatewp-master/images/affiliate-banners/affiliatewp-300x250-1.png">
+		<a href="https://affiliatewp.com" target="_blank">
+			<img title="AffiliateWP" src="<?php echo get_stylesheet_directory_uri() . '/images/300x250-affwp.png'; ?>">
 		</a>
 	</aside>
 <?php
