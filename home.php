@@ -2,9 +2,7 @@
 
 <?php affwp_page_header(); ?>
 
-<?php
-
-	if ( have_posts() ) : ?>
+<?php if ( have_posts() ) : ?>
 	<div class="columns-main-side columns">
 		<div class="wrapper">
 			<div class="primary col content-area">
@@ -29,4 +27,5 @@
 		<?php get_sidebar(); ?>
 		</div>
 	</div>
+<?php endif; ?>
 <?php get_footer(); ?>
