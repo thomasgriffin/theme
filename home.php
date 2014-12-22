@@ -1,27 +1,8 @@
-<?php
-/*
-Template Name: Blog
-*/
-
-get_header(); 
-
-?>
+<?php get_header(); ?>
 
 <?php affwp_page_header(); ?>
 
 <?php
-
-	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-	$args = array(
-		'posts_per_page' => 10,
-		'paged'          => $paged,
-		'category_name'  => 'news'
-	);
-
-	$temp = $wp_query; // assign original query to temp variable for later use  
-	$wp_query = null;
-	$wp_query = new WP_Query( $args ); 
 
 	if ( have_posts() ) : ?>
 	<div class="columns-main-side columns">
@@ -45,8 +26,6 @@ get_header();
 
 			</div>
 		
-	<?php endif; $wp_query = $temp; //reset back to original query ?>
-
 		<?php get_sidebar(); ?>
 		</div>
 	</div>
