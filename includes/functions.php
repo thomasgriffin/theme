@@ -94,11 +94,11 @@ function pp_get_download_count() {
  */
 function pp_pre_get_posts( $query ) {
 
-	if( is_home() ) {
+	if( is_home() && $query->is_main_query() ) {
 
 		$query->set( 'category__not_in', array( 29, 20, 114 ) );
 
 	}
 
 }
-add_action( 'pre_get_posts', 'pp_pre_get_posts' );
+add_action( 'pre_get_posts', 'pp_pre_get_posts', 9999 );
