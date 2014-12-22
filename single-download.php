@@ -25,7 +25,7 @@ get_header(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'box', 'product' ) ); ?>>
 					
-				<?php pp_post_thumbnail( 'large' ); ?>
+				<?php pp_post_thumbnail( 'pp-large' ); ?>
 					<div class="entry-content">
 						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'affwp' ) ); ?>
 					</div>

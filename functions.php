@@ -11,46 +11,33 @@ if ( ! defined( 'PP_INCLUDES_DIR' ) )
  * @since 1.0
 */
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'masthead.php' );
-
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'scripts.php' );
-
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'page-mods.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'sharing.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'gforms.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'ajax-functions.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'navigation.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'template-tags.php' );
-//require_once( trailingslashit( PP_INCLUDES_DIR ) . 'post-types.php' );
-//require_once( trailingslashit( PP_INCLUDES_DIR ) . 'documentation.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'testimonials.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'affiliatewp.php' );
-
-
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'gallery.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'functions.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'comment.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'checkout.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'banners.php' );
-
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'custom-filters.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'blog.php' );
-
-// plugin mods
-//require_once( trailingslashit( PP_INCLUDES_DIR ) . 'easy-image-gallery.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'restrict-content-pro.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'edd.php' );
 
 /**
  * Set up the content width value based on the theme's design.
  *
- * @since 1.2.6
+ * @since 1.0
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 585;
+	$content_width = 592;
 }
-
-
-
 
 if ( ! function_exists( 'pp_setup' ) ) :
 /**
@@ -62,7 +49,7 @@ if ( ! function_exists( 'pp_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support post thumbnails.
  *
- * @since AffiliateWP 1.0
+ * @since 1.0
  */
 function pp_setup() {
 
@@ -78,15 +65,16 @@ function pp_setup() {
 
 	// Enable support for Post Thumbnails, and declare two sizes.
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 672, 372, true );
+//	set_post_thumbnail_size( 672, 372, true );
 
 	add_image_size( 'pp-full-width', 1038, 576, true );
 	add_image_size( 'pp-grid-thumbnail', 480, 240, true );
+	add_image_size( 'pp-large', 592, 296, true );
 
 	register_nav_menus( array(
-		'primary'   => __( 'Primary menu', 'affwp' ),
-		'footer'   => __( 'Footer menu', 'affwp' ),
-		'useful_links'   => __( 'Useful links', 'affwp' ),
+		'primary'      => __( 'Primary menu', 'affwp' ),
+		'footer'       => __( 'Footer menu', 'affwp' ),
+		'useful_links' => __( 'Useful links', 'affwp' ),
 	) );
 
 	/*
@@ -99,6 +87,7 @@ function pp_setup() {
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
+
 }
 endif; // pp_setup
 add_action( 'after_setup_theme', 'pp_setup' );
