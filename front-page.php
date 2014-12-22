@@ -39,7 +39,7 @@ get_header(); ?>
 	
 	<header class="page-header">
 		<h1>Start learning today</h1>
-		<h2>Get a head start with premium tutorials on WordPress Plugin Development</h2>
+		<h2>Get a head start with premium tutorials on WordPress plugin development</h2>
 	</header>
 
 	<div class="wrapper">
@@ -369,7 +369,7 @@ get_header(); ?>
 	</header>
 		<?php 
 			if ( function_exists( 'gravity_form' ) ) {
-				gravity_form( 'Weekly Newsletter - Home', false, false, false, '', true );
+				gravity_form( 'Weekly Newsletter', false, false, false, '', true );
 			}
 		?>
 		<!-- <p>Subscribe to my weekly newsletter above and </p> -->
