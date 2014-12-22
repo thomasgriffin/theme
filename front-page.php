@@ -305,7 +305,8 @@ get_header(); ?>
 <?php 
 
 $post_query = new WP_Query( array(
-	'category__not_in' => array( 29, 20, 114 ) 
+	'category__not_in' => array( 29, 20, 114 ),
+	'posts_per_page'   => 3
 ) );
 
 if ( $post_query->have_posts() ) : ?>
