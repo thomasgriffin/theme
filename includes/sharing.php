@@ -27,7 +27,7 @@ function pp_sharing_navigation() {
 			</a>
 		</li>
 		<li>
-			<a href="http://vimeo.com/pippinspages" target="_blank" title="Vimeo">
+			<a href="http://vimeo.com/pippinsplugins" target="_blank" title="Vimeo">
 				<svg width="29px" height="24px">
 				   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-connect-vimeo'; ?>"></use>
 				</svg>
