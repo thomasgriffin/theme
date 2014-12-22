@@ -73,7 +73,7 @@ function affwp_wp_nav_menu_items( $items, $args ) {
 add_filter( 'wp_nav_menu_items', 'affwp_wp_nav_menu_items', 10, 2 );
 
 /**
- * Highlight add-ons menu item if on single download page
+ * Highlight menu items
  */
 function affwp_highlight_menu_item( $classes ) {
 
@@ -83,13 +83,13 @@ function affwp_highlight_menu_item( $classes ) {
 	    }
 	}
 
-	// if ( is_singular( 'docs' ) ) {
-	//     if ( in_array ( 'support', $classes ) ) {
-	//       $classes[] = 'current-menu-item';
-	//     }
-	// }
+	if ( is_singular( 'post' ) && has_category( 'tutorials' ) ) {
+	    if ( in_array ( 'learn', $classes ) ) {
+	      $classes[] = 'current-menu-item';
+	    }
+	} 
 
-	if ( is_singular( 'post' ) ) {
+	if ( is_singular( 'post' ) && ! has_category( 'tutorials' ) ) {
 	    if ( in_array ( 'blog', $classes ) ) {
 	      $classes[] = 'current-menu-item';
 	    }
