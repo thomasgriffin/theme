@@ -89,57 +89,7 @@
 		
 	
 
-		<footer>
-		
-
-				<?php if ( has_category( 'tutorials' ) ) : // posts are assigned to tutorials category ?>
-				<a href="<?php the_permalink(); ?>">Learn now &rarr;</a>
-				<?php else : ?>
-					<a href="<?php the_permalink(); ?>">Read now &rarr;</a>
-				<?php endif; ?>
-
-				<div class="label-meta">
-
-				<?php if ( has_category( 'tutorials' ) ) : // posts are assigned to tutorials category ?>
-
-					<?php if ( has_category( 'free' ) ) : ?>
-						<a href="<?php echo get_category_link( get_cat_ID( 'free' ) ); ?>" class="label free" title="View other free tutorials">Free</a>
-					<?php endif; ?>	
-
-					<?php if ( has_category( 'subscriber-only' ) ) : ?>
-						<a href="<?php echo get_category_link( get_cat_ID( 'Subscriber Only' ) ); ?>" class="label subscriber-only" title="This tutorial is only available for subscribers">Subscriber Only</a>
-					<?php endif; ?>	
-
-					<?php if ( has_category( 'beginner' ) ) : ?>
-						<a href="<?php echo get_category_link( get_cat_ID( 'beginner' ) ); ?>" class="label beginner" title="This tutorial requires a beginner skill level">Beginner</a>
-					<?php endif; ?>	
-
-					<?php if ( has_category( 'intermediate' ) ) : ?>
-						<a href="<?php echo get_category_link( get_cat_ID( 'intermediate' ) ); ?>" class="label intermediate" title="This tutorial requires an intermediate skill level">Intermediate</a>
-					<?php endif; ?>	
-
-					<?php if ( has_category( 'advanced' ) ) : ?>
-						<a href="<?php echo get_category_link( get_cat_ID( 'advanced' ) ); ?>" class="label advanced" title="This tutorial requires an advanced skill level">Advanced</a>
-					<?php endif; ?>
-
-					<?php
-						$series_id        = get_post_meta( get_the_ID(), 'series_id', true );
-						$series_permalink = get_permalink( $series_id );
-					?>
-					<?php if ( get_post_meta( get_the_ID(), 'series_id', true ) ) : ?>
-						<a href="<?php echo $series_permalink; ?>" class="label series" title="This tutorial is part of a series">Part Of Series</a>
-					<?php endif; ?>
-
-				<?php endif; ?>
-				
-				<?php if ( has_category( 'free-plugins' ) ) : ?>
-					<a href="<?php echo get_category_link( get_cat_ID( 'free-plugins' ) ); ?>" class="label free" title="This plugin is free">Free Plugin</a>
-				<?php endif; ?>
-
-				</div>
-
-			
-		</footer>
+		<?php pp_post_footer(); ?>
 
 	<?php endif; ?>
 

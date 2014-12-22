@@ -26,17 +26,12 @@ function pp_get_category_post_count( $category_to_search = '' ) {
 		return;
 	}
 
-	if( 'free-members' === $category_to_search ) {
-
-		$all   = get_term_by( 'slug', 'tutorials', 'category' );
-		$paid  = get_term_by( 'slug', 'subscriber-only', 'category' );
-		$count = $all->count - $paid->count;
-
+	if ( 'free-members' === $category_to_search ) {
+		$free  = get_term_by( 'slug', 'free', 'category' );
+		$count = $free->count;
 	} else {
-
 		$cat   = get_term_by( 'slug', $category_to_search, 'category' );
 		$count = $cat->count;
-
 	}
 
 	return $count;
@@ -52,7 +47,23 @@ function pp_get_post_count() {
 	$args = array(
 	  'post_type' => 'post',
 	  'posts_per_page' => -1,
-	  'category__not_in' => array( 21 )
+	  'category_name'  => 'news'
+	);
+
+	$posts = new WP_Query( $args );
+
+	return $posts->post_count;
+}
+
+/**
+ * Get number of series
+ * @return string number of series
+ */
+function pp_get_series_count() {
+
+	$args = array(
+	  'post_type' => 'series',
+	  'posts_per_page' => -1,
 	);
 
 	$posts = new WP_Query( $args );

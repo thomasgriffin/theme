@@ -9,7 +9,7 @@ $tutorials_total = pp_get_category_post_count( 'free-members' ) + pp_get_categor
 ?>
 
 
-<?php affwp_page_header( 'Learn Plugin Development', '<h2>' . $tutorials_total . ' tutorials, ready when you are.</h2>' ); ?>
+<?php affwp_page_header( 'Learn Plugin Development', '<h2>' . $tutorials_total . ' tutorials and <a href="' . get_post_type_archive_link( 'series' ) . '">' . pp_get_series_count() . ' series</a>, ready when you are.</h2>' ); ?>
 
 <?php
 
