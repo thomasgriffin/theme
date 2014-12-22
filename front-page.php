@@ -364,12 +364,12 @@ get_header(); ?>
 	<div class="wrapper">
 		
 	<header class="page-header">
-		<h1>Weekly newsletter</h1>
+		<h1>Email newsletter</h1>
 		<h2>Never miss out on new tutorials, products or reviews. No spam, I promise.</h2>
 	</header>
 		<?php 
 			if ( function_exists( 'gravity_form' ) ) {
-				gravity_form( 'Weekly Newsletter', false, false, false, '', true );
+				gravity_form( 'Email Newsletter', false, false, false, '', true );
 			}
 		?>
 		<!-- <p>Subscribe to my weekly newsletter above and </p> -->
