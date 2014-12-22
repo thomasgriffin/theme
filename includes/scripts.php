@@ -7,12 +7,12 @@
 function pp_enqueue_scripts() {
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'affwp-style', get_stylesheet_uri(), array(), AFFWP_THEME_VERSION );
+	wp_enqueue_style( 'affwp-style', get_stylesheet_uri(), array(), PP_THEME_VERSION );
 
 	/**
 	 * JS
 	 */
-	wp_register_script( 'pippinsplugins-js', get_template_directory_uri() . '/js/pippinsplugins.min.js', array( 'jquery' ), AFFWP_THEME_VERSION, true );
+	wp_register_script( 'pippinsplugins-js', get_template_directory_uri() . '/js/pippinsplugins.min.js', array( 'jquery' ), PP_THEME_VERSION, true );
 	wp_enqueue_script( 'pippinsplugins-js' );
 
 	/**

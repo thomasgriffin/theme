@@ -1,44 +1,44 @@
 <?php
 
-if ( ! defined( 'AFFWP_THEME_VERSION' ) )
-	define( 'AFFWP_THEME_VERSION', '1.0.1' );
+if ( ! defined( 'PP_THEME_VERSION' ) )
+	define( 'PP_THEME_VERSION', '1.0.1' );
 
-if ( ! defined( 'AFFWP_INCLUDES_DIR' ) )
-	define( 'AFFWP_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
+if ( ! defined( 'PP_INCLUDES_DIR' ) )
+	define( 'PP_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
 
 /**
  * Includes
  * @since 1.0
 */
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'masthead.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'masthead.php' );
 
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'scripts.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'scripts.php' );
 
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'page-mods.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'sharing.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'gforms.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'ajax-functions.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'navigation.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'template-tags.php' );
-//require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'post-types.php' );
-//require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'documentation.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'testimonials.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'affiliatewp.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'page-mods.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'sharing.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'gforms.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'ajax-functions.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'navigation.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'template-tags.php' );
+//require_once( trailingslashit( PP_INCLUDES_DIR ) . 'post-types.php' );
+//require_once( trailingslashit( PP_INCLUDES_DIR ) . 'documentation.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'testimonials.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'affiliatewp.php' );
 
 
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'gallery.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'functions.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'comment.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'checkout.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'banners.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'gallery.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'functions.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'comment.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'checkout.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'banners.php' );
 
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'custom-filters.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'blog.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'custom-filters.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'blog.php' );
 
 // plugin mods
-//require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'easy-image-gallery.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'restrict-content-pro.php' );
-require_once( trailingslashit( AFFWP_INCLUDES_DIR ) . 'edd.php' );
+//require_once( trailingslashit( PP_INCLUDES_DIR ) . 'easy-image-gallery.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'restrict-content-pro.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'edd.php' );
 
 /**
  * Set up the content width value based on the theme's design.
