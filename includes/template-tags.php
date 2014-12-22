@@ -73,7 +73,7 @@ function pp_post_footer() {
  */
 function pp_single_post_type_info() {
 	
-	if ( ! is_singular() ) {
+	if ( ! is_singular( 'post' ) ) {
 		return;
 	}
 	?>
