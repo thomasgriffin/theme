@@ -66,7 +66,7 @@ get_header(); ?>
 		              <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
 		            	
 		            	<div class="flex-wrapper">
-			            	<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
+			            	<?php pp_post_thumbnail( 'pp-grid-thumbnail', true ); ?>
 			            	<span class="date">
 							<?php echo esc_html( get_the_date( 'M d' ) ); ?>
 							</span>
@@ -322,7 +322,7 @@ if ( $post_query->have_posts() ) : ?>
 	<?php while ($post_query-> have_posts() ) : $post_query->the_post(); ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'col', 'box' ) ); ?>> 
 		    <div class="flex-wrapper">
-			<?php pp_post_thumbnail( 'pp-grid-thumbnail' ); ?>
+			<?php pp_post_thumbnail( 'pp-grid-thumbnail', true ); ?>
 				
 				<span class="date">
 				<?php echo esc_html( get_the_date( 'M d' ) ); ?>
