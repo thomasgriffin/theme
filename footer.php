@@ -83,7 +83,7 @@
 						
 						<?php 
 							if ( function_exists( 'gravity_form' ) ) {
-								gravity_form( 'Weekly Newsletter', false, false, false, '', true );
+								gravity_form( 'Email Newsletter', false, false, false, '', true );
 							}
 						?>
 					
