@@ -15,7 +15,7 @@ get_header(); ?>
 		<?php echo pp_single_post_type_info(); ?>
 	</div>
 	
-	<div class="primary col">
+	<div class="primary col content-area">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'box', 'product' ) ); ?>>
