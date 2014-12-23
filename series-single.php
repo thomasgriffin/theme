@@ -30,7 +30,7 @@ get_header(); ?>
 
 	</div>
 
-	<?php get_sidebar( 'series' ); ?>
+	<?php get_sidebar(); ?>
 		
 </section>
 
