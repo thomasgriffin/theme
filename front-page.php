@@ -99,7 +99,7 @@ get_header(); ?>
 
 	
 	<div class="action">
-		<a href="<?php echo site_url( 'learn' ); ?>" class="button huge">Start Learning</a>
+		<a href="<?php echo site_url( 'learn' ); ?>" class="button huge">Start learning</a>
 	</div>
 	
 
@@ -270,7 +270,7 @@ get_header(); ?>
 
 	
 	<div class="action">
-		<a href="<?php echo get_category_link( get_cat_ID( 'free' ) ); ?>" class="button huge">Start Learning For Free</a>
+		<a href="<?php echo get_category_link( get_cat_ID( 'free' ) ); ?>" class="button huge">Start learning for free</a>
 	</div>
 	
 	
