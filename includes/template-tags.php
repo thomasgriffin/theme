@@ -75,14 +75,14 @@ function pp_post_footer() {
  */
 function pp_single_post_type_info() {
 	
-	if ( ! is_singular( 'post' ) ) {
+	if ( ! ( is_singular( 'post' ) || is_singular( 'series' ) ) ) {
 		return;
 	}
 	?>
 	<aside class="box <?php echo get_post_type(); ?>-info">
 		<p>
 			<span>Posted On</span>
-			<?php if ( 'documentation' == get_post_type() || 'series' == get_post_type() || 'post' == get_post_type() ) : ?>
+			<?php if ( 'series' == get_post_type() || 'post' == get_post_type() ) : ?>
 				<?php printf( '<time datetime="%1$s">%2$s</time>',
 					esc_attr( get_the_date( 'c' ) ),
 					esc_html( get_the_date() )
