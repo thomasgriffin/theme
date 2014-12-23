@@ -388,7 +388,7 @@ function affwp_modify_excerpts( $sub_header ) {
 
 	// search query
 	if ( get_search_query() ) {
-		$sub_header = sprintf( __( '<h2>Your searched for <strong>%s</strong></h2>', 'affwp' ), get_search_query() );
+		$sub_header = sprintf( __( '<h2>You searched for <strong>%s</strong></h2>', 'affwp' ), get_search_query() );
 	}
 
 	// normal category pages
