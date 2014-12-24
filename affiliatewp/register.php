@@ -2,6 +2,7 @@
 /**
  * Mods: edited terms of use link to add ID, class and data attribute
  */
+
 global $affwp_register_redirect;
 
 affiliate_wp()->register->print_errors();
