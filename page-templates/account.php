@@ -1,17 +1,9 @@
 <?php
 /**
  * Template Name: Account
- *
- * @package WordPress
- * @subpackage Twenty_Fourteen
- * @since Twenty Fourteen 1.0
  */
 
 get_header(); 
-
-// global $current_user;
-// get_currentuserinfo();
-
 
 ?>
 
@@ -35,8 +27,6 @@ if ( isset( $_GET['logout'] ) && $_GET['logout'] == 'success' ) { ?>
 <?php 
 // user is not logged in
 if ( ! is_user_logged_in() ) : ?>
-
-
 
 <div class="primary content-area">
 	<div class="wrapper">

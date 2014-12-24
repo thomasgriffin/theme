@@ -34,24 +34,6 @@ get_header(); ?>
 		
 </section>
 
-<?php 
-	$has_gallery_images = get_post_meta( get_the_ID(), '_easy_image_gallery', true );
-	if ( $has_gallery_images && function_exists( 'easy_image_gallery' ) ) : ?>
-<section class="easy-image-gallery">
-	<h1>Take a closer look</h1>
-	<h2>Click on each image for a larger view</h2>
-	<?php 
-		echo easy_image_gallery(); 
-	
-		if ( function_exists( 'easy_image_gallery_count_images' ) && easy_image_gallery_count_images() > 4 ) { ?>
-				<a href="#" id="show-gallery-images" class="button">Show more images</a>
-		<?php }
-	?>
-
-
-
-</section>
-<?php endif; ?>
 
 <?php 
 

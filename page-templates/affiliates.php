@@ -29,8 +29,8 @@ get_header(); ?>
 						<?php
 							the_content();
 						?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-## -->
+					</div>
+				</article>
 
 
 				<?php
@@ -41,13 +41,7 @@ get_header(); ?>
 				}
 			endwhile;
 			
-			// echo '<div class="wrapper">';
-			// echo do_shortcode( '[affiliate_area]' );
-			// echo '</div>';
 		?>
-		<?php // echo do_shortcode( '[affiliate_area]' ); ?>
-			
-
 
 	</div>
 </div>

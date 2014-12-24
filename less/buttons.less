@@ -1,16 +1,7 @@
-// for greatest compatibility, the wish list button should have it's own styling. Otherwise we might end up modifying a theme's purchase buttons
 
 // add to cart buttons
 
-// #affwp_save_notifications_wrap input[type="submit"],
-
-@button-color: #74d7bf; // aqua
-
-// .button-small {
-//   border: 2px solid @medium-grey;
-//   display: inline-block;
-//   padding: 0.5rem;
-// }
+@button-color: #74d7bf;
 
 .button-secondary,
 #edd-purchase-button,
@@ -24,13 +15,10 @@
   color: #fff;
   cursor: pointer;
   display: inline-block;
-//  text-transform: uppercase;
-
   border-radius: 0px; // EDD override
   text-align: center;
   vertical-align: middle;
   background-image: none;
-
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -39,10 +27,7 @@
   outline: none;
   .transition ( all 0.2s linear );
   font-weight: 500;
-
   border: 1px solid @button-color;
-
-  // 
   line-height: 1;
 }
 
@@ -81,15 +66,12 @@
   position: relative;
 
   &.wide {
-//    width: 100%;
     display: block;
   }
 
   &:hover {
-  //  border-color: #74d7bf;
     color: #fff;
     background: darken( @button-color, 10% );
-   //.box-shadow( 0 0 0 5px darken( @button-color, 10% ) inset );
   }
 
 }
@@ -99,20 +81,11 @@
 .edd-submit,
 .edd_submit,
 .button {
-  // padding: 0.875rem 1rem;
-  // font-size: 0.875rem;
-  // line-height: 1.33;
-
   font-size: 1.2rem;
-//  line-height: 1;
   padding: 1rem 2rem;
 
   &.large {
     font-size: 1.25rem;
-      // font-weight: 500;
-      // border: 5px solid #072460;
-
- //   padding: 0.875rem 1.25rem;
   }
 
   &.huge {
@@ -123,19 +96,12 @@
   &:hover,
   &:focus {
     text-decoration: none;
-   // color: #fff;
-  // background: #072460; 
   }
 
 
     
 }
 
-// .affiliates {
-//   .button {
-//     width: auto;
-//   }
-// }
 
 .button-secondary {
   padding: 0.75rem 0.875rem;

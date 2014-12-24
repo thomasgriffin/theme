@@ -1,14 +1,5 @@
 // comments
 
-
-// .comment-fields {
-// 	background: #fff;
-// 	padding: 24px;
-// 	.box-shadow( 0 1px 2px rgba( 0, 0, 0, 0.1 ) );
-	
-// 	margin-bottom: 1rem;
-// }
-
 .comment-form {
 	background: #fff;
 	padding: 24px;
@@ -59,21 +50,11 @@
 #cancel-comment-reply-link {
 	margin-bottom: 1rem;
 	display: inline-block;
-	//text-align: right;
 	float: right;
 	font-size: 0.875rem;
 	margin-right: 1rem;
 	color: @body-text-color;
 }
-
-
-
-
-
-
-
-
-
 
 
 // comment list
@@ -82,23 +63,9 @@
 	padding: 0;
 	margin: 0;
 
-
-	.pingback {
-	//	border-bottom: 5px solid @light-grey;
-	}
-
-
-
-	.comment ~ .comment {
-	//	border: none;
-	//	border-top: 5px solid @light-grey;
-	}
-
 	li.comment:first-of-type {
-			border: none;
-		}
-
-	
+		border: none;
+	}
 
 	.comment .comment {
 		border-top: none;
@@ -111,56 +78,29 @@
 
 	}
 
+	.comment.depth-1,
 	.comment.depth-2 {
-		
-		// .primary {
-		// 	border-left: 4px solid @light-grey;
-		// 	padding-left: 1rem;
-		// }
-
 		margin-bottom: 1rem;
-
-		.children {
-			margin-left: 1rem;
-		}
 	}
 
-	.depth-3 {
-		// .primary {
-		// 	border-left: 4px solid @light-grey;
-		// 	padding-left: 1rem;
-		// }
-	}
 	// name
 	.fn {
 		margin-bottom: 0.5rem;
 		font-size: 1.2rem;
 		display: block;
 		font-weight: 300;
-
-
 	}
 
 	.avatar-wrap {
 		text-align: right;
 	}
-	.comment-author {
-		
-		margin-bottom: 1rem;
-		// position: absolute;
-		// left: -25rem;
-		// top: 0;
-
-	
-
-		// .fn,
-		// .avatar-wrap {
-		// 	display: block;
-		// }
-	}
 
 	.comment-metadata {
 		font-size: 0.875rem;
+	}
+
+	.comment-author {
+		margin-bottom: 1rem;
 	}
 
 	.comment-author b {
@@ -173,20 +113,10 @@
 		font-weight: 300;
 	}
 
-	p {
-	//	font-size: 1rem;
-	}
-
 	.comment-meta {
 		position: relative;
 		margin-bottom: 1rem;
 	}
-
-	// .avatar {
-	// 	position: absolute;
-	// 	left: -5rem;
-	// 	top: 0;
-	// }
 
 	.says {
 		display: none;
@@ -194,6 +124,6 @@
 
 	.children {
 		list-style-type: none;
-	//	margin-top: 1rem;
+		margin-left: 1rem;
 	}
 }

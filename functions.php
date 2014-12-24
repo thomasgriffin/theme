@@ -1,7 +1,7 @@
 <?php
 
 if ( ! defined( 'PP_THEME_VERSION' ) )
-	define( 'PP_THEME_VERSION', '1.0.2' );
+	define( 'PP_THEME_VERSION', '1.0.3' );
 
 if ( ! defined( 'PP_INCLUDES_DIR' ) )
 	define( 'PP_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
@@ -156,9 +156,6 @@ function pp_body_classes( $classes ) {
 
 	if ( is_post_type_archive( 'download' ) )
 		$classes[] = 'products';
-
-	if ( is_page_template( 'page-templates/docs.php' ) )
-		$classes[] = 'documentation';
 
 	if ( is_page_template( 'page-templates/assets-and-banners.php' ) )
 		$classes[] = 'assets-and-banners';
