@@ -79,7 +79,7 @@
 				<div class="col last">
 					<div class="wrap">
 					
-						<h3>Weekly Newsletter</h3>
+						<h3>Email Newsletter</h3>
 						
 						<?php 
 							if ( function_exists( 'gravity_form' ) ) {
