@@ -117,25 +117,6 @@ article.page {
 	margin-bottom: 0;
 }
 
-.entry-wrap {
-	text-align: justify;
-	
-}
-
-.entry-wrap .entry-thumbnail,
-.entry-wrap .entry-summary {
-	display: inline-block;
-	text-align: left;
-	vertical-align: top;
-}
-
-.has-post-thumbnail .entry-summary {
-	width: 58%;
-}
-
-.entry-thumbnail {
-	width: 34%;
-}
 
 .post-thumbnail {
 	display: block;
@@ -244,8 +225,30 @@ article.page {
 	}
 }
 
+@media all and ( min-width: 600px ) {
+	.entry-wrap {
+		text-align: justify;
+	}
+
+	.entry-thumbnail {
+		width: 34%;
+	}
+
+	.has-post-thumbnail .entry-summary {
+		width: 58%;
+	}
+
+	.entry-wrap .entry-thumbnail,
+	.entry-wrap .entry-summary {
+		display: inline-block;
+		text-align: left;
+		vertical-align: top;
+	}
+}
 
 @media all and ( min-width: 720px ) {
+
+	
 
 	// alignment 
 
