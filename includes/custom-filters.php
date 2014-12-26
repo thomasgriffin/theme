@@ -23,7 +23,6 @@ function affwp_the_title_support( $title ) {
 }
 add_filter( 'affwp_the_title', 'affwp_the_title_support' );
 
-
 /**
  * Modify the page header excerpt on the testimonials page
  */
