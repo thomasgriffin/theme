@@ -58,18 +58,18 @@ function affwp_show_the_title( $title, $id ) {
 
 	// about
 	if ( 'page-templates/about.php' == get_post_meta( $id, '_wp_page_template', true ) ) {
-	//	$title = __( 'About', 'affwp' );
-		$title = __( 'Pippin Williamson', 'affwp' );
+	//	$title = __( 'About', 'pp' );
+		$title = __( 'Pippin Williamson', 'pp' );
 	}
 
 	// purchase confirmation
 	if ( function_exists( 'edd_is_success_page' ) && edd_is_success_page() && $id == get_the_ID() ) {
 		if ( edd_get_purchase_session() ) {
-			$title = sprintf( __( 'Thanks %s!', 'affwp' ), affwp_edd_purchase_get_first_name() );
+			$title = sprintf( __( 'Thanks %s!', 'pp' ), affwp_edd_purchase_get_first_name() );
 		}
 		// no purchase session
 		else {
-			$title = __( 'Thanks!', 'affwp' );
+			$title = __( 'Thanks!', 'pp' );
 		}
 	}
 

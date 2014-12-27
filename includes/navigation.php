@@ -13,7 +13,7 @@ function pp_load_main_navigation() {
 	
 
 	<nav id="main" class="site-navigation primary-navigation" role="navigation">
-	<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'affwp' ); ?></a>
+	<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'pp' ); ?></a>
 	<?php
 		wp_nav_menu(
 		  array(
@@ -122,7 +122,7 @@ function pp_nav_account() {
 		if ( ! is_user_logged_in() ) :
 	?>
 		<li class="menu-item account<?php echo $active; ?>">
-			<a title="<?php _e( 'Join the site', 'affwp' ); ?>" href="<?php echo site_url( 'join-the-site' ); ?>"><?php _e( 'Join', 'affwp' ); ?></a>
+			<a title="<?php _e( 'Join the site', 'pp' ); ?>" href="<?php echo site_url( 'join-the-site' ); ?>"><?php _e( 'Join', 'pp' ); ?></a>
 		</li>
 	<?php endif; ?>
 
@@ -135,7 +135,7 @@ function pp_nav_account() {
 			<?php if ( is_user_logged_in() ) : ?>
 				<a title="<?php echo 'Your Account'; ?>" href="<?php echo site_url( $account_page ); ?>"><?php echo 'Account'; ?></a>
 			<?php else : ?>
-				<a title="<?php _e( 'Log in', 'affwp' ); ?>" href="<?php echo site_url( $account_page ); ?>"><?php _e( 'Log in', 'affwp' ); ?></a>
+				<a title="<?php _e( 'Log in', 'pp' ); ?>" href="<?php echo site_url( $account_page ); ?>"><?php _e( 'Log in', 'pp' ); ?></a>
 			<?php endif; ?>	
 
 		</li>

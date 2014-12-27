@@ -27,7 +27,7 @@ get_header(); ?>
 					
 				<?php pp_post_thumbnail( 'pp-large' ); ?>
 					<div class="entry-content">
-						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'affwp' ) ); ?>
+						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'pp' ) ); ?>
 					</div>
 				</article>
 

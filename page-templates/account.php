@@ -18,7 +18,7 @@ get_header();
  */
 if ( isset( $_GET['logout'] ) && $_GET['logout'] == 'success' ) { ?>
 	<p class="alert notice">
-		<?php _e( 'You have been successfully logged out', 'affwp' ); ?>
+		<?php _e( 'You have been successfully logged out', 'pp' ); ?>
 	</p>
 <?php } ?>
 

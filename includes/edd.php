@@ -555,20 +555,6 @@ function affwp_empty_cart_redirect() {
 add_action( 'template_redirect', 'affwp_empty_cart_redirect' );
 
 /**
- * Change labels
- */
-function affwp_edd_default_downloads_name( $defaults ) {
-
-	$defaults = array(
-	   'singular' => __( 'Add-on', 'affwp' ),
-	   'plural' => __( 'Add-ons', 'affwp')
-	);
-
-	return $defaults;
-}
-//add_filter( 'edd_default_downloads_name', 'affwp_edd_default_downloads_name' );
-
-/**
  * Get's the customer's first name from purchase session
  * @return [type] [description]
  */

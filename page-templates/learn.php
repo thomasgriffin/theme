@@ -37,11 +37,11 @@ $tutorials_total = pp_get_category_post_count( 'free-members' ) + pp_get_categor
       
       <nav class="nav-links columns columns-2 clear">
         <span class="nav-previous col">
-          <?php next_posts_link( __( '&larr; Older', 'affwp' ) ); ?>
+          <?php next_posts_link( __( '&larr; Older', 'pp' ) ); ?>
         </span>
 
         <span class="nav-next col">
-          <?php previous_posts_link( __( 'Newer &rarr;', 'affwp' ) ); ?>
+          <?php previous_posts_link( __( 'Newer &rarr;', 'pp' ) ); ?>
         </span>
       </nav>
 

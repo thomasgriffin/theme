@@ -14,11 +14,11 @@
 				
 				<nav class="nav-links columns columns-2 clear">
 					<span class="nav-previous col">
-						<?php next_posts_link( __( '&larr; Older', 'affwp' ) ); ?>
+						<?php next_posts_link( __( '&larr; Older', 'pp' ) ); ?>
 					</span>
 
 					<span class="nav-next col">
-						<?php previous_posts_link( __( 'Newer &rarr;', 'affwp' ) ); ?>
+						<?php previous_posts_link( __( 'Newer &rarr;', 'pp' ) ); ?>
 					</span>
 				</nav>
 

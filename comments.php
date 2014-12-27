@@ -25,7 +25,7 @@ if ( post_password_required() ) {
 	<header class="page-header">
 		<h1 class="page-title">
 			<?php
-				printf( _n( 'One thought so far', '%1$s thoughts so far', get_comments_number(), 'affwp' ),
+				printf( _n( 'One thought so far', '%1$s thoughts so far', get_comments_number(), 'pp' ),
 					number_format_i18n( get_comments_number() ), get_the_title() );
 			?>
 		</h1>

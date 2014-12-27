@@ -28,7 +28,7 @@ $affiliate_area_id = affiliate_wp()->settings->get( 'affiliates_page' );
 	$display       = $cart_quantity > 0 ? '' : 'style="display:none;"';
 	
 	if ( $cart_items ) : ?>
-		<aside class="">
+		<aside>
 		<h2>Ready to purchase?</h2>
 		<ul class="edd-cart">
 			<?php foreach ( $cart_items as $key => $item ) : ?>

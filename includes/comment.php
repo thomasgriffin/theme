@@ -40,7 +40,7 @@ function affwp_comment( $comment, $args, $depth ) {
 		<section class="section columns-3 columns">
 			<div class="col left"></div>
 			<div class="primary col content-area">
-				<p><?php _e( 'Pingback:', 'affwp' ); ?> <?php comment_author_link(); ?>
+				<p><?php _e( 'Pingback:', 'pp' ); ?> <?php comment_author_link(); ?>
 				</p>
 			</div>
 			<div class="col right"></div>
@@ -75,17 +75,17 @@ function affwp_comment( $comment, $args, $depth ) {
 			</div>
 
 			<div class="comment-author vcard">
-				<?php printf( __( '%1$s', 'affwp' ), sprintf( '<span class="fn">%s</span>', get_comment_author_link() ) ); ?>
+				<?php printf( __( '%1$s', 'pp' ), sprintf( '<span class="fn">%s</span>', get_comment_author_link() ) ); ?>
 
 				<div class="entry-date">
 					<?php
 
-						printf( __( '%1$s', 'affwp' ),
+						printf( __( '%1$s', 'pp' ),
 							
 							sprintf( '<time pubdate datetime="%1$s">%2$s</time>',
 								get_comment_time( 'c' ),
 								
-								sprintf( __( '%1$s', 'affwp' ), get_comment_date() )
+								sprintf( __( '%1$s', 'pp' ), get_comment_date() )
 							)
 						); 
 					?>
@@ -102,7 +102,7 @@ function affwp_comment( $comment, $args, $depth ) {
 						<?php 
 							comment_reply_link( array_merge( $args, 
 							array( 
-								'reply_text' => __( 'Reply', 'affwp' ), 
+								'reply_text' => __( 'Reply', 'pp' ), 
 								'depth' => $depth, 
 								'max_depth' => $args['max_depth']
 							) ) ); 
@@ -117,7 +117,7 @@ function affwp_comment( $comment, $args, $depth ) {
 
 	<?php if ( $comment->comment_approved == '0' ) : ?>
 		<p class="comment-awaiting-moderation">
-			<?php _e( 'Your comment is awaiting moderation.', 'affwp' ); ?>
+			<?php _e( 'Your comment is awaiting moderation.', 'pp' ); ?>
 		</p>
 	<?php endif; ?>
 	

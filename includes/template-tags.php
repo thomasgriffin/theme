@@ -106,7 +106,7 @@ function pp_single_post_type_info() {
 			<?php the_tags( '<p><span>Tags</span> ', ', ', '</p>' ); ?>
 			<p>
 				<span>Comments</span>
-				<?php comments_popup_link( __( 'Leave a comment', 'affwp' ), __( '1', 'affwp' ), __( '%', 'affwp' ) ); ?>
+				<?php comments_popup_link( __( 'Leave a comment', 'pp' ), __( '1', 'pp' ), __( '%', 'pp' ) ); ?>
 			</p>
 		<?php endif; ?>
 
@@ -294,7 +294,7 @@ function affwp_the_title_filters( $title ) {
 			$title = the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		}
 		else {
-			$title = __( '<h1>Search Results</h1>', 'affwp' );
+			$title = __( '<h1>Search Results</h1>', 'pp' );
 		}
 	}
 
@@ -304,7 +304,7 @@ function affwp_the_title_filters( $title ) {
 			$title = the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		}
 		else {
-			$title = sprintf( __( '<h1>%s</h1>', 'affwp' ), single_cat_title( '', false ) );
+			$title = sprintf( __( '<h1>%s</h1>', 'pp' ), single_cat_title( '', false ) );
 		}
 
 	}
@@ -315,7 +315,7 @@ function affwp_the_title_filters( $title ) {
 			$title = the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		}
 		else {
-			$title = sprintf( __( '<h1>%s</h1>', 'affwp' ), single_cat_title( '', false ) );
+			$title = sprintf( __( '<h1>%s</h1>', 'pp' ), single_cat_title( '', false ) );
 		}
 	}
 
@@ -325,7 +325,7 @@ function affwp_the_title_filters( $title ) {
 			$title = the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		}
 		else {
-			$title = sprintf( __( '<h1>Posts Tagged with: %s</h1>', 'affwp' ), single_tag_title( '', false ) );
+			$title = sprintf( __( '<h1>Posts Tagged with: %s</h1>', 'pp' ), single_tag_title( '', false ) );
 		}
 	}
 
@@ -388,7 +388,7 @@ function affwp_modify_excerpts( $sub_header ) {
 
 	// search query
 	if ( get_search_query() ) {
-		$sub_header = sprintf( __( '<h2>You searched for <strong>%s</strong></h2>', 'affwp' ), get_search_query() );
+		$sub_header = sprintf( __( '<h2>You searched for <strong>%s</strong></h2>', 'pp' ), get_search_query() );
 	}
 
 	// normal category pages
@@ -471,15 +471,15 @@ function pp_paging_nav() {
 		'current'  => $paged,
 		'mid_size' => 1,
 		'add_args' => array_map( 'urlencode', $query_args ),
-		'prev_text' => __( '&larr; Previous', 'affwp' ),
-		'next_text' => __( 'Next &rarr;', 'affwp' ),
+		'prev_text' => __( '&larr; Previous', 'pp' ),
+		'next_text' => __( 'Next &rarr;', 'pp' ),
 	) );
 
 	if ( $links ) :
 
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'affwp' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'pp' ); ?></h1>
 		<div class="pagination loop-pagination">
 			<?php echo $links; ?>
 		</div><!-- .pagination -->
@@ -508,17 +508,17 @@ function affwp_post_nav() {
 
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'affwp' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'pp' ); ?></h1>
 		<div class="nav-links columns columns-2 clear">
 			<?php
 			if ( is_attachment() ) :
-				previous_post_link( '%link', __( '<span class="meta-nav col">Published In</span>%title', 'affwp' ) );
+				previous_post_link( '%link', __( '<span class="meta-nav col">Published In</span>%title', 'pp' ) );
 			else :
 				previous_post_link('<div class="col">%link</div>');
 				next_post_link('<div class="col">%link</div>');
 				
-				// previous_post_link( '%link', __( '<span class="meta-nav col">%title</span>', 'affwp' ) );
-				// next_post_link( '%link', __( '<span class="meta-nav col">%title</span>', 'affwp' ) );
+				// previous_post_link( '%link', __( '<span class="meta-nav col">%title</span>', 'pp' ) );
+				// next_post_link( '%link', __( '<span class="meta-nav col">%title</span>', 'pp' ) );
 			endif;
 			?>
 		</div><!-- .nav-links -->
@@ -565,7 +565,7 @@ if ( ! function_exists( 'pp_posted_on' ) ) :
  */
 function pp_posted_on() {
 	if ( is_sticky() && is_home() && ! is_paged() ) {
-		echo '<span class="featured-post">' . __( 'Sticky', 'affwp' ) . '</span>';
+		echo '<span class="featured-post">' . __( 'Sticky', 'pp' ) . '</span>';
 	}
 
 	// Set up and print post meta information.

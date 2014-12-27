@@ -72,9 +72,9 @@ function pp_setup() {
 	add_image_size( 'pp-large', 592, 296, true );
 
 	register_nav_menus( array(
-		'primary'      => __( 'Primary menu', 'affwp' ),
-		'footer'       => __( 'Footer menu', 'affwp' ),
-		'useful_links' => __( 'Useful links', 'affwp' ),
+		'primary'      => __( 'Primary menu', 'pp' ),
+		'footer'       => __( 'Footer menu', 'pp' ),
+		'useful_links' => __( 'Useful links', 'pp' ),
 	) );
 
 	/*
@@ -228,9 +228,9 @@ add_filter( 'body_class', 'pp_body_classes' );
  */
 function pp_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Primary Sidebar', 'affwp' ),
+		'name'          => __( 'Primary Sidebar', 'pp' ),
 		'id'            => 'sidebar-1',
-		'description'   => __( 'Main sidebar', 'affwp' ),
+		'description'   => __( 'Main sidebar', 'pp' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -239,9 +239,9 @@ function pp_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'About', 'affwp' ),
+		'name'          => __( 'About', 'pp' ),
 		'id'            => 'sidebar-about',
-		'description'   => __( 'About sidebar', 'affwp' ),
+		'description'   => __( 'About sidebar', 'pp' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -282,7 +282,7 @@ function pp_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary.
 	if ( $paged >= 2 || $page >= 2 ) {
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'affwp' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'pp' ), max( $paged, $page ) );
 	}
 
 	return $title;
