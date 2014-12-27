@@ -1,7 +1,7 @@
 <?php
 
 if ( ! defined( 'PP_THEME_VERSION' ) )
-	define( 'PP_THEME_VERSION', '1.0.5' );
+	define( 'PP_THEME_VERSION', '1.0.6' );
 
 if ( ! defined( 'PP_INCLUDES_DIR' ) )
 	define( 'PP_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
