@@ -76,3 +76,17 @@ function pp_sharing_navigation() {
 
 <?php	
 }
+
+
+/**
+ * Prevent jetpack sharing icons from loading before excerpts
+ *
+ * @since 1.0
+*/
+function pp_jetpack_sharing_display() {
+	if ( is_singular() ) {
+		// remove default sharing buttons from showing in our grids
+		remove_filter( 'the_excerpt', 'sharing_display', 19 );
+	}
+}
+add_action( 'template_redirect', 'pp_jetpack_sharing_display' );
