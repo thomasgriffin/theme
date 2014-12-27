@@ -11,7 +11,7 @@
 	<?php echo pp_purchase_link( get_the_ID() ); ?>
 	
 	<?php 
-		$terms = get_page_by_title( 'Terms & Conditions' );
+		$terms = get_page_by_title( 'Terms and Conditions' );
 	?>
 
 	<?php if ( $terms ) : ?>
@@ -56,7 +56,7 @@
 	?>
 	<div class="support box">
 		<h2>Need Help?</h2>
-		<p>For support related questions, please <a href="<?php echo esc_url( $support_url ); ?>" title="Support"<?php echo $target ;?>>open a support ticket</a>.</p>
+		<p>For support related questions, please <a href="<?php echo esc_url( $support_url ); ?>" title="Support"<?php echo $target; ?>>open a support ticket</a>.</p>
 		
 		
 		<svg width="128px" height="128px">
