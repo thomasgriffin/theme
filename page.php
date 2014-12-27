@@ -10,7 +10,7 @@
 
 get_header(); ?>
 
-<?php affwp_page_header(); ?>
+<?php pp_page_header(); ?>
 
 <div class="columns-main-side columns">
 	<div class="wrapper">

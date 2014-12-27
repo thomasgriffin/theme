@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php affwp_page_header(); ?>
+<?php pp_page_header(); ?>
 
 <?php if ( have_posts() ) : ?>
 	<div class="columns-main-side columns">

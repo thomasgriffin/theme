@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<?php affwp_page_header(); ?>
+<?php pp_page_header(); ?>
 
 
 <section class="section columns columns-3 grid">

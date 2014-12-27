@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<?php affwp_page_header(); ?>
+<?php pp_page_header(); ?>
 
 <div class="primary content-area">
 	<div class="wrapper">

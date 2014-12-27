@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<?php affwp_page_header(); ?>
+<?php pp_page_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 

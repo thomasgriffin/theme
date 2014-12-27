@@ -347,7 +347,7 @@ add_shortcode( 'show_shortcode', 'affwp_show_shortcode' );
 /**
  * Page header
  */
-function affwp_page_header( $header = '', $sub_header = '' ) {
+function pp_page_header( $header = '', $sub_header = '' ) {
 	global $post;
 
 	?>

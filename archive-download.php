@@ -8,7 +8,7 @@ get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
 
-<?php affwp_page_header( 'Products' ); ?>
+<?php pp_page_header( 'Products' ); ?>
 
 
 <section class="section columns columns-3 grid product-grid">
