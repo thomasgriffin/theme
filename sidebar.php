@@ -87,7 +87,7 @@ $affiliate_area_id = affiliate_wp()->settings->get( 'affiliates_page' );
 		 */
 		?>
 		<aside class="box">
-			<h2>Your latest tutorials</h2>
+			<h2>Latest tutorials</h2>
 			
 			<?php
 			    $args = array(
