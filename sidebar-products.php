@@ -28,6 +28,28 @@
 
 	<?php echo pp_product_info( 'right' ); ?>
 
+	<?php 
+	/**
+	 * Show the shopping cart
+	 */
+	
+	$cart_items    = edd_get_cart_contents();
+	$cart_quantity = edd_get_cart_quantity();
+	$display       = $cart_quantity > 0 ? '' : 'style="display:none;"';
+	
+	if ( $cart_items ) : ?>
+		<aside>
+		<h2>Ready to purchase?</h2>
+		<ul class="edd-cart">
+			<?php foreach ( $cart_items as $key => $item ) : ?>
+				<?php echo edd_get_cart_item_template( $key, $item, false ); ?>
+			<?php endforeach; ?>
+
+			<?php edd_get_template_part( 'widget', 'cart-checkout' ); ?>
+		</ul>
+		</aside>
+	<?php endif; ?>
+	
 	<?php
 		$support_url = get_post_meta( get_the_ID(), '_pp_product_support_url', true ) ? get_post_meta( get_the_ID(), '_pp_product_support_url', true ) : site_url( 'plugin-support' );
 		$target     = get_post_meta( get_the_ID(), '_pp_product_support_url', true ) ? ' target="_blank"' : '';
