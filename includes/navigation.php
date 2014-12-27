@@ -36,6 +36,11 @@ function pp_load_main_navigation() {
 }
 add_action( 'pp_masthead_col_2', 'pp_load_main_navigation' );
 
+/**
+ * Navigation extras
+ *
+ * @since 1.0
+*/
 function pp_load_navigation_extras() {
 
 	// don't load on checkout
@@ -51,31 +56,29 @@ function pp_load_navigation_extras() {
 add_action( 'pp_masthead_col_3', 'pp_load_navigation_extras' );
 
 
-
-
 /**
  * Append cart onto primary navigation
  *
  * @since 1.0
 */
-function affwp_wp_nav_menu_items( $items, $args ) {
+function pp_wp_nav_menu_items( $items, $args ) {
     if ( 'primary' == $args->theme_location ) {
-    	
-    //	$home = ! is_front_page() ? pp_nav_home() : '';
     	$items .= pp_nav_account();
 
-    //	return $home . $items;
     	return $items;
     }
 
 	return $items;
 }
-add_filter( 'wp_nav_menu_items', 'affwp_wp_nav_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'pp_wp_nav_menu_items', 10, 2 );
+
 
 /**
  * Highlight menu items
+ *
+ * @since 1.0
  */
-function affwp_highlight_menu_item( $classes ) {
+function pp_highlight_menu_item( $classes ) {
 
 	if ( is_singular( 'download' ) ) {
 	    if ( in_array ( 'products', $classes ) ) {
@@ -87,17 +90,24 @@ function affwp_highlight_menu_item( $classes ) {
 	    if ( in_array ( 'learn', $classes ) ) {
 	      $classes[] = 'current-menu-item';
 	    }
-	} 
+	}
 
-	if ( is_singular( 'post' ) && ! has_category( 'tutorials' ) ) {
+	if ( is_singular( 'post' ) && ! has_category( 'tutorials' ) && ! has_category( 'reviews' ) ) {
 	    if ( in_array ( 'blog', $classes ) ) {
+	      $classes[] = 'current-menu-item';
+	    }
+	}
+
+	if ( is_singular( 'post' ) && has_category( 'reviews' ) ) {
+	    if ( in_array ( 'reviews', $classes ) ) {
 	      $classes[] = 'current-menu-item';
 	    }
 	} 
 
 	return $classes;
 }
-add_filter( 'nav_menu_css_class', 'affwp_highlight_menu_item' );
+add_filter( 'nav_menu_css_class', 'pp_highlight_menu_item' );
+
 
 /**
  * Append account to main navigation
@@ -107,13 +117,10 @@ function pp_nav_account() {
 	global $current_user;
 	get_currentuserinfo();
 
-
 	$account_page 		= '/account';
 	$affiliates_page 	= '/affiliates';
 	
-
-
-	 ob_start();
+	ob_start();
 	?>
 
 	<?php
@@ -128,7 +135,7 @@ function pp_nav_account() {
 
 
 	<?php
-		$active = is_page( 'account' ) || is_page( 'affiliates' ) ? ' current-menu-item' : '';
+		$active = is_page( 'account' ) || is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) ? ' current-menu-item' : '';
 	?>
 		<li class="menu-item account<?php echo $active; ?>">
 			
@@ -169,7 +176,3 @@ function pp_nav_home() {
     ?>
 
 <?php }
-
-
-
-

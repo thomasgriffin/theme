@@ -137,8 +137,8 @@
 @media only screen and ( max-width: 481px ) {
   #main ul.menu li {
      display: inline-block;
-     float: none;
-     width: 100%;
+     // float: none;
+     // width: 100%;
   }
 
 
@@ -298,8 +298,6 @@ ul.menu {
          // main level hover
         > a {
           text-decoration: none;
-      //    color: #4a7e9a;
-       //   .box-shadow(inset 0 -5px 0 0 #8ec5e2 );
         }
       
       } 
@@ -313,8 +311,6 @@ ul.menu {
       cursor: pointer;
       padding: 1rem 1.5rem;
       color: #E1F0F8;
-     // font-size: 1.25rem;
-   //   font-size: 1rem;
       font-size: 16px;
       // -webkit-transition: all 0.25s ease-in; 
       // -moz-transition: all 0.25s ease-in; 
@@ -331,11 +327,12 @@ ul.menu {
   #main ul.menu > li {
    // only the first level parent items
    &.active, 
-   &.current-page-ancestor,
-   &.current_page_ancestor,
-   &.current_page_parent,
-   &.current-menu-item,
-   &.current_page_item {
+   // &.current-page-ancestor,
+   // &.current_page_ancestor,
+   // &.current_page_parent,
+   // &.current_page_item,
+
+   &.current-menu-item {
 
      > a {
          .box-shadow( inset 0 -5px 0 0 #8ec5e2 );

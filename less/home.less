@@ -10,7 +10,7 @@
 }
 
 .home .page-header {
-	padding: 0;
+	padding: 0 2rem;
 	margin-bottom: 4rem;
 
 	h2 {
@@ -49,7 +49,7 @@
 	}
 
 	li {
-		display: inline-block;
+		display: block;
 		vertical-align: top;
 		padding: 2rem;
 		font-size: 1rem;
@@ -59,8 +59,21 @@
 	
 }
 
+@media only screen and ( min-width: 480px ) {
+
+	// site stats on homepage
+	.site-stats li {
+		display: inline-block;	
+	}
+}	
 
 @media only screen and ( min-width: 640px ) {
+
+	// site stats on homepage
+	.site-stats li {
+		display: inline-block;	
+	}
+
 	.home .newsletter .wrapper {
 		max-width: 520px;
 	}
