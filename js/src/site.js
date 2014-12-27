@@ -91,7 +91,7 @@ jQuery(document).ready(function($) {
            $('.menu-icon.connect').removeClass('hidethis');
            $('.menu-connect').removeClass('show');
         },
-        750,
+        250,
         'mouseover');
 
 
