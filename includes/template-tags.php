@@ -160,12 +160,12 @@ add_shortcode( 'affwp_share_purchase', 'affwp_show_sharing_buttons_after_purchas
  * Output custom icons - favicon & apple touch icon
  * @link https://github.com/audreyr/favicon-cheat-sheet
  */
-function affwp_favicons() {
+function pp_favicons() {
 ?>
 	<link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon-152.png'; ?>">
 	<?php 
 }
-add_action( 'wp_head', 'affwp_favicons' );
+add_action( 'wp_head', 'pp_favicons' );
 
 /**
  * Make doc category pags show all posts
