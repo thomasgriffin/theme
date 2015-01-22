@@ -155,37 +155,6 @@ function affwp_show_sharing_buttons_after_purchase( $atts, $content = null ) {
 }
 add_shortcode( 'affwp_share_purchase', 'affwp_show_sharing_buttons_after_purchase' );
 
-/**
- * Add Twitter Card meta tags
- */ 
-function affwp_twitter_card_meta() {
-	?>
-	<meta name="twitter:card" content="product">
-	<meta name="twitter:site" content="@affwp">
-	<meta name="twitter:creator" content="">
-	<meta name="twitter:title" content="AffiliateWP - The best affiliate marketing plugin for WordPress">
-	<meta name="twitter:description" content="An efficient and reliable affiliate marketing plugin for WordPress. Integrates directly with all major WordPress e-Commerce and Membership plugins.">
-	<meta name="twitter:image:src" content="http://affiliatewp.com/wp-content/uploads/2014/04/twitter-card.png">
-	<meta name="twitter:data1" content="$49 USD">
-	<meta name="twitter:label1" content="PRICE">
-	<meta name="twitter:data2" content="Personal (1 site)">
-	<meta name="twitter:label2" content="LICENSE">
-	<meta name="twitter:domain" content="affiliatewp.com">
-	<meta name="twitter:app:name:iphone" content="">
-	<meta name="twitter:app:name:ipad" content="">
-	<meta name="twitter:app:name:googleplay" content="">
-	<meta name="twitter:app:url:iphone" content="">
-	<meta name="twitter:app:url:ipad" content="">
-	<meta name="twitter:app:url:googleplay" content="">
-	<meta name="twitter:app:id:iphone" content="">
-	<meta name="twitter:app:id:ipad" content="">
-	<meta name="twitter:app:id:googleplay" content="">
-<?php }
-add_action( 'wp_head', 'affwp_twitter_card_meta' );
-
-
-
-
 
 /**
  * Output custom icons - favicon & apple touch icon
