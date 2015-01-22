@@ -115,26 +115,6 @@ function pp_single_post_type_info() {
 }
 
 /**
- * Show 5 blog posts on homepage
- * Overrides the "Blog pages show at most" setting
- */
-
-function pp_modify_main_loops( $query ) {
-
-	// bail if in the admin or we're not working with the main WP query
-	if ( is_admin() || ! $query->is_main_query() )
-		return;
-
-	if ( is_front_page() ) {
-		$query->set( 'posts_per_page', 3 ); 
-		return;
-	}
-
-}
-
-add_action( 'pre_get_posts', 'pp_modify_main_loops', 1 );
-
-/**
  * Filter excerpt
  */
 function affwp_custom_excerpt_more( $more ) {
