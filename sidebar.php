@@ -67,7 +67,7 @@ $affiliate_area_id = affiliate_wp()->settings->get( 'affiliates_page' );
 			$current_user = wp_get_current_user();
 			$name         = $current_user->user_firstname ? $current_user->user_firstname : $current_user->display_name;
 
-			printf( __( 'Hi %s', 'pp' ), $name ); ?>
+			printf( __( 'Hi, %s!', 'pp' ), $name ); ?>
 		</h2>
 
 			<ul class="linked list">
