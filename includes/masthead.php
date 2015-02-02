@@ -9,7 +9,7 @@ function pp_home_products() {
 
 		<?php do_action( 'pp_masthead_start' ); ?>
 
-		<?php if ( ! edd_is_checkout() ) : ?>
+		<?php if ( ! ( function_exists('edd_is_checkout') && edd_is_checkout() ) ) : ?>
 		<div class="columns">
 			<div class="wrapper">
 				<div class="col col-1">

@@ -128,7 +128,7 @@ function pp_product_changelog() {
 	$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
 	$affiliate_area = function_exists( 'affiliate_wp' ) ? is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) : '';
 
-	if ( ! ( is_singular( 'download' ) || $changelog || edd_is_checkout() || is_front_page() || $affiliate_area ) ) {
+	if ( ! ( is_singular( 'download' ) || $changelog || ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() ) || is_front_page() || $affiliate_area ) ) {
 		return;
 	}
 

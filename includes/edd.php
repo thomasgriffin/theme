@@ -404,8 +404,8 @@ add_action( 'edd_purchase_link_top', 'pp_edd_purchase_variable_pricing', 10 );
 function pp_show_cart_quantity_icon() {
 	global $edd_options;
 
-	$class    = ! edd_get_cart_contents() ? ' hidden' : '';
-	$quantity = edd_get_cart_quantity() == 1 ? ' item' : ' items';
+	$class    = ! ( function_exists('edd_get_cart_contents') && edd_get_cart_contents() ) ? ' hidden' : '';
+	$quantity = ( function_exists('edd_get_cart_quantity') && edd_get_cart_quantity() == 1 ) ? ' item' : ' items';
 
 ?>
 	<a href="<?php echo esc_url( edd_get_checkout_uri() ); ?>" class="menu-icon cart<?php echo $class; ?>" title="You have <?php echo edd_get_cart_quantity() . $quantity; ?> ready for purchase">
@@ -860,7 +860,7 @@ add_filter( 'edd_get_cart_discounts_html', 'pp_edd_get_cart_discounts_html', 10,
  */
 function pp_edd_load_scripts( $hook ) {
 	
-	if ( ! ( edd_is_checkout() || is_page( 'contact' ) ) ) {
+	if ( ! ( function_exists('edd_is_checkout') && edd_is_checkout() || is_page( 'contact' ) ) ) {
 		return;
 	}
 

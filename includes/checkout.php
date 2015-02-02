@@ -87,7 +87,7 @@ add_action( 'wp_footer', 'pp_show_refund_policy' );
  * Can't think of a better way to do this
  */
 function pp_edd_checkout_js() {
-	if ( ! ( edd_is_checkout() || is_page( 'contact' ) ) ) {
+	if ( ! ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() || is_page( 'contact' ) ) ) {
 		return;
 	}
 

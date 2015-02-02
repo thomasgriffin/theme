@@ -28,13 +28,16 @@ function pp_get_category_post_count( $category_to_search = '' ) {
 
 	if ( 'free-members' === $category_to_search ) {
 		$free  = get_term_by( 'slug', 'free', 'category' );
-		$count = $free->count;
+		$count = isset( $free->count ) ? $free->count : '';
 	} else {
 		$cat   = get_term_by( 'slug', $category_to_search, 'category' );
-		$count = $cat->count;
+		$count = isset( $cat->count ) ? $cat->count : '';
 	}
 
-	return $count;
+	if ( $count ) {
+		return $count;
+	}
+	
 }
 
 /**

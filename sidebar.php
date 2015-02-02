@@ -5,7 +5,7 @@
  * @since 1.0
  */
 
-$affiliate_area_id = affiliate_wp()->settings->get( 'affiliates_page' );
+$affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->settings->get( 'affiliates_page' ) : '';
 ?>
 
 <div class="primary-sidebar widget-area col right" role="complementary">
@@ -23,8 +23,8 @@ $affiliate_area_id = affiliate_wp()->settings->get( 'affiliates_page' );
 	 * Show the shopping cart
 	 */
 	
-	$cart_items    = edd_get_cart_contents();
-	$cart_quantity = edd_get_cart_quantity();
+	$cart_items    = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
+	$cart_quantity = function_exists( 'edd_get_cart_quantity' ) ? edd_get_cart_quantity() : '';
 	$display       = $cart_quantity > 0 ? '' : 'style="display:none;"';
 	
 	if ( $cart_items ) : ?>
@@ -73,7 +73,7 @@ $affiliate_area_id = affiliate_wp()->settings->get( 'affiliates_page' );
 			<ul class="linked list">
 				<li<?php if ( is_page( 'account' ) ) { echo ' class="active"'; } ?>><a href="<?php echo site_url( 'account' ); ?>"><?php _e( 'Your Account', 'pp' ); ?></a></li>
 
-				<?php if ( affwp_is_affiliate() ) : ?>
+				<?php if ( function_exists( 'affwp_is_affiliate' ) && affwp_is_affiliate() ) : ?>
 				<li<?php if ( is_page( $affiliate_area_id ) ) { echo ' class="active"'; } ?>><a href="<?php echo get_permalink( $affiliate_area_id ); ?>"><?php _e( 'Affiliate Dashboard', 'pp' ); ?></a></li>
 				<?php endif; ?>
 

@@ -186,10 +186,18 @@ get_header(); ?>
 		?>
 		<div id="refund-policy" class="popup entry-content mfp-with-anim mfp-hide">
 			<h1>
-				<?php echo $refund_policy->post_title; ?>
+				<?php 
+					if ( $refund_policy ) {
+						echo $refund_policy->post_title; 
+					}
+				?>
 			</h1>
 
-			<?php echo stripslashes( wpautop( $refund_policy->post_content, true ) ); ?>
+			<?php 
+				if ( $refund_policy ) {
+					echo stripslashes( wpautop( $refund_policy->post_content, true ) ); 
+				}
+			?>
 		</div>
 
 	</div>

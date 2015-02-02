@@ -28,7 +28,11 @@ require_once( trailingslashit( PP_INCLUDES_DIR ) . 'banners.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'custom-filters.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'blog.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'restrict-content-pro.php' );
-require_once( trailingslashit( PP_INCLUDES_DIR ) . 'edd.php' );
+
+if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+	require_once( trailingslashit( PP_INCLUDES_DIR ) . 'edd.php' );
+}
+
 
 /**
  * Set up the content width value based on the theme's design.
@@ -194,7 +198,7 @@ function pp_body_classes( $classes ) {
 	if ( wp_unslash( site_url('/') ) == wp_get_referer() )
 		$classes[] = 'from-home';
 
-	if ( edd_get_cart_contents() ) {
+	if ( function_exists('edd_get_cart_contents') && edd_get_cart_contents() ) {
 		$classes[] = 'edd-items-in-cart';
 	}
 

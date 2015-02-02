@@ -47,9 +47,13 @@ function pp_load_navigation_extras() {
 	if ( function_exists( 'edd_is_checkout' ) && edd_is_checkout() )
 		return;
 
-	pp_share_icon();	
+	if ( function_exists( 'pp_share_icon' ) ) {
+		pp_share_icon();
+	}	
 
-	pp_show_cart_quantity_icon();
+	if ( function_exists( 'pp_show_cart_quantity_icon' ) ) {
+		pp_show_cart_quantity_icon();
+	}
 
 	get_search_form();
 }
@@ -135,7 +139,7 @@ function pp_nav_account() {
 
 
 	<?php
-		$active = is_page( 'account' ) || is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) ? ' current-menu-item' : '';
+		$active = is_page( 'account' ) || ( function_exists( 'affiliate_wp' ) && is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) ) ? ' current-menu-item' : '';
 	?>
 		<li class="menu-item account<?php echo $active; ?>">
 			

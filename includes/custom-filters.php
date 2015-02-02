@@ -40,10 +40,11 @@ add_filter( 'affwp_excerpt', 'affwp_testimonials_sub_header' );
  * Modify the age header excerpt on the success page
  */
 function affwp_edd_modify_excerpt( $sub_header ) {
-	if ( function_exists( 'edd_is_success_page' ) && ! edd_is_success_page() )
+	if ( function_exists( 'edd_is_success_page' ) && ! edd_is_success_page() ) {
 		return $sub_header;
+	}
 
-	$sub_header = affwp_edd_thank_customer();
+	$sub_header = function_exists( 'affwp_edd_thank_customer' ) ? affwp_edd_thank_customer() : '';
 
 	return $sub_header;
 }
