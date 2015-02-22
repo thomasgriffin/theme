@@ -10,7 +10,7 @@ get_header(); ?>
 
 <section class="section columns columns-3 grid">
 	<div class="wrapper pricing-options">
-		<a href="<?php echo site_url( 'join-the-site/register/?level=1' ); ?>" class="col box pricing">
+		<a href="<?php echo site_url( 'join-the-site/register/?level=0' ); ?>" class="col box pricing">
 			<h2>Hobby Coder</h2>
 
 			<p>You like to code with WordPress in your spare time</p>
@@ -23,7 +23,7 @@ get_header(); ?>
 			<span class="button">Join now</span>
 		</a>
 
-		<a href="<?php echo site_url( 'join-the-site/register/?level=3' ); ?>" class="col box pricing">
+		<a href="<?php echo site_url( 'join-the-site/register/?level=2' ); ?>" class="col box pricing">
 			<h2>Code Monkey</h2>
 
 			<p>You spend so much time coding you start thinking in IF / ELSE statements</p>
@@ -36,7 +36,7 @@ get_header(); ?>
 			<span class="button">Join now</span>
 		</a>
 
-		<a href="<?php echo site_url( 'join-the-site/register/?level=2' ); ?>" class="col box pricing">
+		<a href="<?php echo site_url( 'join-the-site/register/?level=1' ); ?>" class="col box pricing">
 			<h2>Coder by Night</h2>
 
 			<p>You stay up late drinking coffee and playing around with WordPress</p>
