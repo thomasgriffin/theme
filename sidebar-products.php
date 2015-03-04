@@ -15,7 +15,7 @@
 	?>
 
 	<?php if ( $terms ) : ?>
-	<p><small>Extensions are subject to a yearly license for support and updates. <a href="#terms-conditions" class="popup-content" data-effect="mfp-move-from-bottom">View license terms</a>.</small></p>
+	<p><small>Plugins are subject to a yearly license for support and updates. <a href="#terms-conditions" class="popup-content" data-effect="mfp-move-from-bottom">View license terms</a>.</small></p>
 
 	<div id="terms-conditions" class="popup entry-content mfp-with-anim mfp-hide">
 		<h1>
