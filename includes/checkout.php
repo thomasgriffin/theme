@@ -103,4 +103,4 @@ function pp_edd_checkout_js() {
 	</script>
 	<?php
 }
-add_action( 'wp_footer', 'pp_edd_checkout_js' );
+//add_action( 'wp_footer', 'pp_edd_checkout_js' );
