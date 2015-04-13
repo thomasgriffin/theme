@@ -35,9 +35,10 @@ add_filter( 'edd_default_downloads_name', 'pp_edd_download_labels' );
  * @return string $purchase_form
  */
 function pp_get_purchase_link( $args = array() ) {
-	global $edd_options, $post;
+	global $post, $edd_displayed_form_ids;
 
-	if ( ! isset( $edd_options['purchase_page'] ) || $edd_options['purchase_page'] == 0 ) {
+	$purchase_page = edd_get_option( 'purchase_page', false );
+	if ( ! $purchase_page || $purchase_page == 0 ) {
 		edd_set_error( 'set_checkout', sprintf( __( 'No checkout page has been configured. Visit <a href="%s">Settings</a> to set one.', 'edd' ), admin_url( 'edit.php?post_type=download&page=edd-settings' ) ) );
 		edd_print_errors();
 		return false;
@@ -48,39 +49,80 @@ function pp_get_purchase_link( $args = array() ) {
 	$defaults = apply_filters( 'edd_purchase_link_defaults', array(
 		'download_id' => $post_id,
 		'price'       => (bool) true,
+		'price_id'    => isset( $args['price_id'] ) ? $args['price_id'] : false,
 		'direct'      => edd_get_download_button_behavior( $post_id ) == 'direct' ? true : false,
-		'text'        => ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'edd' ),
-		'style'       => isset( $edd_options[ 'button_style' ] ) 	   ? $edd_options[ 'button_style' ]     : 'button',
-		'color'       => isset( $edd_options[ 'checkout_color' ] ) 	   ? $edd_options[ 'checkout_color' ] 	: 'blue',
+		'text'        => edd_get_option( 'add_to_cart_text', __( 'Purchase', 'edd' ) ),
+		'style'       => edd_get_option( 'button_style', 'button' ),
+		'color'       => edd_get_option( 'checkout_color', 'blue' ),
 		'class'       => 'edd-submit'
 	) );
 
 	$args = wp_parse_args( $args, $defaults );
 
-	if( 'publish' != get_post_field( 'post_status', $args['download_id'] ) && ! current_user_can( 'edit_product', $args['download_id'] ) ) {
+	// Override the stright_to_gateway if the shop doesn't support it
+	if ( ! edd_shop_supports_buy_now() ) {
+		$args['direct'] = false;
+	}
+
+	$download = new EDD_Download( $args['download_id'] );
+
+	if( empty( $download->ID ) ) {
+		return false;
+	}
+
+	if( 'publish' !== $download->post_status && ! current_user_can( 'edit_product', $download->ID ) ) {
 		return false; // Product not published or user doesn't have permission to view drafts
 	}
 
-	// Override color if color == inherit
+		// Override color if color == inherit
 	$args['color'] = ( $args['color'] == 'inherit' ) ? '' : $args['color'];
 
-	$variable_pricing = edd_has_variable_prices( $args['download_id'] );
-	$data_variable    = $variable_pricing ? ' data-variable-price=yes' : 'data-variable-price=no';
-	$type             = edd_single_price_option_mode( $args['download_id'] ) ? 'data-price-mode=multi' : 'data-price-mode=single';
+	$options          = array();
+	$variable_pricing = $download->has_variable_prices();
+	$data_variable    = $variable_pricing ? ' data-variable-price="yes"' : 'data-variable-price="no"';
+	$type             = $download->is_single_price_mode() ? 'data-price-mode=multi' : 'data-price-mode=single';
 
-	if ( $args['price'] && $args['price'] !== 'no' && ! $variable_pricing ) {
-		$price = edd_get_download_price( $args['download_id'] );
+	$show_price       = $args['price'] && $args['price'] !== 'no';
+	$data_price_value = 0;
 
-		$button_text = ! empty( $args['text'] ) ? '&nbsp;&ndash;&nbsp;' . $args['text'] : '';
+	if ( $variable_pricing && false !== $args['price_id'] ) {
+
+		$price_id            = $args['price_id'];
+		$prices              = $download->prices;
+		$options['price_id'] = $args['price_id'];
+		$found_price         = isset( $prices[$price_id] ) ? $prices[$price_id]['amount'] : false;
+
+		$data_price_value    = $found_price;
+
+		if ( $show_price ) {
+			$price = $found_price;
+		}
+
+	} elseif ( ! $variable_pricing ) {
+
+		$data_price_value = $download->price;
+
+		if ( $show_price ) {
+			$price = $download->price;
+		}
+
+	}
+
+	$data_price  = 'data-price="' . $data_price_value . '"';
+
+	$button_text = ! empty( $args['text'] ) ? '&nbsp;&ndash;&nbsp;' . $args['text'] : '';
+
+	if ( isset( $price ) && false !== $price ) {
 
 		if ( 0 == $price ) {
 			$args['text'] = __( 'Free', 'edd' ) . $button_text;
 		} else {
 			$args['text'] = edd_currency_filter( edd_format_amount( $price ) ) . $button_text;
 		}
+
 	}
 
-	if ( edd_item_in_cart( $args['download_id'] ) && ! $variable_pricing ) {
+	if ( edd_item_in_cart( $download->ID, $options ) && ( ! $variable_pricing || ! $download->is_single_price_mode() ) ) {
 		$button_display   = 'style="display:none;"';
 		$checkout_display = '';
 	} else {
@@ -88,19 +130,18 @@ function pp_get_purchase_link( $args = array() ) {
 		$checkout_display = 'style="display:none;"';
 	}
 
-	global $edd_displayed_form_ids;
 	// Collect any form IDs we've displayed already so we can avoid duplicate IDs
-	if ( isset( $edd_displayed_form_ids[$args['download_id']] ) ) {
-		$edd_displayed_form_ids[$args['download_id']]++;
+	if ( isset( $edd_displayed_form_ids[ $download->ID ] ) ) {
+		$edd_displayed_form_ids[ $download->ID ]++;
 	} else {
-		$edd_displayed_form_ids[$args['download_id']] = 1;
+		$edd_displayed_form_ids[ $download->ID ] = 1;
 	}
 
-	$form_id = ! empty( $args['form_id'] ) ? $args['form_id'] : 'edd_purchase_' . $args['download_id'];
+	$form_id = ! empty( $args['form_id'] ) ? $args['form_id'] : 'edd_purchase_' . $download->ID;
 
 	// If we've already generated a form ID for this download ID, apped -#
-	if ( $edd_displayed_form_ids[$args['download_id']] > 1 ) {
-		$form_id .= '-' . $edd_displayed_form_ids[$args['download_id']];
+	if ( $edd_displayed_form_ids[ $download->ID ] > 1 ) {
+		$form_id .= '-' . $edd_displayed_form_ids[ $download->ID ];
 	}
 
 	$args = apply_filters( 'edd_purchase_link_args', $args );
@@ -108,13 +149,13 @@ function pp_get_purchase_link( $args = array() ) {
 	ob_start();
 ?>
 
+	<form id="<?php echo $form_id; ?>" class="edd_download_purchase_form edd_purchase_<?php echo absint( $download->ID ); ?>" method="post">
 
-	<form id="<?php echo $form_id; ?>" class="edd_download_purchase_form" method="post">
-
-		<?php do_action( 'edd_purchase_link_top', $args['download_id'], $args ); ?>
+		<?php do_action( 'edd_purchase_link_top', $download->ID, $args ); ?>
 
 		<div class="edd_purchase_submit_wrapper">
 			<?php
+			// custom to pippinsplugins.com
 			 if ( ! edd_is_ajax_disabled() ) {
 				printf(
 					'<a href="#" class="edd-add-to-cart %1$s" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s><span class="edd-add-to-cart-label">%2$s</span> <span class="edd-loading">%7$s</span></a>',
@@ -125,8 +166,6 @@ function pp_get_purchase_link( $args = array() ) {
 					esc_attr( $type ),
 					$button_display,
 					'<img class="edd-icon-spin" src="'. get_stylesheet_directory_uri() . "/svgs/spinner.svg" .' " />'
-				//	'<img class="edd-icon-spin" src="'. get_stylesheet_directory_uri() . "/svgs/spinner.svg" .' " />'
-
 				);
 			}
 
@@ -140,8 +179,6 @@ function pp_get_purchase_link( $args = array() ) {
 				$button_display
 			);
 
-
-
 			printf(
 				'<a href="%1$s" class="%2$s %3$s" %4$s>' . __( 'Checkout', 'edd' ) . '%5$s</a>',
 				esc_url( edd_get_checkout_uri() ),
@@ -150,24 +187,31 @@ function pp_get_purchase_link( $args = array() ) {
 				$checkout_display,
 				pp_add_to_cart_success()
 			);
+
+			// end custom to pippinsplugins.com
 			?>
 
 			
-			<?php if ( edd_display_tax_rate() && edd_prices_include_tax() ) {
-				echo '<span class="edd_purchase_tax_rate">' . sprintf( __( 'Includes %1$s&#37; tax', 'edd' ), edd_get_tax_rate() * 100 ) . '</span>';
-			} elseif ( edd_display_tax_rate() && ! edd_prices_include_tax() ) {
-				echo '<span class="edd_purchase_tax_rate">' . sprintf( __( 'Excluding %1$s&#37; tax', 'edd' ), edd_get_tax_rate() * 100 ) . '</span>';
-			} ?>
-		</div><!--end .edd_purchase_submit_wrapper-->
+			<?php if( ! $download->is_free( $args['price_id'] ) ): ?>
+				<?php if ( edd_display_tax_rate() && edd_prices_include_tax() ) {
+					echo '<span class="edd_purchase_tax_rate">' . sprintf( __( 'Includes %1$s&#37; tax', 'edd' ), edd_get_tax_rate() * 100 ) . '</span>';
+				} elseif ( edd_display_tax_rate() && ! edd_prices_include_tax() ) {
+					echo '<span class="edd_purchase_tax_rate">' . sprintf( __( 'Excluding %1$s&#37; tax', 'edd' ), edd_get_tax_rate() * 100 ) . '</span>';
+				} ?>
+			<?php endif; ?>
+		</div>
 
-		<input type="hidden" name="download_id" value="<?php echo esc_attr( $args['download_id'] ); ?>">
-		<?php if( ! empty( $args['direct'] ) ) { ?>
+		<input type="hidden" name="download_id" value="<?php echo esc_attr( $download->ID ); ?>">
+		<?php if ( $variable_pricing && isset( $price_id ) && isset( $prices[$price_id] ) ): ?>
+			<input type="hidden" name="edd_options[price_id][]" id="edd_price_option_<?php echo $download->ID; ?>_1" class="edd_price_option_<?php echo $download->ID; ?>" value="<?php echo $price_id; ?>">
+		<?php endif; ?>
+		<?php if( ! empty( $args['direct'] ) && ! $download->is_free( $args['price_id'] ) ) { ?>
 			<input type="hidden" name="edd_action" class="edd_action_input" value="straight_to_gateway">
 		<?php } else { ?>
 			<input type="hidden" name="edd_action" class="edd_action_input" value="add_to_cart">
 		<?php } ?>
 
-		<?php do_action( 'edd_purchase_link_end', $args['download_id'], $args ); ?>
+		<?php do_action( 'edd_purchase_link_end', $download->ID, $args ); ?>
 
 	</form><!--end #<?php echo esc_attr( $form_id ); ?>-->
 <?php
@@ -708,20 +752,22 @@ add_action( 'edd_purchase_form_before_submit', 'pp_edd_checkout_final_total', 99
  * Software licensing
  * @return [type] [description]
  */
-function pp_edd_sl_renewal_form2() {
+function pp_edd_sl_renewal_form() {
 
 	if( ! edd_sl_renewals_allowed() )
 		return;
 
 	$renewal     = EDD()->session->get( 'edd_is_renewal' );
 	$renewal_key = EDD()->session->get( 'edd_renewal_key' );
-	$preset_key  = ! empty( $_GET['key'] ) ? urldecode( $_GET['key'] ) : '';
+	$preset_key   = ! empty( $_GET['key'] ) ? urldecode( $_GET['key'] ) : '';
+	$error        = ! empty( $_GET['edd-sl-error'] ) ? absint( $_GET['edd-sl-error'] ) : '';
 
 	ob_start(); ?>
 	
 
 	<form method="post" id="edd_sl_renewal_form">
 		<fieldset id="edd_sl_renewal_fields">
+
 			<?php if( empty( $renewal ) || empty( $renewal_key ) ) : ?>
 
 			<p id="edd_sl_show_renewal_form_wrap">
@@ -742,7 +788,7 @@ function pp_edd_sl_renewal_form2() {
 				<input type="submit" class="edd-submit button edd-renew-license" value="<?php _e( 'Renew', 'edd_sl' ); ?>" />
 			</span>
 
-				<input type="hidden" name="edd_action" value="apply_license_renewal"/>
+			<input type="hidden" name="edd_action" value="apply_license_renewal"/>
 
 			</p>
 
@@ -758,88 +804,14 @@ function pp_edd_sl_renewal_form2() {
 				</p>
 			</div>
 			<?php endif; ?>
+
 		</fieldset>
 	</form>
 	<?php
 	echo ob_get_clean();
 }
-//remove_action( 'edd_before_purchase_form', 'edd_sl_renewal_form', -1 );
-//add_action( 'edd_before_purchase_form', 'pp_edd_sl_renewal_form2', -1 );
-
-//add_action( 'edd_before_purchase_form', 'pp_edd_sl_renewal_form', -1 );
-function pp_edd_sl_renewal_form() {
-
-	if( ! edd_sl_renewals_allowed() )
-		return;
-
-	$renewal      = EDD()->session->get( 'edd_is_renewal' );
-	$renewal_keys = EDD()->session->get( 'edd_renewal_keys' );
-	$preset_key   = ! empty( $_GET['key'] ) ? urldecode( $_GET['key'] ) : '';
-	$error        = ! empty( $_GET['edd-sl-error'] ) ? absint( $_GET['edd-sl-error'] ) : '';
-	$color        = edd_get_option( 'checkout_color', 'blue' );
-	$color        = ( $color == 'inherit' ) ? '' : $color;
-	$style        = edd_get_option( 'button_style', 'button' );
-	ob_start(); ?>
-	<form method="post" id="edd_sl_renewal_form">
-		<fieldset id="edd_sl_renewal_fields">
-			<p id="edd_sl_show_renewal_form_wrap">
-				<?php _e( 'Renewing a license key? <a href="#" id="edd_sl_show_renewal_form">Click to renew an existing license</a>', 'edd_sl' ); ?>
-			</p>
-			<p id="edd-license-key-container-wrap" class="edd-cart-adjustment" style="display:none;">
-				<span class="edd-description"><?php _e( 'Enter the license key you wish to renew. Leave blank to purchase a new one.', 'edd_sl' ); ?></span>
-				<input class="edd-input required" type="text" name="edd_license_key" autocomplete="off" placeholder="<?php _e( 'Enter your license key', 'edd_sl' ); ?>" id="edd-license-key" value="<?php echo $preset_key; ?>"/>
-				<a href="#" id="edd-cancel-license-renewal"><?php _e( 'Cancel', 'edd_sl' ); ?></a>
-				<input type="hidden" name="edd_action" value="apply_license_renewal"/>
-				<input type="submit" class="edd-submit button <?php echo $color . ' ' . $style; ?>" value="<?php _e( 'Apply License Renewal', 'edd_sl' ); ?>"/>
-			</p>
-
-			<?php if( ! empty( $renewal ) && ! empty( $renewal_keys ) ) : ?>
-				<p id="edd-license-key-container-wrap" class="edd-cart-adjustment">
-					<label class="edd-label" for="edd-license-key">
-						<?php _e( 'License keys being renewed:', 'edd_sl' ); ?>
-					</label>
-					<?php foreach( $renewal_keys as $key ) :
-
-					$license_id = edd_software_licensing()->get_license_by_key( $key );
-					$download_id = get_post_meta( $license_id, '_edd_sl_download_id', true );
-					?>
-						<span class="edd-renewing-key-title"><?php echo get_the_title( $download_id ); ?></span>
-						<span class="edd-renewing-key-sep">&nbsp;&ndash;&nbsp;</span>
-						<span class="edd-renewing-key"><?php echo $key; ?></span><br/>
-					<?php endforeach; ?>
-					<span class="edd-description"><?php _e( 'You may renew multiple license keys at once.', 'edd_sl' ); ?></span>
-				</p>
-			<?php endif; ?>
-		</fieldset>
-		<?php if( ! empty( $error ) ) :
-			switch( $error ) :
-
-				case 1 :
-					$message = __( 'That license key appears to be invalid.', 'edd_sl' );
-					break;
-
-			endswitch;
-			?>
-			<div class="edd_errors">
-				<p class="edd_error"><?php echo $message; ?></p>
-			</div>
-		<?php endif; ?>
-	</form>
-	<?php if( ! empty( $renewal ) && ! empty( $renewal_keys ) ) : ?>
-	<form method="post" id="edd_sl_cancel_renewal_form">
-		<p>
-			<input type="hidden" name="edd_action" value="cancel_license_renewal"/>
-			<input type="submit" class="edd-submit button" value="<?php _e( 'Cancel License Renewal', 'edd_sl' ); ?>"/>
-		</p>
-	</form>
-	<?php
-	endif;
-	echo ob_get_clean();
-}
-
-
-
-
+remove_action( 'edd_before_purchase_form', 'edd_sl_renewal_form', -1 );
+add_action( 'edd_before_purchase_form', 'pp_edd_sl_renewal_form', -1 );
 
 /**
  * EDD discount field
