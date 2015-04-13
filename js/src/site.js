@@ -42,11 +42,10 @@ jQuery(document).ready(function($) {
     });
 
     // software licensing
-    // $('#edd_sl_show_renewal_form').click(function(e) {
-    //     e.preventDefault();
-    //     $('#edd-license-key-container-wrap').toggle();
-    //     $('#edd-license-key').focus();
-    // });
+    // prevents link from being hidden
+    $('#edd_sl_show_renewal_form').click(function(e) {
+        $(this).show();
+    });
 
     $('.single-post #series-meta').append('<a href="JavaScript:void(0);" class="show-all">Show All</a>');
     
