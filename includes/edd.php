@@ -708,7 +708,7 @@ add_action( 'edd_purchase_form_before_submit', 'pp_edd_checkout_final_total', 99
  * Software licensing
  * @return [type] [description]
  */
-function pp_edd_sl_renewal_form() {
+function pp_edd_sl_renewal_form2() {
 
 	if( ! edd_sl_renewals_allowed() )
 		return;
@@ -763,8 +763,82 @@ function pp_edd_sl_renewal_form() {
 	<?php
 	echo ob_get_clean();
 }
-remove_action( 'edd_before_purchase_form', 'edd_sl_renewal_form', -1 );
-add_action( 'edd_before_purchase_form', 'pp_edd_sl_renewal_form', -1 );
+//remove_action( 'edd_before_purchase_form', 'edd_sl_renewal_form', -1 );
+//add_action( 'edd_before_purchase_form', 'pp_edd_sl_renewal_form2', -1 );
+
+//add_action( 'edd_before_purchase_form', 'pp_edd_sl_renewal_form', -1 );
+function pp_edd_sl_renewal_form() {
+
+	if( ! edd_sl_renewals_allowed() )
+		return;
+
+	$renewal      = EDD()->session->get( 'edd_is_renewal' );
+	$renewal_keys = EDD()->session->get( 'edd_renewal_keys' );
+	$preset_key   = ! empty( $_GET['key'] ) ? urldecode( $_GET['key'] ) : '';
+	$error        = ! empty( $_GET['edd-sl-error'] ) ? absint( $_GET['edd-sl-error'] ) : '';
+	$color        = edd_get_option( 'checkout_color', 'blue' );
+	$color        = ( $color == 'inherit' ) ? '' : $color;
+	$style        = edd_get_option( 'button_style', 'button' );
+	ob_start(); ?>
+	<form method="post" id="edd_sl_renewal_form">
+		<fieldset id="edd_sl_renewal_fields">
+			<p id="edd_sl_show_renewal_form_wrap">
+				<?php _e( 'Renewing a license key? <a href="#" id="edd_sl_show_renewal_form">Click to renew an existing license</a>', 'edd_sl' ); ?>
+			</p>
+			<p id="edd-license-key-container-wrap" class="edd-cart-adjustment" style="display:none;">
+				<span class="edd-description"><?php _e( 'Enter the license key you wish to renew. Leave blank to purchase a new one.', 'edd_sl' ); ?></span>
+				<input class="edd-input required" type="text" name="edd_license_key" autocomplete="off" placeholder="<?php _e( 'Enter your license key', 'edd_sl' ); ?>" id="edd-license-key" value="<?php echo $preset_key; ?>"/>
+				<a href="#" id="edd-cancel-license-renewal"><?php _e( 'Cancel', 'edd_sl' ); ?></a>
+				<input type="hidden" name="edd_action" value="apply_license_renewal"/>
+				<input type="submit" class="edd-submit button <?php echo $color . ' ' . $style; ?>" value="<?php _e( 'Apply License Renewal', 'edd_sl' ); ?>"/>
+			</p>
+
+			<?php if( ! empty( $renewal ) && ! empty( $renewal_keys ) ) : ?>
+				<p id="edd-license-key-container-wrap" class="edd-cart-adjustment">
+					<label class="edd-label" for="edd-license-key">
+						<?php _e( 'License keys being renewed:', 'edd_sl' ); ?>
+					</label>
+					<?php foreach( $renewal_keys as $key ) :
+
+					$license_id = edd_software_licensing()->get_license_by_key( $key );
+					$download_id = get_post_meta( $license_id, '_edd_sl_download_id', true );
+					?>
+						<span class="edd-renewing-key-title"><?php echo get_the_title( $download_id ); ?></span>
+						<span class="edd-renewing-key-sep">&nbsp;&ndash;&nbsp;</span>
+						<span class="edd-renewing-key"><?php echo $key; ?></span><br/>
+					<?php endforeach; ?>
+					<span class="edd-description"><?php _e( 'You may renew multiple license keys at once.', 'edd_sl' ); ?></span>
+				</p>
+			<?php endif; ?>
+		</fieldset>
+		<?php if( ! empty( $error ) ) :
+			switch( $error ) :
+
+				case 1 :
+					$message = __( 'That license key appears to be invalid.', 'edd_sl' );
+					break;
+
+			endswitch;
+			?>
+			<div class="edd_errors">
+				<p class="edd_error"><?php echo $message; ?></p>
+			</div>
+		<?php endif; ?>
+	</form>
+	<?php if( ! empty( $renewal ) && ! empty( $renewal_keys ) ) : ?>
+	<form method="post" id="edd_sl_cancel_renewal_form">
+		<p>
+			<input type="hidden" name="edd_action" value="cancel_license_renewal"/>
+			<input type="submit" class="edd-submit button" value="<?php _e( 'Cancel License Renewal', 'edd_sl' ); ?>"/>
+		</p>
+	</form>
+	<?php
+	endif;
+	echo ob_get_clean();
+}
+
+
+
 
 
 /**
