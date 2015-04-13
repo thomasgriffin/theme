@@ -155,25 +155,20 @@ function pp_get_purchase_link( $args = array() ) {
 
 		<div class="edd_purchase_submit_wrapper">
 			<?php
+
+			$class = implode( ' ', array( $args['style'], $args['color'], trim( $args['class'] ) ) );
+
+			
 			// custom to pippinsplugins.com
-			 if ( ! edd_is_ajax_disabled() ) {
-				printf(
-					'<a href="#" class="edd-add-to-cart %1$s" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s><span class="edd-add-to-cart-label">%2$s</span> <span class="edd-loading">%7$s</span></a>',
-					implode( ' ', array( $args['style'], $args['color'], trim( $args['class'] ) ) ),
-					esc_attr( $args['text'] ),
-					esc_attr( $args['download_id'] ),
-					esc_attr( $data_variable ),
-					esc_attr( $type ),
-					$button_display,
-					'<img class="edd-icon-spin" src="'. get_stylesheet_directory_uri() . "/svgs/spinner.svg" .' " />'
-				);
+			if ( ! edd_is_ajax_disabled() ) {
+				echo '<a href="#" class="edd-add-to-cart ' . esc_attr( $class ) . '" data-action="edd_add_to_cart" data-download-id="' . esc_attr( $download->ID ) . '" ' . $data_variable . ' ' . $type . ' ' . $data_price . ' ' . $button_display . '><span class="edd-add-to-cart-label">' . $args['text'] . '</span> <span class="edd-loading"><img class="edd-icon-spin" src="'. get_stylesheet_directory_uri() . "/svgs/spinner.svg" .' " /></span></a>';
 			}
 
 			printf(
 				'<input type="submit" class="edd-add-to-cart edd-no-js %1$s" name="edd_purchase_download" value="%2$s" data-action="edd_add_to_cart" data-download-id="%3$s" %4$s %5$s %6$s/>',
 				implode( ' ', array( $args['style'], $args['color'], trim( $args['class'] ) ) ),
 				esc_attr( $args['text'] ),
-				esc_attr( $args['download_id'] ),
+				esc_attr( $download->ID ),
 				esc_attr( $data_variable ),
 				esc_attr( $type ),
 				$button_display
