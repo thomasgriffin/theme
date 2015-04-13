@@ -8,8 +8,8 @@
 
 <div class="primary-sidebar widget-area col right" role="complementary">
 
-	<?php echo pp_purchase_link( get_the_ID() ); ?>
-	
+	<?php if ( function_exists( 'pp_purchase_link' ) ) { echo pp_purchase_link( get_the_ID() ); } ?>
+
 	<?php 
 		$terms = get_page_by_title( 'Terms and Conditions' );
 	?>
@@ -26,7 +26,7 @@
 	</div>
 	<?php endif; ?>
 
-	<?php echo pp_product_info( 'right' ); ?>
+	<?php if ( function_exists( 'pp_product_info' ) ) { echo pp_product_info( 'right' ); } ?>
 
 	<?php 
 	/**

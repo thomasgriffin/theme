@@ -17,7 +17,7 @@ get_header(); ?>
 	 */
 	?>
 	<div class="col left">
-		<?php echo pp_product_info(); ?>
+		<?php if ( function_exists( 'pp_product_info' ) ) { echo pp_product_info(); } ?>
 	</div>
 	
 	<div class="primary col">
