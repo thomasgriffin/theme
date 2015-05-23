@@ -64,7 +64,7 @@ function affwp_show_the_title( $title, $id ) {
 	}
 
 	// purchase confirmation
-	if ( function_exists( 'edd_is_success_page' ) && edd_is_success_page() && $id == get_the_ID() ) {
+	if ( 'Purchase Confirmation' == $title && function_exists( 'edd_is_success_page' ) && edd_is_success_page() && $id == get_the_ID() ) {
 		if ( edd_get_purchase_session() ) {
 			$title = sprintf( __( 'Thanks %s!', 'pp' ), affwp_edd_purchase_get_first_name() );
 		}
