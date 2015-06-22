@@ -295,6 +295,10 @@ add_filter( 'wp_title', 'pp_wp_title', 10, 2 );
 
 function pp_edd_optimizely_revenue_tracking() {
 
+	if( ! function_exists( 'edd_get_purchase_session' ) ) {
+		return;
+	}
+
 	$session = edd_get_purchase_session();
 	if( ! $session ) {
 		return;
