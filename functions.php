@@ -1,7 +1,7 @@
 <?php
 
 if ( ! defined( 'PP_THEME_VERSION' ) )
-	define( 'PP_THEME_VERSION', '1.1.3' );
+	define( 'PP_THEME_VERSION', '1.1.4' );
 
 if ( ! defined( 'PP_INCLUDES_DIR' ) )
 	define( 'PP_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
@@ -103,21 +103,21 @@ add_action( 'after_setup_theme', 'pp_setup' );
  * @since 1.0
 */
 function pp_add_has_sub_menu_parent_class( $items ) {
-  
+
   $parents = array();
   foreach ( $items as $item ) {
     if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
       $parents[] = $item->menu_item_parent;
     }
   }
-  
+
   foreach ( $items as $item ) {
     if ( in_array( $item->ID, $parents ) ) {
-      $item->classes[] = 'has-sub-menu'; 
+      $item->classes[] = 'has-sub-menu';
     }
   }
-  
-  return $items;    
+
+  return $items;
 }
 add_filter( 'wp_nav_menu_objects', 'pp_add_has_sub_menu_parent_class' );
 
@@ -169,7 +169,7 @@ function pp_body_classes( $classes ) {
 
 	if ( is_page_template( 'page-templates/full-width.php' ) )
 		$classes[] = 'full-width';
-	
+
 	if ( is_page_template( 'page-templates/pricing.php' ) )
 		$classes[] = 'pricing';
 
@@ -207,7 +207,7 @@ function pp_body_classes( $classes ) {
 
 	if ( is_page_template( 'page-templates/account.php' ) ) {
 		$classes[] = 'account';
-	
+
 		if ( ! is_user_logged_in() ) {
 			$classes[] = 'account-logged-out';
 		}
@@ -239,7 +239,7 @@ function pp_widgets_init() {
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-		
+
 	) );
 
 	register_sidebar( array(
@@ -250,10 +250,10 @@ function pp_widgets_init() {
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-		
+
 	) );
 
-	
+
 }
 add_action( 'widgets_init', 'pp_widgets_init' );
 
@@ -279,7 +279,7 @@ function pp_wp_title( $title, $sep ) {
 
 	// Add the site description for the home/front page.
 	$site_description = get_bloginfo( 'description', 'display' );
-	
+
 	if ( $site_description && ( is_home() || is_front_page() ) ) {
 		$title = "$title $sep $site_description";
 	}
@@ -308,7 +308,7 @@ function pp_edd_optimizely_revenue_tracking() {
 
 ?>
 <script>
-	var price = <?php echo edd_get_payment_amount( $payment_id ); ?> 
+	var price = <?php echo edd_get_payment_amount( $payment_id ); ?>
 	window.optimizely = window.optimizely || [];
 	window.optimizely.push(['trackEvent', 'purchase_complete', {'revenue': price * 100}]);
 </script>
