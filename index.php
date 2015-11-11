@@ -36,7 +36,7 @@ get_header(); ?>
 								endwhile;
 
 								pp_paging_nav();
-								
+
 
 							else :
 								// If no content, include the "No posts found" template.
@@ -47,7 +47,7 @@ get_header(); ?>
 
 				</div>
 			</div>
-			
+
 			<?php get_sidebar(); ?>
 
 		</div>

@@ -12,7 +12,7 @@
 
 		<?php the_content(); ?>
 
-	<?php do_action( 'pp_entry_content_end' ); ?>	
+	<?php do_action( 'pp_entry_content_end' ); ?>
 	</div>
 
 	<?php do_action( 'pp_entry_content_after' ); ?>

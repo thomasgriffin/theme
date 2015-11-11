@@ -11,7 +11,7 @@
 					<?php get_template_part( 'content', get_post_format() ); ?>
 
 				<?php endwhile; ?>
-				
+
 				<nav class="nav-links columns columns-2 clear">
 					<span class="nav-previous col">
 						<?php next_posts_link( __( '&larr; Older', 'pp' ) ); ?>
@@ -23,7 +23,7 @@
 				</nav>
 
 			</div>
-		
+
 		<?php get_sidebar(); ?>
 		</div>
 	</div>

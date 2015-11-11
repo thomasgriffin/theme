@@ -15,7 +15,7 @@
 	<?php if ( is_single() ) : ?>
 
 		<?php pp_post_thumbnail( 'large' ); ?>
-		
+
 		<?php do_action( 'pp_content_single_start' ); ?>
 
 	<?php else : ?>
@@ -23,7 +23,7 @@
 		<div class="entry-meta">
 			<?php pp_entry_meta(); ?>
 		</div>
-		
+
 		<h2 class="entry-title">
 			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 		</h2>
@@ -35,10 +35,10 @@
 		<div class="entry-content">
 			<?php
 				the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyfourteen' ) );
-				
+
 			?>
 		</div><!-- .entry-content -->
-	
+
 	<?php else : // blog listing or learning page ?>
 
 		<?php if ( has_post_thumbnail() ) : ?>
@@ -57,7 +57,7 @@
 				<?php the_excerpt(); ?>
 			</div>
 		<?php endif; ?>
-		
+
 		<?php pp_post_footer(); ?>
 
 	<?php endif; ?>
@@ -67,7 +67,7 @@
 	if ( has_category( 'subscriber-only' ) && is_singular() && ! rcp_is_active() ) : ?>
 		<a href="<?php echo site_url('join-the-site'); ?>" class="upsell">
 		<div class="box columns columns-2">
-			
+
 			<div class="col">
 				<p>Join now to gain access to this tutorial and more.</p>
 			</div>
@@ -75,15 +75,9 @@
 			<div class="col align-right">
 				<span class="button">Join Now</span>
 			</div>
-			
+
 		</div>
 		</a>
 	<?php endif; ?>
 
 </article>
-
-
-					
-
-								
-		

@@ -16,16 +16,16 @@ get_header(); ?>
 	</div>
 
 	<div class="primary col content-area">
-		
+
 		<?php get_template_part( 'content', get_post_format() ); ?>
 
 		<?php if ( comments_open() || get_comments_number() ) {
 			comments_template();
 		} ?>
-	
+
 	</div>
 
-	
+
 	<?php get_sidebar(); ?>
 </section>
 
