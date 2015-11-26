@@ -1,5 +1,7 @@
 #notification-area {
 
+
+
 	h4 {
 		margin-bottom: 0;
 	}
@@ -13,7 +15,8 @@
 	}
 
 	p {
-		margin-bottom: 0;
+		margin: 0 auto;
+		max-width: 1080px;
 	}
 
 	#remove-notice {
@@ -21,4 +24,25 @@
 		top: 1rem;
 		right: 1rem;
 	}
+}
+
+.home #notification-area {
+	background: #000;
+	color: #fff;
+
+	a, p {
+		color: #fff;
+	}
+
+	#remove-notice {
+		display: none;
+	}
+}
+
+.home #notification-area .box {
+	background: transparent;
+}
+
+.home .menu-connect {
+	display: none;
 }
