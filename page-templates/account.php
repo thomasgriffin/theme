@@ -51,12 +51,12 @@ get_header(); ?>
 				*/ ?>
 
         </div>
-			</div>
-		<?php else : ?>
-			<div class="box">
-				<?php echo do_shortcode( '[subscription_details]'); ?>
-			</div>
-		<?php endif; ?>
+
+			<?php else : ?>
+				<div class="box">
+					<?php echo do_shortcode( '[subscription_details]'); ?>
+				</div>
+			<?php endif; ?>
 
 	</div>
 </div>
