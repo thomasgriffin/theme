@@ -18,7 +18,7 @@ get_header(); ?>
             <li><a href="#tab-2">License Keys</a></li>
             <li><a href="#tab-3">Purchases</a></li>
             <li><a href="#tab-4">Profile</a></li>
-            <li><a href="#tab-5">Extras</a></li>
+            <?php /* <li><a href="#tab-5">Extras</a></li> */ ?>
           </ul>
 
         <div id="tab-subscription" class="box">
@@ -41,10 +41,12 @@ get_header(); ?>
             <?php echo do_shortcode( '[rcp_profile_editor]'); ?>
         </div>
 
+				<?php /*
         <div id="tab-5" class="box">
             <h2>Extras</h2>
             <p>Pro Add-ons for RCP</p>
         </div>
+				*/ ?>
 
         </div>
 
