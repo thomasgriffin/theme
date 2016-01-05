@@ -9,6 +9,12 @@ function pp_enqueue_scripts() {
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'affwp-style', get_stylesheet_uri(), array(), PP_THEME_VERSION );
 
+	// load jQuery UI + tabs for account page
+	if ( is_page( 'account' ) ) {
+		wp_enqueue_script( 'jquery-ui-core' );
+		wp_enqueue_script( 'jquery-ui-tabs' );
+	}
+
 	/**
 	 * JS
 	 */
@@ -54,11 +60,11 @@ function pp_home_masthead() {
 				if ( Modernizr.mq('only screen and (min-width: 768px)') ) {
 					console.log('true');
 
-   		    	
-		   		
+
+
 				    scroll = jQuery(this).scrollTop();
 				    div.height(divHeight - scroll)
-				}	
+				}
 			});
 
 
@@ -66,17 +72,17 @@ function pp_home_masthead() {
 				if ( Modernizr.mq('only screen and (min-width: 768px)') ) {
 					console.log('true');
 
-						   				   		
-   		    	
-		   		
+
+
+
 				    scroll = jQuery(this).scrollTop();
 				    div.height(divHeight - scroll)
-								
+
 
 				}
-			}); 
+			});
 
-			
+
 
 
 		});
@@ -97,7 +103,7 @@ function pp_lightbox_js() {
 
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
-			
+
 			// single images
 			$("a:has(img)[href$='.jpg'], a:has(img)[href$='.png'], a:has(img)[href$='.gif']").not(".gallery a").addClass('zoom').magnificPopup({
 				type: 'image',
