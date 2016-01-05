@@ -3,6 +3,8 @@
  * Template Name: Account
  */
 
+
+
 get_header(); ?>
 
 <?php pp_page_header(); ?>
@@ -11,7 +13,7 @@ get_header(); ?>
 
 <div class="primary content-area">
 	<div class="wrapper">
-
+		<?php if ( is_user_logged_in() ) : ?>
         <div id="tabs">
           <ul>
             <li><a href="#tab-subscription">Subscription</a></li>
@@ -49,6 +51,12 @@ get_header(); ?>
 				*/ ?>
 
         </div>
+			</div>
+		<?php else : ?>
+			<div class="box">
+				<?php echo do_shortcode( '[subscription_details]'); ?>
+			</div>
+		<?php endif; ?>
 
 	</div>
 </div>
