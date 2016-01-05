@@ -13,6 +13,9 @@ function pp_enqueue_scripts() {
 	if ( is_page( 'account' ) ) {
 		wp_enqueue_script( 'jquery-ui-core' );
 		wp_enqueue_script( 'jquery-ui-tabs' );
+
+		wp_register_style( 'edd-sl-styles', plugins_url( '/css/edd-sl.css', EDD_SL_PLUGIN_FILE ), false, EDD_SL_VERSION );
+		wp_enqueue_style( 'edd-sl-styles' );
 	}
 
 	/**
