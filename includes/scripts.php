@@ -8,12 +8,11 @@ function pp_enqueue_scripts() {
 
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'affwp-style', get_stylesheet_uri(), array(), PP_THEME_VERSION );
-
+	wp_enqueue_script( 'jquery-ui-tabs' );
 	// load jQuery UI + tabs for account page
 	if ( is_page( 'account' ) ) {
 		wp_enqueue_script( 'jquery-ui-core' );
-		wp_enqueue_script( 'jquery-ui-tabs' );
-
+		
 		wp_register_style( 'edd-sl-styles', plugins_url( '/css/edd-sl.css', EDD_SL_PLUGIN_FILE ), false, EDD_SL_VERSION );
 		wp_enqueue_style( 'edd-sl-styles' );
 	}
