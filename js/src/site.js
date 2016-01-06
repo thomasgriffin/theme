@@ -24,8 +24,10 @@ jQuery(window).load(function() {
 jQuery(document).ready(function($) {
 
     // account tabs
-    jQuery( "#tabs" ).tabs();
-
+    if( jQuery('#tabs').length ) {
+      jQuery( "#tabs" ).tabs();
+    }
+    
     $(".post-video").fitVids();
 
 
