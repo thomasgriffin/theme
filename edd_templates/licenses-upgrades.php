@@ -14,8 +14,8 @@ $color = edd_get_option( 'checkout_color', 'gray' );
 $color = ( $color == 'inherit' ) ? '' : $color;
 
 ?>
-<?php /* <p><a href="<?php echo esc_url( remove_query_arg( array( 'view', 'license_id', 'edd_sl_error', '_wpnonce' ) ) ); ?>" class="edd-manage-license-back edd-submit button <?php echo esc_attr( $color ); ?>"><?php _e( 'Go back!', 'edd_sl' ); ?></a></p> */ ?>
-<p><a href="<?php echo esc_url( remove_query_arg( array( 'view', 'license_id', 'edd_sl_error', '_wpnonce' ), get_permalink( edd_get_option( 'purchase_history_page' ) ) ) . '#tabs=1' ); ?>" class="edd-manage-license-back edd-submit button <?php echo esc_attr( $color ); ?>"><?php _e( 'Go back!', 'edd_sl' ); ?></a></p>
+<?php /* <p><a href="<?php echo esc_url( remove_query_arg( array( 'view', 'license_id', 'edd_sl_error', '_wpnonce' ) ) ); ?>" class="edd-manage-license-back edd-submit button <?php echo esc_attr( $color ); ?>"><?php _e( 'Go back', 'edd_sl' ); ?></a></p> */ ?>
+<p><a href="<?php echo esc_url( remove_query_arg( array( 'view', 'license_id', 'edd_sl_error', '_wpnonce' ), get_permalink( edd_get_option( 'purchase_history_page' ) ) ) . '#tabs=1' ); ?>" class="edd-manage-license-back edd-submit button <?php echo esc_attr( $color ); ?>"><?php _e( 'Go back', 'edd_sl' ); ?></a></p>
 <?php edd_sl_show_errors(); ?>
 <table id="edd_sl_license_upgrades" class="edd_sl_table">
 	<thead>
