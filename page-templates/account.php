@@ -15,22 +15,54 @@ get_header(); ?>
 	<div class="wrapper">
 		<?php if ( is_user_logged_in() ) : ?>
         <div id="tabs">
+
           <ul>
-            <li><a href="#tab-subscription">Subscription</a></li>
+            <li><a href="#tab-1">Subscriptions</a></li>
             <li><a href="#tab-2">License Keys</a></li>
             <li><a href="#tab-3">Purchases</a></li>
             <li><a href="#tab-4">Profile</a></li>
             <?php /* <li><a href="#tab-5">Extras</a></li> */ ?>
           </ul>
 
-        <div id="tab-subscription" class="box">
+        <div id="tab-1" class="box">
             <h2>Subscription Information</h2>
             <?php echo do_shortcode( '[subscription_details]'); ?>
+
+			<?php if ( rcp_member_can_update_billing_card() ) : ?>
+			<h2>Update credit/debit card</h2>
+			<p>Use this form to update the credit / debit card that is used for your subscription.</p>
+
+			<?php echo do_shortcode( '[rcp_update_card]'); ?>
+			<?php endif; ?>
         </div>
 
         <div id="tab-2" class="box">
-            <h2>License Keys</h2>
-            <?php echo do_shortcode( '[edd_license_keys]'); ?>
+
+			<?php
+			// EDD SL only filters the_content, not page templates like this
+			if ( ! ( empty( $_GET['action'] ) || empty( $_GET['payment_id'] ) ) && 'manage_licenses' == $_GET['action'] ) {
+
+				echo '<h2>License Keys</h2>';
+				echo '<h4>Manage sites</h4>';
+				if ( isset( $_GET['license_id'] ) && isset( $_GET['view'] ) && 'upgrades' == $_GET['view'] ) {
+
+					edd_get_template_part( 'licenses', 'upgrades' );
+
+				} else {
+
+					$view = isset( $_GET['license_id'] ) ? 'single' : 'overview';
+
+					edd_get_template_part( 'licenses', 'manage-' . $view );
+
+				}
+
+			} else {
+				echo '<h2>License Keys</h2>';
+				echo do_shortcode( '[edd_license_keys]');
+			}
+
+			?>
+
         </div>
 
         <div id="tab-3" class="box">

@@ -1,7 +1,7 @@
 <?php
 
 if ( ! defined( 'PP_THEME_VERSION' ) )
-	define( 'PP_THEME_VERSION', '1.1.9' );
+	define( 'PP_THEME_VERSION', '1.1.8' );
 
 if ( ! defined( 'PP_INCLUDES_DIR' ) )
 	define( 'PP_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
@@ -315,3 +315,18 @@ function pp_edd_optimizely_revenue_tracking() {
 <?php
 }
 add_action( 'wp_head', 'pp_edd_optimizely_revenue_tracking');
+
+/**
+ * Redirect to correct tab when profile is updated
+ */
+function pp_rcp_profile_updated( $user_id, $userdata ) {
+	wp_safe_redirect( add_query_arg( 'updated', 'true', sanitize_text_field( $_POST['rcp_redirect'] ) . '#tabs=3' ) );
+	exit;
+}
+add_action( 'rcp_user_profile_updated', 'pp_rcp_profile_updated', 10, 2 );
+
+/**
+ * Remove the license keys column
+ */
+remove_action( 'edd_purchase_history_row_end', 'edd_sl_site_management_links', 10 );
+remove_action( 'edd_purchase_history_header_after', 'edd_sl_add_key_column' );
