@@ -20,6 +20,14 @@
 	}
 }
 
+.rcp_message.error {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.rcp_error,
 .rcp_success,
 .affwp-notice,
 .notice,
@@ -36,16 +44,21 @@
 	border: 1px solid #E6DB55;
 }
 
+.rcp_error,
 .affwp-errors,
 .error {
 	@bg: #FFEBE8;
 	background: @bg;
 	border: 1px solid #CC0000;
-	margin: 0 0 1em 0;
+	margin: 0 0 1rem 0;
 	padding: 1rem;
 
 	p {
 		margin-bottom: 0;
 		font-size: 1rem;
+
+		&.rcp_error {
+			margin-bottom: 1rem !important;
+		}
 	}
 }
