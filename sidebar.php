@@ -9,24 +9,24 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 ?>
 
 <div class="primary-sidebar widget-area col right" role="complementary">
-	
-	<?php 
+
+	<?php
 	/**
 	 * Post information
 	 */
-	echo pp_single_post_type_info( 'right' ); 
+	echo pp_single_post_type_info( 'right' );
 
 	?>
 
-	<?php 
+	<?php
 	/**
 	 * Show the shopping cart
 	 */
-	
+
 	$cart_items    = function_exists( 'edd_get_cart_contents' ) ? edd_get_cart_contents() : '';
 	$cart_quantity = function_exists( 'edd_get_cart_quantity' ) ? edd_get_cart_quantity() : '';
 	$display       = $cart_quantity > 0 ? '' : 'style="display:none;"';
-	
+
 	if ( $cart_items ) : ?>
 		<aside>
 		<h2>Ready to purchase?</h2>
@@ -40,7 +40,7 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 		</aside>
 	<?php endif; ?>
 
-	<?php 
+	<?php
 	/**
 	 * Show a button for non logged in users to join the site
 	 */
@@ -53,16 +53,16 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 	<?php endif; ?>
 
 
-	<?php 
+	<?php
 	/**
 	 * User is logged in
 	 * Show them the account box and latest member-only content
 	 */
-	if ( is_user_logged_in() ) : ?>	
+	if ( is_user_logged_in() ) : ?>
 		<aside class="box">
 
 		<h2>
-			<?php 
+			<?php
 
 			$current_user = wp_get_current_user();
 			$name         = $current_user->user_firstname ? $current_user->user_firstname : $current_user->display_name;
@@ -88,7 +88,7 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 		?>
 		<aside class="box">
 			<h2>Latest tutorials</h2>
-			
+
 			<?php
 			    $args = array(
 			      'posts_per_page' => 5,
@@ -97,17 +97,17 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 
 			    $query = new WP_Query( $args );
 			?>
-			<?php if ( $query->have_posts() ) : ?> 
+			<?php if ( $query->have_posts() ) : ?>
 			   <ul class="linked list small">
-			        <?php while ( $query->have_posts() ) : $query->the_post(); ?>  
-			            <li id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
+			        <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+			            <li id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
 			                        <?php the_title(); ?>
 			                    </a>
 			              </li>
 			        <?php endwhile; wp_reset_query(); ?>
 
-			     </ul>  
+			     </ul>
 			<?php endif; ?>
 
 			<a href="<?php echo get_category_link( get_cat_ID( 'Subscriber Only' ) ); ?>" class="button wide">View all</a>
@@ -116,7 +116,7 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 	<?php endif; ?>
 
 	<?php if ( is_page( 'learn' ) ) : ?>
-		
+
 		<aside class="box">
 			<h2>What's your skill level?</h2>
 
@@ -142,21 +142,21 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 			    $query = new WP_Query( $args );
 
 			?>
-			<?php if ( $query->have_posts() ) : ?> 
+			<?php if ( $query->have_posts() ) : ?>
 			   <ul class="linked list small">
-			        <?php while ( $query->have_posts() ) : $query->the_post(); ?>  
-			            <li id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
-			            	
-			               
-			              
+			        <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+			            <li id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+
+
 			                    <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
 			                        <?php the_title(); ?>
 			                    </a>
 			              </li>
-			             
-			            
+
+
 			        <?php endwhile; wp_reset_query(); ?>
-			     </ul>  
+			     </ul>
 			<?php endif; ?>
 		</aside>
 
@@ -165,6 +165,8 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 	<?php pp_banner_affwp(); ?>
 
 	<?php pp_banner_edd(); ?>
+
+	<?php pp_banner_rcp(); ?>
 
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </div>

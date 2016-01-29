@@ -29,3 +29,15 @@ function pp_banner_edd() {
 <?php
 }
 
+/**
+ * Restrict Content Pro
+ */
+function pp_banner_rcp() {
+?>
+	<aside class="widget">
+		<a href="https://restrictcontentpro.com" target="_blank">
+			<img title="Restrict Content Pro" src="<?php echo get_stylesheet_directory_uri() . '/images/300x250-rcp.png'; ?>" />
+		</a>
+	</aside>
+<?php
+}
