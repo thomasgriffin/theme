@@ -330,3 +330,19 @@ add_action( 'rcp_user_profile_updated', 'pp_rcp_profile_updated', 10, 2 );
  */
 remove_action( 'edd_purchase_history_row_end', 'edd_sl_site_management_links', 10 );
 remove_action( 'edd_purchase_history_header_after', 'edd_sl_add_key_column' );
+
+/**
+ * Get ID of RCP based on title
+ *
+ */
+function pp_get_rcp_download_id() {
+
+	$download     = get_page_by_title( 'Restrict Content Pro', OBJECT, 'download' );
+	$download_id  = $download->ID;
+
+	if ( $download_id ) {
+		return $download_id;
+	}
+
+	return false;
+}

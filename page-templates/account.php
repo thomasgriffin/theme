@@ -14,6 +14,11 @@ get_header(); ?>
 <div class="primary content-area">
 	<div class="wrapper">
 		<?php if ( is_user_logged_in() ) : ?>
+
+	<?php if ( edd_has_user_purchased( get_current_user_id(), pp_get_rcp_download_id() ) ) : ?>
+		<p class="notice">Purchase records and license keys for Restrict Content Pro have been moved to <a href="https://restrictcontentpro.com/account">restrictcontentpro.com</a>. Please log into your account there.</p>
+	<?php endif; ?>
+
         <div id="tabs">
 
           <ul>
