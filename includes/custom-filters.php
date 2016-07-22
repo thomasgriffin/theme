@@ -57,12 +57,6 @@ add_filter( 'affwp_excerpt', 'affwp_edd_modify_excerpt' );
 */
 function affwp_show_the_title( $title, $id ) {
 
-	// about
-	if ( 'page-templates/about.php' == get_post_meta( $id, '_wp_page_template', true ) ) {
-	//	$title = __( 'About', 'pp' );
-		$title = __( 'Pippin Williamson', 'pp' );
-	}
-
 	// purchase confirmation
 	if ( 'Purchase Confirmation' == $title && function_exists( 'edd_is_success_page' ) && edd_is_success_page() && $id == get_the_ID() ) {
 		if ( edd_get_purchase_session() ) {
