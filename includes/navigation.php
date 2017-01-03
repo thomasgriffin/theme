@@ -10,7 +10,7 @@ function pp_load_main_navigation() {
 		ob_start();
 	?>
 
-	
+
 
 	<nav id="main" class="site-navigation primary-navigation" role="navigation">
 	<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'pp' ); ?></a>
@@ -26,13 +26,13 @@ function pp_load_main_navigation() {
 		  )
 		);
 	?>
-	
+
 	</nav>
 
 	<?php pp_sharing_navigation(); ?>
 
-<?php 
-	echo ob_get_clean(); 
+<?php
+	echo ob_get_clean();
 }
 add_action( 'pp_masthead_col_2', 'pp_load_main_navigation' );
 
@@ -49,7 +49,7 @@ function pp_load_navigation_extras() {
 
 	if ( function_exists( 'pp_share_icon' ) ) {
 		pp_share_icon();
-	}	
+	}
 
 	if ( function_exists( 'pp_show_cart_quantity_icon' ) ) {
 		pp_show_cart_quantity_icon();
@@ -106,7 +106,7 @@ function pp_highlight_menu_item( $classes ) {
 	    if ( in_array ( 'reviews', $classes ) ) {
 	      $classes[] = 'current-menu-item';
 	    }
-	} 
+	}
 
 	return $classes;
 }
@@ -117,13 +117,11 @@ add_filter( 'nav_menu_css_class', 'pp_highlight_menu_item' );
  * Append account to main navigation
  * @return [type] [description]
  */
-function pp_nav_account() { 
-	global $current_user;
-	get_currentuserinfo();
+function pp_nav_account() {
 
 	$account_page 		= '/account';
 	$affiliates_page 	= '/affiliates';
-	
+
 	ob_start();
 	?>
 
@@ -142,12 +140,12 @@ function pp_nav_account() {
 		$active = is_page( 'account' ) || ( function_exists( 'affiliate_wp' ) && is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) ) ? ' current-menu-item' : '';
 	?>
 		<li class="menu-item account<?php echo $active; ?>">
-			
+
 			<?php if ( is_user_logged_in() ) : ?>
 				<a title="<?php echo 'Your Account'; ?>" href="<?php echo site_url( $account_page ); ?>"><?php echo 'Account'; ?></a>
 			<?php else : ?>
 				<a title="<?php _e( 'Log in', 'pp' ); ?>" href="<?php echo site_url( $account_page ); ?>"><?php _e( 'Log in', 'pp' ); ?></a>
-			<?php endif; ?>	
+			<?php endif; ?>
 
 		</li>
 
@@ -164,10 +162,10 @@ function pp_nav_account() {
  * Prepend home link to main navigation
  * @return [type] [description]
  */
-function pp_nav_home() { 
+function pp_nav_home() {
 	 ob_start();
 	?>
-	
+
 	<li class="menu-item home">
 		<a title="Home" href="/">Home</a>
 	</li>
