@@ -9,16 +9,16 @@
 function affwp_the_title_support( $title ) {
 	if ( ! is_page_template( 'page-templates/support.php' ) )
 		return $title;
-	
+
 	ob_start();
 	?>
-	
+
 	<h1 id="rotate">
 		<div>Something not working?</div>
 		<div>Have a pre-sale question?</div>
 		<div>Want to request a feature?</div>
 	</h1>
-<?php 
+<?php
 	return ob_get_clean();
 }
 add_filter( 'affwp_the_title', 'affwp_the_title_support' );
@@ -56,6 +56,10 @@ add_filter( 'affwp_excerpt', 'affwp_edd_modify_excerpt' );
  * @since 1.0
 */
 function affwp_show_the_title( $title, $id ) {
+
+	if ( ! $id ) {
+		return $title;
+	}
 
 	// purchase confirmation
 	if ( 'Purchase Confirmation' == $title && function_exists( 'edd_is_success_page' ) && edd_is_success_page() && $id == get_the_ID() ) {
