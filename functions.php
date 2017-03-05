@@ -1,7 +1,7 @@
 <?php
 
 if ( ! defined( 'PP_THEME_VERSION' ) )
-	define( 'PP_THEME_VERSION', '1.2.1' );
+	define( 'PP_THEME_VERSION', '1.2.2' );
 
 if ( ! defined( 'PP_INCLUDES_DIR' ) )
 	define( 'PP_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
@@ -11,6 +11,7 @@ if ( ! defined( 'PP_INCLUDES_DIR' ) )
  * @since 1.0
 */
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'masthead.php' );
+
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'scripts.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'page-mods.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'sharing.php' );
@@ -28,6 +29,8 @@ require_once( trailingslashit( PP_INCLUDES_DIR ) . 'banners.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'custom-filters.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'blog.php' );
 require_once( trailingslashit( PP_INCLUDES_DIR ) . 'restrict-content-pro.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'notices.php' );
+require_once( trailingslashit( PP_INCLUDES_DIR ) . 'countdown.php' );
 
 if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 	require_once( trailingslashit( PP_INCLUDES_DIR ) . 'edd.php' );

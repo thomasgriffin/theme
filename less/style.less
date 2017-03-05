@@ -14,6 +14,26 @@
 @content-bg-color: rgba( 97, 141, 235, 0.08 );
 @warning-color: #EB3333;
 
+// breakpoints
+@screen-sm-min: 768px; // 48em
+@screen-md-min: 992px; // 62em
+@screen-lg-min: 1220px; // 75em
+
+// navigation breakpoints
+@nav-sm-max: @screen-sm-max;
+@nav-sm-min: @screen-sm-min;
+@nav-md-min: @screen-md-min;
+@nav-lg-min: @screen-lg-min;
+
+// when the desktop navigation should be shown
+@desktop-nav: 768px;
+@desktop-nav-max: @desktop-nav - 1;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);
+
 body, html {
 	height: 100%;
 	font-size: 100%;
@@ -170,6 +190,7 @@ a {
 @import 'columns';
 @import 'post-series';
 @import 'notices';
+@import 'countdown';
 @import 'sidebar';
 @import 'columns-overrides';
 @import 'ie'; // IE overriddes must go last

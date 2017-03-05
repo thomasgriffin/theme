@@ -1,48 +1,95 @@
+.home .menu-connect {
+	display: none;
+}
+
 #notification-area {
-
-
-
-	h4 {
-		margin-bottom: 0;
-	}
-
-	.wrapper {
-		max-width: 1220px;
-		margin: 0 auto;
-		position: relative;
-		text-align: center;
-		padding: 1rem 2rem;
-	}
+	background: #222;
+	width: 100%;
+	padding: 1rem;
+	vertical-align: middle;
+	text-align: center;
+	position: relative;
+	z-index: 2; // so it's above the social icons
 
 	p {
-		margin: 0 auto;
-		max-width: 1080px;
+		padding: 0 2rem;
+	}
+}
+
+#notification-area h3,
+#notification-area p {
+	color: #fff;
+}
+
+#notification-area h3 {
+	margin-bottom: 0;
+}
+
+#notification-area a {
+	color: #fff;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+#notification-area.discount-applied {
+	background: #333a42;
+}
+
+#notification-area.discount-applied.link {
+	padding: 0;
+}
+
+#notification-area.discount-applied.link a {
+	display: block;
+	padding: 1rem;
+}
+
+#notification-area.snp-hidden {
+	display: none;
+}
+
+.logged-in #notification-area.snp-hidden {
+	display: block;
+}
+
+#remove-notice svg {
+	vertical-align: middle;
+}
+
+@media only screen and ( max-width: @screen-sm-max ) {
+
+	#announcement {
+		margin: 0 0 1rem 0;
+		display: none;
 	}
 
 	#remove-notice {
 		position: absolute;
-		top: 1rem;
+		top: 1.25rem;
 		right: 1rem;
 	}
-}
 
-.home #notification-area {
-	background: #000;
-	color: #fff;
-
-	a, p {
-		color: #fff;
-	}
-
-	#remove-notice {
-		display: none;
+	#notification-area p {
+		margin-bottom: 0;
 	}
 }
 
-.home #notification-area .box {
-	background: transparent;
-}
+@media only screen and ( min-width: @screen-md-min ) {
 
-.home .menu-connect {
-	display: none;
+	.notice-content {
+		display: -webkit-flex;
+		display: flex;
+
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+
+		-webkit-align-items: center;
+		align-items: center;
+	}
+
+	#notification-area p {
+		margin-bottom: 0;
+	}
 }
