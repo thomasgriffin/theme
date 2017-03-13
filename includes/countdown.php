@@ -15,8 +15,13 @@ function pp_theme_enqueue_countdown_scripts() {
 	// Register countdown script.
 	wp_register_script( 'countdown', get_stylesheet_directory_uri() . '/js/jquery.countdown.min.js', array( 'jquery' ), PP_THEME_VERSION );
 
+	wp_register_script( 'moment-timezone', get_stylesheet_directory_uri() . '/js/moment-timezone-with-data.min.js', array(), PP_THEME_VERSION );
+	wp_register_script( 'moment', get_stylesheet_directory_uri() . '/js/moment.min.js', array(), PP_THEME_VERSION );
+
 	// Only enqueue script if a sale notice is published.
 	if ( pp_theme_sale_notice_active() ) {
+		wp_enqueue_script( 'moment' );
+		wp_enqueue_script( 'moment-timezone' );
 		wp_enqueue_script( 'countdown' );
 	}
 
@@ -106,7 +111,9 @@ function pp_theme_get_countdown( $end_date = '' ) {
 	ob_start();
 	?>
 	<span id="countdown"><span id="countdown-text">Sale ends in</span><br><span id="countdown-date"></span></span><script type="text/javascript">
-		jQuery('#countdown-date').countdown('<?php echo $end_date; ?>').on('update.countdown', function(event) {
+			var endDate = moment.tz("<?php echo $end_date; ?>", "America/Chicago");
+
+		jQuery('#countdown-date').countdown( endDate.toDate() ).on('update.countdown', function(event) {
 
 			var format = '%H:%M:%S';
 
