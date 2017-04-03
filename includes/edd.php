@@ -641,7 +641,6 @@ function affwp_edd_thank_customer() {
 function pp_product_info( $position = '' ) {
 	$post                = get_post ( get_the_ID() );
 	$is_edd              = 'Easy Digital Downloads' == $post->post_title ? true : false;
-	$updated             = intval ( get_post_meta( get_the_ID(), '_pp_product_last_updated', true ) );
 	$pp_show_plugin_info = function_exists( 'pp_show_plugin_info' ) ? pp_show_plugin_info() : '';
 	$slug                = 'easy-digital-downloads';
 	$rating              = $pp_show_plugin_info ? $pp_show_plugin_info->get_info( $slug, 'rating' ) / 20 : '';
@@ -708,15 +707,7 @@ function pp_product_info( $position = '' ) {
 		<p><span>Downloads </span><?php echo $downloads; ?></p>
 
 		<p><span>Rating </span><?php echo $rating; ?> / 5 from <?php echo $num_ratings; ?> reviews</p>
-		<?php endif; ?>
-
-		<?php if ( $updated ) : ?>
-		<p><span>Last Updated</span><?php echo date( 'F j, Y', $updated ); ?></p>
-		<?php endif; ?>
-
-		
-			
-		
+		<?php endif; ?>	
 		
 
 	</aside>
