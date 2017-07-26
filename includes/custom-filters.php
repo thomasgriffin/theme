@@ -55,11 +55,7 @@ add_filter( 'affwp_excerpt', 'affwp_edd_modify_excerpt' );
  *
  * @since 1.0
 */
-function affwp_show_the_title( $title, $id ) {
-
-	if ( ! $id ) {
-		return $title;
-	}
+function affwp_show_the_title( $title, $id = null ) {
 
 	// purchase confirmation
 	if ( 'Purchase Confirmation' == $title && function_exists( 'edd_is_success_page' ) && edd_is_success_page() && $id == get_the_ID() ) {
