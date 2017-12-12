@@ -12,13 +12,9 @@ get_header(); ?>
 
 		<ul class="site-stats">
 			<li>
-				<span class="total"><?php echo pp_get_category_post_count( 'free-members' ); ?></span> Free tutorials
+				<span class="total"><?php echo pp_get_category_post_count( 'tutorials' ); ?></span> Tutorials
 			</li>
 
-			<li>
-				<span class="total"><?php echo pp_get_category_post_count( 'subscriber-only' ); ?></span> Premium tutorials
-			</li>
-			
 			<li>
 				<span class="total"><?php echo pp_get_download_count(); ?></span> Products
 			</li>
@@ -32,7 +28,7 @@ get_header(); ?>
 
 <?php
 /**
- * Latest premium tutorials
+ * Latest tutorials
  */
 ?>
 <section class="section home columns columns-3 grid row">
