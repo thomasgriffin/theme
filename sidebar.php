@@ -42,19 +42,6 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 
 	<?php
 	/**
-	 * Show a button for non logged in users to join the site
-	 */
-	if ( ! is_user_logged_in() ) : ?>
-	<aside class="box">
-		<h2>Join the site</h2>
-		<p>Gain access to exclusive member-only plugins and tutorials.</p>
-		<a href="<?php echo site_url( 'join-the-site' ); ?>" class="button wide">Join today</a>
-	</aside>
-	<?php endif; ?>
-
-
-	<?php
-	/**
 	 * User is logged in
 	 * Show them the account box and latest member-only content
 	 */
