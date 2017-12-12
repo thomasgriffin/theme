@@ -62,22 +62,4 @@
 
 	<?php endif; ?>
 
-	<?php
-	// Upsell non-members to premium content
-	if ( has_category( 'subscriber-only' ) && is_singular() && ! rcp_is_active() ) : ?>
-		<a href="<?php echo site_url('join-the-site'); ?>" class="upsell">
-		<div class="box columns columns-2">
-
-			<div class="col">
-				<p>Join now to gain access to this tutorial and more.</p>
-			</div>
-
-			<div class="col align-right">
-				<span class="button">Join Now</span>
-			</div>
-
-		</div>
-		</a>
-	<?php endif; ?>
-
 </article>
