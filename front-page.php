@@ -39,7 +39,7 @@ get_header(); ?>
 	
 	<header class="page-header">
 		<h1>Start learning today</h1>
-		<h2>Get a head start with premium tutorials on WordPress plugin development</h2>
+		<h2>Get a head start with advanced tutorials on WordPress plugin development</h2>
 	</header>
 
 	<div class="wrapper">
@@ -47,15 +47,7 @@ get_header(); ?>
 			$args = array(
 				'post_type'      => 'post',
 				'posts_per_page' => 3,
-				'category_name'  => 'tutorials',
-				'tax_query' =>  array(
-					'relation' => 'AND',
-					array(
-						'taxonomy' => 'category',
-						'field'    => 'slug',
-						'terms'    => array( 'subscriber-only' )
-					)
-				)
+				'category_name'  => 'tutorials'
 			);
 
 		    $tutorials = new WP_Query( $args );
