@@ -70,7 +70,7 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 
 		<?php
 		/**
-		 * Latest member-only content for logged-in users
+		 * Latest tutorials
 		 */
 		?>
 		<aside class="box">
@@ -79,7 +79,7 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 			<?php
 			    $args = array(
 			      'posts_per_page' => 5,
-			      'category_name' => 'subscriber-only'
+			      'category_name' => 'tutorials'
 			    );
 
 			    $query = new WP_Query( $args );
@@ -97,7 +97,7 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 			     </ul>
 			<?php endif; ?>
 
-			<a href="<?php echo get_category_link( get_cat_ID( 'Subscriber Only' ) ); ?>" class="button wide">View all</a>
+			<a href="<?php echo get_category_link( get_cat_ID( 'Tutorials' ) ); ?>" class="button wide">View all</a>
 		</aside>
 
 	<?php endif; ?>
