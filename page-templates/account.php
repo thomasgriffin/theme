@@ -19,6 +19,8 @@ get_header(); ?>
 		<p class="notice">Purchase records and license keys for Restrict Content Pro have been moved to <a href="https://restrictcontentpro.com/account">restrictcontentpro.com</a>. Please log into your account there.</p>
 	<?php endif; ?>
 
+	<p class="notice">Memberrships to Pippin's Plugins have been discontinued. See my <a href="https://wp.me/p77rfW-pLi">blog post</a>.</p>
+
         <div id="tabs">
 
           <ul>
@@ -32,13 +34,6 @@ get_header(); ?>
         <div id="tab-1" class="box">
             <h2>Subscription Information</h2>
             <?php echo do_shortcode( '[subscription_details]'); ?>
-
-			<?php if ( rcp_member_can_update_billing_card() ) : ?>
-			<h2>Update credit/debit card</h2>
-			<p>Use this form to update the credit / debit card that is used for your subscription.</p>
-
-			<?php echo do_shortcode( '[rcp_update_card]'); ?>
-			<?php endif; ?>
         </div>
 
         <div id="tab-2" class="box">
