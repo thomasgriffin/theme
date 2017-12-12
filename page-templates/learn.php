@@ -5,7 +5,7 @@
 
 get_header(); 
 
-$tutorials_total = pp_get_category_post_count( 'free-members' ) + pp_get_category_post_count( 'subscriber-only' );
+$tutorials_total = pp_get_category_post_count( 'tutorials' );
 ?>
 
 
