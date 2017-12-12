@@ -65,6 +65,8 @@
 						<li><a href="<?php echo site_url( 'products/affiliatewp' ); ?>">AffiliateWP</a></li>
 						<li><a href="<?php echo site_url( 'products/easy-digital-downloads' ); ?>">Easy Digital Downloads</a></li>
 						<li><a href="<?php echo site_url( 'products/restrict-content-pro' ); ?>">Restrict Content Pro</a></li>
+						<li><a href="<?php echo site_url( 'products/sugar-event-calendar' ); ?>">Sugar Calendar</a></li>
+						<li><a href="https://sellbird.com">SellBird</a></li>
 					</ul>
 
 					
