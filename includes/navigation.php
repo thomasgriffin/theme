@@ -123,20 +123,7 @@ function pp_nav_account() {
 	$affiliates_page 	= '/affiliates';
 
 	ob_start();
-	?>
 
-	<?php
-		$active = is_page( 'join-the-site' ) ? ' current-menu-item' : '';
-
-		if ( ! is_user_logged_in() ) :
-	?>
-		<li class="menu-item account<?php echo $active; ?>">
-			<a title="<?php _e( 'Join the site', 'pp' ); ?>" href="<?php echo site_url( 'join-the-site' ); ?>"><?php _e( 'Join', 'pp' ); ?></a>
-		</li>
-	<?php endif; ?>
-
-
-	<?php
 		$active = is_page( 'account' ) || ( function_exists( 'affiliate_wp' ) && is_page( affiliate_wp()->settings->get( 'affiliates_page' ) ) ) ? ' current-menu-item' : '';
 	?>
 		<li class="menu-item account<?php echo $active; ?>">
