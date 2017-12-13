@@ -19,7 +19,7 @@ get_header(); ?>
 		<p class="notice">Purchase records and license keys for Restrict Content Pro have been moved to <a href="https://restrictcontentpro.com/account">restrictcontentpro.com</a>. Please log into your account there.</p>
 	<?php endif; ?>
 
-	<p class="notice">Memberrships to Pippin's Plugins have been discontinued. See my <a href="https://wp.me/p77rfW-pLi">blog post</a>.</p>
+	<p class="notice">Memberships to Pippin's Plugins have been discontinued. See my <a href="https://wp.me/p77rfW-pLi">blog post</a>.</p>
 
         <div id="tabs">
 
