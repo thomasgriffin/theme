@@ -62,11 +62,12 @@
 				<div class="col">
 					<h3>Recommended Products</h3>
 					<ul>
-						<li><a href="<?php echo site_url( 'products/affiliatewp' ); ?>">AffiliateWP</a></li>
-						<li><a href="<?php echo site_url( 'products/easy-digital-downloads' ); ?>">Easy Digital Downloads</a></li>
-						<li><a href="<?php echo site_url( 'products/restrict-content-pro' ); ?>">Restrict Content Pro</a></li>
-						<li><a href="<?php echo site_url( 'products/sugar-event-calendar' ); ?>">Sugar Calendar</a></li>
+						<li><a href="https://affiliatewp.com">AffiliateWP</a></li>
+						<li><a href="https://easydigitaldownloads.com">Easy Digital Downloads</a></li>
+						<li><a href="https://restrictcontentpro.com">Restrict Content Pro</a></li>
+						<li><a href="https://sugarcalendar.com">Sugar Calendar</a></li>
 						<li><a href="https://sellbird.com">SellBird</a></li>
+						<li><a href="https://wpsimplepay.com">WP Simple Pay</a></li>
 					</ul>
 
 					
