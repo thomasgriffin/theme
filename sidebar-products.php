@@ -8,8 +8,12 @@
 
 <div class="primary-sidebar widget-area col right" role="complementary">
 
-	<?php if ( function_exists( 'pp_purchase_link' ) ) { echo pp_purchase_link( get_the_ID() ); } ?>
-
+	<?php  
+	/* This custom link is broken. See https://3.basecamp.com/4226849/buckets/12205794/messages/2132700320
+	if ( function_exists( 'pp_purchase_link' ) ) { echo pp_purchase_link( get_the_ID() ); }
+	*/
+	?>
+	<?php echo edd_get_purchase_link(); ?>
 	<?php 
 		$terms = get_page_by_title( 'Terms and Conditions' );
 	?>
