@@ -103,7 +103,7 @@
 		
 		<section class="section copyright">
 			<div class="wrapper">
-				Copyright &copy; <?php echo date('Y') . ', ' . get_bloginfo('name'); ?>
+				Copyright &copy; <?php echo date('Y') . ' Sandhills Development, LLC'; ?>
 			</div>
 		</section>
 
