@@ -6,6 +6,12 @@ if ( ! defined( 'PP_THEME_VERSION' ) )
 if ( ! defined( 'PP_INCLUDES_DIR' ) )
 	define( 'PP_INCLUDES_DIR', trailingslashit( get_template_directory() ) . 'includes' ); /* Sets the path to the theme's includes directory. */
 
+define( 'AWP_URL', 'https://affiliatewp.com/' );
+define( 'EDD_URL', 'https://easydigitaldownloads.com/' );
+define( 'SC_URL', 'https://sugarcalendar.com/' );
+define( 'WPSP_URL', 'https://wpsimplepay.com/' );
+define( 'PS_URL', 'https://payouts.sandhillsdev.com/' );
+
 /**
  * Includes
  * @since 1.0

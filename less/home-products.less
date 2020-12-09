@@ -4,75 +4,113 @@
 	text-align: justify;
 	padding: 3rem 2rem 2rem;
 
-	.wrapper {
-		max-width: 1220px;
-	}
+	& .wrapper {
+		max-width: 768px;
 
-	.col {
-		text-align: center;
-	}
-
-	svg {
-		width: 100%;
-	}
-
-	a {
-		display: block;
-		color: #4a7e9a;
-		position: relative;
-	}
-
-	p {
-		font-size: 16px;
-		max-width: 95%;
-		color: #fff;
-		visibility: hidden;
-		.opacity(0);
-		position: absolute;
-		left: 0;
-		top: 1rem;
-		width: 100%;
-		height: 100%;
-		.transition( all 0.2s 0.2s ease-out );
-	}
-
-}
-
-// anchor link
-.home-products a {
-	span {
-		display: block;
-	}
-
-	svg {
-		.opacity(100);
-		position: relative;
-		.transition( all 0.2s 0.2s ease-in );
-		margin: 0;
-	}
-}
-
-
-
-@media only screen and ( min-width: 520px ) {
-	.home-products {
-		a {
-			min-height: 5rem;
-		}
-	}
-
-	// hover effect
-	.home-products a:hover {
-		p {
-			visibility: visible;
-			top: 0;
-			.opacity(100);
-			.transition( all 0.2s 0.2s ease-in );
+		@media all and ( min-width: 1220px ) {
+			max-width: 1220px;
 		}
 
-		svg {
-			.opacity(0);
-			.transition( all 0.2s 0.2s ease-out );
+		& .col {
+			text-align: center;
+			padding: 0 13px;
+
+			&.awp-col {
+			}
+
+			&.edd-col {
+
+				& img {
+
+					@media all and ( min-width: 768px ) {
+						top: 11px;
+					}
+				}
+			}
+
+			&.sc-col {
+
+				& img {
+
+					@media all and ( min-width: 768px ) {
+						top: 12px;
+					}
+				}
+			}
+
+			&.wpsp-col {
+
+				@media all and ( min-width: 768px ) and ( max-width: 1219px ) {
+					margin-left: 15%;
+				}
+			}
+
+			&.ps-col {
+
+				& img {
+
+					@media all and ( min-width: 768px ) {
+						top: 11px;
+					}
+				}
+
+				@media all and ( min-width: 768px ) and ( max-width: 1219px ) {
+					margin-right: 15%;
+				}
+			}
+
+			& a {
+				display: block;
+				color: #4a7e9a;
+				position: relative;
+
+				& span {
+					display: block;
+				}
+
+				@media only screen and ( min-width: 1220px ) {
+					min-height: 5rem;
+				}
+
+				& img {
+					position: relative;
+					.opacity(100);
+					position: relative;
+					.transition( all 0.2s 0.2s ease-in );
+					margin: 0;
+					max-width: 200px;
+					width: 100%;
+				}
+
+				& p {
+					font-size: 16px;
+					max-width: 95%;
+					color: #fff;
+					visibility: hidden;
+					.opacity(0);
+					position: absolute;
+					left: 0;
+					top: 1rem;
+					width: 100%;
+					height: 100%;
+					.transition( all 0.2s 0.2s ease-out );
+				}
+
+				&:hover {
+
+					& p {
+						visibility: visible;
+						top: 0;
+						.opacity(100);
+						.transition( all 0.2s 0.2s ease-in );
+					}
+
+					& img {
+						.opacity(0);
+						.transition( all 0.2s 0.2s ease-out );
+					}
+				}
+			}
 		}
 	}
 }
