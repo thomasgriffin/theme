@@ -153,7 +153,11 @@ $affiliate_area_id = function_exists( 'affiliate_wp' ) ? affiliate_wp()->setting
 
 	<?php pp_banner_edd(); ?>
 
-	<?php pp_banner_rcp(); ?>
+	<?php pp_banner_sc(); ?>
+
+	<?php pp_banner_wpsp(); ?>
+
+	<?php pp_banner_ps(); ?>
 
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </div>
