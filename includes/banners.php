@@ -9,7 +9,7 @@
 function pp_banner_affwp() {
 ?>
 	<aside class="widget">
-		<a href="https://affiliatewp.com/?utm_campaign=affwp&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
+		<a href="<?php echo AWP_URL; ?>?utm_campaign=affwp&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
 			<img title="AffiliateWP" src="<?php echo get_stylesheet_directory_uri() . '/images/banners/affiliatewp.png'; ?>">
 		</a>
 	</aside>
@@ -22,7 +22,7 @@ function pp_banner_affwp() {
 function pp_banner_edd() {
 ?>
 	<aside class="widget">
-		<a href="https://easydigitaldownloads.com/?utm_campaign=edd&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
+		<a href="<?php echo EDD_URL; ?>?utm_campaign=edd&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
 			<img title="Easy Digital Downloads" src="<?php echo get_stylesheet_directory_uri() . '/images/banners/easy-digital-downloads.png'; ?>" />
 		</a>
 	</aside>
@@ -35,7 +35,7 @@ function pp_banner_edd() {
 function pp_banner_sc() {
 ?>
 	<aside class="widget">
-		<a href="https://sugarlcaendar.com/?utm_campaign=sc&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
+		<a href="<?php echo SC_URL; ?>?utm_campaign=sc&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
 			<img title="Sugar Calendar" src="<?php echo get_stylesheet_directory_uri() . '/images/banners/sugar-calendar.png'; ?>" />
 		</a>
 	</aside>
@@ -48,7 +48,7 @@ function pp_banner_sc() {
 function pp_banner_wpsp() {
 ?>
 	<aside class="widget">
-		<a href="https://wpsimplepay.com/?utm_campaign=wpsp&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
+		<a href="<?php echo WPSP_URL; ?>?utm_campaign=wpsp&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
 			<img title="WP Simple Pay" src="<?php echo get_stylesheet_directory_uri() . '/images/banners/wp-simple-pay.png'; ?>" />
 		</a>
 	</aside>
@@ -61,7 +61,7 @@ function pp_banner_wpsp() {
 function pp_banner_ps() {
 ?>
 	<aside class="widget">
-		<a href="https://payouts.sandhillsdev.com/?utm_campaign=ps&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
+		<a href="<?php echo PS_URL; ?>?utm_campaign=ps&utm_source=pippinsplugins&utm_medium=banner" target="_blank">
 			<img title="Payouts Service" src="<?php echo get_stylesheet_directory_uri() . '/images/banners/payouts-service.png'; ?>" />
 		</a>
 	</aside>
