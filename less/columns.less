@@ -24,9 +24,9 @@ section.columns {
   font-size: 1rem;
 
   li {
-    line-height: 1.62;  
+    line-height: 1.62;
   }
-  
+
 
 
   .recent {
@@ -84,6 +84,15 @@ section.columns {
   }
 
 
+
+  .columns-5 {
+    .gap,
+    .col {
+      width: 31%;
+    }
+  }
+
+
   // single products, pages and blog posts
   .page,
   .single {
@@ -98,12 +107,12 @@ section.columns {
       }
     }
   }
-  
+
 
 }
 
 @media only screen and ( min-width: 968px ) {
-  .columns-main-side .primary { 
+  .columns-main-side .primary {
     width: 62%;
     max-width: 720px;
   }
@@ -118,7 +127,7 @@ section.columns {
       width: 36%;
       max-width: 300px;
  }
-  
+
 }
 
 @media only screen and ( min-width: 500px ) {
@@ -131,7 +140,7 @@ section.columns {
 
 // addon and single download 3 columns
 @media only screen and ( min-width: 1440px ) {
-  
+
     .page,
     .single {
 
@@ -158,11 +167,18 @@ section.columns {
 
 // 4 columns
 @media all and ( min-width: 1220px ) {
-  
+
   .columns-4 {
     .gap,
     .col {
       width: 23%;
+    }
+  }
+
+  .columns-5 {
+    .gap,
+    .col {
+      width: 18%;
     }
   }
 
