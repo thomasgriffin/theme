@@ -5,7 +5,7 @@
     "grunt-cli": "latest"
   },
   "devDependencies": {
-    "grunt": "^1.1.0",
+    "grunt": "^1.5.2",
     "grunt-banner": "^0.2.3",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-less": "^1.4.1",
